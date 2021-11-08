@@ -38,7 +38,6 @@
             </form>';
         }
 
-
             $word0=$_POST['word0'];
             $word1=$_POST['word1'];
             $word2=$_POST['word2'];

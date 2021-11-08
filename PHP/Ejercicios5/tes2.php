@@ -2,9 +2,12 @@
 <html>
 <body>
 <?php
-    $a=array("red","green", 'hpla', 'heeheheh');
-    array_unshift($a,'1');
-    print_r($a);
+
+    $a= array('a','a','a',2,2,3,4,5);
+
+    print_r(array_keys($a,'a'));
+    echo count($a);
+
 ?>
 </body>
 </html>

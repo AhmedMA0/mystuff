@@ -15,19 +15,14 @@
 
             if ($nums[$j]%2==0) {
 
-                array_unshift($nums,$nums[$j]);
+                $aux=$nums[$j];
 
-                unset($nums[$j]);
+                array_splice($nums,$j,1);
+
+                array_unshift($nums,$aux);
+
             }
         }
-
-        if ($nums[20]%2==0) {
-
-            array_unshift($nums,$nums[20]);
-
-            unset($nums[20]);
-        }
-        
 
         foreach ($nums as $b) {
            echo $b, ', ';

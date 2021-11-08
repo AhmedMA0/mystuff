@@ -32,7 +32,7 @@
 
             $nums2=explode("?",$nums);
 
-            unset($nums2[0]);
+            array_splice($nums2,0,1);
 
             $nums2= array_map('intval',$nums2);
      

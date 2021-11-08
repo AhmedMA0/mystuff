@@ -32,17 +32,17 @@
 
             $nums2=explode("?",$nums);
 
-            unset($nums2[0]);
+            array_splice($nums2,0,1);
 
             $nums2= array_map('intval',$nums2);
             
             echo '<table border=1><th colspan="2">Antes: </th>';
-            for ($x=1; $x <= 10; $x++) { 
+            for ($x=0; $x < 10; $x++) { 
                 echo '<tr><td>',$x,'</td><td>',$nums2[$x],'</td></tr>';
             }
             echo '</table>';
 
-            for ($j=1; $j < 10; $j++) { 
+            for ($j=0; $j < 10; $j++) { 
 
                 $primo = true;
                 for ($i=2; $i <$nums2[$j]; $i++) { 
@@ -54,35 +54,17 @@
                 }
 
                 if ($primo) {
-                    print_r($nums2);
-                    echo '<br>';
-                    array_unshift($nums2,$nums2[$j]);
+                    $aux=$nums2[$j];
+
+                    array_splice($nums2,$j,1);
     
-                    unset($nums2[$j]);
+                    array_unshift($nums2,$aux);
                 }
 
             }
 
-            $primo = true;
-                for ($i=2; $i <$nums2[10]; $i++) { 
-                
-                    if ($nums2[10]%$i==0) {
-                        $primo=false;
-                    }
-                    
-                }
-
-                if ($primo) {
-                    print_r($nums2);
-                    echo '<br>';
-                    array_unshift($nums2,$nums2[10]);
-    
-                    unset($nums2[10]);
-                }
-            print_r($nums2);
-
             echo '<table border=1><th colspan="2">Despues: </th>';
-            for ($h=0; $h <= 10; $h++) { 
+            for ($h=0; $h < 10; $h++) { 
                 echo '<tr><td>',$h,'</td><td>',$nums2[$h],'</td></tr>';
             }
             echo '</table>';
