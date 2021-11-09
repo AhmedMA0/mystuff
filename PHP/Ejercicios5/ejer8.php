@@ -37,6 +37,8 @@
             $nums2= array_map('intval',$nums2);
             
             echo '<table border=1><th colspan="2">Antes: </th>';
+            echo'<tr><th>Índice</th><th>Valor</th></tr>'; 
+
             for ($x=0; $x < 10; $x++) { 
                 echo '<tr><td>',$x,'</td><td>',$nums2[$x],'</td></tr>';
             }
@@ -64,6 +66,8 @@
             }
 
             echo '<table border=1><th colspan="2">Despues: </th>';
+            echo'<tr><th>Índice</th><th>Valor</th></tr>'; 
+
             for ($h=0; $h < 10; $h++) { 
                 echo '<tr><td>',$h,'</td><td>',$nums2[$h],'</td></tr>';
             }

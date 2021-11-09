@@ -33,7 +33,7 @@
             echo '<br>';
 
             for ($j=0; $j < count($b); $j++) { 
-                $nums[$b[$j]]=$rem;
+                $nums[$b[$j]]='<span style="color:red;">'.$rem.'</span>';
             }
 
             foreach ($nums as $b) {
