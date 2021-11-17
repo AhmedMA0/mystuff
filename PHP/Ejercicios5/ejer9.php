@@ -62,7 +62,6 @@
                 }
                 echo '</table>';
 
-
                 $aux=$nums2[$pos1-2];
 
                 array_splice($nums2,$pos1-2,1);

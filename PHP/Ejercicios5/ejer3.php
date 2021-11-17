@@ -37,8 +37,6 @@
             $nums2= array_map('intval',$nums2);
 
  
-            echo $nums2[14];
-            print_r($nums2);
 
             $aux=$nums2[14];
             

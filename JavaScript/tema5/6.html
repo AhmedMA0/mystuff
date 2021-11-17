@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function avrg(nums) {
+            let total=0;
+
+            for (const n of nums) {
+                total+=n;
+            }
+
+            avrg=total/nums.length;
+            
+            return avrg;
+        }
+        a=[10,20,30];
+
+        console.log(avrg(a));
+    </script>
+</body>
+</html>
