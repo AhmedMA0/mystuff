@@ -81,6 +81,9 @@
                     <label for="rcode">Regional code:</label>
                     <input type="text" name="rcode" id="rcode" size="8" pattern="(?=.{5,7}$)[A-Z]{1,3}[1-9]*[a-z]*(([NSW][A-Z])||([A-Z][NSW]))" required>
                 </p>
+            </fieldset>
+            <fieldset>
+                <legend>Subscription information</legend>
                 <p>
                     <label for="types">Subscription type:</label>
                     <input type="text" list="typeslist">
@@ -92,25 +95,21 @@
                         <option value="Y" spellcheck="false">Yearly Subscription</option>
                         <option value="U" spellcheck="false">Unlimeted Subscription</option>
                     </datalist>
+                    <label for="scode">Subscription code:</label>
+                    <input type="text" name="scode" id="scode" size="8" pattern="(?=.{4,}$)[a-zA-Z0-9]*([0-9][0-5]){1}" required>
                 </p>
                 <fieldset>
-                    <legend>Intereses:</legend>
-                    <p>
-                        <label for="arte">Arte y Literatura</label>
-                        <input type="checkbox" name="arte" id="arte" value="arte">
-                    </p>    
-                    <p>
+                    <legend>Areas of interest:</legend>
+                        <label for="cien">Science</label>
+                        <input type="checkbox" name="cien" id="cien" value="cien">
+                        <label for="art">Arts and Crafts</label>
+                        <input type="checkbox" name="art" id="art" value="art">
                         <label for="cien">Ciencia y Tecnologia</label>
                         <input type="checkbox" name="cien" id="cien" value="cien">
-                    </p> 
-                    <p>
                         <label for="cine">Cine</label>
                         <input type="checkbox" name="cine" id="cine" value="cine">
-                    </p> 
-                    <p>
-                        <label for="lec">Lectura</label>
-                        <input type="checkbox" name="lec" id="lec" value="lec">
-                    </p> 
+                        <label for="lit">Literature</label>
+                        <input type="checkbox" name="lit" id="lit" value="lit">
                 </fieldset>
                 <p>
                     <label for="tlf">Telefono:</label>
