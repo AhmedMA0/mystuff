@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Document html">
+    <meta name="author" content="Ahmed R.">
+    <meta name="keywords" content="computers,programing,web design,html,html5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="lang" content="es-ES">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Formulario Prac.2 de Ahmed</title>
+</head>
+<body>
+    <main id="contenido">
+        <h1>Please input your data</h1>
+        <form name="miformulario" method="post" action="form.php">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <p>
+                    <fieldset>
+                        <legend>Tittle</legend>
+                        
+                            <input type="radio" name="tittle" id="ms" value="ms.">
+                            <label for="tittle">Ms.</label>
+                            
+                            <input type="radio" name="tittle" id="mrs" value="mrs.">
+                            <label for="tittle">Mrs.</label>
+                            
+                            <input type="radio" name="tittle" id="mr" value="mr.">
+                            <label for="tittle">Mr.</label>
+
+                            <input type="radio" name="tittle" id="dr" value="dr.">
+                            <label for="tittle">Dr.</label>
+
+                            <input type="radio" name="tittle" id="mx" value="mx.">
+                            <label for="tittle">Mx.</label>
+
+                            <input type="radio" name="tittle" id="ind" value="ind." checked>
+                            <label for="tittle">Ind.</label>
+                    </fieldset>
+                </p>
+                <p>
+                    <label for="name">First Name:</label>
+                    <input type="text" name="name" id="name" size="15" maxlength="15" pattern="-*[a-zA-Z]*-*[a-zA-Z]*"  autofocus>
+                    <label for="surna">Last Name:</label>
+                    <input type="text" name="surna" id="surna" size="40" maxlength="40" pattern="[a-zA-Z]*-*[a-zA-Z]*" >
+                </p>
+                <p>
+                    <label for="bday">Birthday:</label>
+                    <input type="date" name="bday" id="bday" value="2021-01-01" >
+                </p>
+                <p>
+                    <label for="city">City:</label>
+                    <input type="text" name="city" id="city" size="15" maxlength="15" >
+
+                    <label for="region">Region:</label>
+                    <select name="region" id="region">
+                        <option value="" disabled selected>--Please select</option>
+                        <optgroup label="North">
+                            <option value="Durham">Durham</option>
+                            <option value="Northumberland">Northumberland</option>
+                            <option value="Lancashire">Lancashire</option>
+                        </optgroup>
+                        <optgroup label="Center">
+                            <option value="Yorkshire">Yorkshire</option>
+                            <option value="Chesire">Chesire</option>
+                            <option value="Rutland">Rutland</option>
+                            <option value="West Midlands">West Midlands</option>
+                        </optgroup>
+                        <optgroup label="South">
+                            <option value="Kent">Kent</option>
+                            <option value="Essex">Essex</option>
+                            <option value="Dorset">Dorset</option>
+                            <option value="Devon">Devon</option>
+                            <option value="Cornwall">Cornwall</option>
+                        </optgroup>
+                    </select>
+
+                    <label for="pscode">Postcode:</label>
+                    <input type="text" name="pscode" id="pscode" size="5" pattern="[0-9]{5}" >
+
+                    <label for="rcode">Regional code:</label>
+                    <input type="text" name="rcode" id="rcode" size="8" pattern="(?=.{5,7}$)[A-Z]{1,3}[1-9a-z]*(([NSW][A-Z])||([A-Z][NSW]))" >
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Subscription information</legend>
+                <p>
+                    <label for="sType">Subscription type:</label>
+                    <datalist name="typeslist" id="typeslist">
+                        <option value="D" spellcheck="false">Daily Subscription</option>
+                        <option value="W" spellcheck="false">Weekly Subscription</option>
+                        <option value="Q" spellcheck="false">Quarterly Subscription</option>
+                        <option value="M" spellcheck="false">Monthly Subscription</option>
+                        <option value="Y" spellcheck="false">Yearly Subscription</option>
+                        <option value="U" spellcheck="false">Unlimeted Subscription</option>
+                    </datalist>
+                    <input type="text" name="sType" list="typeslist">
+
+                    <label for="scode">Subscription code:</label>
+                    <input type="text" name="scode" id="scode" size="8" pattern="(?=.{4,}$)[a-zA-Z0-9]*([0-9][0-5]){1}" >
+                </p>
+                <fieldset>
+                    <legend>Areas of interest:</legend>
+
+                        <input type="checkbox" name="cien" id="cien" value="cien">
+                        <label for="cien">Science</label>
+
+                        <input type="checkbox" name="art" id="art" value="art">
+                        <label for="art">Arts and Crafts</label>
+
+                        <input type="checkbox" name="lit" id="lit" value="lit">
+                        <label for="lit">Literature</label>
+
+                        <input type="checkbox" name="tec" id="tec" value="tec">
+                        <label for="tec">Technology and Gadgets</label>
+
+                        <input type="checkbox" name="sel" id="sel" value="sel">
+                        <label for="sel">Self Improvment</label>
+
+                </fieldset>
+                <p>
+                    <label for="pass">Password:</label>
+                    <input type="password" name="pass" id="pass" size="20" placeholder="password" pattern="(?=.{8,}$)(?=.*\w)(?!.*(00|11|22|33|44|55|66|77|88|99))\w+\W*\w+">
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Billing details</legend>
+                <p>
+                    <label for="cc">Credit Card Type:</label>
+                    <select name="cc" id="cc">
+                        <option value="" disabled selected>--Please select</option>
+                            <option value="Visa">Visa</option>
+                            <option value="Mastercard">Mastercard</option>
+                            <option value="Maestro">Maestro</option>
+                    </select>
+                    <label for="cnum">Card number:</label>
+                    <input type="number" name="cnum" id="cnum" size="5" pattern="(\d{4}(\s|(-))?){3}\d{4}">
+                </p>
+                <p>
+                    <label for="dc">If you have a discount code please enter it here:</label>
+                    <input type="text" name="cd" id="cd" size="5" placeholder="code" pattern="(?!.*(00|11|22|33|44|55|66|77|88|99))[A-Z]{3}[0-3]{2}">
+                </p>
+                <br>
+                <br>
+                Adittinally, you are welcome to donate an amount of your choosing to "Save the children"
+                <p>
+                    <label for="don">Please enter your donation (from 0 to 50$):</label>
+                    <input type="range" name="don" id="don" min="0" max="50" value="5">
+                </p>
+
+            </fieldset>
+            <fieldset>
+                <legend>Feedback</legend>
+                <p>
+                We would love to hear tour suggestions to improve our site.
+                </p>    
+                <textarea id="fb" name="fb" rows="5" cols="40" spellcheck="true"></textarea>
+            </fieldset>
+            <br>
+            <input type="submit" value="Send data">
+        </form>
+    </main>
+</body>
+</html>

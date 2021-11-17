@@ -73,7 +73,7 @@
                         </p>
                         <p>
                             <label for="nose4">Nosequesto12: </label>
-                            <input type="text" name="nose12" id="nose12" size="8" pattern="(?=.{5,7}$)[A-Z]{1,3}[1-9]*[a-z]*(([NSW][A-Z]?)||([A-Z]?[NSW]))">
+                            <input type="text" name="nose12" id="nose12" size="8" pattern="(?!.*(00|11|22|33|44|55|66|77|88|99))[A-Z]{3}[0-3]{2}">
                         </p>
                         <p>
                             <input type="submit" value="Enviar">
