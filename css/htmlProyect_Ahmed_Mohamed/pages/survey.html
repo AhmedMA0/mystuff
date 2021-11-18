@@ -7,7 +7,7 @@
     <meta name="keywords" content="computers,programing,web design,html,html5">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="lang" content="es-ES">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" type="image/png" href="media/logo.png">
     <title>Satisfaction Survey</title>
 </head>
 <body>
@@ -17,12 +17,12 @@
             <fieldset>
                 <legend>Personal Information</legend>
                 <p>
-                    <label for="name">*First Name:</label>
-                    <input type="text" name="name" id="name" size="15" maxlength="15" pattern="-*[a-zA-Z]*-*[a-zA-Z]*" autofocus>
-                    <label for="surna">*Last Name:</label>
-                    <input type="text" name="surna" id="surna" size="40" maxlength="40" pattern="[a-zA-Z]*-*[a-zA-Z]*" >
-                    <label for="bday">*Birthday:</label>
-                    <input type="date" name="bday" id="bday" value="2021-01-01" >
+                    <label for="name">First Name:</label>
+                    <input type="text" name="name" id="name" size="15" maxlength="15" pattern="-*[a-zA-Z]*-*[a-zA-Z]*" autofocus required>
+                    <label for="surna">Last Name:</label>
+                    <input type="text" name="surna" id="surna" size="40" maxlength="40" pattern="[a-zA-Z]*-*[a-zA-Z]*" required>
+                    <label for="bday">Birthday:</label>
+                    <input type="date" name="bday" id="bday" value="2021-01-01" required>
                 </p>
             </fieldset>
             <fieldset>
@@ -30,37 +30,40 @@
                 <p>
                     <fieldset>
                         <legend>Was this your first time with us?</legend>
-                        <label for="kids">Yes</label>
-                        <input type="radio" name="kids" value="y">
+                        <label for="ft">Yes</label>
+                        <input type="radio" name="ft" value="y" required>
 
-                        <label for="kids">No</label>
-                        <input type="radio" name="kids" value="n">
+                        <label for="ft">No</label>
+                        <input type="radio" name="ft" value="n" required>
                         <p>
                             <label for="years">If not, how many years have passed since your first time with us?</label>
                             <input type="text" name="years" id="years" size="3" pattern="[0-9]{2}">
                             <label for="yearsO">And by your own?</label>
-                            <input type="text" name="yearsO" id="yearsO" size="3" pattern="[0-9]{2}">
+                            <input type="text" name="yearsO" id="yearsO" size="3" pattern="[0-9]{2}" required>
                         </p>
                     </fieldset>
                 </p>
                 <p>
                     <fieldset>
                         <legend>Do you consider yourself knowlegeable in stargazing?</legend>
-                        <label for="know">Yes</label>
-                        <input type="radio" name="know" value="y">
-
-                        <label for="know">No</label>
-                        <input type="radio" name="know" value="n">
+                    <select name="know" id="know" required>
+                        <option value="" disabled selected>--Please select</option>
+                        <option value="Extremly knowlegeable">Extremly knowlegeable</option>
+                        <option value="Very knowlegeable">Very knowlegeable</option>
+                        <option value="Knowlegeable">Knowlegeable</option>
+                        <option value="A bit knowlegeable">A bit knowlegeable</option>
+                        <option value="Not at all">Not at all</option>
+                    </select>
                     </fieldset>
                 </p>
                 <p>
                     <fieldset>
                         <legend>Do you have equipment of your own?</legend>
                         <label for="own">Yes</label>
-                        <input type="radio" name="own" value="y">
+                        <input type="radio" name="own" value="y" required>
 
                         <label for="own">No</label>
-                        <input type="radio" name="own" value="n">
+                        <input type="radio" name="own" value="n" required>
                         <p>
                             <label for="ownC">If so, how good is it from 1 to 10:</label>
                             <input type="range" name="ownC" min="0" max="10" value="1">
@@ -69,47 +72,41 @@
                 </p>
             </fieldset>
             <fieldset>
-                <legend>Billing details</legend>
-                <p>
-                    <label for="cc">Credit Card Type:</label>
-                    <select name="cc" id="cc">
-                        <option value="" disabled selected>--Please select</option>
-                            <option value="Visa">Visa</option>
-                            <option value="Mastercard">Mastercard</option>
-                            <option value="Maestro">Maestro</option>
-                    </select>
-                    <label for="cnum">Card number:</label>
-                    <input type="number" name="cnum" id="cnum" size="5" pattern="(\d{4}(\s|(-))?){3}\d{4}">
-                </p>
-                <p>
-                    <label for="dc">If you have a discount code please enter it here:</label>
-                    <input type="text" name="cd" id="cd" size="5" placeholder="code" pattern="(?!.*(00|11|22|33|44|55|66|77|88|99))[A-Z]{3}[0-3]{2}">
-                </p>
-                <br>
-                <br>
-                Adittinally, you are welcome to donate an amount of your choosing to "Save the children"
-                <p>
-                    <label for="don">Please enter your donation (from 0 to 50$):</label>
-                    <input type="range" name="don" id="don" min="0" max="50" value="5">
-                </p>
-
-            </fieldset>
-            <fieldset>
                 <legend>Feedback</legend>
                 <p>
-                    <label for="dateA">*Date of the activity:</label>
-                    <input type="date" name="dateA" id="dateA" value="2021-01-01" >
+                    <label for="dateA">Date of the activity:</label>
+                    <input type="date" name="dateA" id="dateA" value="2021-01-01" required>
                 </p>
                 <p>
-                    <label for="AcO">How satisfied are you with the activity overall, from 1 to 10?:</label>
-                    <input type="range" name="AcO" min="0" max="10" value="1">
+                    <label for="AcO">How satisfied were you with the activity overall, from 1 to 10?:</label>
+                    <input type="range" name="AcO" min="0" max="10" value="1" required>
                 </p>
                 <p>
-                    <label for="StS">How satisfied are you with the staff, from 1 to 10?:</label>
-                    <input type="range" name="StS" min="0" max="10" value="1">
+                    <label for="StS">How satisfied were you with the staff, from 1 to 10?:</label>
+                    <input type="range" name="StS" min="0" max="10" value="1" required>
                 </p>
                 <p>
-                We would love to hear tour suggestions to improve our site.
+                    <label for="ls">How satisfied were you with the location of the activity, from 1 to 10?:</label>
+                    <input type="range" name="ls" min="0" max="10" value="1" required>
+                </p>
+                <p>
+                    <label for="best">What did you like most about the event?:</label>
+                    <input type="text" name="best" size="10" required>
+                </p>
+                <p>
+                    <label for="least">What did you like least about the event?:</label>
+                    <input type="text" name="least" size="10" required>
+                </p>
+                <p>
+                    <label for="la">How likely are you to attend one of our activities in the future?:</label>
+                    <input type="range" name="la" min="0" max="10" value="1" required>
+                </p>
+                <p>
+                    <label for="lr">How likely are you to recommend our events to a friend?:</label>
+                    <input type="range" name="lr" min="0" max="10" value="1" required>
+                </p>
+                <p>
+                    We would love to hear any extra suggestions or comments for us:
                 </p>    
                 <textarea id="fb" name="fb" rows="5" cols="40" spellcheck="true"></textarea>
             </fieldset>

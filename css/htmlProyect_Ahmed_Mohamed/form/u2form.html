@@ -40,13 +40,13 @@
                 </p>
                 <p>
                     <label for="name">First Name:</label>
-                    <input type="text" name="name" id="name" size="15" maxlength="15" pattern="-*[a-zA-Z]*-*[a-zA-Z]*" autofocus>
+                    <input type="text" name="name" id="name" size="15" maxlength="15" pattern="-*[a-zA-Z]*-*[a-zA-Z]*" autofocus required>
                     <label for="surna">Last Name:</label>
-                    <input type="text" name="surna" id="surna" size="40" maxlength="40" pattern="[a-zA-Z]*-*[a-zA-Z]*" >
+                    <input type="text" name="surna" id="surna" size="40" maxlength="40" pattern="[a-zA-Z]*-*[a-zA-Z]*" required>
                 </p>
                 <p>
                     <label for="bday">Birthday:</label>
-                    <input type="date" name="bday" id="bday" value="2021-01-01" >
+                    <input type="date" name="bday" id="bday" value="2021-01-01" required>
                 </p>
                 <p>
                     <label for="city">City:</label>
@@ -94,7 +94,7 @@
                         <option value="Y" spellcheck="false">Yearly Subscription</option>
                         <option value="U" spellcheck="false">Unlimeted Subscription</option>
                     </datalist>
-                    <input type="text" name="sType" list="typeslist">
+                    <input type="text" name="sType" list="typeslist" required>
 
                     <label for="scode">Subscription code:</label>
                     <input type="text" name="scode" id="scode" size="8" pattern="(?=.{4,}$)[a-zA-Z0-9]*([0-9][0-5]){1}" >
@@ -120,21 +120,21 @@
                 </fieldset>
                 <p>
                     <label for="pass">Password:</label>
-                    <input type="password" name="pass" id="pass" size="20" placeholder="password" pattern="(?=.{8,}$)(?=.*\w)(?!.*(00|11|22|33|44|55|66|77|88|99))\w+\W*\w+">
+                    <input type="password" name="pass" id="pass" size="20" placeholder="password" pattern="(?=.{8,}$)(?=.*\w)(?!.*(00|11|22|33|44|55|66|77|88|99))\w+\W*\w+" required>
                 </p>
             </fieldset>
             <fieldset>
                 <legend>Billing details</legend>
                 <p>
                     <label for="cc">Credit Card Type:</label>
-                    <select name="cc" id="cc">
+                    <select name="cc" id="cc" required>
                         <option value="" disabled selected>--Please select</option>
                             <option value="Visa">Visa</option>
                             <option value="Mastercard">Mastercard</option>
                             <option value="Maestro">Maestro</option>
                     </select>
                     <label for="cnum">Card number:</label>
-                    <input type="number" name="cnum" id="cnum" size="5" pattern="(\d{4}(\s|(-))?){3}\d{4}">
+                    <input type="number" name="cnum" id="cnum" size="5" pattern="(\d{4}(\s|(-))?){3}\d{4}" required>
                 </p>
                 <p>
                     <label for="dc">If you have a discount code please enter it here:</label>
