@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Document html">
+    <meta name="author" content="Ahmed R.">
+    <meta name="keywords" content="computers,programing,web design,html,html5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="lang" content="es-ES">
+    <link rel="icon" type="image/png" href="media/logo.png">
+    <title>Satisfaction Survey</title>
+</head>
+<body>
+    <main id="contenido">
+        <h1>Please give us feedback</h1>
+        <form name="miformulario" method="post" action="form.php">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <p>
+                    <label for="name">First Name:</label>
+                    <input type="text" name="name" id="name" size="15" maxlength="15" pattern="-*[a-zA-Z]*-*[a-zA-Z]*" autofocus required>
+                    <label for="surna">Last Name:</label>
+                    <input type="text" name="surna" id="surna" size="40" maxlength="40" pattern="[a-zA-Z]*-*[a-zA-Z]*" required>
+                    <label for="bday">Birthday:</label>
+                    <input type="date" name="bday" id="bday" value="2021-01-01" required>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Stargazing experience</legend>
+                <p>
+                    <fieldset>
+                        <legend>Was this your first time with us?</legend>
+                        <label for="ft">Yes</label>
+                        <input type="radio" name="ft" value="y" required>
+
+                        <label for="ft">No</label>
+                        <input type="radio" name="ft" value="n" required>
+                        <p>
+                            <label for="years">If not, how many years have passed since your first time with us?</label>
+                            <input type="text" name="years" id="years" size="3" pattern="[0-9]{2}">
+                            <label for="yearsO">And by your own?</label>
+                            <input type="text" name="yearsO" id="yearsO" size="3" pattern="[0-9]{2}" required>
+                        </p>
+                    </fieldset>
+                </p>
+                <p>
+                    <fieldset>
+                        <legend>Do you consider yourself knowlegeable in stargazing?</legend>
+                    <select name="know" id="know" required>
+                        <option value="" disabled selected>--Please select</option>
+                        <option value="Extremly knowlegeable">Extremly knowlegeable</option>
+                        <option value="Very knowlegeable">Very knowlegeable</option>
+                        <option value="Knowlegeable">Knowlegeable</option>
+                        <option value="A bit knowlegeable">A bit knowlegeable</option>
+                        <option value="Not at all">Not at all</option>
+                    </select>
+                    </fieldset>
+                </p>
+                <p>
+                    <fieldset>
+                        <legend>Do you have equipment of your own?</legend>
+                        <label for="own">Yes</label>
+                        <input type="radio" name="own" value="y" required>
+
+                        <label for="own">No</label>
+                        <input type="radio" name="own" value="n" required>
+                        <p>
+                            <label for="ownC">If so, how good is it from 1 to 10:</label>
+                            <input type="range" name="ownC" min="0" max="10" value="1">
+                        </p>
+                    </fieldset>
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Feedback</legend>
+                <p>
+                    <label for="dateA">Date of the activity:</label>
+                    <input type="date" name="dateA" id="dateA" value="2021-01-01" required>
+                </p>
+                <p>
+                    <label for="AcO">How satisfied were you with the activity overall, from 1 to 10?:</label>
+                    <input type="range" name="AcO" min="0" max="10" value="1" required>
+                </p>
+                <p>
+                    <label for="StS">How satisfied were you with the staff, from 1 to 10?:</label>
+                    <input type="range" name="StS" min="0" max="10" value="1" required>
+                </p>
+                <p>
+                    <label for="ls">How satisfied were you with the location of the activity, from 1 to 10?:</label>
+                    <input type="range" name="ls" min="0" max="10" value="1" required>
+                </p>
+                <p>
+                    <label for="best">What did you like most about the event?:</label>
+                    <input type="text" name="best" size="10" required>
+                </p>
+                <p>
+                    <label for="least">What did you like least about the event?:</label>
+                    <input type="text" name="least" size="10" required>
+                </p>
+                <p>
+                    <label for="la">How likely are you to attend one of our activities in the future?:</label>
+                    <input type="range" name="la" min="0" max="10" value="1" required>
+                </p>
+                <p>
+                    <label for="lr">How likely are you to recommend our events to a friend?:</label>
+                    <input type="range" name="lr" min="0" max="10" value="1" required>
+                </p>
+                <p>
+                    We would love to hear any extra suggestions or comments for us:
+                </p>    
+                <textarea id="fb" name="fb" rows="5" cols="40" spellcheck="true"></textarea>
+            </fieldset>
+            <br>
+            <input type="submit" value="Send data">
+        </form>
+    </main>
+</body>
+</html>
