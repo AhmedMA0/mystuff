@@ -2,15 +2,14 @@
 <html>
     <body>
         <?php
-            $a=$_POST['a'];
 
-            echo 'Primero: ' , $a;
+        $wd= ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
-            $wd= ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+        $a = serialize($wd);
 
-            if (!isset($a)) {
-                $a = serialize($wd);
-            }
+
+
+            
             ?>
 
             <form action='tess2.php' method='POST'>

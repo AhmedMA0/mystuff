@@ -1,0 +1,112 @@
+html{
+    background-color: paleturquoise;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+h1{
+    text-align:center;
+    color: royalblue;
+
+}
+
+fieldset{
+    background-color: lavender;
+    margin-right: 10%;
+    margin-left: 10%;
+
+}
+
+fieldset>fieldset{
+    background-color: peachpuff;
+    margin-right: 30%;
+    margin-left: 0%;
+}
+
+legend{
+    color: royalblue;
+    font-weight: bold;
+    font-size: larger;
+}
+
+h2{
+    color: darkorchid;
+    font-style: italic;
+}
+
+label{
+    color: green;
+    font-weight: bold;
+}
+
+.int label{
+    color: green;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.cf label{
+    color: rebeccapurple;
+}
+
+.edad label{
+    color: rebeccapurple;
+}
+
+.edad input[type="radio"]:hover{
+    box-shadow: 0px 0px 7px green;
+}
+
+input:checked+label{
+    color: green;
+}
+
+.diw{
+    box-shadow: 2px 2px 3px orange;
+}
+
+input[placeholder]{
+    color: mediumvioletred;
+}
+
+input{
+    background-color: mistyrose;
+}
+
+input[name="pscode"]:invalid{
+    background-color: red;
+}
+
+input[name="pscode"]:focus{
+    outline-color: rebeccapurple;
+}
+
+input[step="5"]{
+    background-color: lemonchiffon;
+}
+
+.buttons{
+    display: table;
+    margin: 10px auto;
+}
+
+input[type="submit"]{
+    background-color: lemonchiffon;
+    color: royalblue;
+    font-weight: bold;
+    font-size: 15px;
+    margin: auto;
+    height: 35px;
+    width: 150px;
+    border-radius: 7px;
+}
+
+input[type="reset"]{
+    background-color: lemonchiffon;
+    color: gray;
+    font-size: 15px;
+    margin: auto;
+    height: 35px;
+    width: 150px;
+    border-radius: 7px;
+}

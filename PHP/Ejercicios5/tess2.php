@@ -2,15 +2,13 @@
 <html>
     <body>
         <?php
-            $a=$_POST['a'];
+            $a=["uno" => 1, "dos" => 2, "tres" => 3];
 
-            echo $a;
+            echo $a['uno'];
 
-            $b=unserialize($a);
+            $a["uno"]=2;
 
-            foreach ($b as $h => $j) {
-                echo $h,'-->',$j;
-            }
+            echo '<br>', $a["uno"];
         ?>
     </body>
 </html>

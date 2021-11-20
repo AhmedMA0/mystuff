@@ -12,6 +12,7 @@
 </head>
 <body>
     <main id="contenido">
+        <h1>Introduzca datos</h1>
         <form name="miformulario" method="post" action="form.php">
             <fieldset>
                 <legend>Datos Personales</legend>
@@ -21,11 +22,11 @@
                 </p>
                 <p>
                     <label for="apellidos">Apellidos:</label>
-                    <input type="text" name="apellidos" id="apellidos" size="40" maxlength="40" placeholder="Obligaorio">
+                    <input type="text" name="apellidos" id="apellidos" size="40" maxlength="40" required placeholder="Obligaorio">
                 </p>
                 <fieldset>
-                    <legend>Edad</legend>
-                    
+                    <legend>Edad:</legend>
+                    <div class="edad">
                         <input type="radio" name="edad" id="18" value="18">
                         <label for="edad">18 a 25</label>
 
@@ -44,69 +45,75 @@
                         <input type="radio" name="edad" id="ns" value="ns" checked>
                         <label for="edad">NS/NC</label>
 
-                    </p>
+                    </div>
                 </fieldset>
-                <fieldset>
+                <fieldset class="int">
                     <legend>Intereses:</legend>
-                    <p>
+                    <div>
                         <label for="arte">Arte y Literatura</label>
                         <input type="checkbox" name="arte" id="arte" value="arte">
-                    </p>    
-                    <p>
+                    </div>    
+                    <div>
                         <label for="cien">Ciencia y Tecnologia</label>
                         <input type="checkbox" name="cien" id="cien" value="cien">
-                    </p> 
-                    <p>
+                    </div> 
+                    <div>
                         <label for="pol">Política y Sociedad</label>
                         <input type="checkbox" name="pol" id="pol" value="pol">
-                    </p> 
-                    <p>
+                    </div> 
+                    <div>
                         <label for="oci">Ocio y Deporte</label>
                         <input type="checkbox" name="oci" id="oci" value="oci">
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <label for="cin">Cine y Television</label>
                         <input type="checkbox" name="cin" id="cin" value="cin">
-                    </p>
+                    </div>
                 </fieldset>
                 <p>
                     <label for="pscode">Codigo Postal:</label>
-                    <input type="text" name="pscode" id="pscode" size="5" pattern="[0-9]{5}">
+                    <input class="cp" type="text" name="pscodef" id="pscode" size="5" pattern="[0-9]{5}">
                 </p>
             </fieldset>
             <fieldset>
                 <legend>Otros datos</legend>
                     <h2>Color favorito</h2>
-                    <p>
-                        <label for="color">Rojo</label>
+                    <p class="cf">
                         <input type="radio" name="color" id="rojo" value="rojo">
-                        <label for="color">Azul</label>
+                        <label for="color">Rojo</label>
+
                         <input type="radio" name="color" id="azul" value="azul">
-                        <label for="color">Amarillo</label>
+                        <label for="color">Azul</label>
+
                         <input type="radio" name="color" id="amarillo" value="amarillo">
-                        <label for="color">Verde</label>
+                        <label for="color">Amarillo</label>
+
                         <input type="radio" name="color" id="verde" value="verde">
+                        <label for="color">Verde</label>
+
                     </p>
                     <h2>Aisgnatura favorita</h2>
                     <p>
-                        <label for="DWEC">DWEC</label>
-                        <input type="checkbox" name="DWEC" id="DWEC" value="DWEC">
-                    </p>    
-                    <p>
-                        <label for="DWES">DWES</label>
-                        <input type="checkbox" name="DWES" id="DWES" value="DWES">
-                    </p> 
-                    <p>
-                        <label for="DIW">DIW</label>
-                        <input type="checkbox" name="DIW" id="DIW" value="DIW">
-                    </p> 
-                    <p>
-                        <label for="DAW">DAW</label>
-                        <input type="checkbox" name="DAW" id="DAW" value="DAW">
-                    </p>
-                    <p>
-                        <label for="EIEM">EIEM</label>
-                        <input type="checkbox" name="EIEM" id="EIEM" value="EIEM">
+                        <div>
+                            <label for="DWEC">DWEC</label>
+                            <input type="checkbox" name="DWEC" id="DWEC" value="DWEC">
+                        </div>    
+                        <div>
+                            <label for="DWES">DWES</label>
+                            <input type="checkbox" name="DWES" id="DWES" value="DWES">
+                        </div> 
+                        <div>
+                            <label for="DIW">DIW</label>
+                            <input class="diw" type="checkbox" name="DIW" id="DIW" value="DIW" checked>
+                        </div> 
+                        <div>
+                            <label for="DAW">DAW</label>
+                            <input type="checkbox" name="DAW" id="DAW" value="DAW">
+                        </div>
+                        <div>
+                            <label for="EIEM">EIEM</label>
+                            <input type="checkbox" name="EIEM" id="EIEM" value="EIEM">
+                        </div>
                     </p>
                     <h2>Probabilidad de aprobar</h2>
                     <p>
@@ -114,7 +121,10 @@
                         <input type="number" name="porc" id="porc" min="0" max="100" size="1" step="5" value="50">
                     </p>
             </fieldset>
-
+            <p class="buttons">
+            <input type="submit" value="Enviar formulario"> 
+            <input type="reset" value="Reiniciar formulario">
+            </p>
         </form>
     </main>
 </body>
