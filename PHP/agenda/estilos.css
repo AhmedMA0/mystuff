@@ -35,6 +35,7 @@ input[type="submit"]{
 }
 
 fieldset{
+    font-size: 20px;
     border: none;
     background-color: #232b4a;
 }

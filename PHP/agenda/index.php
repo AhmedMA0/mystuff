@@ -16,7 +16,7 @@
                 <fieldset>
                 <form action='#' method='POST'>
                     Introduce un nombre: <input type='text' name='nombre' autofocus>
-                    Introduce su numero de tlf: <input type='number' name='tlf'>
+                    Introduce su numero de tlf: <input type='text' name='tlf' pattern="(\+[0-9])?[0-9]{9}">
                     <input type='submit' value='Registrar' name='go'>
                     </form>
                 </fieldset>
@@ -34,7 +34,7 @@
                     <fieldset>
                     <form action='#' method='POST'>
                     Introduce un nombre: <input type='text' name='nombre' autofocus>
-                    Introduce su numero de tlf: <input type='number' name='tlf'>
+                    Introduce su numero de tlf: <input type='text' name='tlf' pattern="(\+[0-9])?[0-9]{9}">
                     <input type='hidden' name='myarray' value='<?php echo serialize($agenda)?>'>
                     <input type='submit' value='Registrar' name='go'>
                     </form>
@@ -44,7 +44,7 @@
                     <br>
                     <br>
 
-                    <table> <th>Nombre</th> <th>Teléfonos</th>
+                    <table> <th>NOMBRE</th> <th>TELÉFONOS</th>
                     <?php
                     
                     foreach ($agenda as $nombre => $tele) {
@@ -69,17 +69,17 @@
                     <fieldset>
                     <form action='#' method='POST'>
                     Introduce un nombre: <input type='text' name='nombre' autofocus>
-                    Introduce su numero de tlf: <input type='number' name='tlf'>
+                    Introduce su numero de tlf: <input type='text' name='tlf' pattern="(\+[0-9])?[0-9]{9}">
                     <input type='hidden' name='myarray' value='<?php echo serialize($agenda)?>'>
                     <input type='submit' value='Registrar' name='go'>
                     </form>
                     </fieldset>
-                    
+
                     <br>
                     <br>
                     <br>
 
-                    <table> <th>Nombre</th> <th>Teléfonos</th>
+                    <table> <th>NOMBRE</th> <th>TELÉFONOS</th>
                     <?php
                     
                     foreach ($agenda as $nombre => $tele) {
