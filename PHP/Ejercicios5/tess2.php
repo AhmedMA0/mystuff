@@ -2,13 +2,8 @@
 <html>
     <body>
         <?php
-            $a=["uno" => 1, "dos" => 2, "tres" => 3];
-
-            echo $a['uno'];
-
-            $a["uno"]=2;
-
-            echo '<br>', $a["uno"];
+            $a=01234;
+            echo $a;       
         ?>
     </body>
 </html>
