@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es-es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            
+
+            //declaramos la variable acierto como false para que se pueda empezar a ejecutar la logica
+            var para=false;
+  
+            //para comienza siendo falso, para luego pedirle un dni al usuario y poner la variable a true en caso de que se cumpla alguna condicion
+            //si no se cumple sigue siendo false por lo que se vuelve a ejecutar el bucle hasta que lo sea
+
+
+
+
+            //valid comienza siendo falso, para luego pedirle un numero un numero al usuario y poner la variable a true en caso de que sea valido
+            //si no es valido sigue siendo false por lo que se vuelve a ejecutar el bucle hasta que lo sea
+            var valid=false;
+                
+                
+            while (valid==false) {
+                var n=prompt('Introduzca un numero entre el 1 y el 10');
+                if (n==null) {
+                    alert('Ejecucion cancelada');
+                    throw new Error('Ejecución cancelada');
+                }
+                if (!isNaN(n)&&n>=1&&n<=10) {
+                    valid=true;
+                }
+            }
+           
+            valid=false;
+
+            while (valid==false) {
+                
+            }
+
+        </script>
+    </body>
+</html> 
