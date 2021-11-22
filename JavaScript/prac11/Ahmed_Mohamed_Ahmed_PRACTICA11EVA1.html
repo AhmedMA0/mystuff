@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es-es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+            var x=Math.floor(Math.random() * 101);
+            alert(x);
+            var acierto=false;
+            var ops=0;
+
+            while (acierto==false) {
+                
+                var valid=false;
+                
+                while (valid==false) {
+                    var n=prompt('Adivina el numero entre 0 y 100');
+
+                    if (!isNaN(n)&&n>0&&n<=100) {
+                        valid=true;
+                    }
+                }
+                
+                if (n==x) {
+                    acierto=true;
+                    
+                }
+                ops++;
+            }
+
+            document.write('Enhorabuena. Intentos=' + ops);
+
+
+
+        </script>
+    </body>
+</html> 

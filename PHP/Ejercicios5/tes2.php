@@ -2,24 +2,33 @@
 <html>
     <body>
         <?php
+        $n=$_POST['aa'];
+        $a=$_POST['a'];
+        
+        if (!empty($a)) {
+            $array=unserialize($a);
+        }
 
-        $wd= ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+        if (!isset($array)) {
+            $array=[];
+        }   
 
-        $a = serialize($wd);
+        if (!empty($n)) {
+            array_push($array, $n);
+        }
+
+        $b = serialize($array);
+
+        print_r($array);
 
 
-
-            
             ?>
-
-            <form action='tess2.php' method='POST'>
-            <input type='hidden' name='a' value='<?php echo $a;?>'>
-            <input type="submit" value="Continuar">
+            <form action='tes2.php' method='POST'>
+            <input type='number' name='aa'>
+            <input type='hidden' name='a' value='<?php echo $b;?>'>
+            <input type='submit' value='Continuar'>
             </form>
-
             <?php
-
-            echo $a;
         ?>
     </body>
 </html>
