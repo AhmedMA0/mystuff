@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es-es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            
+            
+            function sucFib(n){
+                //siempre la sucesion de fibonacci comienza por 1,1 por lo que la primera y segunda posicion de esta sucesion,
+                //es decir, n=1 y n= 2 (contando desde el 1 y no desde el 0), siempre devolveran 1
+                if( n==1 || n == 2){
+                    return 1;
+                }
+
+                //en caso de que el numero introducido sea mayor que dos se ira llamando sucesivamente al numero de la sucesion de fibonacci
+                //anterior y el anterior a este ultimo para sumarlos y asi continuar con esta sucesion
+                //esto ocurre asi por como funciona la propia sucesion ya que la posicion 3 (por ejemplo), sera la suma de las dos anteriores 
+                //y asi sucesivamente
+                else{
+                    return sucFib(n-1)+sucFib(n-2);
+                }
+            }  
+            //la ciclo recursibo se rompe en cuanto se llama a la sucesion de fibonacci de 2 y de 1 ya que si se llama a la de 3 esta acabara llamando a la de dos y a la de uno
+            // en cada ciclo recursivo n va bajando de valor por llamar siempre a las dos posiciones anteriores hasta que llega a 2 y 1
+            alert(sucFib(10));
+        </script>
+    </body>
+</html> 

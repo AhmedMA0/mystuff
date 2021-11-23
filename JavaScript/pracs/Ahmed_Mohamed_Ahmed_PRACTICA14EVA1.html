@@ -7,34 +7,109 @@
     <body>
         <script>
             
+            //declaramos las cadenas en por las que nos basaremos al hacer las comprobaciones 
+            
+            const minus = 'a,á,à,b,c,ç,d,e,é,è,f,g,h,i,ì,í,j,k,l,m,n,ñ,o,ó,ò,p,q,r,s,t,u,ù,ú,ü,v,w,x,y,z';
+            const mayus = 'A,Á,À,B,C,Ç,D,E,É,È,F,G,H,I,Ì,Í,J,K,L,M,N,Ñ,O,Ó,Ò,P,Q,R,S,T,U,Ù,Ú,Ü,V,W,X,Y,Z';
+            const num = '0123456789';
+
             //valid comienza siendo falso, para luego pedirle un numero un numero al usuario y poner la variable a true en caso de que sea valido
             //si no es valido sigue siendo false por lo que se vuelve a ejecutar el bucle hasta que lo sea
             var valid=false;
-            const minus = 'a,á,à,b,c,ç,d,e,é,è,f,g,h,i,ì,í,j,k,l,m,n,ñ,o,ó,ò,p,q,r,s,t,u,ù,ú,ü,v,w,x,y,z';
-            const num = '0123456789';
                 
             while (valid==false) {
                 var n=prompt('Introduzca un nombre de usuario');
+
+                //prompt devuelve null cuando se cancela por lo que cancelamos la ejecucion en ese case utilizando un throw con un error
                 if (n==null) {
                     alert('Ejecucion cancelada');
                     throw new Error('Ejecución cancelada');
                 }
 
-                var user=false;
+                //declaramos estas dos variables siguiendo la misma logica que antes de primero dar por hecho que el dato no es valido
+                //y ponerla a true en caso de que lo sea despues de las comprobaciones
+                var letra=false;
+                var nume=false;
+                
+                //si la longitud de la variable es menor que dos que en este caso es el minimo que el nombre de usuario deberia tener
+                //reiniciamos la ejecucion del bucle 
                 if (n.length<2) {
+                    alert('Minimo dos caracteres.')
                     continue;
                 }
+
+                //el usuario debe tener al menos una letra y un numero por lo que iremos recorriendo la cadena posicion a posicion
+                //comprobando en cada una de ellas si es un numero y una letra minuscula todo ello recogido en nuestras cadenas declaradas anteriormente
+                //en el caso en el que en algun momento se encuentre una letra o un numero las variables requeridas para romper el bucle global (while)
+                //iran valiendo true y solo se rompre el bucle en el caso de que se cumplan todas las condiciones al menos una vez
+                //cabe destacar que la cadena no tiene que recorrerse al completo ya que se rompera la ejecucion del bucle for
+                //en cuanto se encuentre lo que se buscaba para ahorrar tiempo de ejecucion y ser mas eficiente
                 for (let i = 0; i < n.length; i++) {
-                    if ((minus.includes(n[i]))||(num.includes(n[i]))) {
-                        user=true;
+                    if (minus.includes(n[i])) {
+                        letra=true;
+                    }
+
+                    if (num.includes(n[i])) {
+                        nume=true;
+                    }
+
+                    if (letra&&nume) {
+                    valid = true;
+                    break;
                     }
                 }
 
-                if (user==true) {
+                
+            }
+
+            alert('Usuario valido. Almacenando datos.')
+            
+
+            //exactamente la misma logica que arriba solo que ahora tenemos dos condiciones mas: que tenga una mayúscula y un caracter que no sea nada de lo anterior
+            valid=false;
+
+            while (valid==false) {
+                var p=prompt('Introduzca una contraseña');
+                if (p==null) {
+                    alert('Ejecucion cancelada');
+                    throw new Error('Ejecución cancelada');
+                }
+
+                var letraMayus=false;
+                var letraMinus=false;
+                var nume=false;
+                var otro=false;
+                
+                if (p.length<4) {
+                    alert('Minimo cuatro caracteres.')
+                    continue;
+                }
+
+                for (let i = 0; i < p.length; i++) {
+                    if (minus.includes(p[i])) {
+                        letraMinus=true;
+                    }
+
+                    else if (mayus.includes(p[i])) {
+                        letraMayus=true;
+                    }
+
+                    else if (num.includes(p[i])) {
+                        nume=true;
+                    }
+
+                    else{
+                        otro=true;
+                    }
+                }
+
+                if (letraMayus&&letraMinus&&nume&&otro) {
                     valid = true;
                 }
             }
-            alert('cool');
+
+            alert('Contraseña valida. Almacenando datos.')
+
         </script>
     </body>
 </html> 

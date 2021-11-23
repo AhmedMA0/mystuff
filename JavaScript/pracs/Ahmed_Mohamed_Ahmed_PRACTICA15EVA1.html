@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es-es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+
+            var valid=false;
+
+            while (valid==false) {
+                var n=prompt('Introduzca una clave.');
+
+                if (n==null) {
+                alert('Ejecucion cancelada');
+                throw new Error('Ejecución cancelada');
+                }
+
+                if (!isNaN(n)&&n>0&&n<=100000) {
+                    valid=true;
+                }
+            }
+
+            var t=prompt('Introduzca el texto a codificar.');
+
+            if (t==null) {
+                alert('Ejecucion cancelada');
+                throw new Error('Ejecución cancelada');
+            }
+
+            var t2='';
+            var c=[];
+            for (let i = 0, j=0; i < t.length; i++,j++) {
+                if (t[i]==" ") {
+                    t2+=' ';
+                    continue;
+                }
+                if (j>n.length-1) {
+                    j=0;
+                }
+                alert(t.charCodeAt(i));
+                c[i]= t.charCodeAt(i)+parseInt(n[j]);
+                t2+=String.fromCharCode(c[i]);
+            }
+
+            alert(t2);
+
+        </script>
+    </body>
+</html> 
