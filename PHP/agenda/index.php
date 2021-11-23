@@ -75,6 +75,7 @@
                         unset($agenda[$nombre]);
                     }
                     ?>
+                    
                     <!-- el formulario que siempre se enseña para poder seguir metiendo datos-->
                     <fieldset>
                     <form action='#' method='POST'>

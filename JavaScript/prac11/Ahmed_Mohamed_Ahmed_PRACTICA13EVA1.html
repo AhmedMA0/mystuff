@@ -28,16 +28,39 @@
                     alert('Ejecucion cancelada');
                     throw new Error('Ejecución cancelada');
                 }
+
+                n=parseInt(n);
                 if (!isNaN(n)&&n>=1&&n<=10) {
                     valid=true;
                 }
             }
-           
+
             valid=false;
 
             while (valid==false) {
-                
+                var t=prompt('Introduzca una texto corto por favor (a poder ser).');
+                if (t==null) {
+                    alert('Ejecucion cancelada');
+                    throw new Error('Ejecución cancelada');
+                }
+                if (t!=0) {
+                    alert('Codigo correcto.');
+                    valid=true;
+                }
             }
+
+            var t2='';
+            var c=[];
+            for (let i = 0; i < t.length; i++) {
+                if (t[i]==" ") {
+                    t2+=' ';
+                    continue;
+                }
+                c[i]= t.charCodeAt(i)+n;
+                t2+=String.fromCharCode(c[i]);
+            }
+
+            document.writeln(t2);
 
         </script>
     </body>
