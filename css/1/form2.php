@@ -41,7 +41,7 @@
                         </p>
                         <p>
                             <label for="nose4">Nosequesto4: </label>
-                            <input type="text" name="nose4" id="nose4" size="8" pattern="[b-df-hj-np-tv-z]*([aeiou][b-df-hj-np-tv-z]+){2}[aeiou][b-df-hj-np-tv-z]*">
+                            <input type="text" name="nose4" id="nose4" size="8" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^a-zA-Z0-9]).*">
                         </p>
                         <p>
                             <label for="nose4">Nosequesto5: </label>

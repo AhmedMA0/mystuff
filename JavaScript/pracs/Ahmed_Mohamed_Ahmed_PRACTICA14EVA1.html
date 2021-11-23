@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es-es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            
+            //valid comienza siendo falso, para luego pedirle un numero un numero al usuario y poner la variable a true en caso de que sea valido
+            //si no es valido sigue siendo false por lo que se vuelve a ejecutar el bucle hasta que lo sea
+            var valid=false;
+            const minus = 'a,á,à,b,c,ç,d,e,é,è,f,g,h,i,ì,í,j,k,l,m,n,ñ,o,ó,ò,p,q,r,s,t,u,ù,ú,ü,v,w,x,y,z';
+            const num = '0123456789';
+                
+            while (valid==false) {
+                var n=prompt('Introduzca un nombre de usuario');
+                if (n==null) {
+                    alert('Ejecucion cancelada');
+                    throw new Error('Ejecución cancelada');
+                }
+
+                var user=false;
+                if (n.length<2) {
+                    continue;
+                }
+                for (let i = 0; i < n.length; i++) {
+                    if ((minus.includes(n[i]))||(num.includes(n[i]))) {
+                        user=true;
+                    }
+                }
+
+                if (user==true) {
+                    valid = true;
+                }
+            }
+            alert('cool');
+        </script>
+    </body>
+</html> 
