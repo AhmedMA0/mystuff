@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var matriz=[];
+        const n = 10;
+
+        for (let i = 0; i <n ; i++) {
+            matriz[i]= [];
+            for (let j = 0; j <n; j++) {
+                matriz[i][j]=false;
+            }
+        }
+
+        function randomPos() {
+            return Math.round(Math.random()*n);
+        }
+
+        function siOno() {
+            return Math.round(Math.random());
+        }
+
+        function pintarBArco(t) {
+            
+            var x=randomPos();
+            var y=randomPos();
+            var dir=siOno(); 
+
+            if (siOno()) {
+                for (let i = 0; i < t; i++) {
+                    matriz[x][y]=true;
+                    x++;
+                }    
+            }
+
+            else{
+                for (let i = 0; i < t; i++) {
+                    matriz[x][y]=true;
+                    y++;
+                }  
+            }
+        }
+
+        function mostrarTabla() {
+
+            document.write('<table>');
+
+            for (let i = 0; i <n ; i++) {
+                document.write('<tr>');
+
+                for (let j = 0; j <n; j++) {
+                    if (matriz[i][j]==false) {
+                        document.write('<td style="background-color: darkblue;">');
+                    }
+
+                    else{
+                        document.write('<td style="background-color: red;">');
+                    }
+                    document.write('</td>');
+                }
+
+                document.write('</tr>');
+            }
+
+            document.write('</table>');
+        }
+
+
+        
+
+        
+
+    </script>
+</body>
+</html>
