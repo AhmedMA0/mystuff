@@ -5,61 +5,175 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        var matriz=[];
-        const n = 10;
+    <style>
+        html, body, div{
+            height: 100%;width: 100%;
+        }
 
-        for (let i = 0; i <n ; i++) {
+        table{
+            height: 99%;
+            width: 99%;
+        }
+        .agua{
+            background-color: skyblue;
+        }
+
+        .barco{
+            background-color: black;
+        }
+    </style>
+    <script>
+
+        //declaramos nuestra matriz, la cual funcionara como tablero, vacia para poder trabajar con ella sin fallos
+        var matriz=[];
+
+        //aqui creamos la matriz como un array bidimensional de 10x10
+        for (let i = 0; i <10 ; i++) {
             matriz[i]= [];
-            for (let j = 0; j <n; j++) {
+            for (let j = 0; j <10; j++) {
                 matriz[i][j]=false;
             }
         }
 
-        function randomPos() {
-            return Math.round(Math.random()*n);
-        }
-
-        function siOno() {
-            return Math.round(Math.random());
-        }
-
-        function pintarBArco(t) {
+        //englobamos todo en una funcion
+        function pintarBarco(t) {
             
-            var x=randomPos();
-            var y=randomPos();
-            var dir=siOno(); 
+            //cada vez que se llame a la funcion declararemos para la posicion de salida del barco (x,y)
+            let x;
+            let y;
 
-            if (siOno()) {
+            //ademas de la direccion (vertical u horizontal) que sera true (horizontal) o false (vertical)
+            let dir=Math.round(Math.random());
+
+            //si aleatoriamente se decide que es horizontal
+            if (dir) {
+
+                //declaramos esta variable como false desde el principio para poder empezar a realizar las comprobaciones necesarias para
+                //decidir si se pinta el barco o se cambia hasta poder pintarlo validamente
+                let sePinta=false;
+
+                //solo entramos en el bucle si la variable es false y la variable pasara a true al realizar las comprobaciones y asi romper el bucle
+                while (sePinta==false) {
+                    
+                    //la misma logica de ponerlo a false para despues comprobar y corregir con un while del que no se sale hasta que sea valido
+                    let valid=false;
+
+                    //le damos valores random a la posicion inicial de nuestro barco
+                    x=Math.round(Math.random()*9);
+                    y=Math.round(Math.random()*9);
+
+                    //comenzamos las comprobaciones de nuestro barco
+                    //si la suma de la posicion x (la columna por la que empieza) mas el tamaño del barco es mayor que la longitud horizontal(el numero de columnas)
+                    //significa que el barco no cabe horizontalmente en el tablero por lo que sacamos mas valores aleatorios hasta que quepa
+                    while (valid==false) {
+                        if ((x+t)>9) {
+                            x=Math.round(Math.random()*9);
+                        }
+                        else{
+                            valid=true;
+                        }
+                    }
+                    
+                    //aqui la logica es al contrario, comenzamos por true y cambiamos a false despuesa de comprobar
+                    let noBarco=true;
+                    //variable auxiliar para no modificar la x ya validada
+                    let x2=x;
+
+                    //recorremoslas posociones de nuestro barco y ademas tambien las de alrededor de nuestro barco comprobando
+                    //que no haya ningun barco en ninguna de esas posiciones
+                    //en el caso en el que encuentre un barco la variable noBarco pasa a ser false
+                    for (let j = Math.max(0,y-1); j < Math.min(10,y+2) ; j++) {
+                        for (let i = Math.max(0,x-1); i < Math.min(10,x+t+1); i++) {
+                            if(matriz[j][i]==true){
+                                noBarco=false;
+                            }
+                        }
+                    }
+
+                    //si la variable sigue como true despues de la ultima comprobacion el barco seria completamente valido y lo sacamos por pantalla
+                    //si no es true cuando llega aqui sePinta se queda como false y se volveria a ejecutar todo ya que el hecho de que se haya encontrado un barco
+                    //en las inmediaciones del que vamos a pintar siginifca que tenemos que generar todo desde 0
+                    if (noBarco==true) {
+                        sePinta=true;
+                    }
+                }
+
+                
+                //si hemos salido del while anterior nuestro barco es valido entonces lo añadimos a nuestra matriz poniendo sus posiciones en true
                 for (let i = 0; i < t; i++) {
-                    matriz[x][y]=true;
+                    matriz[y][x]=true;
                     x++;
                 }    
             }
 
+            //aqui se entra si el barco sera vertical y se aplica la misma logica que para el horizontal con ligeros cambios para que sea vertical en vez de horizontal
             else{
+                let sePinta=false;
+
+                while (sePinta==false) {
+                    
+                    let valid=false;
+                    x=Math.round(Math.random()*9);
+                    y=Math.round(Math.random()*9);
+
+                    while (valid==false) {
+                        if ((y+t)>9) {
+                            y=Math.round(Math.random()*9);
+                        }
+                        else{
+                            valid=true;
+                        }
+                    }
+                    
+                    let noBarco=true;
+                        
+                    let y2=y;
+
+                    for (let i = Math.max(0,y-1); i < Math.min(10,y+t+1); i++) {
+                        for (let j = Math.max(0,x-1) ;j < Math.min(10,x+2) ; j++) {
+                            if(matriz[i][j]==true){
+                                noBarco=false;
+                            }
+                        }
+                    }
+
+                    if (noBarco==true) {
+                        sePinta=true;
+                    }
+
+                }
+
                 for (let i = 0; i < t; i++) {
-                    matriz[x][y]=true;
+                    matriz[y][x]=true;
                     y++;
-                }  
+                }     
             }
         }
 
+        //una funcion que se llamara al final para imprimir por pantalla nuestro tablero/array ya con todos los barcos
+        //simplemente recorre toda la matriz y va creando una tabla con sus celdas y filas correspondientes
         function mostrarTabla() {
+
+            document.write('<div>');
 
             document.write('<table>');
 
-            for (let i = 0; i <n ; i++) {
+            for (let i = 0; i <10 ; i++) {
                 document.write('<tr>');
 
-                for (let j = 0; j <n; j++) {
+                for (let j = 0; j <10; j++) {
                     if (matriz[i][j]==false) {
-                        document.write('<td style="background-color: darkblue;">');
+                        document.write('<td class="agua">');
+                    }
+
+                    else if(matriz[i][j]==true){
+                        document.write('<td class="barco">');
                     }
 
                     else{
-                        document.write('<td style="background-color: red;">');
+                        document.write('<td class="no">');
                     }
+
                     document.write('</td>');
                 }
 
@@ -67,13 +181,23 @@
             }
 
             document.write('</table>');
+            document.write('</div>');
+
         }
 
+        //aqui simplemente llamamos a la funcion que crea los barcos pasandole el tamaño de barco que se desea y luego sacamos todo por pantalla
+        pintarBarco(5);
+        pintarBarco(4);
+        pintarBarco(4);
+        pintarBarco(3);
+        pintarBarco(3);
+        pintarBarco(2);
+        pintarBarco(2);
+
+        mostrarTabla();
 
         
-
         
-
     </script>
 </body>
 </html>

@@ -11,7 +11,8 @@
             //si no es valido sigue siendo false por lo que se vuelve a ejecutar el bucle hasta que lo sea
             var valid=false;
                 
-                
+            //cuando se cancele el prompt se parara la ejecucion con un aviso y un error
+            //cuando el dato introducido sea un numero que este en entre el 1 y el 10, valid sera true y se rompera el bucle consiguiendo asi un numero valido
             while (valid==false) {
                 var n=prompt('Introduzca un numero entre el 1 y el 10');
                 if (n==null) {
@@ -25,6 +26,7 @@
                 }
             }
 
+            //todo exactamente igual que arriba pero solo validamos que la cadena no este vacia
             valid=false;
 
             while (valid==false) {
@@ -34,20 +36,24 @@
                     throw new Error('Ejecución cancelada');
                 }
                 if (t!=0) {
-                    alert('Codigo correcto.');
+                    alert('Texto correcto.');
                     valid=true;
                 }
             }
 
+            //la cadena donde almacenaremos la cadena codificada
             var t2='';
-            var c=[];
+
+            //recorremos toda la cadena de texto posicion a posicion codificiando cada posicion, para despues 
+            //descodificarla y añadirla a nuestra nueva cadena para luego mostrarla por pantalla
+            //con codificar me refiero a sacar su charCode y sumarle el valor de la clave
+
             for (let i = 0; i < t.length; i++) {
                 if (t[i]==" ") {
                     t2+=' ';
                     continue;
                 }
-                c[i]= t.charCodeAt(i)+n;
-                t2+=String.fromCharCode(c[i]);
+                t2+=String.fromCharCode(t.charCodeAt(i)+n);
             }
 
             document.writeln(t2);

@@ -6,8 +6,10 @@
     </head>
     <body>
         <script>
+            //creamos la etiqueta style apra todo el documento
             document.write("<style>html, body{height: 100%;width: 100%;} div{height: 50px;width: 50px;}</style>");
             
+            //generamos 2000 divs generando por cada iteracion valores aleatorios tanto para la funcion rgb como para el posicionamiento de los divs
             for (let i = 0; i < 2000; i++) {
             
             document.write('<div style="position: fixed; background-color: rgb('+Math.random() * 255+','+Math.random() * 255+','+Math.random() * 255+'); top: '+Math.random() * 100+'%; left: '+Math.random() * 100+'%;">ㅤ</div>');

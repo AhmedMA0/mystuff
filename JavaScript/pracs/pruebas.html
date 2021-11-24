@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        html, body, div{
+            height: 100%;width: 100%;
+        }
+
+        table{
+            height: 99%;
+            width: 99%;
+        }
+        .agua{
+            background-color: skyblue;
+        }
+
+        .barco{
+            background-color: black;
+        }
+        .no{
+            background-color: rosybrown;
+        }
+    </style>
+    <script>
+        let x=3;
+        let y=3;
+        let t=3;
+
+        let matriz=[];
+
+        for (let i = 0; i <10 ; i++) {
+            matriz[i]= [];
+            for (let j = 0; j <10; j++) {
+                matriz[i][j]=false;
+            }
+        }
+
+        for (let i = y-1; i < y+t+1; i++) {
+            for (let j = x-1 ;j < x+2 ; j++) {
+                matriz[i][j]='no';
+            }
+        }
+        
+
+        document.write('<div>');
+
+        document.write('<table>');
+
+        for (let i = 0; i <10 ; i++) {
+            document.write('<tr>');
+
+            for (let j = 0; j <10; j++) {
+                if (matriz[i][j]==false) {
+                    document.write('<td class="agua">');
+                }
+
+                else if(matriz[i][j]==true){
+                    document.write('<td class="barco">');
+                }
+
+                else{
+                    document.write('<td class="no">');
+
+                }
+                document.write('</td>');
+            }
+
+            document.write('</tr>');
+        }
+
+        document.write('</table>');
+        document.write('</div>');
+    </script>
+</body>
+</html>

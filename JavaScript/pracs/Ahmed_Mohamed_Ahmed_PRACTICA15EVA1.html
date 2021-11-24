@@ -7,8 +7,12 @@
     <body>
         <script>
 
+            //valid comienza siendo falso, para luego pedirle un numero un numero al usuario y poner la variable a true en caso de que sea valido
+            //si no es valido sigue siendo false por lo que se vuelve a ejecutar el bucle hasta que lo sea
             var valid=false;
 
+            //cuando se cancele el prompt se parara la ejecucion con un aviso y un error
+            //cuando el dato introducido sea un numero que este en entre el 1 y el 100000, valid sera true y se rompera el bucle consiguiendo asi un numero valido
             while (valid==false) {
                 var n=prompt('Introduzca una clave.');
 
@@ -22,15 +26,27 @@
                 }
             }
 
-            var t=prompt('Introduzca el texto a codificar.');
+            //todo exactamente igual que arriba pero solo validamos que la cadena no este vacia
+            valid=false;
 
-            if (t==null) {
-                alert('Ejecucion cancelada');
-                throw new Error('Ejecución cancelada');
+            while (valid==false) {
+                var t=prompt('Introduzca una texto corto por favor (a poder ser).');
+                if (t==null) {
+                    alert('Ejecucion cancelada');
+                    throw new Error('Ejecución cancelada');
+                }
+                if (t!=0) {
+                    alert('Texto correcto.');
+                    valid=true;
+                }
             }
 
+            //la cadena donde almacenaremos la cadena codificada
             var t2='';
-            var c=[];
+
+            //recorremos toda la cadena de texto posicion a posicion codificiando cada posicion, para despues 
+            //descodificarla y añadirla a nuestra nueva cadena para luego mostrarla por pantalla
+            //con codificar me refiero a sacar su charCode y sumarle el valor que le corresponda
             for (let i = 0, j=0; i < t.length; i++,j++) {
                 if (t[i]==" ") {
                     t2+=' ';
@@ -39,12 +55,12 @@
                 if (j>n.length-1) {
                     j=0;
                 }
-                alert(t.charCodeAt(i));
-                c[i]= t.charCodeAt(i)+parseInt(n[j]);
-                t2+=String.fromCharCode(c[i]);
+                t2+=String.fromCharCode(t.charCodeAt(i)+parseInt(n[j]));
             }
-
+            
             alert(t2);
+            document.writeln(t2);
+
 
         </script>
     </body>

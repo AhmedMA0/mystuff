@@ -6,13 +6,18 @@
 </head>
 <body>
     <script>
+
+        //pedimos todos los datos al usuario transformando a float el salario para luego poder realizar operaciones matematicas con el
         let name = prompt("Introduzca su nombre y apellidos: ");
         let sal = parseFloat(prompt("Introduzca su salario: "));
         let age = prompt("Introduzca su edad: ");
 
+        //si el salario es mayor a 2000 no hacemos nada
         if (sal > 2000) {     
         }
 
+        //si el salario es mayor de 1000 pero menor de 2000 ademas comporbamod si la edad es mayor de 45 o no
+        //si es asi subimo un 3% y si no un 10%
         else if (sal > 1000 && sal < 2000) {
 
             if (age > 45) {
@@ -25,6 +30,9 @@
             }
         }
 
+        //si el salario no es mayor que 2000 ni mayor que 1000
+        //si la edad es menor a 30 el salario es 1100
+        //si esta entre 30 y 45 subimos un 3% y si es mayor que 45 sube un 15%
         else{
 
             if (age < 30) {

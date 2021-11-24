@@ -7,6 +7,25 @@
     <body>
         <script>
             
+            //valid comienza siendo falso, para luego pedirle un numero un numero al usuario y poner la variable a true en caso de que sea valido
+            //si no es valido sigue siendo false por lo que se vuelve a ejecutar el bucle hasta que lo sea
+            var valid=false;
+                
+            //cuando se cancele el prompt se parara la ejecucion con un aviso y un error
+            //cuando el dato introducido sea un numero que este en entre el 1 y el 100, valid sera true y se rompera el bucle consiguiendo asi un numero valido
+            //le pedimos al usuario que el numero sea pequeño pero realmente aceptamos numeros hasta el 100 aunque la ejecucuon tiene graves problemas con numero grandes
+            while (valid==false) {
+                var n=prompt('Introduzca un numero entre el 1 y el 10 por favor');
+                if (n==null) {
+                    alert('Ejecucion cancelada');
+                    throw new Error('Ejecución cancelada');
+                }
+
+                n=parseInt(n);
+                if (!isNaN(n)&&n>=1&&n<=100) {
+                    valid=true;
+                }
+            }
             
             function sucFib(n){
                 //siempre la sucesion de fibonacci comienza por 1,1 por lo que la primera y segunda posicion de esta sucesion,
@@ -25,7 +44,7 @@
             }  
             //la ciclo recursibo se rompe en cuanto se llama a la sucesion de fibonacci de 2 y de 1 ya que si se llama a la de 3 esta acabara llamando a la de dos y a la de uno
             // en cada ciclo recursivo n va bajando de valor por llamar siempre a las dos posiciones anteriores hasta que llega a 2 y 1
-            alert(sucFib(10));
+            alert(sucFib(n));
         </script>
     </body>
 </html> 
