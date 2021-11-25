@@ -295,9 +295,9 @@ h2{
 .radial{
     background:radial-gradient(circle at center left, #28c464 0%,red 10%, #e7e1a8 100%);
     background: rgb(2,0,36);
-background: linear-gradient(320deg, rgba(2,0,36,1) 0%, rgba(108,233,124,1) 10%, rgba(178,83,228,1) 31%, rgba(240,98,98,1) 62%, rgba(0,212,255,1) 86%);
-background: rgb(2,0,36);
-background: radial-gradient(circle at center left, rgba(2,0,36,1) 0%, rgba(108,233,124,1) 22%, rgba(178,83,228,1) 45%, rgba(240,98,98,1) 62%, rgba(0,212,255,1) 86%);
+    background: linear-gradient(320deg, rgba(2,0,36,1) 0%, rgba(108,233,124,1) 10%, rgba(178,83,228,1) 31%, rgba(240,98,98,1) 62%, rgba(0,212,255,1) 86%);
+    background: rgb(2,0,36);
+    background: radial-gradient(circle at center left, rgba(2,0,36,1) 0%, rgba(108,233,124,1) 22%, rgba(178,83,228,1) 45%, rgba(240,98,98,1) 62%, rgba(0,212,255,1) 86%);
 }
 
 #imagen:hover{
