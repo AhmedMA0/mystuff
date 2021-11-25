@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function ordenaArray() {
+            
+            //declaramos estas variables para poder usarlas mas delante
+            let i=0;
+            let palabras=[];
+            //misma logica que en ejercicios anteriores para verificar datos
+            //nuestro bucle comienza pidiendo una palabra al usuario y primero comprobando si es null, esto pasa cuando se cancela la entrada de datos
+            //si es null se alerta al usuario y se cancela la introduccion de mas datos
+            //ahora si no es null se comprueba si se ha pulsado continuar con una cadena vacia, esto devolveria false o lo que seria lo mismo 0
+            //si es asi se hace lo mismo que en el caso de null pero devolviendo un mensaje diferente
+            //comprobado ya que no se ha pasado una cadena vacia ni se ha cancelado le cuadro de entrada lo añadimos a nuesto array de palabras
+            //en la posicion i que incrementa solo cada vez que introducimos algo
+            let salimos=false;
+            while (salimos==false) {
+                var text=prompt('Introduzca las palabras a ordenar');
+
+                if (text==null) {
+                    alert('Ejecucion cancelada.');
+                    salimos=true;
+                }
+
+                else if (text==0) {
+                    alert('Ejecucion cancelada por cadena vacia.');
+                    salimos=true;
+                }
+
+                else{
+                    console.log(i);
+                    palabras[i]=text;
+                    i++;
+                }
+            }
+
+            //aqui devolvemos el array ordenado alfabeticamente usando la funcion sort y pasandole nosotros mismos una funcion que compara localmente las variables
+            return palabras.sort (function(a,b){ return a.localeCompare(b); } );
+        }
+    
+    //llamamos a la funcion y lo sacamos por consola
+    console.log(ordenaArray());
+    </script>
+</body>
+</html>

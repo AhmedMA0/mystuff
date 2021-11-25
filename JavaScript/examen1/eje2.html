@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //creamos la funcion esPrimo la cual comenzara evaluando desde la suposicion de que el numero es primo e ira dividiendo el numero desde el 2 hasta
+        //el numero anterior a nuestro numero, si al dividirlo entre esos numero obtenemos un resto 0, el numero dejara de ser primo
+        //si despues de las comprobacione primo sigue siendo true el numero sera efectivamente primo
+        //luego simplemente devolvemos la variable primo
+        function esPrimo(numero) {
+            let primo=true;
+
+            for (let i = 2; i < numero ; i++) {
+                if (numero%i==0) {
+                    primo=false;
+                }
+            }
+
+            return primo;
+        }
+
+        //comenzamos la validacion del numero introducido dando por hecho que es false para asi poder verificarlo dentro del while
+        var valid=false;
+
+        //nuestro bucle comienza pidiendo un numero al usuario y primero comprobando si es null, esto pasa cuando se cancela la entrada de datos
+        //si es null se alerta al usuario y se cancela la ejecucion con un throw de error
+        //ahora si no es null se comprueba si se ha pulsado continuar con una cadena vacia, esto devolveria false o lo que seria lo mismo 0
+        //si es asi se hace lo mismo que en el caso de null pero devolviendo un mensaje diferente
+        //comprobado ya que no se ha pasado una cadena vacia ni se ha cancelado le cuadro de entrada lo pasamos a numero y comprobamos que efectivamente es un numero
+        //si es valido ponemos valid a true y rompemos el bucle consiguiendo asi nuestro numero valido
+        while (valid==false) {
+            var numIntro=prompt('Introduzca un numero a comprobar:');
+
+            if (numIntro==null) {
+                alert('Ejecucion cancelada.');
+                throw new Error('Ejecucion cancelada.');
+            }
+
+            if (numIntro==0) {
+                alert('Ejecucion cancelada por cadena vacia.');
+                throw new Error('Ejecucion cancelada.');
+            }
+            numIntro=parseInt(numIntro);
+
+            if (!isNaN(numIntro)) {
+                alert('Numero valido.');
+                valid=true;
+            }
+        }
+
+        //declaramos una variable auxiliar que guardara el resultado de comprobar si el numero valido introducido por el usuario es primo o no siendo true o false
+        let pri =esPrimo(numIntro);
+
+        //si es true significa que es primo y asi lo indicamos y si no lo es pues al contrario
+        if (pri) {
+            alert('El numero '+numIntro+' es primo.');
+        }
+
+        else{
+            alert('El numero '+numIntro+' no es primo.');
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //un style global para que las tablas queden en posicion y tamaño deseados
+        document.write('<style> html, body{height: 99%;width: 99%;}</style>');
+
+        //creamos la funcion que pintara la tabla con los parametros y, x y color todos con valores predeterminados
+        function creaTabla(y=10, x=4,color='black') {   
+            //creamos primo una tabla con esas propiedad css pasandole el la variable color como uno de ellos
+            document.write('<table style="border: 10px solid '+color+';width: 99%;height: 40%;margin:10px">');
+            //segun los datos introducidos para y, x (numero de filas y numero de columnas respectivamente) sacamos una tabla como si fuera un array
+            //bidimensional con dos bucles for en el que el primero representaria el numero de filas y el segundo las columnas
+            for (let i = 0; i < y; i++) {
+                document.write('<tr>');
+                for (let j = 0; j < x; j++) {
+                    document.write('<td style="border: 2px solid  '+color+';background-color: mintcream;"></td>')
+                }
+                document.write('</tr>')
+            }
+
+            document.write('</table>');
+        }
+
+
+        //esta funcion permite al usuario conseguir dos valores validos para la funcion anterior
+        function introFilaCol() {
+
+            
+            //declaramos esta variable como false para poder comenzar la verificacion de datos en el bucle siguiente
+            let valid=false;
+
+            //nuestro bucle comienza pidiendo un numero al usuario y primero comprobando si es null, esto pasa cuando se cancela la entrada de datos
+            //si es null se alerta al usuario y se cancela la introduccion de ese dato poniendolo a 0
+            //ahora si no es null se comprueba si se ha pulsado continuar con una cadena vacia, esto devolveria false o lo que seria lo mismo 0
+            //si es asi se hace lo mismo que en el caso de null pero devolviendo un mensaje diferente
+            //comprobado ya que no se ha pasado una cadena vacia ni se ha cancelado le cuadro de entrada lo pasamos a numero y comprobamos que efectivamente es un numero
+            //si es valido ponemos valid a true y rompemos el bucle consiguiendo asi nuestro numero valido
+            while (valid==false) {
+                
+                var y=prompt('Elige el numero de filas.');
+
+                if (y==null) {
+                    alert('Eleccion de filas cancelada.');
+                    y=0;
+                    break;
+                }
+
+                if (y==0) {
+                    alert('0 introducido, eleccion cancelada.');
+                    y=0;
+                    break;
+                }
+
+                y=parseInt(y);
+                if (!isNaN(y)&&y<=20&&y>=5) {
+                    alert('Numero valido');
+                    valid=true;
+                }
+            }
+
+            //exactamente igual que arriba pero para el numero de columnas (x)
+            valid=false;
+            while (valid==false) {
+                
+                var x=prompt('Elige el numero de columnas.');
+
+                if (x==null) {
+                    alert('Eleccion de columnas cancelada.');
+                    x=0;
+                    break;
+                }
+
+                if (x==0) {
+                    alert('0 introducido, eleccion cancelada.');
+                    x=0;
+                    break;
+                }
+
+                x=parseInt(x);
+                if (!isNaN(x)&&x<=20&&x>=5) {
+                    alert('Numero valido');
+                    valid=true;
+                }
+            }
+
+            //una vez tenemos los dos datos ya validados los metemos en un array para que el valor del return pueda ser iterable y devolvemos ese array
+            let res=[x,y];
+            return res;
+        }
+
+        //sacamos una tabla con los valores por dfecto al no pasarle argumentos
+        creaTabla();
+        
+        alert('Segunda tabla:');
+        //aqui nos aprovechamos de la iterabilidad del return de la funcion para poder asignarlo a dos variables y luego pasarselas a la funcion creaTabla
+        let [x1,y1]=[...introFilaCol()];
+        creaTabla(x1,y1);
+
+        //sacamos 10 tablas iguales
+        for (let i = 0; i < 10; i++) {
+            creaTabla(5,4,'green');
+        }
+    </script>
+</body>
+</html>
