@@ -1,0 +1,48 @@
+html{
+    background-color:#131930;
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
+}
+
+td{
+
+    font-size: 30px;
+    text-align: center;
+    color: #131930;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+th{
+    font-size: 30px;
+    text-align: center;
+}
+
+table{
+    margin: auto;
+    border-radius: 5px;
+    width: 75%;
+    background-color: #232b4a;
+}
+
+input[type="submit"]{
+    background-color: #9465ff;
+    outline: none;
+    border: none;
+    width: 100px;
+    height: 25px;
+    color: whitesmoke;
+}
+
+fieldset{
+    font-size: 20px;
+    border: none;
+    background-color: #232b4a;
+}
+h1{
+    text-align: center;
+}
+
+h3{
+    margin: 0px;
+}
