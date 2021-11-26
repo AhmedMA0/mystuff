@@ -3,45 +3,80 @@
     <head>
         <meta charset="UTF-8">
         <title>Document</title>
-        <link rel="stylesheet" href="estilos.css">
     </head>
     <body>
-        <h1>MI AGENDA</h1>
+        <h1>EL AHORCADO</h1>
         <?php
-            //intentamos recibir los datos de nuestra agenda, en ese caso un array, y si no existe no pasa nada malo por mi estructura de condicionales y tal
-            $agenda=unserialize($_POST['myarray']);
+            if (!empty($_POST['aciertos'])&&!empty($_POST['fallos'])) {
+                $fallos=unserialize($_POST['fallos']);
+                $aciertos=unserialize($_POST['aciertos']);            
+            }
+            else {
+                $fallos=[];
+                $aciertos=[];
+            }
+            
 
+            $palabras=['TELEFONO','PANTALLA', 'AMERICA', 'POSTAL', 'JUGUETE'];
+            $letras=unserialize($_POST['letras']);
+
+            if (empty($letras)) {    
+                $numPalabra=rand(0,4);
+                $letras=str_split($palabras[$numPalabra],1);
+            }
+            print_r($letras);
             //si el usuario aun no ha intentado enviar datos le mostramos el formulario 
             if (empty($_POST['go'])){
-
+                
                 ?>
                 <fieldset>
                 <form action='#' method='POST'>
-                    Introduce un nombre: <input type='text' name='nombre' autofocus>
-                    Introduce su numero de tlf: <input type='text' name='tlf' pattern="(\+[0-9])?[0-9]{9}">
-                    <input type='submit' value='Registrar' name='go'>
-                    </form>
+                Adivina adivina: <input type='text' name='letra' pattern='[A-Za-z]||[A-Za-z]*' autofocus>
+                <input type='submit' value='GoGoGo' name='go'>
+                <input type='hidden' name='letras' value='<?php echo serialize($letras)?>'>
+                </form>
                 </fieldset>
-                <?php
+                    <br>
+                    <br>
+                    <br>
+                    <!-- Aqui mostramos la agenda por pantalla en el caso de que haya datos en ella-->
+                    <table><tr>
+                    <?php
+                    
+                    foreach ($letras as $le) {
+                        if (in_array($le,$aciertos)) {
+                            echo '<td>',$le,'</td>';
+                        }
+                        else {
+                            echo '<td>_</td>';
+                        }
+                    }
+                    
+                    ?>
+                    </table>
+                    <?php
+
             }
 
             //si el usuario ya ha intentado enviar datos se ejecuta el resto del programa
             else {
+
                 //se intentan recibir los datos que el usuario ha intentado enviar
-                $nombre=$_POST['nombre'];
-                $tlf=$_POST['tlf'];            
+                $letra=$_POST['letra'];
+                
             
                 //si el nombre esta vacio se obliga al usuario ha introducirlo y no se continua hasta que lo haga
-                if (empty($nombre)) {
+                if (empty($letra)) {
                     
-                    echo '<h3>Debes introducir un nombre antes de continuar</h3> <br>';
+                    echo '<h3>Debes introducir al menos una letra para adivinar </h3> <br>';
                     ?>
                     <fieldset>
                     <form action='#' method='POST'>
-                    Introduce un nombre: <input type='text' name='nombre' autofocus>
-                    Introduce su numero de tlf: <input type='text' name='tlf' pattern="(\+[0-9])?[0-9]{9}">
-                    <input type='hidden' name='myarray' value='<?php echo serialize($agenda)?>'>
-                    <input type='submit' value='Registrar' name='go'>
+                        Adivina adivina: <input type='text' name='letra' pattern='[A-Za-z]||[A-Za-z]*' autofocus>
+                        <input type='hidden' name='fallos' value='<?php echo serialize($fallos)?>'>
+                        <input type='hidden' name='aciertos' value='<?php echo serialize($aciertos)?>'>
+                        <input type='hidden' name='letras' value='<?php echo serialize($letras)?>'>
+                        <input type='submit' value='GoGoGo' name='go'>
                     </form>
                     </fieldset>
 
@@ -49,11 +84,16 @@
                     <br>
                     <br>
                     <!-- Aqui mostramos la agenda por pantalla en el caso de que haya datos en ella-->
-                    <table> <th>NOMBRE</th> <th>TELÉFONOS</th>
+                    <table><tr>
                     <?php
                     
-                    foreach ($agenda as $nombre => $tele) {
-                        echo '<tr><td>',$nombre,'</td><td>',$tele,'</td></tr>';
+                    foreach ($letras as $le) {
+                        if (in_array($le,$aciertos)) {
+                            echo '<td>',$le,'</td>';
+                        }
+                        else {
+                            echo '<td>_</td>';
+                        }
                     }
                     
                     ?>
@@ -61,28 +101,39 @@
                     <?php
                 }
 
-                //si se ha introducido un nombre realizamos otras comprobaciones para realizar una accion u otra dependiendo de la accion del usuario
+                //si se ha introducido algo realizamos otras comprobaciones para realizar una accion u otra dependiendo de la accion del usuario
                 else{
+                    
+                    if (in_array($letra,$aciertos)||in_array($letra,$fallos)) {
+                        echo '<h3>Intento ya introduciodo</h3>';
+                    }
+                    else {
+                        
+                    
+                        if (in_array($letra,$letras)) {
+                            array_push($aciertos,$letra);
+                        }
 
-                    //si ambos datos han sido correctamente introducidos se añaden al array, es decir, a la agenda.
-                    //esto tambien significa que si se mete una clave que ya existe se sustituya su valor por el nuevo tlf
-                    if (!empty($tlf)&&!empty($nombre)) {
-                        $agenda[$nombre]=$tlf;
+                        else {
+                            $i++;
+                            array_push($fallos,$letra);
+                        }
                     }
 
-                    //si el telefono esta vacio y se introuce un nombre que ademas esta ya en la agenda, se borra esa entrada
-                    elseif (empty($tlf)&&!empty($nombre)&&array_key_exists($nombre,$agenda)) {
-                        unset($agenda[$nombre]);
-                    }
+                    print_r($aciertos);
+                    echo '<br>';
+                    print_r($fallos);
                     ?>
                     
                     <!-- el formulario que siempre se enseña para poder seguir metiendo datos-->
                     <fieldset>
                     <form action='#' method='POST'>
-                    Introduce un nombre: <input type='text' name='nombre' autofocus>
-                    Introduce su numero de tlf: <input type='text' name='tlf' pattern="(\+[0-9])?[0-9]{9}">
-                    <input type='hidden' name='myarray' value='<?php echo serialize($agenda)?>'>
-                    <input type='submit' value='Registrar' name='go'>
+                    Adivina adivina: <input type='text' name='letra' pattern='[A-Za-z]||[A-Za-z]*' autofocus>
+                    <input type='hidden' name='fallos' value='<?php echo serialize($fallos)?>'>
+                    <input type='hidden' name='aciertos' value='<?php echo serialize($aciertos)?>'>
+                    <input type='hidden' name='letras' value='<?php echo serialize($letras)?>'>
+
+                    <input type='submit' value='GoGoGo' name='go'>
                     </form>
                     </fieldset>
 
@@ -91,16 +142,22 @@
                     <br>
 
                     <!-- Aqui mostramos la agenda por pantalla en el caso de que haya datos en ella-->
-                    <table> <th>NOMBRE</th> <th>TELÉFONOS</th>
+                    <table><tr>
                     <?php
                     
-                    foreach ($agenda as $nombre => $tele) {
-                        echo '<tr><td>',$nombre,'</td><td>',$tele,'</td></tr>';
+                    foreach ($letras as $le) {
+                        if (in_array($le,$aciertos)) {
+                            echo '<td>',$le,'</td>';
+                        }
+                        else {
+                            echo '<td>_</td>';
+                        }
                     }
                     
                     ?>
                     </table>
                     <?php
+
                 }
             }
         ?>
