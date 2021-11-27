@@ -16,7 +16,7 @@
                 $aciertos=[];
             }
             
-
+            
             $palabras=['TELEFONO','PANTALLA', 'AMERICA', 'POSTAL', 'JUGUETE'];
             $letras=unserialize($_POST['letras']);
 
@@ -27,13 +27,15 @@
             print_r($letras);
             //si el usuario aun no ha intentado enviar datos le mostramos el formulario 
             if (empty($_POST['go'])){
-                
+                $intentos=0;    
                 ?>
                 <fieldset>
                 <form action='#' method='POST'>
                 Adivina adivina: <input type='text' name='letra' pattern='[A-Za-z]||[A-Za-z]*' autofocus>
                 <input type='submit' value='GoGoGo' name='go'>
                 <input type='hidden' name='letras' value='<?php echo serialize($letras)?>'>
+                <input type='hidden' name='ints' value='<?php echo $intentos?>'>
+
                 </form>
                 </fieldset>
                     <br>
@@ -55,14 +57,16 @@
                     ?>
                     </table>
                     <?php
-
+                    echo '<img src="images/',$intentos,'.png">';    
             }
 
             //si el usuario ya ha intentado enviar datos se ejecuta el resto del programa
             else {
 
                 //se intentan recibir los datos que el usuario ha intentado enviar
-                $letra=$_POST['letra'];
+                $letra=strtoupper($_POST['letra']);
+                $intentos=$_POST['ints'];
+
                 
             
                 //si el nombre esta vacio se obliga al usuario ha introducirlo y no se continua hasta que lo haga
@@ -76,6 +80,7 @@
                         <input type='hidden' name='fallos' value='<?php echo serialize($fallos)?>'>
                         <input type='hidden' name='aciertos' value='<?php echo serialize($aciertos)?>'>
                         <input type='hidden' name='letras' value='<?php echo serialize($letras)?>'>
+                        <input type='hidden' name='ints' value='<?php echo $intentos?>'>
                         <input type='submit' value='GoGoGo' name='go'>
                     </form>
                     </fieldset>
@@ -99,6 +104,8 @@
                     ?>
                     </table>
                     <?php
+                    echo '<img src="images/',$intentos,'.png">';
+
                 }
 
                 //si se ha introducido algo realizamos otras comprobaciones para realizar una accion u otra dependiendo de la accion del usuario
@@ -115,14 +122,10 @@
                         }
 
                         else {
-                            $i++;
+                            $intentos++;
                             array_push($fallos,$letra);
                         }
                     }
-
-                    print_r($aciertos);
-                    echo '<br>';
-                    print_r($fallos);
                     ?>
                     
                     <!-- el formulario que siempre se enseña para poder seguir metiendo datos-->
@@ -132,6 +135,8 @@
                     <input type='hidden' name='fallos' value='<?php echo serialize($fallos)?>'>
                     <input type='hidden' name='aciertos' value='<?php echo serialize($aciertos)?>'>
                     <input type='hidden' name='letras' value='<?php echo serialize($letras)?>'>
+                    <input type='hidden' name='ints' value='<?php echo $intentos?>'>
+
 
                     <input type='submit' value='GoGoGo' name='go'>
                     </form>
@@ -156,8 +161,11 @@
                     
                     ?>
                     </table>
-                    <?php
 
+                    <img src="">
+                    
+                    <?php
+                    echo '<img src="images/',$intentos,'.png">';
                 }
             }
         ?>
