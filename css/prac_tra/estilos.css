@@ -6,6 +6,7 @@
 
 body{
     background-image: linear-gradient(orange, darkred);
+    
 }
 
 header{
@@ -17,14 +18,51 @@ header{
 main{
     height: 70vh;
     width: 100vw;
+    text-align: center;
+
 }
 
 footer{
     height: 15vh;
+    text-align: center;
+    color: darkorange;
+    font-size: 1.5vw;
+
 }
 
-div{
+.prin{
     display: inline-block;
-    height:70vh;
-    width: 33vw;
+    height:60vh;
+    width: 30vw;
+    border: 4px solid whitesmoke;
+    margin: 0.5vw;
+    border-radius: 10px;
+}
+
+.prin:hover{
+    background-color: indigo;
+    transition: background-color 1000ms;
+}
+
+.ico{
+    text-align: center;
+    
+}
+
+
+
+.text{
+    text-align: center;
+
+}
+
+.center{
+    text-align: center;
+    font-size: 15vw;
+    color: whitesmoke;
+}
+
+.center:hover{
+    color: darkorange;
+    transition: color 1000ms;
 }
