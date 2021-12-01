@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <form action="#" method="post">
+            <input type="text" name="a">
+            <input type="submit" value="go">
+        </form>
         <?php
-            $a=01234;
-            echo $a;       
+            if ($_POST['a']=='ñ') {
+                echo 'hola';
+            }
         ?>
     </body>
 </html>

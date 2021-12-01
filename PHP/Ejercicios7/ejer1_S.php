@@ -37,18 +37,15 @@
 
                 else {
                     if ($_POST['num']>0) {
-
                         $num=$_POST['num'];
                 
-                        if (!isset($_SESSION['total'])) {
+                        if (!isset($_SESSION['total'])&&!isset($_SESSION['count'])) {
                             $_SESSION['total']=0;
                             $_SESSION['count']=0;
                         }
 
-                        else {
-                            $_SESSION['total']+=$num;
-                            $_SESSION['count']++;
-                        }
+                        $_SESSION['total']+=$num;
+                        $_SESSION['count']++;
 
                         ?>
                         <fieldset>
@@ -61,6 +58,7 @@
                     }
 
                     else {
+
                         echo $_SESSION['total']/$_SESSION['count'];
                         session_unset();
                         session_destroy();
