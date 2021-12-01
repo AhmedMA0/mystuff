@@ -38,9 +38,105 @@ p{
 }
 
 img{
-    width: 40vw;
+    width: 50vw;
+    border:0.3vw solid darkslategray;
 }
 
+.borde{
+    border: 0.15vw solid gainsboro;
+    border-radius: 10px;
+    width: 75vw;
+    margin: auto;
+    padding:0.5vw;
+}
 
+h3{
+    background-color: gainsboro;
+    color: darkslategray;
+    text-align: left;
+    font-family: 'Fredoka One', cursive;
+    padding-left: 20px;
+    font-size: 1.5vw;
+    height: 4.5vh;
+    margin: auto;
+}
+.verde{
+    background-color: seagreen;
+    margin: auto;
+    color: gainsboro;
+}
 
+.verde>p{
+    margin: auto;
+    padding:2vw 8vw;
+    text-align: justify;
+    font-family: 'Domine', serif;
+    font-size: 1vw;
+    line-height: 4.5vh;
+}
+
+em{
+    font-size: 2vw;
+    font-style: normal;
+    color: #553409;
+}
+
+a{
+    color: yellowgreen;
+    text-decoration: none;
+}
+
+a:visited{
+    color: #455a1b;
+}
+
+a:hover{
+    font-size: 1.2vw;
+    color:#d8bc98;
+    text-shadow: 0px 0px 4px #e2850c;
+}
+
+.lista{
+    background-color: darkslategray;
+    border: 0.4vw solid grey;
+    width: fit-content;
+    margin: auto;
+    width: 80%;
+    text-align: left;
+}
+
+ul{
+    width: fit-content;
+    margin: auto;
+    margin: 1vh 2vw;
+
+}
+
+li{
+    text-align: justify;
+    line-height: 4vh;
+    font-style: italic;
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.9vw;
+    font-weight: 100; /* No funciona D:*/
+}
+
+.lista:hover{
+    background-color: rgb(10, 39, 10);
+    color: lightgreen;
+    border: 0.4vw solid rgb(97, 172, 97);
+    
+}
+
+.ult{
+    border-top: 0.2vw solid gainsboro;
+    border-bottom: 0.2vw solid gainsboro;
+    margin: 1vw auto;
+    width: 75vw;
+    padding:1.5vw;
+    background-color: lightslategray;
+    font-size: 1vw;
+    font-family: 'Domine', serif;
+    font-weight: bold;
+}
 
