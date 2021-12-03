@@ -10,13 +10,16 @@ body{
 
 }
 
+
 .blanco{
     color: black;
     background-color: white;
-    text-align: center;
-    width: 80vw;
+    width: 85vw;
     margin: 3vh auto;
     border-radius: 20px;
+    padding: 0;
+    box-shadow: 0px 0px 20px #888888;
+
 }
 
 main{
@@ -26,20 +29,63 @@ main{
 }
 
 .entrantes{
-    margin-left: 2vw;
     line-height: 5vh;
+    margin-right: 2vw;
+    width: 25vw;
+    display: inline-block;
+}
+
+
+.pescados{
+    margin-right: 2vw;
+    line-height: 5vh;
+    width: 25vw;
+    display: inline-block;
+    margin-bottom: 2vw;
+}
+
+.mariscos{
+    line-height: 5vh;
+    width: 25vw;
+    display: inline-block;
+}
+
+.entrantes:hover,.pescados:hover,.mariscos:hover {
+    
+    box-shadow: 0px 0px 20px #888888;
+    transition: all 2000ms;
 }
 
 .plato{
     text-align: left;
-    padding-right: 5vw;
+    padding-left: 1vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9vw;
+}
+.precio{
+    text-align: right;
+    padding-right: 1vw;
 }
 
 h3{
     color: whitesmoke;
-    background-color: black;
+    background-image:url(bm2.png);
+    background-size: cover;
     width: fit-content;
-    padding: 10px;
-    margin: 1vw 5vw;
+    background-position: center;
+    background-position-x: 1.3vw;
+    padding:5px 80px;
+    margin: 2vw auto;
+}
 
+img{
+    margin: auto;
+    padding: 5vw;
+
+}
+
+table{
+    margin: auto;
+    width: 25vw;
 }

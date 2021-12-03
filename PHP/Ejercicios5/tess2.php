@@ -6,9 +6,13 @@
             <input type="submit" value="go">
         </form>
         <?php
-            if ($_POST['a']=='ñ') {
-                echo 'hola';
-            }
+            $a=[11, 2, 3];
+
+            $b=[15, 2, 3];
+
+            $c= array_intersect($a,$b);
+
+            print_r($c);
         ?>
     </body>
 </html>

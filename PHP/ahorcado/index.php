@@ -7,7 +7,6 @@
     <body>
         <h1>EL AHORCADO</h1>
         <?php
-            header('Content-Type: text/html; charset=UTF-8');
 
             $intentos=$_POST['ints'];
 
@@ -24,14 +23,13 @@
                 }
                 
                 
-                $palabras=[utf8_encode('ESPAÑA'),'TELEFONO','PANTALLA', 'AMERICA', 'POSTAL', 'JUGUETE'];
+                $palabras=['TELEFONO','PANTALLA', 'AMERICA', 'POSTAL', 'JUGUETE'];
                 $letras=unserialize($_POST['letras']);
                 $palabra=$_POST['palabra'];
 
                 if (empty($letras)) {
-                    echo 'ENTRA';
                     $numPalabra=rand(0,4);
-                    $letras=str_split(utf8_decode($palabras[$numPalabra]),1);
+                    $letras=str_split($palabras[$numPalabra],1);
                     $palabra=$palabras[$numPalabra];
                 }
 
@@ -79,7 +77,6 @@
 
                     //se intentan recibir los datos que el usuario ha intentado enviar
                     $letra=strtoupper($_POST['letra']);
-                    $letra=utf8_decode($letra); 
 
                     
                 
@@ -125,19 +122,19 @@
                     }
 
                     elseif (strlen($letra)>1&&$letra!='ñ'&&$letra!='Ñ') {
-                        echo 'hola1';
                         if ($letra==$palabra) {
                             
                             echo 'Enhorabuena, lo has clavado.';
                         }
 
                         else {
-                            echo '?????????';
+                            echo 'Buen intento, la plabara era: ',$palabra,' .';
+                            echo '<img src="images/6.png">';
+
                         }
                     }
                     //si se ha introducido algo realizamos otras comprobaciones para realizar una accion u otra dependiendo de la accion del usuario
                     else{
-                        echo 'hola2';
                         if (in_array($letra,$aciertos)||in_array($letra,$fallos)) {
                             echo '<h3>Intento ya introduciodo</h3>';
                         }
@@ -156,47 +153,64 @@
                                 array_push($fallos,$letra);
                             }
                         }
-                        ?>
-                        
-                        <!-- el formulario que siempre se enseña para poder seguir metiendo datos-->
-                        <fieldset>
-                        <form action='#' method='POST'>
-                        Adivina adivina: <input type='text' name='letra' pattern='[A-ZÑña-z]||[A-ZÑña-z]*' autofocus>
-                        <input type='hidden' name='fallos' value='<?php echo serialize($fallos)?>'>
-                        <input type='hidden' name='aciertos' value='<?php echo serialize($aciertos)?>'>
-                        <input type='hidden' name='letras' value='<?php echo serialize($letras)?>'>
-                        <input type='hidden' name='ints' value='<?php echo $intentos?>'>
-                        <input type='hidden' name='palabra' value='<?php echo $palabra?>'>
 
-
-                        <input type='submit' value='GoGoGo' name='go'>
-                        </form>
-                        </fieldset>
-
-                        <br>
-                        <br>
-                        <br>
-
-                        <!-- Aqui mostramos la agenda por pantalla en el caso de que haya datos en ella-->
-                        <table><tr>
-                        <?php
-                        
+                        $yasta=true;
                         foreach ($letras as $le) {
-                            if (in_array($le,$aciertos)) {
-                                echo '<td>',$le,'</td>';
+                            if (!in_array($le,$aciertos)) {
+                                $yasta=false;
                             }
-                            else {
-                                echo '<td>_</td>';
-                            }
+                            
                         }
-                        
-                        ?>
-                        </table>
 
-                        <img src="">
+                        if ($yasta==true) {
+                            echo 'Enhorabuena';
+                        }
+
+                        else {
+                            
                         
-                        <?php
-                        echo '<img src="images/',$intentos,'.png">';
+                            ?>
+                            
+                            <!-- el formulario que siempre se enseña para poder seguir metiendo datos-->
+                            <fieldset>
+                            <form action='#' method='POST'>
+                            Adivina adivina: <input type='text' name='letra' pattern='[A-ZÑña-z]||[A-ZÑña-z]*' autofocus>
+                            <input type='hidden' name='fallos' value='<?php echo serialize($fallos)?>'>
+                            <input type='hidden' name='aciertos' value='<?php echo serialize($aciertos)?>'>
+                            <input type='hidden' name='letras' value='<?php echo serialize($letras)?>'>
+                            <input type='hidden' name='ints' value='<?php echo $intentos?>'>
+                            <input type='hidden' name='palabra' value='<?php echo $palabra?>'>
+
+
+                            <input type='submit' value='GoGoGo' name='go'>
+                            </form>
+                            </fieldset>
+
+                            <br>
+                            <br>
+                            <br>
+
+                            <!-- Aqui mostramos la agenda por pantalla en el caso de que haya datos en ella-->
+                            <table><tr>
+                            <?php
+                            
+                            foreach ($letras as $le) {
+                                if (in_array($le,$aciertos)) {
+                                    echo '<td>',$le,'</td>';
+                                }
+                                else {
+                                    echo '<td>_</td>';
+                                }
+                            }
+                            
+                            ?>
+                            </table>
+
+                            <img src="">
+                            
+                            <?php
+                            echo '<img src="images/',$intentos,'.png">';
+                        }
                     }
                 }
             }
