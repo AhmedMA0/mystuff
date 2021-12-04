@@ -4,6 +4,16 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: alergenos;
+    src: url(alergenos.ttf);
+}
+
+.aler{
+    font-family: alergenos;
+    font-size: 4vw;
+}
+
 body{
     background-color: whitesmoke;
     font-family: 'Outfit', sans-serif;
