@@ -11,13 +11,13 @@
 
 .aler{
     font-family: alergenos;
-    font-size: 4vw;
+    font-size: 2vw;
+    font-weight: 600;
 }
 
 body{
     background-color: whitesmoke;
     font-family: 'Outfit', sans-serif;
-
 }
 
 
@@ -29,7 +29,6 @@ body{
     border-radius: 20px;
     padding: 0;
     box-shadow: 0px 0px 20px #888888;
-
 }
 
 main{
@@ -42,7 +41,11 @@ main{
     line-height: 5vh;
     margin-right: 2vw;
     width: 25vw;
-    display: inline-block;
+    float: left;
+    margin-left: 2.7vw;
+    box-shadow: 0px 0px 20px whitesmoke;
+    background-color: white;
+
 }
 
 
@@ -50,17 +53,57 @@ main{
     margin-right: 2vw;
     line-height: 5vh;
     width: 25vw;
-    display: inline-block;
     margin-bottom: 2vw;
+    float: left;
+    box-shadow: 0px 0px 20px whitesmoke;
+    background-color: white;
+
 }
 
 .mariscos{
     line-height: 5vh;
     width: 25vw;
-    display: inline-block;
+    float: left;
+    box-shadow: 0px 0px 20px whitesmoke;
+    margin-bottom: 4vh;
+    background-color: white;
+
 }
 
-.entrantes:hover,.pescados:hover,.mariscos:hover {
+.pulpos{
+    line-height: 5vh;
+    width: 25vw;
+    float: left;
+    margin-bottom: 4vh;
+    box-shadow: 0px 0px 20px whitesmoke;
+    background-color: white;
+
+}
+
+.carnes{
+    line-height: 5vh;
+    width: 25vw;
+    float: left;
+    clear: left;
+    position: absolute;
+    transform: translateY(139vh);
+    margin-left: 2.7vw;
+    box-shadow: 0px 0px 20px whitesmoke;
+    background-color: white;
+
+}
+
+.postres{
+    line-height: 5vh;
+    width: 25vw;
+    float: left;
+    margin-bottom: 4vh;
+    box-shadow: 0px 0px 20px whitesmoke;
+    background-color: white;
+
+}
+
+.entrantes:hover,.pescados:hover,.mariscos:hover,.pulpos:hover,.carnes:hover,.postres:hover {
     
     box-shadow: 0px 0px 20px #888888;
     transition: all 2000ms;
@@ -91,11 +134,24 @@ h3{
 
 img{
     margin: auto;
-    padding: 5vw;
-
+    padding-bottom: 10vh;
+    width: 15vw;
 }
+
+.imagen{
+    text-align: center;
+    height: 33vh;
+    width: 30vw;
+    margin: auto;
+}
+
+
 
 table{
     margin: auto;
     width: 25vw;
+}
+
+.empty{
+    clear: both;
 }
