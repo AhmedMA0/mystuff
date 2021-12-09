@@ -171,5 +171,24 @@ table{
 
 .empty{
     clear: both;
+    
 }
 
+.taler{
+    width: 100%;
+    float: left;
+    clear: both;
+    margin: 2vh;
+
+}
+
+.taler table td{
+    width: 5vw;
+}
+
+.linea{
+    border-top: 2px solid black;
+    float: left;
+    clear: both;
+    width: 100%;
+}

@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.titular{
+    background-color: orange;
+    text-align: center;
+    height: 10vh;
+}
