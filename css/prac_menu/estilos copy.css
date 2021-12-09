@@ -37,26 +37,18 @@ main{
     text-align: center;
 }
 
-.uno{
+.entrantes{
     line-height: 5vh;
     margin-right: 2vw;
     width: 25vw;
     float: left;
     margin-left: 2.7vw;
-}
-
-.entrantes{
     box-shadow: 0px 0px 20px whitesmoke;
     background-color: white;
-    padding-top: 2vh;
-    margin-bottom: 2vw;
-    transition: all 1000ms;
-    padding-bottom: 4vh;
+
 }
 
-.entrantes h3{
-    margin-top: 2vh;
-}
+
 .pescados{
     margin-right: 2vw;
     line-height: 5vh;
@@ -65,8 +57,6 @@ main{
     float: left;
     box-shadow: 0px 0px 20px whitesmoke;
     background-color: white;
-    transition: all 1000ms;
-    padding-bottom: 2vh;
 
 }
 
@@ -77,8 +67,6 @@ main{
     box-shadow: 0px 0px 20px whitesmoke;
     margin-bottom: 4vh;
     background-color: white;
-    transition: all 1000ms;
-    padding-bottom: 2vh;
 
 }
 
@@ -89,9 +77,6 @@ main{
     margin-bottom: 4vh;
     box-shadow: 0px 0px 20px whitesmoke;
     background-color: white;
-    transition: all 1000ms;
-    padding-bottom: 2vh;
-    margin-top: 3.5vh;
 
 }
 
@@ -99,11 +84,12 @@ main{
     line-height: 5vh;
     width: 25vw;
     float: left;
+    clear: left;
+    position: absolute;
+    transform: translateY(139vh);
+    margin-left: 2.7vw;
     box-shadow: 0px 0px 20px whitesmoke;
     background-color: white;
-    transition: all 1000ms;
-    padding-bottom: 2vh;
-    margin-top: 3.5vh;
 
 }
 
@@ -114,9 +100,7 @@ main{
     margin-bottom: 4vh;
     box-shadow: 0px 0px 20px whitesmoke;
     background-color: white;
-    transition: all 1000ms;
-    padding-bottom: 6vh;
-    margin-top: 5vh;
+
 }
 
 .entrantes:hover,.pescados:hover,.mariscos:hover,.pulpos:hover,.carnes:hover,.postres:hover {
@@ -130,9 +114,8 @@ main{
     padding-left: 1vw;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 0.78vw;
+    font-size: 0.9vw;
 }
-
 .precio{
     text-align: right;
     padding-right: 1vw;
@@ -172,4 +155,3 @@ table{
 .empty{
     clear: both;
 }
-
