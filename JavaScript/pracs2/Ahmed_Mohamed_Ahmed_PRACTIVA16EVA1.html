@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>  
+    <script>
+        function Punto(x, y) {
+            
+            if (isNaN(x)) this.x=0;
+            else this.x = x;
+            
+            
+            if (isNaN(y)) this.y=0;
+            else this.y = y;
+
+            this.cambiar = function (x, y) {
+                this.x = x;
+                this.y = y;
+            }
+
+            this.copia = function (punto) {
+                let a = this.constructor.name + 'Copy';
+                let [a] = new Punto([a].x, [a].y);
+            }
+
+            
+        }
+    </script>
+</body>
+</html>
