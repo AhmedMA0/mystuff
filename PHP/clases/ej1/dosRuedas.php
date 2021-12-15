@@ -1,5 +1,5 @@
 <?php
-    class DosRuedas extends Vehiculo{
+    class DosRuedas extends Empleado{
         private $cilindrada;
         
         public function ponerGasolina($litros){

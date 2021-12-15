@@ -1,5 +1,5 @@
 <?php
-    class CuatroRuedas extends Vehiculo{
+    class CuatroRuedas extends Empleado{
         private $numPuertas;
         
         public function __construct($numPuertas, $color, $peso) {
