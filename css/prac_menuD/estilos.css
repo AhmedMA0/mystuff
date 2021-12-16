@@ -1,0 +1,72 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+nav{
+    background-color: crimson;
+    height: 70px;
+}
+
+.a0{  
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 22.5px 0;
+    border: 1px solid black;
+}
+
+a:not(.a0){
+    color: white;
+    text-decoration: none;
+
+}
+
+li{
+    display: block;
+    width: 150px;
+    height: 70px;
+    border: 1px solid black;
+}
+
+
+
+.l0{
+    float: left;
+    position: relative;
+    margin-right: 2vw;
+    border: 1px solid black;
+    height: 70px;
+}
+
+.n0{
+    background-color: red;
+    position: relative;
+}
+
+.n1{
+    background-color: darkred;
+    position: relative;
+}
+
+.n1 li{
+    position: relative;
+}
+
+
+.n2{
+    background-color: grey;
+    position:relative;
+    left:150px;
+}
+
+.n2 li{
+    position: relative;
+}
+
+.n3{
+    background-color: yellowgreen;
+    position:relative;
+    left:150px;
+}
+
