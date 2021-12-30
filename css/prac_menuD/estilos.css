@@ -61,7 +61,7 @@ li:hover{
 .n1{
     position: relative;
     display: none;
-    top: 17px;
+    top: 16px;
 }
 
 .n1 li{
@@ -73,7 +73,7 @@ li:hover{
     position:relative;
     left:150px;
     display: none;
-    bottom: 33px;
+    bottom: 34px;
 }
 
 .n2 li{
@@ -84,7 +84,7 @@ li:hover{
     position:relative;
     left:150px;
     display: none;
-    bottom: 33px;
+    bottom: 34px;
 
 }
 
@@ -121,6 +121,7 @@ h1{
     font-size: 6vw;
     margin-top: 25vh;
     margin-bottom: 5vh;
+    font-family: 'Calistoga', cursive;
 }
 
 p{

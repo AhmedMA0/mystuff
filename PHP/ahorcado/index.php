@@ -10,7 +10,11 @@
 
             $intentos=$_POST['ints'];
 
-            if ($intentos<5) {
+            if (!isset($intentos)) {
+                $intentos=0;
+            }
+
+            if ($intentos<6) {
             
                 if (!empty($_POST['aciertos'])&&!empty($_POST['fallos'])) {
                     $fallos=unserialize($_POST['fallos']);
@@ -33,11 +37,9 @@
                     $palabra=$palabras[$numPalabra];
                 }
 
-                echo $palabra;
-                print_r($letras);
+
                 //si el usuario aun no ha intentado enviar datos le mostramos el formulario 
                 if (empty($_POST['go'])){
-                    $intentos=0;    
                     ?>
                     <fieldset>
                     <form action='#' method='POST'>
@@ -146,9 +148,6 @@
                             }
 
                             else {
-                                if (!isset($intentos)) {
-                                    $intentos=0;
-                                }
                                 $intentos++;
                                 array_push($fallos,$letra);
                             }
@@ -210,6 +209,9 @@
                             
                             <?php
                             echo '<img src="images/',$intentos,'.png">';
+
+                            echo $intentos;
+
                         }
                     }
                 }
@@ -217,7 +219,6 @@
 
             else {
                 
-                $intentos++;
                 echo 'Intentos agotados';
                 ?>
                 <table><tr>
@@ -235,7 +236,10 @@
                 ?>
                 </table>
                 <?php
-                echo '<img src="images/',$intentos,'.png">';
+
+                echo '<img src="images/',$intentos,'.png"> <br>';
+
+
             }
         ?>
     </body>
