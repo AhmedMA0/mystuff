@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        html, body, div{
+            height: 100%;width: 100%;
+        }
+
+        table{
+            height: 99%;
+            width: 99%;
+            border: 1px solid black;
+        }
+
+        td{
+            border: 1px solid black;
+
+        }
+        
+        .mina{
+            background-color: red;
+        }
+    </style>
+    <script>
+        function buscaMinas(mins, ancho, alto) {
+            this.mins = mins;
+            this.ancho = ancho;
+            this.alto = alto;
+
+            this.dibujaTablero = function () {
+
+                let tablero=[];
+
+                for (let i = 0; i < this.alto; i++) {
+                        tablero[i]=[]
+                    for (let j = 0; j < this.ancho; j++) {
+                        tablero[i][j]=0;
+                    }
+                }
+
+                return tablero;
+            }
+
+            this.insertaMinas = function (tablero) {
+                let x;
+                let y;
+
+                let valid;
+                
+                for (let i = 0; i < this.mins; i++) {
+
+                    valid = false;
+
+                    while (valid==false) {
+
+                        x=Math.round(Math.random()*(this.ancho-1));
+                        y=Math.round(Math.random()*(this.alto-1));
+
+                        if (tablero[y][x] == false) {
+                            valid = true;
+                        }
+                    }
+
+                    tablero[y][x] = 'mina';
+                }
+
+                return tablero;
+            }
+
+            this.nMinasPos = function (tablero, y, x) {
+
+                for (let i = Math.max(0,y-1); i < Math.min(this.alto,y+2); i++) {
+                    for (let j = Math.max(0,x-1); j < Math.min(this.ancho,x+2); j++) {
+
+                        if (tablero[i][j]=='mina') {
+                            console.log(i, j);        
+                        }
+                    }
+                }
+            }
+
+            this.minasCerca = function (tablero) {
+                
+                let x,y;
+
+                for (let a = 0; a < this.alto; a++) {
+                    for (let s = 0; s < this.ancho; s++) {
+                        let count = 0;
+                        y=a;
+                        x=s;
+
+                        for (let i = Math.max(0,y-1); i < Math.min(this.alto,y+2); i++) {
+                            for (let j = Math.max(0,x-1); j < Math.min(this.ancho,x+2); j++) {
+
+                                if (tablero[i][j]=='mina') {
+                                    count++;
+                                }
+                            }
+                        }
+                        if (tablero[a][s]==false) {
+                            tablero[a][s]=count;
+                        }
+                    }
+                }
+
+                return tablero;
+            }
+
+            this.mostrar = function (tablero) {
+
+                document.write('<div>');
+
+                document.write('<table>');
+
+                for (let i = 0; i <this.alto ; i++) {
+                    document.write('<tr>');
+
+                    for (let j = 0; j <this.ancho; j++) {
+                        if (tablero[i][j]=='mina') {
+                            document.write('<td class="mina">');
+                        }
+
+                        else if(tablero[i][j] == 0){
+                            document.write('<td>');
+                        }
+
+                        else{
+                            document.write('<td>' + tablero[i][j]);
+                        }
+
+                        document.write('</td>');
+                    }
+
+                    document.write('</tr>');
+                }
+
+                document.write('</table>');
+                document.write('</div>');
+
+            }
+        }
+
+        let bm1= new buscaMinas(6,5,5);
+
+        let t1 = bm1.dibujaTablero();
+
+        t1 = bm1.insertaMinas(t1);
+
+        t1 = bm1.minasCerca(t1);
+
+        bm1.mostrar(t1);
+        
+        console.log(bm1.nMinasPos(t1,1,2));
+
+    </script>
+</body>
+</html>
