@@ -144,7 +144,74 @@
             }
         }
 
-        let bm1= new buscaMinas(6,5,5);
+        let anchox, altoy, nminas;
+        let valid2 = false;
+
+        while (valid2==false) {
+            anchox = prompt('Ancho: ');
+
+            if (anchox==null) {
+                    alert('Eleccion cancelada.');
+                    anchox=2;
+                    break;
+                }
+
+            if (anchox==0) {
+                alert('0 introducido, eleccion cancelada.');
+                anchox=2;
+                break;
+            }
+
+            if (anchox.match(/^[1-9]$|^1[0-9]$|^20$/)) {
+                valid2=true;
+            }
+        }
+
+        valid2 = false;
+
+        while (valid2==false) {
+            altoy = prompt('Alto: ');
+
+            if (altoy==null) {
+                    alert('Eleccion cancelada.');
+                    altoy=2;
+                    break;
+                }
+
+            if (altoy==0) {
+                alert('0 introducido, eleccion cancelada.');
+                altoy=2;
+                break;
+            }
+
+            if (altoy.match(/^[1-9]$|^1[0-9]$|^20$/)) {
+                valid2=true;
+            }
+        }
+
+        valid2 = false;
+
+        while (valid2==false) {
+            nminas = prompt('Minas: ');
+
+            if (nminas==null) {
+                    alert('Eleccion cancelada.');
+                    nminas=2;
+                    break;
+            }
+
+            if (nminas==0) {
+                alert('0 introducido, eleccion cancelada.');
+                nminas=2;
+                break;
+            }
+
+            if (nminas < anchox*altoy) {
+                valid2=true;
+            }
+        }
+
+        let bm1= new buscaMinas(nminas, anchox, altoy);
 
         let t1 = bm1.dibujaTablero();
 
