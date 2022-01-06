@@ -27,14 +27,19 @@
     </style>
     <script>
         function buscaMinas(mins, ancho, alto) {
+
+            //las 3 variables que definen el tablero y el numero de minas
             this.mins = mins;
             this.ancho = ancho;
             this.alto = alto;
 
+            //la primera funcion que se encarga de crear el tablero
             this.dibujaTablero = function () {
 
+                //declaramos el array con atelacion para poder usarlo mas adelante(si no da error)
                 let tablero=[];
 
+                //creamos la matriz usando la altura y la anchura dadas
                 for (let i = 0; i < this.alto; i++) {
                         tablero[i]=[]
                     for (let j = 0; j < this.ancho; j++) {
@@ -42,24 +47,32 @@
                     }
                 }
 
+                //la funcion devuelve el tablero para poder usarlo mas adelante en el resto de funciones
                 return tablero;
             }
-
+            //funcion que se encarga de insertar las minas en el tablero ya creado asegurandose de que no se repita la posición
             this.insertaMinas = function (tablero) {
-                let x;
-                let y;
 
+                //declaramos estas variables para las posiciones igual que declaramos antes el tablero, para poder usarlas mas adelante
+                let x,y;
+
+                //igual que arriba
                 let valid;
                 
+                //este bucle for realiza la tarea de meter las minas en el tablero segun el numero de minas que hayamos aclarado
                 for (let i = 0; i < this.mins; i++) {
 
+                    //variable que usaremos para verificar que la mina no existe ya
                     valid = false;
 
+                    //solo entramos en el bucle si la variable es false y la variable pasara a true al realizar las comprobaciones y asi romper el bucle
                     while (valid==false) {
 
+                        //generamos las posiciones aleatoriamente
                         x=Math.round(Math.random()*(this.ancho-1));
                         y=Math.round(Math.random()*(this.alto-1));
 
+                        //si la mina no existe ya valid pasa a valer true por lo que se sale del bucle y se añade la mina al tablero
                         if (tablero[y][x] == false) {
                             valid = true;
                         }
@@ -68,11 +81,16 @@
                     tablero[y][x] = 'mina';
                 }
 
+                //la funcion devuelve el tablero para poder usarlo mas adelante en el resto de funciones
                 return tablero;
             }
 
+            //funcion que se encarga de decir las minas que hay alrededor de UNA posicion en concreto
             this.nMinasPos = function (tablero, y, x) {
 
+                //como tenemos que recorrer el 3x3 alrededor de la posicion que nos interesa empezamos por 
+                //la posicion de justo arriba a la izquierda hasta justo la de abajo a la derecha
+                //el uso de las funciones Math.min y max es por si la posicion inicial esta cerca de los bordes y no podemos recorrer un 3x3
                 for (let i = Math.max(0,y-1); i < Math.min(this.alto,y+2); i++) {
                     for (let j = Math.max(0,x-1); j < Math.min(this.ancho,x+2); j++) {
 
@@ -83,16 +101,27 @@
                 }
             }
 
+            //funcion que recorre el tablero contando las minas que hay alrededor de cada posicion y poniendolas en el tablero
             this.minasCerca = function (tablero) {
-                
+                                
+                //declaramos estas variables para las posiciones igual que declaramos antes el tablero, para poder usarlas mas adelante
                 let x,y;
 
+                //este for se encarga de recorrer el tablero al completo posicion a posicion
                 for (let a = 0; a < this.alto; a++) {
                     for (let s = 0; s < this.ancho; s++) {
+                        
+                        //la variable que se encarga de guardar la cantidad de minas contadas
                         let count = 0;
+
+                        //los indices de los bucles for de arriba (a Y s) contienen la posicion desde la que vamos a contar
+                        //por lo que por cada iteración del bucle lo igualamos a x E y 
                         y=a;
                         x=s;
 
+                        //como tenemos que recorrer el 3x3 alrededor de la posicion que nos interesa empezamos por 
+                        //la posicion de justo arriba a la izquierda hasta justo la de abajo a la derecha
+                        //el uso de las funciones Math.min y max es por si la posicion inicial esta cerca de los bordes y no podemos recorrer un 3x3
                         for (let i = Math.max(0,y-1); i < Math.min(this.alto,y+2); i++) {
                             for (let j = Math.max(0,x-1); j < Math.min(this.ancho,x+2); j++) {
 
@@ -101,15 +130,20 @@
                                 }
                             }
                         }
+
+                        //solo lo añadimos al tablero en el caso de que la posicion este vacia
                         if (tablero[a][s]==false) {
                             tablero[a][s]=count;
                         }
                     }
                 }
-
+                               
+                //la funcion devuelve el tablero para poder usarlo mas adelante en el resto de funciones
                 return tablero;
             }
 
+            //funcion que se encarga de imprimir por pantalla nuestro tablero/array
+            //simplemente recorre toda la matriz y va creando una tabla con sus celdas y filas correspondientes
             this.mostrar = function (tablero) {
 
                 document.write('<div>');
@@ -144,24 +178,29 @@
             }
         }
 
+        //declaramos estas variables para poder usarlas mas adelante
         let anchox, altoy, nminas;
         let valid2 = false;
 
+        //misma logica de validacion que antes
         while (valid2==false) {
             anchox = prompt('Ancho: ');
 
+            //si se cancela la entrada se avisa y por defecto se la da el valor de 2
             if (anchox==null) {
                     alert('Eleccion cancelada.');
                     anchox=2;
                     break;
-                }
+            }
 
+            //si se introduce un 0, false, o se la de a continuar sin introducir datos, igual que arribas
             if (anchox==0) {
                 alert('0 introducido, eleccion cancelada.');
                 anchox=2;
                 break;
             }
 
+            //uso de una expresion regular para validar que el dato es un numero del 2 al 20
             if (anchox.match(/^[1-9]$|^1[0-9]$|^20$/)) {
                 valid2=true;
             }
@@ -169,6 +208,7 @@
 
         valid2 = false;
 
+        //igual que justo arriba
         while (valid2==false) {
             altoy = prompt('Alto: ');
 
@@ -191,6 +231,7 @@
 
         valid2 = false;
 
+        //igual que justo arriba
         while (valid2==false) {
             nminas = prompt('Minas: ');
 
@@ -211,6 +252,8 @@
             }
         }
 
+
+        //creacion del objeto con los dato introducidos por el usuario y llamada a las funciones
         let bm1= new buscaMinas(nminas, anchox, altoy);
 
         let t1 = bm1.dibujaTablero();
@@ -221,7 +264,7 @@
 
         bm1.mostrar(t1);
         
-        console.log(bm1.nMinasPos(t1,1,2));
+        bm1.nMinasPos(t1,1,2);
 
     </script>
 </body>

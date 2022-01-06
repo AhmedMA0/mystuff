@@ -8,8 +8,75 @@
 </head>
 <body>
     <script>
-        for (let i = 0; i < 1000; i++) {
-            console.log(parseInt(Math.random()*10000 + 1));
+        
+        function hola (tablero){
+
+                let columna,fila,maxX,maxY,i,x;
+                
+                for(let a =0;a<this.filas;a++){
+                    
+                    for(let b =0; b<this.columnas;b++){
+                        fila = a;
+                        columna = b;
+                        let contador=0;
+                        
+                        if(fila-1 < 0){
+                            i = 0;
+                        }else{
+                            i = fila-1;
+                        }
+                        
+                        if(columna-1 < 0){
+                            x = 0;
+                        }else{
+                            x = columna-1;
+                        }
+
+                        if(columna+1 == this.columnas){
+                            maxX = this.columnas;
+                        }else{
+                            maxX = columna+1;
+                        }
+
+                        if(fila+1 == this.filas){
+                            maxY = this.filas;
+                        }else{
+                            maxY = fila+1;
+                        }
+
+                        console.log("fila: "+fila);
+                        console.log("i: "+i);
+                        console.log("x: "+x);
+
+                        for(i;i<maxY;i++){
+
+                            for(x;x<maxX;x++){
+                                
+                                if(tablero[i][x] == "MINA"){
+                                    contador++;
+                                }
+                            
+                            }
+
+                            if(columna-1 <0){
+                                x= 0;
+                            }else{
+                                x= columna-1;
+                            }
+
+                        }
+                        
+                        if(tablero[a][b] == false){
+                            tablero[a][b] = contador;
+                        }
+
+                            
+                    }
+
+                    
+                    
+                }
+                    return tablero;
         }
     </script>
 </body>
