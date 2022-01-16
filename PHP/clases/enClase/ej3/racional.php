@@ -1,5 +1,5 @@
 <?php
-    class Factura{
+    class Racional{
 
         /**
          * @var
@@ -13,6 +13,8 @@
             $this->num = $num;
         }
 
-
+        public function __toString(){
+            return 'Número: ' . $this->num;
+        }
     }
 ?>
