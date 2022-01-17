@@ -9,24 +9,24 @@
         /**
          * @param $num
          */
-        public function __construct($algo = null, $algo2 = null){
-            
-            if ($algo == null) {
+        public function __construct($nume = null, $deno = null){
+
+            if ($nume == null) {
                 $this->num = '1/1';
             }
 
-            elseif (is_string($algo)) {
-                $this->num = $algo;
+            elseif (is_string($nume)) {
+                $this->num = $nume;
             }
-            
+
             else {
-                
-                if ($algo2 == null) {
-                    $this->num = $algo.'/1';
+
+                if ($deno == null) {
+                    $this->num = $nume.'/1';
                 }
 
                 else {
-                    $this->num = $algo.'/'.$algo2;
+                    $this->num = $nume.'/'.$deno;
                 }
             }
         }

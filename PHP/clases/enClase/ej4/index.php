@@ -1,7 +1,7 @@
 <?php
-    include_once 'racional.php';
+    include_once 'racionalCompleto.php';
 
-    $rac1 = new RacionalCompleto('8/5');
+    $rac1 = new RacionalCompleto(8,12);
 
     echo $rac1;
 ?>
