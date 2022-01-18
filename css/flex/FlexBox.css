@@ -1,0 +1,81 @@
+/*------------------------FLEXBOX---------------------------*/
+
+/*
+    FlexContainer, es un contenedor que tiene dentro de si, elementos flexibles.
+    Estos elementos se pueden agrupar por filas o columnas.
+    A su vez, una columna puede ser flexible de filas y viceversa.
+    Por defecto el contenido del contenedor de ajusta automaticamente al contenedor.
+    FlexBox es responsivo de forma nativa.
+    
+    -----------------EJEPRINCIPAL-----------------------------
+    Es el eje que hay entre los elementos que estan agrupados
+    
+            A<----->A<->A<----------------->A   
+
+    -----------------EJECRUZADO-------------------------------
+    Es el eje que no interviene entre elementos
+
+                                        ^
+                                        l
+        A       A       A       A       l
+                                        l
+                                        V
+*/
+
+
+/*HAY TRECE PROPIEDADES DIFERENTES, A SU VEZ HAY ALGUNAS CON DIFERENTES PROPIEDADES A EXPLICAR.*/
+/*
+
+PROPIEDADES DE CONTENEDORES FLEXIBLES
+
+DISPLAY: FLEX;  -> HACE FLEXIBLE EL ELEMENTO Y TAMBIEN LOS ELEMENTOS HIJOS.
+FLEX-DIRECTION: (ROW|COLUMN) -> DECIDE SI ES UN CONTENEDOR HORIZONTAL O VERTICAL.
+FLEX-WRAP: (WRAP|NOWRAP) -> VA METIENDO EN EL CONTENEDOR TODO LO QUE VAYA CABIENDO.
+FLEX-FLOW: (FLEX-DIRECTION) (FLEX-WRAP) -> ABREVIACION DE LAS DOS PROPIEDADES ANTERIORES.
+JUSTIFY-CONTENT: (FLEX-START|FLEX-END|CENTER|SPACE-BETWEEN|SPACE-AROUND|SPACE-EVENLY) -> ALINEAMOS LOS ELEMENTOS EN SU EJE PRINCIPAL
+ALING-ITEMS: (FLEX-START|FLEX-END|CENTER|STRECHT)-> ALINEAMIENTO SOBRE EL EJE CRUZADO
+ALING-CONTENT: (FLEX-START|FLEX-END|CENTER|SPACE-EVENLY|SPACE-AROUND|SPACE-BETWEEN); -> ESPACIADO SOBRANDE EJE CRUZADO
+
+
+PROPIEDADES DE ELEMENTOS FLEXIBLES
+
+ORDER: (numero de orden); -> ORDENAMOS POR ORDEN ASCENDENTE ES DECIR 1 VA PRIMERO Y 89 VA DESPUES U OTROS NUMEROS
+FLEX-GROW:(NUMERO X) ; -> REDIMENSIONAMOS EL ELEMENTO CONCRETO O ENSANCHAMOS, ESTE NUMERO PUEDE TENER DECIMALES(FACTOR DE CRECIMIENTO CON RESPECTO A LOS OTROS ELEMENTOS QUE TAMBIEN CRECEN)
+FLEX-SHRINK: (NUMERO X) ; -> SI SE REDUCE EL ESPACIO DISPONIBLE, SE REDUCE EN ESCALA EL QUE MAYOR NUMERO TENGA.
+FLEX-BASIS: ((NUMERO X)|CONTENT|AUTO); -> NOS INDICA LAS DIMENSIONES QUE INTENTARÁ ALCANZAR EL ELEMENTO SOBRE SU EJE PRINCIPAL.ESTO CONVIVE CON WIDTH SI ENTRAN EN CONFLICTO SE HACE CASO A FLEX-BASIC.
+ALING-SELF: (FLEX-START|...);-> 
+FLEX: (FLEX-GROW(OBLIGATORIA)|FLEX-SHRINK|FLEX-BASIS)-> ABREVIACION.
+
+
+
+*/
+/*--------------------------------------------EJEMPLO PRUEBA----------------------------------------------------*/
+*{
+        border: 0;
+        margin: 0;
+        box-sizing: border-box;
+}
+
+.contenedor{
+        margin: 30px;
+        height: 800px;
+        width: 800px;
+        background-color: blanchedalmond;
+        border: 5px solid blue;
+        display: flex;
+        /*flex-direction: column-reverse;
+        flex-wrap: wrap-reverse;*/
+        flex-flow: row nowrap;/*PROPIEDAD ABREVIADAD DE LAS DOS ANTERIORES*/
+        justify-content: space-between;
+        align-items: center;
+        align-content: space-between;
+}
+
+.caja{
+        padding:10px;
+        margin: 10px;
+        background-color: cornsilk;
+        border: 2px solid black;
+        flex-basis: content;
+        align-self: flex-start;
+}

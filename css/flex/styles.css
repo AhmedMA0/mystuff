@@ -1,0 +1,56 @@
+*{
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    margin: auto;
+    width: fit-content;
+}
+
+.contenedor{
+    height: 800px;
+    width: 800px;
+    background-color: blanchedalmond;
+    border: 5px solid blue;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    margin: auto;
+}
+
+.caja{
+    padding:10px;
+    margin: 10px;
+    background-color: cornsilk;
+    border: 2px solid black;
+    flex-basis: content;
+}
+
+.cont{
+    display: flex;
+    width: 100%;
+}
+.co1{
+    justify-content: space-evenly;
+}
+.co2{
+    justify-content: space-between;
+}
+.co3{
+    justify-content: center;
+    height: 20vh;
+}
+
+.c2{
+    order: 3;
+}
+
+.c6{
+    order: 8;
+}
+
+.co3 .caja{
+    align-items: stretch;
+}
