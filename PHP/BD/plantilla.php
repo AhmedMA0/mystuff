@@ -7,11 +7,30 @@
 </head>
 
 <body>
+	<?php 		
+		error_reporting(E_ALL);
+		ini_set('display_errors', '1');
 
+		$conexion = new mysqli('localhost', 'ahmed', '123456.A', 'dwes');
+	?>
 <div id="encabezado">
 	<h1>Ejercicio: 11</h1>
-	<form id="form_seleccion" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-		<input type="text" name="prod" autofocus></input>
+	<form id="formM" action="#" method="post">
+		<?php 
+			$res = $conexion->query("select nombre_corto from producto");
+
+			$name = $res->fetch_object();
+
+			echo '<select name="prod">';
+
+			while ($name != null) {
+				echo '<option value="'.$name->nombre_corto.'">'.$name->nombre_corto .'</option>';
+					
+				$name = $res->fetch_object();
+			}
+
+			echo '</select>';
+		?>
 		<input type='submit' value='Registrar' name='go'>
 	</form>
 </div>
@@ -19,15 +38,25 @@
 <div id="contenido">
 	<h2>Contenido</h2>
 	<?php 	
-		$conexion = new mysqli('localhost', 'ahmed', '123456.A', 'dwes');
 
-		$resultado = $conexion->query('select * from stock where producto = (select cod from producto where nombre = '. $_POST['prod']. ');');
+		$resultado = $conexion->query("select * from stock where producto = (select cod from producto where nombre_corto = '".$_POST['prod']."');");
+		
 		$stock = $resultado->fetch_object();
+
 		while ($stock != null) {
-		print '<p>Producto $stock->producto: $stock->unidades unidades.</p>';
-			
-		$stock = $resultado->fetch_object();
+
+			$tienda = $conexion->query("select nombre from tienda where cod = '". $stock->tienda."';");
+
+			$ti = $tienda->fetch_object();
+
+			echo 'Tienda: ' . $ti->nombre . '<br>';
+
+			echo 'Producto: ' . $stock->producto.': '. $stock->unidades . ' unidades. <br>';
+				
+			$stock = $resultado->fetch_object();
 		}
+
+		$conexion->close();
 	?>
 </div>
 
