@@ -1,0 +1,136 @@
+*{
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: honeydew;
+    color: whitesmoke;
+}
+
+.contenedor{
+    width: 70%;
+    background-color: grey;
+    border: 5px solid darkslategrey;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin:10vh auto;
+    padding: 30px;
+}
+
+.dados{
+    display: flex;  
+    flex-flow: row wrap;
+    width: fit-content;
+    justify-content:center;
+
+}
+
+hr{
+    justify-content: center;
+    width: 75%;
+    background-color: whitesmoke;
+    height: 4px;
+    border-radius: 2px;
+    font-weight: 100;
+    margin-bottom: 10vh;
+}
+
+h1{
+    margin: auto;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 4vw;
+    font-family: 'Literata', serif;
+}
+
+.dado{
+    flex-flow: column wrap;
+    display: flex;
+    padding:15px;
+    margin: 10px;
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+}
+
+.d1{
+    background-color: maroon;
+    justify-content: center;
+    align-items: center;
+}
+
+.d2{
+    background-color: chocolate;
+    justify-content: space-between;
+}
+
+.d3{
+    background-color: darkorange;
+    justify-content: space-between;
+}
+
+.d4{
+    background-color: darkgreen;
+    justify-content: space-between;
+
+}
+
+.d5{
+    background-color: navy;
+    justify-content: space-between;
+
+}
+
+.d6{
+    background-color: indigo;
+    justify-content: space-between;
+}
+
+.punto{
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.d2 .p1{
+    align-self: flex-end;  
+}
+
+.d3 .p1{
+    align-self: flex-end;
+}
+
+.d3 .p2{
+    align-self: center;
+}
+
+.mitad{
+    display: flex;
+    justify-content: space-between;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.r2{
+    justify-content: center;
+}
+
+.d4 .mitad .p2{
+    align-self: flex-end;
+}
+
+.rows{
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+}
