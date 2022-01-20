@@ -1,12 +1,3 @@
-<?php
-    if (!isset($_SESSION['on'])) {
-        session_start();
-        $_SESSION['on']=true;
-    }
-
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
-?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -15,6 +6,9 @@
     </head>
     <body>
         <?php
+            error_reporting(E_ALL);
+            ini_set('display_errors', '1');
+
             if (empty($_POST['go'])){
                 ?>
                 <fieldset>
@@ -41,14 +35,14 @@
                 else {
                     if ($_POST['num']>0) {
                         $num=$_POST['num'];
-                
-                        if (!isset($_SESSION['total'])&&!isset($_SESSION['count'])) {
-                            $_SESSION['total']=0;
-                            $_SESSION['count']=0;
+
+                        if (!isset($_COOKIE['total'])&&!isset($_COOKIE['count'])) {
+                            setcookie('count',0,time() + 7*24*60*60);
+                            setcookie('total',10,time() + 7*24*60*60);
                         }
 
-                        $_SESSION['total']+=$num;
-                        $_SESSION['count']++;
+                        $_COOKIE['total']+=$num;
+                        $_COOKIE['total']++;
 
                         ?>
                         <fieldset>
@@ -62,9 +56,9 @@
 
                     else {
 
-                        echo $_SESSION['total']/$_SESSION['count'];
-                        session_unset();
-                        session_destroy();
+                        echo $_COOKIE['total']/$_COOKIE['count'];
+                        setcookie('total',0,time() - 3600);
+                        setcookie('count',0,time() - 3600);
                     }
                 }
             }

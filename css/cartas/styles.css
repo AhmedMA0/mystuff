@@ -88,6 +88,11 @@ h1{
 .c3{
     justify-content: space-between;
     align-items: center;
+}
+
+.c4{
+    justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -126,11 +131,15 @@ h1{
 
 }
 
-.c7 .cc3, .c8 .cc3{
+.c7 .cc3, .c8 .cc3, .c9 .cc3, .c10 .cc3{
     justify-content: space-evenly;
 }
 
 .c7 .cc3 .c2{
+    color: white;
+}
+
+.c9 .cc3 .c2{
     color: white;
 }
 .c7{
