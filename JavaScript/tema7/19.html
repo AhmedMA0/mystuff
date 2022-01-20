@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Toggle</title>
+</head>
+<body>
+    <input value="Write here">
+    <button id="1" onclick="readOnly();">Read only</button>
+    <script>
+        let entrada = document.querySelector("input");
+        function readOnly() {
+            entrada.toggleAttribute("readonly");
+            if (document.getElementById('1').innerText == 'Read and Write') {
+                document.getElementById('1').innerText = 'Read Only';
+            }
+
+            else
+            document.getElementById('1').innerText = 'Read and Write';
+        }
+    </script>
+</body>
+</html>

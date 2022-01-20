@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li class="verdura">Lechuga</li>
+        <li class="verdura">Tomate</li>
+        <li class="carne">Pollo</li>
+        <li class="verdura">Remolacha</li>
+        <li class="carne">Ternera</li>
+        <li class="legumbre">Garbanzos</li>
+        <li class="legumbre">Lentejas</li>
+        <li class="carne">Cerdo</li>
+        <li class="verdura">Berenjena</li>
+        <li class="legumbre">Habas</li>
+    </ul>
+    <script>
+        let list = document.querySelectorAll('li');
+
+        for (let i of list) {
+            console.log(i.getAttribute("class") + '->' + i.innerHTML);
+        }
+    </script>
+</body>
+</html>
