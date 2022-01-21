@@ -1,12 +1,3 @@
-<?php
-    if (!isset($_SESSION['on'])) {
-        session_start();
-        $_SESSION['on']=true;
-    }
-
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
-?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -15,6 +6,15 @@
     </head>
     <body>
         <?php
+            error_reporting(E_ALL);
+            ini_set('display_errors', '1');
+
+            if (!isset($_COOKIE['total'])&&!isset($_COOKIE['count'])&&!isset($_COOKIE['hPar'])) {
+                setcookie('count',0,time() + 7*24*60*60);
+                setcookie('total',0,time() + 7*24*60*60);
+                setcookie('hPar',0,time() + 7*24*60*60);
+            }
+
             if (empty($_POST['go'])){
                 ?>
                 <fieldset>
@@ -41,22 +41,16 @@
                 else {
                     if ($_POST['num']>0) {
                         $num=$_POST['num'];
-                
-                        if (!isset($_SESSION['total'])&&!isset($_SESSION['count'])&&!isset($_SESSION['hPar'])) {
-                            $_SESSION['total']=0;
-                            $_SESSION['count']=0;
-                            $_SESSION['hPar']=0;
-                        }
 
                         if ($num % 2 ==0) {
-                            if ($num>$_SESSION['hPar']) {
-                                $_SESSION['hPar']= $num;
+                            if ($num>$_COOKIE['hPar']) {
+                                setcookie('hPar',$num,time() + 7*24*60*60);
                             }
                         }
 
                         else {
-                            $_SESSION['total']+=$num;
-                            $_SESSION['count']++;
+                            setcookie('total',$_COOKIE['total']+=$num,time() + 7*24*60*60);
+                            setcookie('count',$_COOKIE['count']+1,time() + 7*24*60*60);
                         }
 
                         ?>
@@ -70,11 +64,12 @@
                     }
 
                     else {
+                        echo 'Media Impares: ',$_COOKIE['total']/$_COOKIE['count'];
+                        echo '<br> Mayor par: ', $_COOKIE['hPar'];
+                        setcookie('total',0,time() - 3600);
+                        setcookie('count',0,time() - 3600);
+                        setcookie('hPar',0,time() - 3600);
 
-                        echo 'Media Impares: ',$_SESSION['total']/$_SESSION['count'];
-                        echo '<br> Mayor par: ', $_SESSION['hPar'];
-                        session_unset();
-                        session_destroy();
                     }
                 }
             }
