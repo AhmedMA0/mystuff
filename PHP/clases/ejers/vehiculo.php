@@ -1,10 +1,11 @@
 <?php
-    class Vehiculo{
+    abstract class Vehiculo{
 
-        private $color;
-        private $peso;
-        private $numero_cadenas_nieve;
-        private $longitud;
+        protected const SALTO_DE_LINEA='<br>';
+        protected $color;
+        protected $peso;
+        protected $numero_cadenas_nieve;
+        protected $longitud;
 
         public function __construct($color='rojo', $peso='0') {
             $this->color = $color;
@@ -12,12 +13,12 @@
         }
         
         public function circula(){
-            echo 'El vehiculo circula';
+            echo 'El vehiculo circula <br>';
         }
+        public abstract function añadirPersona ($pesoPersona);
 
-        public function añadirPersona ($pesoPersona){
-            echo 'Añadiendo persona';
-            $this->peso+=$pesoPersona;
+        public static function ver_atributo($object){
+            echo $object->color,' ', $object->peso,' ', $object->numPuertas,' ', $object->cilindrada,' ', $object->longitud,' ', $object->numero_cadenas_nieve, '<br>';
         }
 
         public function repintar ($color){
@@ -53,6 +54,22 @@
 
         public function setPeso($peso){
             $this->peso = $peso;
+        }
+
+        public function getNumero_cadenas_nieve(){
+            return $this->Numero_cadenas_nieve;
+        }
+
+        public function setNumero_cadenas_nieve($Numero_cadenas_nieve){
+            $this->Numero_cadenas_nieve = $Numero_cadenas_nieve;
+        }
+        
+        public function getLongitud(){
+            return $this->longitud;
+        }
+
+        public function setLongitud($longitud){
+            $this->longitud = $longitud;
         }
     }
 ?>
