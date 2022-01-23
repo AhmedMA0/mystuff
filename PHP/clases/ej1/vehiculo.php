@@ -3,6 +3,8 @@
 
         private $color;
         private $peso;
+        private $numero_cadenas_nieve;
+        private $longitud;
 
         public function __construct($color='rojo', $peso='0') {
             $this->color = $color;
@@ -18,6 +20,25 @@
             $this->peso+=$pesoPersona;
         }
 
+        public function repintar ($color){
+            $this->color = $color;
+        }
+
+        public function poner_gasolina ($litros){
+            $this->peso += $litros;
+        }
+
+        public function añadir_cadenas_nieve(){
+            ++$this->numero_cadenas_nieve;
+        }
+
+        public function quitar_cadenas_nieve(){
+            --$this->numero_cadenas_nieve;
+        }
+
+        public function añadir_remolque($longitud){
+            $this->longitud+=$longitud;
+        }
         public function getColor(){
             return $this->color;
         }

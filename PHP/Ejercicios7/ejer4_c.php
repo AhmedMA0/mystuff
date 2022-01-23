@@ -1,7 +1,3 @@
-<?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
-?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -14,19 +10,19 @@
         if (!isset($_COOKIE['login'])) {
             setcookie('login','falso',time() + 7*24*60*60);
             $_COOKIE['login']='falso';
-            echo 'hola';
         }
         
         if (!isset($_COOKIE['user'])&&!isset($_COOKIE['pass'])) {
             setcookie('user','',time() + 7*24*60*60);
             setcookie('pass','',time() + 7*24*60*60);
-            echo 'hihi';
         }
 
         if (!empty($_POST['user'])&&!empty($_POST['pass'])) {
+            setcookie('user',$_POST['user'],time() + 7*24*60*60);
+            setcookie('pass',$_POST['pass'],time() + 7*24*60*60);
+
             $_COOKIE['user']=$_POST['user'];
             $_COOKIE['pass']=$_POST['pass'];
-            echo 'haha', $_POST['user'];
         }             
 
         
@@ -72,12 +68,10 @@
 
             else {
             
-                echo $_COOKIE['user'];
                 if ($_COOKIE['user']=='daw'||$_COOKIE['pass']=='daw123') {
 
                     setcookie('login',true,time() + 7*24*60*60);
                     $_COOKIE['login']=true;
-                    echo $_COOKIE['login'];
 
                     if (empty($_POST['go'])){
                         ?>
@@ -134,7 +128,6 @@
                 }
 
                 else {
-                    echo 'ultimo';
                     ?>
                     <fieldset>
                     <form action='#' method='POST'>
