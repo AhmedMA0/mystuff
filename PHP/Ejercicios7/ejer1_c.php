@@ -42,7 +42,7 @@
                         $num=$_POST['num'];
 
                         setcookie('total',$_COOKIE['total']+=$num,time() + 7*24*60*60);
-                        setcookie('count',$_COOKIE['count']+1,time() + 7*24*60*60);
+                        setcookie('count',++$_COOKIE['count'],time() + 7*24*60*60);
 
                         ?>
                         <fieldset>

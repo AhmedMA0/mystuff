@@ -1,11 +1,6 @@
 <?php
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
-    
-    if (!isset($_SESSION['on'])) {
-        session_start();
-        $_SESSION['on']=true;
-    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,22 +11,26 @@
     <body>
         <?php
 
-        if (!isset($_SESSION['login'])) {
-            $_SESSION['login']=false;
+        if (!isset($_COOKIE['login'])) {
+            setcookie('login','falso',time() + 7*24*60*60);
+            $_COOKIE['login']='falso';
+            echo 'hola';
         }
         
-        if (!isset($_SESSION['user'])&&!isset($_SESSION['pass'])) {
-            $_SESSION['user']='';
-            $_SESSION['pass']='';
+        if (!isset($_COOKIE['user'])&&!isset($_COOKIE['pass'])) {
+            setcookie('user','',time() + 7*24*60*60);
+            setcookie('pass','',time() + 7*24*60*60);
+            echo 'hihi';
         }
 
         if (!empty($_POST['user'])&&!empty($_POST['pass'])) {
-            $_SESSION['user'] = $_POST['user'];
-            $_SESSION['pass'] = $_POST['pass'];
+            $_COOKIE['user']=$_POST['user'];
+            $_COOKIE['pass']=$_POST['pass'];
+            echo 'haha', $_POST['user'];
         }             
 
         
-        if (empty($_POST['ini'])&&!$_SESSION['login']){
+        if (empty($_POST['ini'])&&$_COOKIE['login']=='falso'){
             ?>
             <fieldset>
             <form action='#' method='POST'>
@@ -45,7 +44,7 @@
 
         else {
 
-            if (empty($_POST['user'])&&!$_SESSION['login']) {                
+            if (empty($_POST['user'])&&$_COOKIE['login']=='falso') {                
                 ?>
                 Username needed.
                 <fieldset>
@@ -58,7 +57,7 @@
                 <?php                
             }
 
-            elseif (empty($_POST['pass'])&&!$_SESSION['login']) {
+            elseif (empty($_POST['pass'])&&$_COOKIE['login']=='falso') {
                 ?>
                 Password needed.
                 <fieldset>
@@ -73,9 +72,12 @@
 
             else {
             
-                if ($_SESSION['user']=='daw'||$_SESSION['pass']=='daw123') {
+                echo $_COOKIE['user'];
+                if ($_COOKIE['user']=='daw'||$_COOKIE['pass']=='daw123') {
 
-                    $_SESSION['login']=true;
+                    setcookie('login',true,time() + 7*24*60*60);
+                    $_COOKIE['login']=true;
+                    echo $_COOKIE['login'];
 
                     if (empty($_POST['go'])){
                         ?>
@@ -99,19 +101,14 @@
                             </fieldset>
                             <?php
                         }
-
+        
                         else {
                             if ($_POST['num']>0) {
                                 $num=$_POST['num'];
-                        
-                                if (!isset($_SESSION['total'])&&!isset($_SESSION['count'])) {
-                                    $_SESSION['total']=0;
-                                    $_SESSION['count']=0;
-                                }
-
-                                $_SESSION['total']+=$num;
-                                $_SESSION['count']++;
-
+        
+                                setcookie('total',$_COOKIE['total']+=$num,time() + 7*24*60*60);
+                                setcookie('count',++$_COOKIE['count'],time() + 7*24*60*60);
+        
                                 ?>
                                 <fieldset>
                                 <form action='#' method='POST'>
@@ -121,18 +118,23 @@
                                 </fieldset>
                                 <?php
                             }
-
+        
                             else {
+                                echo $_COOKIE['total']/$_COOKIE['count'];
+                                setcookie('total',0,time() - 3600);
+                                setcookie('count',0,time() - 3600);
+                                setcookie('pass',0,time() - 3600);
+                                setcookie('user',0,time() - 3600);
+                                setcookie('login',0,time() - 3600);
 
-                                echo $_SESSION['total']/$_SESSION['count'];
-                                session_unset();
-                                session_destroy();
+
                             }
                         }
                     }
                 }
 
                 else {
+                    echo 'ultimo';
                     ?>
                     <fieldset>
                     <form action='#' method='POST'>

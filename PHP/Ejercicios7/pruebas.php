@@ -6,11 +6,18 @@
     </head>
     <body>
         <?php
-            setcookie('total',0,time() + 7*24*60*60);
 
-            $_COOKIE['total']+=2;
+            setcookie('total','daw',time() + 7*24*60*60);
 
-            echo $_COOKIE['total'];
+            if (!isset($_COOKIE['total'])) {
+                echo 'hola';
+            }
+
+            $hola = false;
+
+            if (isset($hola)) {
+                echo 'nose';
+            }
         ?>
 
     </body>
