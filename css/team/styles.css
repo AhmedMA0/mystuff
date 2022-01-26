@@ -5,28 +5,28 @@
 }
 
 body{
-    background-color: lightslategray;
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23323233' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23646566' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23969799' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23c8cacc' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23FAFCFF' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;    
     color: whitesmoke;
 }
 
 .contenedor{
-    width: 80%;
-    background-color: darkslategrey;
-    border: 5px solid white;
+    width: 90vw;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
     align-items: center;
     margin: auto;
     margin-top: 4vh;    
     padding: 30px;
 }
 
-.cartas{
+.cards{
     display: flex;  
     flex-flow: row wrap;
-    width: fit-content;
-    justify-content:space-evenly;
-
+    width: 90%;
 }
 
 hr{
@@ -48,36 +48,25 @@ h1{
     font-family: 'Literata', serif;
 }
 
-.carta{
+.firstwo{
+    display: flex;
+    width: 70%;
+}
+
+.third{
+    display: flex;
+    width: 30%;
+}
+
+
+.card{
     flex-flow: column wrap;
     display: flex;
     padding:15px;
-    padding-bottom: 5px;
-    margin: 10px;
     background-color: white;
-    width: 190px;
-    height: 300px;
-    border: 1px solid whitesmoke;
-    border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-}
-
-.esquina{
-    height: 100%;
-    flex-flow: column wrap;
-    display: flex;
-}
-.e1{
-    align-self: flex-start;
-    margin-left: -7px;
-    margin-top: -7px;
-}
-
-.e2{
-    align-self: flex-end;
-    justify-content: flex-end;
-    margin-right: -7px;
-    margin-top: 10px;
+    width: 35vw;
+    height: 20vh;
+    margin: 2px;
 }
 
 .c1{
@@ -93,6 +82,7 @@ h1{
 .c3{
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .c4{
@@ -101,35 +91,6 @@ h1{
 
 }
 
-.c2 .cors .c2, .c3 .cors .c3, .c4 .cors .c2, .c5 .cors .c2, .cors .c3, .cc3 .c2{
-    transform: rotateZ(180deg);
-}
-
-
-
-.c4 .cc1, .c6 .cc1{
-    display: flex;
-    align-self: flex-start;
-    margin-left: -25px;
-}
-
-.c4 .cc2, .c6 .cc2{
-    display: flex;
-    align-self: flex-end;
-    margin-right: -25px;
-}
-
-.c5 .cc1, .c9 .cc1, .c7 .cc1, .c8 .cc1, .c10 .cc1{
-    display: flex;
-    align-self: flex-start;
-    margin-left: -10px;
-}
-
-.c5 .cc2, .c9 .cc2, .c7 .cc2, .c8 .cc2, .c10 .cc2{
-    display: flex;
-    align-self: flex-end;
-    margin-right: -10px;
-}   
 
 .c5{
     justify-content: space-between;
@@ -139,86 +100,5 @@ h1{
 .c6{
     justify-content: space-between;
     align-items: center;
-
-}
-
-.c7 .cc3, .c8 .cc3, .c9 .cc3, .c10 .cc3{
-    justify-content: space-evenly;
-}
-
-.c7 .cc3 .c2{
-    color: white;
-}
-
-.c9 .cc3 .c2, .c9 .cc3 .c3 {
-    color: white;
-}
-.c7{
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-.c8{
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-.c9{
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-.c10{
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-.cors{ 
-    color: darkred;
-    font-size: 50px;
-    flex-flow: column wrap;
-    display: flex;
-    height: 100%;
-    justify-content: space-between;
-    width: fit-content;
-    align-items: center;
-    padding-bottom: 4px;
-}
-
-.c1 .cors{
-    justify-content: center;
-}
-
-.c5 .cc3{
-    justify-content: center;
-
-}
-
-
-.esquina .cor, .esquina .num{
-    color: darkred;
-    font-size: 20px;
-    text-align: center;
-}
-
-.e2 .cor, .e2 .num{
-    transform: rotateZ(180deg);
-}
-
-@-moz-document url-prefix(){
-    .cors{
-        font-size: 35px;
-    }
-    .esquina .cor, .esquina .num{
-        font-size: 15px;
-    }
-
-    .carta{
-        padding-bottom: 10px;
-    }
 
 }
