@@ -5,29 +5,24 @@
 }
 
 body{
-    background-color: #000000;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23323233' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23646566' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23969799' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23c8cacc' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23FAFCFF' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: cover;    
     color: whitesmoke;
+    background-color: #111111;
 }
 
 .contenedor{
     width: 90vw;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-flow: column wrap;
     align-items: center;
     margin: auto;
     margin-top: 4vh;    
-    padding: 30px;
 }
 
 .cards{
     display: flex;  
     flex-flow: row wrap;
     justify-content: center;
-    width: 90%;
+    width: 100%;
 }
 
 hr{
@@ -37,6 +32,8 @@ hr{
     height: 4px;
     border-radius: 2px;
     margin: 10px auto;
+    transform: rotateY(90deg);
+    transition: all 2000ms;
 }
 
 h1{
@@ -48,7 +45,7 @@ h1{
     font-family: 'Literata', serif;
 }
 
-.row1{
+.row{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -58,12 +55,12 @@ h1{
 .firstwo{
     display: flex;
     flex-flow: row nowrap;
-    flex:1 0 70%;
+    flex:1 0 75%;
 }
 
 .third{
     display: flex;
-    flex:1 0 30%;
+    flex:1 0 20%;
     min-width: 200px;
 
 }
@@ -72,21 +69,37 @@ h1{
     flex-flow: row wrap;
     display: flex;
     flex-basis: 100%;
-    margin: 2px;
+    margin: 10px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     position: relative;
     z-index: 0;
     text-align: center;
+    border-radius: 25px;
+    border: 1px solid #1a1a1a;
+    transition: all 2000ms;
 }
 
 .firstwo .card{
-    background-color: #F07D0075;
+    background: rgb(0,204,255);
+    background: linear-gradient(218deg, rgba(0,204,255,1) 0%, rgba(188,0,255,1) 0%, rgba(17,17,17,1) 73%);
 }
+
 
 .c3{
     flex-basis: 100%;
-    background-color: #3ABFF075;
+    background: rgb(0,204,255);
+    background: linear-gradient(218deg, rgba(0,204,255,1) 0%, rgba(255,253,64,1) 0%, rgba(17,17,17,1) 73%);
+}
+
+.r2 .c3{
+    background: rgb(0,204,255);
+    background: linear-gradient(218deg, rgba(0,204,255,1) 0%, rgba(204,20,110,1) 0%, rgba(17,17,17,1) 73%);
+}
+
+.r2 .firstwo .card{
+    background: rgb(0,204,255);
+    background: linear-gradient(218deg, rgba(0,204,255,1) 0%, rgba(20,204,178,1) 0%, rgba(17,17,17,1) 73%);
 }
 
 .ima{
@@ -124,19 +137,79 @@ img{
 .socials{
     display: flex;
     flex-flow: row nowrap;
-    background-color: grey;
     width: 100%;
     justify-content: center;
     font-size: 40px;
-}   
+    letter-spacing: 25px;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+    transition: all 1500ms;
+
+}
 
 .fall{
     width: 100%;
-    height: 30%;
+    height: 50%;
     position: absolute;
     top: 0;
-    border-bottom-left-radius:100%;
-    border-bottom-right-radius:100%;
     z-index: -1;
-    background-color: blue;
+    display: flex;
+    justify-content: space-evenly;
+    animation: sheesh 5s linear;
+
+}
+
+.stick{
+    width: 2%;
+    background-color: #11111150;
+    margin: 0 10px;
+}
+
+.s1{
+    height: 50%;
+}
+
+.s3{
+    margin-right: 15vw;
+}
+
+.card:hover{
+    box-shadow: 0px 0px 20px #555555;
+}
+
+.card:hover .socials{
+    transform: rotateX(0deg);
+}
+
+.card:hover hr{
+    transform: rotateY(0deg);
+}
+
+.card:hover .fall{
+    animation: sheesh 5s linear;
+}
+
+.c1{
+    box-sizing: border-box;
+}
+
+@keyframes sheeesh {
+    25%{
+        background-color: #11111120;
+        top: 25;    
+    }
+
+    50%{
+        background-color: #11111150;
+        top: 50;
+    }
+
+    75%{
+        background-color: #11111170;
+        top: 75;
+    }
+    100%{
+        background-color: #11111190;
+        top: 100;
+    }
 }
