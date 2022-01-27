@@ -26,6 +26,7 @@ body{
 .cards{
     display: flex;  
     flex-flow: row wrap;
+    justify-content: center;
     width: 90%;
 }
 
@@ -35,8 +36,7 @@ hr{
     background-color: whitesmoke;
     height: 4px;
     border-radius: 2px;
-    font-weight: 100;
-    margin-bottom: 5vh;
+    margin: 10px auto;
 }
 
 h1{
@@ -48,57 +48,95 @@ h1{
     font-family: 'Literata', serif;
 }
 
+.row1{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex-basis: 100%;
+}
+
 .firstwo{
     display: flex;
-    width: 70%;
+    flex-flow: row nowrap;
+    flex:1 0 70%;
 }
 
 .third{
     display: flex;
-    width: 30%;
-}
+    flex:1 0 30%;
+    min-width: 200px;
 
+}
 
 .card{
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     display: flex;
-    padding:15px;
-    background-color: white;
-    width: 35vw;
-    height: 20vh;
+    flex-basis: 100%;
     margin: 2px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 0;
+    text-align: center;
 }
 
-.c1{
-    justify-content: space-between;
-    align-items: center;
-}
-
-.c2{
-    justify-content: space-between;
-    align-items: center;
+.firstwo .card{
+    background-color: #F07D0075;
 }
 
 .c3{
-    justify-content: space-between;
-    align-items: center;
+    flex-basis: 100%;
+    background-color: #3ABFF075;
+}
+
+.ima{
+    width: 50%;
+    margin-top: 30px;
+}
+
+img{
     width: 100%;
+    border-radius: 50%;
 }
 
-.c4{
-    justify-content: space-between;
-    align-items: center;
+.name{
+    width: fit-content;
+    margin: auto;
+    font-size: 30px;
+}
+
+.pos{
+    width: fit-content;
+    margin: auto;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.txt{
+    width: fit-content;
+    margin: auto;
+    font-size: 20px;
+    margin-bottom: 30px;
 
 }
 
 
-.c5{
-    justify-content: space-between;
-    align-items: center;
-}
+.socials{
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: grey;
+    width: 100%;
+    justify-content: center;
+    font-size: 40px;
+}   
 
-.c6{
-    justify-content: space-between;
-    align-items: center;
-
+.fall{
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    top: 0;
+    border-bottom-left-radius:100%;
+    border-bottom-right-radius:100%;
+    z-index: -1;
+    background-color: blue;
 }
