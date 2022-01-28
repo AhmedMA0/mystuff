@@ -2,15 +2,12 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Plantilla para Ejercicios Tema 3</title>
+  <title>11</title>
   <link href="dwes.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 	<?php 		
-		error_reporting(E_ALL);
-		ini_set('display_errors', '1');
-
 		$conexion = new mysqli('localhost', 'ahmed', '123456.A', 'dwes');
 	?>
 <div id="encabezado">

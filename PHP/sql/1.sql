@@ -42,8 +42,3 @@ ON UPDATE CASCADE,
 ADD CONSTRAINT stock_ibfk_1
 FOREIGN KEY (producto) REFERENCES producto (cod)
 ON UPDATE CASCADE;
-CREATE USER 'dwes'
-IDENTIFIED BY 'abc123';
-
-GRANT ALL ON dwes.*
-TO dwes;
