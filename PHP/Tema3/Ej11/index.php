@@ -17,7 +17,7 @@
 
 			//select t.nombre, p.nombre_corto, s.unidades from tienda t join stock s on t.cod=s.tienda join producto p on p.cod=s.producto where s.producto='3DSNG';
 
-			$res = $conexion->query("select nombre_corto from producto");
+			$res = $conexion->query("select nombre_corto, from producto");
 
 			$name = $res->fetch_object();
 

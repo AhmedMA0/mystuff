@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>12</title>
+  <title>11</title>
   <link href="dwes.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -15,23 +15,23 @@
 
 	?>
 <div id="encabezado">
-	<h1>Ejercicio: 12</h1>
+	<h1>Ejercicio: 11</h1>
 	<form id="formM" action="#" method="post">
 		<?php 
 
 			//select t.nombre, p.nombre_corto, s.unidades from tienda t join stock s on t.cod=s.tienda join producto p on p.cod=s.producto where s.producto='3DSNG';
 			$firstq = $conexion->stmt_init();
 
-			$firstq->prepare("select nombre_corto, cod from producto");
+			$firstq->prepare("select nombre_corto from producto");
 
 			$firstq->execute();
 
-			$firstq->bind_result($name, $cod);
+			$firstq->bind_result($name);
 
 			echo '<select name="prod">';
 
 			while ($firstq->fetch()) {
-				echo '<option value="'.$cod.'">'.$name.'</option>';
+				echo '<option value="'.$name.'">'.$name.'</option>';
 			}
 
 			echo '</select>';
@@ -44,25 +44,41 @@
 
 <div id="contenido">
 	<h2>Contenido</h2>
-	<?php
+	<?php 	
+		$secondq= $conexion->stmt_init();
 
-		$secondq = $conexion->stmt_init();
-		
-		$secondq->prepare("select t.nombre, p.nombre_corto, s.unidades from tienda t join stock s on t.cod=s.tienda join producto p on p.cod=s.producto where s.producto='".$_POST['prod']."';");
+		$secondq->prepare("select producto, unidades, tienda from stock where producto = (select cod from producto where nombre_corto = '".$_POST['prod']."');");
 
         $secondq->execute();
 
-        $secondq->bind_result($tienda, $producto, $unidades);
+        $secondq->bind_result($producto, $unidades, $tienda);
+
+		$secondq->fetch();
+		
+		$secondq->close();
+
+
+		$thirdq= $conexion->stmt_init();
+
+		$thirdq->prepare("select nombre from tienda where cod = '". $tienda."';");
+
+		$thirdq->execute();
+
+		$thirdq->bind_result($tiendaName);
 
 		while ($secondq->fetch()) {
-				
-				echo 'Tienda: ' . $tienda . '<br>';
+
+			while ($thirdq->fetch()){
+
+				$thirdq->fetch();
+	
+				echo 'Tienda: ' . $tiendaName . '<br>';
 	
 				echo 'Producto: ' .$producto.': '.$unidades . ' unidades. <br>';
-				
+			}		
 		}
 
-		$secondq->close();
+		$thirdq->close();
 		$conexion->close();
 
 	?>
