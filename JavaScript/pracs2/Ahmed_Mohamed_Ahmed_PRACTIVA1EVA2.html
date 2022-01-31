@@ -20,11 +20,25 @@
                 this.y = y;
             }
 
-            this.copia = function (punto) {
-                let a = this.constructor.name + 'Copy';
-                let [a] = new Punto([a].x, [a].y);
+            this.copia = function () {
+                let a = (this.constructor.name).toLowerCase() + 'Copy';
+                this[a] = new Punto(this.x, this.y);
+                return this[a];
+            }
+
+            this.iguales = function (q) {
+                if (this.x == q.x && this.y == q.y) {
+                    return true;
+                }
+
+                else return false;
             }
         }
+
+        p1 = new Punto(22,2);
+        p2 = p1.copia();
+        
+        console.log(p2);
     </script>
 </body>
-</html>
+</html> 
