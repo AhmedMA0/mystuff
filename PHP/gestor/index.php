@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
     <title>Listado</title>
 </head>
 <body>
@@ -39,10 +40,7 @@
 	</form>
     <?php 
         if (isset($_POST['go'])&& !empty($family)) {
-            ?>
-            <form action="#" method="post">
-                <?php
-
+            
                 $prodQuery = $conexion->stmt_init();
 
                 $prodQuery->prepare("select cod, nombre_corto, PVP from producto where familia = '".$family."';");
@@ -51,19 +49,15 @@
 
                 $prodQuery->bind_result($cod,$name, $price);
 
-                echo '<select name="prod">';
-
                 while ($prodQuery->fetch()) {
-                    echo '<option value="'.$cod.'">'.$name.' <span>'.$price.'</span> </option>';
+                    
+                    echo '<form class= "prod" action="edit.php" method="post">';
+                    echo '<p>'.$name.' <span>'. $price.'</span></p>';
+                    echo '<input type="hidden" value="'.$cod.'" name="codP">';
+                    echo '<input class="submit" type="submit" value="Actualizar" name="upd"></form>';
                 }
 
-                echo '</select>';
-
                 $prodQuery->close();
-                ?>
-                <input type='submit' value='Mostrar' name='go'>
-            </form>
-            <?php
         }
     ?>
     <?php
