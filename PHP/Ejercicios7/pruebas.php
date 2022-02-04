@@ -8,16 +8,12 @@
         <?php
 
             setcookie('total','daw',time() + 7*24*60*60);
+            $_COOKIE['total'] = 'hola';
 
-            if (!isset($_COOKIE['total'])) {
-                echo 'hola';
-            }
+            echo $_COOKIE['total'];
 
-            $hola = false;
-
-            if (isset($hola)) {
-                echo 'nose';
-            }
+            setcookie('total','daw',time() -3600);
+            
         ?>
 
     </body>
