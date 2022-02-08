@@ -5,14 +5,25 @@
 }
 
 body{
-    background-color: black;
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='16' viewBox='0 0 20 16'%3E%3Cg fill='%238c898c' fill-opacity='0.09'%3E%3Cpath fill-rule='evenodd' d='M0 .04C2.6.22 4.99 1.1 7 2.5A13.94 13.94 0 0 1 15 0h4c.34 0 .67.01 1 .04v2A12 12 0 0 0 7.17 12h5.12A7 7 0 0 1 20 7.07V14a5 5 0 0 0-3-4.58A5 5 0 0 0 14 14H0V7.07c.86.12 1.67.4 2.4.81.75-1.52 1.76-2.9 2.98-4.05C3.79 2.83 1.96 2.2 0 2.04v-2z'/%3E%3C/g%3E%3C/svg%3E");
 }
+
 .head{
     height: 20vh;
-    background-image: url('images/header.jpg');
+    background-image: url('images/head.jpg');
     background-position: center;
-
+    background-size: cover;
+    font-family: 'Caveat', cursive;
+    color: #f5f5f5;
+    text-align: center;
+    font-size: 1.9vw;
 }
+
+.head p{
+    font-size: 1.5vw;
+}
+
 .gal{
     width: 90%;     
     display: grid;
@@ -20,10 +31,12 @@ body{
     grid-auto-rows: 30vh;
     margin: auto;
     padding: 15px;
+    background-color: #f0f8ff10;
+
 }
 
 .pho{
-    background-color: aliceblue;
+    background-color: #f0f8ff75;
     object-fit: cover;
     min-height: 100px;
     margin: 20px;
@@ -32,10 +45,29 @@ body{
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 1000ms;
 }
 
+
 .in{
-    background-color: aliceblue;
+    background-color: #f0f8ff75;
+    padding: 3px 10px;
+    font-size: 1.2vw;
+    transition: all 1000ms;
+}
+
+.ar{
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+}
+.ab{
+    text-align: right;
+    font-family: 'Caveat', cursive;
+    font-weight: bold;
+    font-size: 1.3vw;
+
 }
 
 .p1{
@@ -116,4 +148,21 @@ body{
 
 .p20{
     background-image: url('images/f20.jpg');
+}
+
+.pho:hover .in{
+    opacity: 0;
+}
+
+.pho:hover{
+    transform: scale(1.13);
+}
+
+.foot{
+    margin: 20px;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    color: #f5f5f5;
+    font-size: 1.5vw;
+    font-weight: bold;
 }
