@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="mostrar()">Mostrar cookies</button>
+    <button onclick="cc1()">Crear cookie1</button>
+    <button onclick="cc2()">Crear cookie2</button>
+    <button onclick="dc1()">Eliminar cookie1</button>
+    <button onclick="dc2()">Eliminar cookie2</button>
+    <p id="1"></p>
+
+    <script>
+        function mostrar() {
+            let x = document.cookie;
+            console.log(x);
+            document.getElementById('1').innerHTML=x;
+        }
+
+        function cc1() {
+            document.cookie='login=ahm'
+        }
+
+        function cc2() {
+            document.cookie='passwd=123'
+        }
+
+        function dc1() {
+            document.cookie = 'login=ahm; expires=Sat, 01 Jan 2021 00:00:01 GMT';        
+        }
+
+        function dc2() {
+            document.cookie = 'passwd=123; expires=Sat, 01 Jan 2021 00:00:01 GMT';        
+        }
+    </script>
+</body>
+</html>
