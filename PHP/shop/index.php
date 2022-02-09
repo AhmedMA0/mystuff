@@ -20,38 +20,28 @@
     <main>
         <div class="prods">
             <h3>Products</h3>
+
+            <?php 
+            
+            $famQuery = $conexion->stmt_init();
+
+            $famQuery->prepare("select * from producto");
+
+            $famQuery->execute();
+
+            $famQuery->bind_result($cod, $name);
+
+            while ($famQuery->fetch()) {
+				echo '';
+			}
+
+            ?>
         </div>
         <div class="cart">
             
         </div>
     </main>
     
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <form action="#" method="post">
 		<?php 
             //preparamos y ejecutamos una consulta sacando un select con todas las familias
