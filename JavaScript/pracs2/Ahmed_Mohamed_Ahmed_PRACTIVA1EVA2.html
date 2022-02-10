@@ -6,26 +6,37 @@
 </head>
 <body>  
     <script>
+
+        //funcion constructora del objeto Punto que recibe dos parametros (x,y)
         function Punto(x, y) {
             
+            //declaracion del primer atributo del objeto
+            //si el paramatro que le pasamos como x no es un numero lo ponemos a 0
+            //si es un numero lo igualamos a el parametro recibido
             if (isNaN(x)) this.x=0;
             else this.x = x;
             
-            
+            //igual que arriba
             if (isNaN(y)) this.y=0;
             else this.y = y;
 
+            //funcion que nos permite cambiar los atributos de nuestro objeto
+            //recibe dos parametros uno para cada atributo
+            //hace la funcion de los setters
+            //personalmente separaria el cambio de cada atributo haciendo dos funciones independientes pero me ciño al enunciado
             this.cambiar = function (x, y) {
                 this.x = x;
                 this.y = y;
             }
 
+            //funcion que hace una copia de nuestro objeto y devuelve esa copia como otro objeto
             this.copia = function () {
-                let a = (this.constructor.name).toLowerCase() + 'Copy';
-                this[a] = new Punto(this.x, this.y);
-                return this[a];
+                let a = new Punto(this.x, this.y);
+                return a;
             }
 
+            //funcion que recibe otro punto como paramatro y compara ambos objetos y devuelve true o false dependiendo de si los considera iguales o no
+            //considera que son iguales si ambos puntos tienen las mismas coordenadas(x,y)
             this.iguales = function (q) {
                 if (this.x == q.x && this.y == q.y) {
                     return true;
@@ -33,12 +44,46 @@
 
                 else return false;
             }
+
+            //funcion que recibe otro punto como parametro y devuelve un tercer punto con la suma de las coordenadas de los dos anteriores como sus propias coordenadas
+            this.suma = function(q) {
+                let a = new Punto(this.x+q.x,this.y+q.y);
+                return a;
+            }
+
+            //funcion que devuelve los valores de las coordenadas de nuestro objeto en un formato definido
+            this.toString = function() {
+                return 'x = '+this.x+ ', y = '+this.y;
+            }
         }
 
-        p1 = new Punto(22,2);
-        p2 = p1.copia();
+        //comprobamos que si le pasamos algo que no sea un numero como parametro se pone a 0
+        //aprovecho para probar tambien el metodo toString
+        let p1 = new Punto('hola', 8);
+        console.log(p1.toString());
+        //esto devuelve x=0, y=8
+
+        //vamos a probar ahora la funcion cambiar cambiando ese valor de x a un numero mayor y dejando la y como esta
+        p1.cambiar(2,p1.y);
+        console.log(p1.toString());
+        //esto devuelve x=2, y=8
+
+        //creamos un nuevo punto (p2) y lo declaramos como el resultado de la funcion copia
+        //copiando asi el punto anterior en el nuevo punto
+        let p2 = p1.copia();
+        console.log(p2.toString());
+        //esto devuelve x=2, y=8 como p1
+
+        //probamos la funcion iguales pasandole el punto p1 y su copia por lo que deberia de devolver true
+        console.log(p1.iguales(p2));
+        //esto devuelve true
+
+        //creamos un nuevo punto declarado como la suma de los puntos p1 y p2 probando asi la funcion suma
+        let p3 = p1.suma(p2);
+        console.log(p3.toString());
+        //esto devuelve x=4, y=16
         
-        console.log(p2);
-    </script>
+        //como la funcion toString nos saca las propiedades de cada objeto pero bajo formato, ya nos sirve para probar los atributos de cada objeto
+    </script>   
 </body>
 </html> 
