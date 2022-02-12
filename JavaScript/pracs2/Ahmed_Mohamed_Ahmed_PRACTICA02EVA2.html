@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //funcion constructora del objeto Ordenador
+        //5 parametros 3 de ellos tienen valores por defecto
+        function Ordenador(marca, modelo, ram=4, capacidad=512, pulgadas=17) {
+
+            //asignacion de atributos
+            this.marca = marca;
+            this.modelo = modelo;
+            this.ram = ram;
+            this.capacidad = capacidad;
+            this.pulgadas = pulgadas;
+
+            //funcion toString que devuelve el valor de todos los atributos bajo cierto formato
+            this.toString = function (){
+                return 'Marca: ' + this.marca + '. Modelo: ' + this.modelo + '. Memoria RAM: ' + this.ram + '. Capacidad: ' + this.capacidad + '. Pulgadas: ' + this.pulgadas;
+            }
+        }
+
+        //funcion constructora del objeto Portatil
+        //6 parametros 4 de ellos tienen valores por defecto
+        function Portatil(marca, modelo, ram=4, capacidad=256, pulgadas=13 ,autonomia=4) {
+            
+            //aplicamos la herencia haciendo uso de __proto__
+            this.__proto__ = new Ordenador(marca, modelo, ram, capacidad, pulgadas);
+
+            //asignamos los atributos restantes propios de Portatil
+            this.autonomia = autonomia;
+
+            //funcion toString que devuelve el valor de todos los atributos bajo cierto formato
+            //en este caso llamamos al toString de su padre y le añadimos lo propio de este objeto
+            this.toString = function () {
+                return this.__proto__.toString() + '. Autonomía: ' + autonomia + '.';
+            }
+        }
+
+        //creamos dos objetos de cada clase con y sin todos los parametros
+        let or1 = new Ordenador('Acer', 'Mer', 8, 512, 32);
+        let or2 = new Ordenador('Razer', 'Sig');
+
+        let po1 = new Portatil('Sony', 'r2', 16, 1024, 27, 10);
+        let po2 = new Portatil('Acer', 'Ultra');
+
+        //sacamos por consola los datos de todos los objetos creados mediante sus respectivos toString
+        console.log(or1.toString());
+        console.log(or2.toString());
+        console.log(po1.toString());
+        console.log(po2.toString());
+
+    
+    </script>
+</body>
+</html>
