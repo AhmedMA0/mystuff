@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let u = /^[a-z0-9]{8,12}$/;
+        let p = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W).{8,12}$/;
+        
+        let valid=false;
+        let user;
+        let pass;
+
+        while (valid==false) {
+            user = prompt('Usuario (solo minúsculas y números, de 8 a 12 caracteres).');
+
+            if (user.match(u)) {
+                valid=true;
+            }
+        }
+
+        valid=false;
+
+        while (valid==false) {
+            pass = prompt('Contraseña (al menos una mayuscula, una minuscula, un numero y un caracter diferente a los anteriores, ).');
+
+            if (pass.match(p)) {
+                valid=true;
+            }
+        }
+
+    </script>
+</body>
+</html>
