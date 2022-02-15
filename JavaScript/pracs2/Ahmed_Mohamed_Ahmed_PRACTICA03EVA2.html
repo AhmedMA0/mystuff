@@ -6,29 +6,52 @@
 </head>
 <body>
     <script>
+
+        //creamos nuestras dos expresiones regulares para el nombre de usuario y contraseña
+
+        //expresion regular que solo admite cadenas de texto que empiezen y acaben por minimo 8 y maximo 12 letras minusculas o numeros en cualquier orden
         let u = /^[a-z0-9]{8,12}$/;
+
+        //expresion regular que admite de 8 a 12 caracteres cualesquiera,
+        //incluyendo al menos una mayuscula, una minuscula, un digito y un caracter que no sea ninguno de los anteriores
         let p = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W).{8,12}$/;
         
+        //comenzamos la entrada de datos
+
+        //declaramos esta variable como false desde el principio para poder empezar a realizar las comprobaciones necesarias para
+        //decidir si el dato introducido es correcto o no
         let valid=false;
+
+        //declaramos estas variables fuera de sus respectivos bucles para no redeclararlas por cada iteración
         let user;
         let pass;
 
+        //solo entramos en el bucle si la variable es false y la variable pasara a true al realizar las comprobaciones, haciendo uso de expresiones regulares
+        //y asi romper el bucle
         while (valid==false) {
-            user = prompt('Usuario (solo minúsculas y números, de 8 a 12 caracteres).');
+            user = prompt('Usuario.');
 
+            //si es correcto lo comunicamos y rompemos el bucle, y si no lo es, lo comunicamos junto con como debe ser el dato introducido
             if (user.match(u)) {
                 valid=true;
+                alert('Usuario correcto.')
             }
+
+            else alert('Solo minúsculas y números, de 8 a 12 caracteres');
         }
 
+        //misma logica de arriba pero para el siguiente dato
         valid=false;
 
         while (valid==false) {
-            pass = prompt('Contraseña (al menos una mayuscula, una minuscula, un numero y un caracter diferente a los anteriores, ).');
+            pass = prompt('Contraseña.');
 
             if (pass.match(p)) {
                 valid=true;
+                alert('Contraseña correcta.');
             }
+
+            else alert('De 8 a 12 caracteres, de los cuales, al menos una mayuscula, una minuscula, un numero y un caracter diferente a los anteriores.')
         }
 
     </script>
