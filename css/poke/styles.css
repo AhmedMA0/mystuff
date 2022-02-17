@@ -163,7 +163,9 @@ body{
     text-align: center;
     overflow: hidden;
     opacity: 0;
-    transition: opacity 500ms;
+    transition:linear all 500ms;
+    padding: 10px;
+    border: 2px solid white;
 }
 
 .an::after{
@@ -177,19 +179,58 @@ body{
 }
 
 .fro:hover .an::after{
-    transform: translateX(100%);
-    transition:linear all 500ms;
-    transition-delay: 500ms;
+    animation: disappear 750ms linear 400ms normal forwards;
 }
 
 .fro:hover .an{
+    animation: appear 500ms linear normal forwards;
+    animation: borde 1.3s infinite linear normal forwards;
     opacity: 100;
-    transition:linear all 500ms;
-
 }
-
 
 @font-face {
     font-family: 'pok';
-    src: url('fonts/Pokemon\ Solid.ttf');
+    src: url('fonts/Pokemon\Solid.ttf');
+}
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 100;
+    }
+}
+
+@keyframes disappear {
+    0%{
+        transform: translateX(0);
+        opacity: 100;
+
+    }
+
+    99%{
+        transform: translateX(99%);
+        opacity: 100;
+    }
+
+    100%{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes borde {
+    0%{
+    }
+
+    50%{
+        box-shadow: 0 0 20px white ;
+    }
+
+    100%{
+        box-shadow: 0 0 1px white;
+    }
+
 }
