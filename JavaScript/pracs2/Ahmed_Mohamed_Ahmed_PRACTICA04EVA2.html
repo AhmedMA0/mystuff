@@ -6,7 +6,61 @@
 </head>
 <body>
     <script>
-            let f = /^[0-3][0-9]\/(00|0[1-9]|1[0-2])\/[0-9]{4}$/;
+        //regex que solo permite una cadena que:
+        //empieza por o bien 0 seguido de un numeor del 1 al 9 o un numero del 1 al 2 seguido de un numero del 0 al 9, o 3 seguido de un numero del 0 al 2,
+        //una barra de separacion y luego
+        //o 0 seguido de un numero del 1 al 9 o 1 seguido de un numero del 0 al 2,
+        //barra de separacion y despues cualquier numero de 4 digitos
+        //esto comprueba parcialmente la correccion de la fecha solo permitiendo dias del 01 al 31 y meses del 01 al 12
+        let f = /^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/[0-9]{4}$/;
+
+        //declaramos estas variables fuera de sus respectivos bucles para no redeclararlas por cada iteración
+        let date1, date2;
+
+        //declaramos esta variable como false desde el principio para poder empezar a realizar las comprobaciones necesarias para
+        //decidir si el dato introducido es correcto o no
+        let valid=false;
+
+        //solo entramos en el bucle si la variable es false y la variable pasara a true al realizar las comprobaciones, haciendo uso de expresiones regulares
+        //y asi romper el bucle
+        while (valid==false) {
+            date1 = prompt('Fecha 1.');
+
+            //si es correcto lo comunicamos y rompemos el bucle, y si no lo es, lo comunicamos junto con como debe ser el dato introducido
+            if (date1.match(f)) {
+                valid=true;
+                alert('Fecha valida.')
+            }
+
+            else alert('Formato necesario: dd/mm/aaaa y dias y meses correctos.');
+        }
+
+        //misma logica de arriba pero para el siguiente dato
+        valid=false;
+
+        while (valid==false) {
+            date2 = prompt('Fecha 2.');
+
+            //si es correcto lo comunicamos y rompemos el bucle, y si no lo es, lo comunicamos junto con como debe ser el dato introducido
+            if (date2.match(f)) {
+                valid=true;
+                alert('Fecha valida.')
+            }
+
+            else alert('Formato necesario: dd/mm/aaaa y dias y meses correctos.');
+        }
+
+        let arrayD1 = date1.split('/');
+        let arrayD2 = date2.split('/');
+
+        let obDate1 = new Date(arrayD1[2], arrayD1[1], arrayD1[0]);
+        let obDate2 = new Date('1111-11-01');
+
+        console.log(obDate1.getTime());
+        console.log(obDate1);
+        console.log(obDate2);
+
+
     </script>
 </body>
 </html>
