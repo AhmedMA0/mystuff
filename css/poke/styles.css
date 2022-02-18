@@ -155,7 +155,8 @@ body{
 
 
 .an{
-    background-color: #909090;
+    background-image:linear-gradient(#ff6661, #3f1311);
+    background-position: center;
     position: absolute;
     bottom: 15%;
     left: 10%;
@@ -163,13 +164,23 @@ body{
     text-align: center;
     overflow: hidden;
     opacity: 0;
-    transition:linear all 500ms;
+    transition: all 500ms;
     padding: 10px;
     border: 2px solid white;
+    color: white;
+    border-radius: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: calc(2px + 1.6vw);
+}
+
+.an h3{
+    width: fit-content;
+    margin: auto;
+    height: fit-content;
 }
 
 .an::after{
-    background-color: blue;
+    background-color: #2b303a;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -188,9 +199,26 @@ body{
     opacity: 100;
 }
 
+header h1{
+    color: whitesmoke;
+    text-align: center;
+    font-family: pok;
+    margin-top: calc(2px + 5vh);
+    font-size: calc(15px + 2vw);
+    letter-spacing: 3px;
+}
+
+header h3{
+    color: whitesmoke;
+    text-align: center;
+    margin-top: calc(2px + 5vh);
+    font-family: 'Quicksand', sans-serif;
+    margin-bottom: calc(2px + 5vh);;
+}
+
 @font-face {
     font-family: 'pok';
-    src: url('fonts/Pokemon\Solid.ttf');
+    src: url('fonts/Pokemon\ Solid.ttf');
 }
 
 @keyframes appear {

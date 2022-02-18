@@ -61,7 +61,7 @@ h1{
 .third{
     display: flex;
     flex:1 0 20%;
-    min-width: 200px;
+    min-width: 250px;
 
 }
 
@@ -153,9 +153,8 @@ img{
 
 .soc{
     transform-origin: center;
-
+    text-align: center;
 }
-
 
 .fall{
     background-color: #111111;
@@ -214,3 +213,44 @@ a{
     color: whitesmoke;
 }
 
+@media screen and (max-width:900px){
+    .firstwo{
+        flex-flow: column nowrap;
+    }
+
+    .card{
+        box-shadow: 0px 0px 20px #444444;
+    }
+
+    .socials{
+        transform: rotateX(0deg);
+    }
+
+    hr{
+        transform: rotateY(0deg); 
+    }
+
+    .fall{
+        transform: rotateX(0deg);
+    }
+
+    img{
+        filter: brightness(100%);
+        border: 5px solid #111111;
+    }
+
+    .contenedor{
+        padding: 0 8vw;
+    }
+
+    .soc:hover{
+        transform: none;
+        transition: none;
+    }
+}
+
+@media screen and (max-width:500px){
+    .contenedor{
+        padding: 0 1vw;
+    }
+}
