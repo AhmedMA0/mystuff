@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!--creamos un boton html y le indicamos que al hacer click llame a una funcion-->
+    <button onclick="google()">¡¡NOS VAMOS!!</button>
+    <script>
+
+        //funcion que redirige a la pagina de google
+        function google() {
+            location.replace('https://google.com');
+        }
+
+        //funcion que redirige a la pagina de duckduckgo
+        function duck() {
+            location.replace('https://duckduckgo.com');
+        }
+
+        //funcion que, pasados 5 segundos, llama a otra funcion en este caso la funcion duck creada anteriormente
+        setTimeout(duck, 5000);
+
+
+    </script>
+</body>
+</html>

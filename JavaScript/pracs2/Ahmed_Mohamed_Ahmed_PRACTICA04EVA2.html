@@ -50,17 +50,42 @@
             else alert('Formato necesario: dd/mm/aaaa y dias y meses correctos.');
         }
 
-        let arrayD1 = date1.split('/');
-        let arrayD2 = date2.split('/');
+        function crearObjDate(date) {
 
-        let obDate1 = new Date(arrayD1[2], arrayD1[1], arrayD1[0]);
-        let obDate2 = new Date('1111-11-01');
+            //dividimos la fecha introducida en un array para poder pasarsela constructor del objeto Date en su correcto formato
+            let arrayD = date.split('/');
 
-        console.log(obDate1.getTime());
-        console.log(obDate1);
-        console.log(obDate2);
+            //creamos el onjeto Date respectivo a la fecha introducida por el usuario
+            //formato del constructor segun la posicion de los arrays anteriores: mes:1, dia:0 y finalmente año(2)
+            //le pasamos el mes -1 porque los meses estan indexados desde el 0 en el objeto Date
+            let obDate = new Date(arrayD[2], arrayD[1]-1, arrayD[0]);
 
+            //devolvemos el objeto creado a partir del string con la fecha
+            return obDate;
+        }
 
+        //llamamos a nuestra funcion para crear los dos objetos date
+        let obDate1=crearObjDate(date1);
+        let obDate2=crearObjDate(date2);
+
+        //conseguimos el numero de milisegundos desde la/el ECMAScript epoch hasta cada una de nuestras fechas
+        let msDate1 = obDate1.getTime();
+        let msDate2 = obDate2.getTime();
+
+        //declaramos la variable que guardara la differencia en dias y una constante que representa el numero por el que
+        //hay que dividir para pasar de milisegundos a dias
+        let difference;
+        const StoD = 1000*60*60*24;
+
+        //comprobamos que numero es mayor para evitar datos incorrectos al restar menos un numero negativo y restamos el menor al mayor y lo dividimos entre
+        //nuestra constante consiguiendo asi la diferencia en dias
+        if (msDate1>msDate2) {
+            difference = (msDate1-msDate2)/StoD;    
+        }
+        else difference = (msDate2-msDate1)/StoD;
+
+        //sacamos por consola elresultado final: la diferencia en dias
+        console.log(difference);
     </script>
 </body>
 </html>

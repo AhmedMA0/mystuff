@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ipsum quia tempora officia voluptatibus, cum dignissimos alias quos voluptate, ipsam consectetur recusandae accusantium dolorem qui illo aut facilis rem nisi.</li>
+        <li>Necessitatibus, ea expedita velit est omnis voluptas, perspiciatis sint laborum commodi dolorem quisquam ullam! Est, sequi nesciunt inventore nobis voluptatibus, temporibus maiores quos alias commodi, unde magnam! Vel, dignissimos ipsam.</li>
+        <li>Magnam, iure architecto saepe sint unde possimus inventore perferendis facere laborum modi, magni iste quasi nulla consectetur rem! Laborum vel sint reprehenderit repellat voluptatem necessitatibus maiores dicta eveniet ut! Provident!</li>
+        <li>Consequatur enim quam dignissimos tempora officia delectus eaque earum. Qui, voluptatem a sed culpa fuga atque modi, aliquid praesentium nesciunt incidunt ex. Officiis, a quia maxime dolorum optio tenetur necessitatibus.</li>
+        <li>Praesentium porro quod amet cumque repellendus nemo, odio, animi perspiciatis nulla est eaque ea officia. Quos dolore laborum officiis. Ab accusamus dolore sint cum fuga harum, alias ipsa quisquam dolores!</li>
+        <li>Incidunt, aut! Perspiciatis recusandae error ex? Modi, in suscipit eum, consectetur minima sunt dolore, enim illo nisi placeat sapiente necessitatibus odio tempore recusandae porro quis ullam fuga sint amet laborum.</li>
+        <li>Error accusantium saepe cumque reprehenderit mollitia officiis atque, aut nihil animi id architecto, veritatis maiores consequatur? Atque possimus, sunt reiciendis vel fuga beatae, aliquid in ducimus doloribus, enim quasi numquam?</li>
+        <li>Doloremque necessitatibus vel corporis nostrum non eveniet dolorem, deserunt distinctio, sapiente ad a doloribus obcaecati recusandae, fugiat atque. Quis molestiae quasi officiis obcaecati nam possimus laudantium sunt culpa, tenetur iusto.</li>
+        <li>Nobis laboriosam necessitatibus eveniet vel veniam aliquid aperiam facere, culpa at nisi debitis non, ad cum provident deserunt? Ratione optio veritatis quos, odio soluta impedit neque illo possimus debitis error!</li>
+    </ol>
+    <script>
+
+        //expresion regular que solo admite el numeoro 10 o un digito del 1 al 9, es decir un numero del 1 al 10
+        let regex = /^((10)|[1-9])$/;
+
+        //creamos el nuevo elemento a insertar
+        let nuevoElemento = document.createElement("li");
+        //creamos otro elemento para que el texto salga en negrita y le damos contenido
+        let negrita = document.createElement('strong');
+        negrita.textContent = "Soy el nuevo elemento";
+        //metemos el texto en negrita dentro del elemento a insertar
+        nuevoElemento.appendChild(negrita);
+
+        //declaramos la variable lista como el ol de nuestra pagina
+        let lista = document.getElementsByTagName('ol')[0];
+
+        
+        //declaramos esta variable como false desde el principio para poder empezar a realizar las comprobaciones necesarias para
+        //decidir si el dato introducido es correcto o no
+        let valid=false;
+
+        //solo entramos en el bucle si la variable es false y la variable pasara a true al realizar las comprobaciones, haciendo uso de expresiones regulares
+        //y asi romper el bucle
+        while (valid==false) {
+            num = prompt('Elija una posición');
+
+            //si es correcto lo comunicamos y rompemos el bucle, y si no lo es, lo comunicamos junto con como debe ser el dato introducido
+            if (num.match(regex)) {
+                valid=true;
+                alert('Posicion valida.')
+            }
+
+            else alert('Solo numeros del 1 al 10');
+        }
+
+        //una vez tenemos la posicion deseada por el usuario tenemos que elegir el elemento que va despues de esa posicion para introducir nuestro
+        //nuevo elemento antes del que ya esta ahi
+        let posi = lista.getElementsByTagName('li')[num-1];
+
+        //insertamos el elemento en la posicion deseada por la logica expliacada justo arriba
+        lista.insertBefore(nuevoElemento,posi);
+    </script>
+</body>
+</html>
