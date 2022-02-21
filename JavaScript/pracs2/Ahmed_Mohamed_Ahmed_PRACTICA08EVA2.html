@@ -5,6 +5,8 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- nos reservamos este elemento para añadir el numero de palabras con el script-->
+    <strong id="count"></strong>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam, eius harum excepturi neque similique sed ullam vel facere id quasi nesciunt, a, necessitatibus iste impedit. Aspernatur, eos! Doloribus, voluptatum magni?</p>
     <p>Accusantium consequuntur eaque labore consectetur atque a vel dolore sapiente ratione. Porro accusantium facere cumque. Iure, asperiores labore architecto, ullam nobis molestiae id maiores vel facere, impedit deserunt aliquid nostrum.</p>
     <p>In libero minus accusamus suscipit sequi impedit tempora perspiciatis vitae nemo officiis numquam quaerat omnis sunt quo cumque hic beatae eveniet quis quisquam eligendi, nisi ipsam ex laudantium? Omnis, quos!</p>
@@ -16,7 +18,27 @@
     <p>Totam ex eius beatae alias facilis eveniet architecto? Iure incidunt rem itaque cum corporis ab soluta error tenetur laudantium, esse, in quibusdam pariatur earum illo expedita aspernatur cumque distinctio labore.</p>
     <p>Aut saepe rem fugiat non quisquam. Fuga rem distinctio obcaecati, voluptates autem maxime voluptatibus, eius in dolorum soluta repellat. Veritatis esse illo hic reiciendis, iusto aliquam atque corporis consequuntur? Nihil!</p>
     <script>
+        
+        //paras sera un objectList que contiene todos los parrafos presentes en nuestra pagina
+        let paras = document.getElementsByTagName('p');
 
+        //declaramos la variable que contendra el numero de palabras en nuestra pagina
+        let count = 0;
+
+        //bucle que recorre todos los parrafos de la pagina
+        for (let i = 0; i < paras.length; i++) {
+            //cada vez que entramos al bucle creamos unavariable que contendra el texto de el parrafo que toca en esa iteración
+            let text = paras[i].innerHTML;
+            
+            //sustituimos cualquier numero de espacios en un solo espacio para quitar espacios multiples y evitar errores
+            text = text.replace(/\s+/g,' ');
+
+            //añadimos al contador de palabras la longitud del array que nos quedaria si separasemos el texto del parrafo en palabras
+            count += text.split(' ').length;
+        }
+        
+        //sacamos por pantalla el numero de palabras haciendo uso del elemento que nos reservamos en el html 
+        document.getElementById('count').innerHTML=count;
     </script>
 </body>
 </html>
