@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ol>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+   <script>
+        function descAttrs(element){
+
+            let res = ' ';
+
+            res += element.tagName + '{';
+
+            if (element.attributes) {
+                for (const attribute of element.attributes) {
+                    res += attribute.name + '= ' +attribute.value + ', ';
+                }   
+            }
+
+            else res+= 'no attributes.';
+
+            console.log(res+'}');
+        }
+
+
+
+        function descBros(element){
+            if (element.attributes) {
+                descAttrs(element);                
+            }
+
+            let bro;
+
+            while (bro = element.nextSibling) {
+                descAttrs(bro);                
+            }
+        }
+
+        descBros(document.getElementsByTagName('html')[0]);
+   </script>
+</body>
+</html>
