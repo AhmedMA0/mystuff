@@ -16,19 +16,38 @@
     </ol>
    <script>
 
+       //funcion que describe el DOM al completo
+        //empezamos desde un elemento cualquiera del DOM, que se le pasa como parametro, y vamos bajando de hijo a hijo junto con los hermanos
+
+        let a=0;
         function descDOM(element){
+            
+            //primero describimos el elemento desde el que comenzamos
             console.log(element);
+
+            //creamos un array con todos los hijos del elemento en cuestion
             var elements = element.childNodes;
             
+            //recorremos todo el array nodo a nodo
             for (const iterator of elements) {
+                //si el elemento tiene hijos empezamos con la logica
                 if(iterator.hasChildNodes){
+
+                    //si el elemento que estamos iterando tiene nodeValue == null, lo cual significa que es un elemento html, como body o li p.e,
+                    //llamamos a nuestra propia funcion para describir ese ojeto y todos sus hijos
+                    //hasta que no haya mas (recursividad)
                     if (iterator.nodeValue == null) {
                         descDOM(iterator);
                     }
 
+                    //si el valor del nodo en cuestion tiene un salto de linea, esto significa que este nodo son las tabulaciones y saltos de linea que hay en 
+                    //el codigo por lo que no veo necesario describirlos y nos lo saltamos
                     else if(iterator.nodeValue.match(/\n/)){
                         continue;
                     }
+
+                    //y en el caso de que no sea ninguno de los anteriores, es decir que sea texto u otro elemento que tenga sentido describir
+                    //lo describimos haciendo uso de recursividad igual que antes
                     else{
                         descDOM(iterator);
                     }
@@ -36,6 +55,8 @@
             }
         }
 
+        //llamamos a la funcion y le pasamos el primer elemento de un documento html
+        //aunque podriamos empezar desde mas 'abajo', p.e desde el body
         descDOM(document.getElementsByTagName('html')[0]);
         
 
