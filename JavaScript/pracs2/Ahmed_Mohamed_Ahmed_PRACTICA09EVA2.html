@@ -6,12 +6,12 @@
 </head>
 <body>
     <ul>
-        <li id="primerLI">Hola soy el primero</li>
+        <li id="primerLI" class="hola">Hola soy el primero</li>
         <li>2</li>
         <li>3</li>
     </ul>
     <ol>
-        <li>4</li>
+        <li id="empty"></li>
         <li>5</li>
     </ol>
    <script>
@@ -21,14 +21,23 @@
             var elements = element.childNodes;
             
             for (const iterator of elements) {
+                if(iterator.hasChildNodes){
+                    if (iterator.nodeValue == null) {
+                        descDOM(iterator);
+                    }
 
-                if(iterator.childNodes.length > 0){
-                    descDOM(iterator);
+                    else if(iterator.nodeValue.match(/\n/)){
+                        continue;
+                    }
+                    else{
+                        descDOM(iterator);
+                    }
                 }
             }
         }
 
-        descDOM(document);
+        descDOM(document.getElementsByTagName('html')[0]);
+        
 
    </script>
 </body>
