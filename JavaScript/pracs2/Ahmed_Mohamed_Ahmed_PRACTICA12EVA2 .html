@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- nos reservamos este div para luego trabajar con él-->
+    <div id="colors"></div>
+   <script>
+
+        //declaramos unavariable que hace referencia a nuestro div
+        let div=document.getElementById('colors');
+
+        //cambiamos algunas propiedades css para darle estilo al div
+        div.style.width=50 +'vw';
+        div.style.height=50 +'vh';
+        div.style.border='2px solid black';
+        div.style.borderRadius='10px';
+        div.style.margin='auto';
+
+
+        //'detector' que desabilita el menu de contexto al hacer click derecho sobre el div
+        //podriamos anularlo en toda la pagina cambiendo div.addListener por document.addListener por ejemplo
+        div.addEventListener('contextmenu', function(e){
+            e.preventDefault();
+        });
+
+        //detector que detecta cuando el raton esta dentro del div y lo pone verde
+        div.addEventListener('mouseover', function(){
+            div.style.backgroundColor='green';
+        });
+
+        //detector que detecta cuando el click se mantiene pulsado y dependiendo de si es el click derecho o izquierdo
+        //lo pone a un color u a otro
+        div.addEventListener('mousedown', function(m){
+            if (m.button==0) {
+                div.style.backgroundColor='red';
+            }
+
+            else if(m.button==2) {
+                div.style.backgroundColor='blue';
+            }
+        });
+
+        //detecta cuando se suelta el click para volver al color verde
+        div.addEventListener('mouseup', function(){
+            div.style.backgroundColor='green';
+        });
+
+        //detecta cuando el mouse se sale del div para dejarlo sin fondo
+        div.addEventListener('mouseleave', function(){
+            div.style.backgroundColor='white';
+        });
+
+   </script>
+</body>
+</html> 

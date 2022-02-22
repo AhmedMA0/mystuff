@@ -5,9 +5,41 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="im"></div>
+    <!-- nos reservamos este div para luego mostrar la imagen-->
+    <div id="col">Alt+n para mostrar una foto aqui.</div>
    <script>
+
+        //creamos una variable que hace referencia a nuestro div para ahorrarnos escribir
+        let div = document.getElementById('im');
+
+        //el div debe aparacer con fondo negro antes de mostrar la foto
+        //por lo que le asigno todas estas propiedades css para ello y otras cosas
+        //como centrar el texto, etc
+        div.style.width=50 +'vw';
+        div.style.height=50 +'vh';
+        div.style.backgroundSize='cover';
+        div.style.backgroundPosition='center';
+        div.style.margin='auto';
+        div.style.backgroundColor="black";
+        div.style.color="white";
+        div.style.display="flex";
+        div.style.flexFlow="row nowrap";
+        div.style.justifyContent="center";
+        div.style.alignItems="center";
+
+
+        //añadimos un 'detector' de eventos que detectara cuando se pulsa una tecla y es capaz de detectar combinaciones tambien
+        addEventListener('keydown', function(key){
+
+            //si la combinacion de teclas es correcta cargamos una imagen random en el div y le quitamos el texto
+            if (key.altKey && key.key == "n"){
+                div.style.backgroundImage="url('https://source.unsplash.com/random')";
+                div.innerHTML = '';
+            } 
+        });
+        
+
 
    </script>
 </body>
-</html>
+</html> 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+
+    body{
+        padding: 200px;
+        display: flex;
+        justify-content: space-evenly;
+        user-select: none;
+    }
+    div{
+        width: 200px;
+        height: 100px;
+        padding: 5px;
+    }
+
+    #d1{
+        background-color: yellow;
+    }
+
+    #d2{
+        background-color: red;
+    }
+</style>
+<body>
+    <!-- nos reservamos esteos divs para luego trabajar con ellos-->
+    <div id="d1" draggable="true">Soy arrastrable</div>
+    <div id="d2">Soy el destino</div>
+   <script>
+
+        //declaramos unas variables que hacen referencia a nuestros divs
+        let div1=document.getElementById('d1');
+        let div2=document.getElementById('d2');
+
+        document.addEventListener('dragover',function(d){
+            d.preventDefault();
+        });
+
+        document.addEventListener('dragenter',function(d){
+            d.preventDefault();
+        });
+
+
+        div1.addEventListener('drop', function(d){
+            d.preventDefault();
+            console.log(d.target);
+        });
+   </script>
+</body>
+</html> 
