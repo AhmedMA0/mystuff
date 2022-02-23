@@ -1,26 +1,99 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="Image Search App">
-        <meta name="keywords" content="HTML,CSS,JavaScript, images, API">
-        <meta name="author" content="Neha Soni">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Galor</title>
-        <link rel="stylesheet" href="./styles.css"> 
-    </head>
-    <body>
-        <h1>🔎 Galor</h1>
-        <div class="container">
-            <!--Input box to take input from User-->
-            <input type="text" class="input" placeholder="Search for Images🔎"/>
-            <button class="search_btn">Search</button>
-            <!--Images to be displayed here-->
-            <div class="display_images"></div>
-            <!--Button to load more images-->
-            <button class="showmore">Show More</button>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Image Search App">
+    <meta name="keywords" content="HTML,CSS,JavaScript, images, API">
+    <meta name="author" content="Neha Soni">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galor</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Galor</h1>
+    </header>
+    <main>
+
+        <nav>
+
+            <div class="boton registro">Regístrate</div>
+            <div class="boton inicioSesion">Iniciar Sesión</div>
+
+        </nav>
+
+        <div class="Registro">
+
+            <!--Posicionar arriba a la derecha para cuando se pulse el botón-->
+            <!--Lo de aparecer o desaparecer va con js-->
+            <form action="./registrar.php" method="post">
+
+                <p>
+                    <label for="correoRegistro">Correo electrónico: </label>
+                    <input type="text" name="correoRegistro" placeholder="micorreo@correo.com" class="inserta registro">
+                </p>
+
+                <p>
+                    <label for="nombreRegistro">Nombre: </label>
+                    <input type="text" name="nombreRegistro" placeholder="Inserta tu nombre" class="inserta registro">
+                </p>
+
+                <p>
+                    <label for="passRegistro">Contraseña: </label>
+                    <input type="password" name="passRegistro" placeholder="micorreo@correo.com" class="inserta registro">
+                </p>
+
+            </form>
+
         </div>
-        <!--LINK CUSTOM JS FILE-->
-        <script src="./index.js"></script>
-    </body>
+
+        <!--Posicionar arriba a la derecha para cuando se pulse el botón-->
+        <!--Lo de aparecer o desaparecer va con js-->
+        <div class="sesion">
+
+            <form action="./inicioSesion.php" method="post">
+
+                <p>
+                    <label for="correoSesion">Correo electrónico: </label>
+                    <input type="text" name="correoSesion" placeholder="micorreo@correo.com" class="inserta inicioS">
+                </p>
+
+                <p>
+                    <label for="passRegistro">Contraseña: </label>
+                    <input type="password" name="passRegistro" placeholder="micorreo@correo.com" class="inserta inicioS">
+                </p>
+
+            </form>
+
+        </div>
+
+        <input type="text" class="inputBusqueda" id="inputBusqueda" placeholder="Inserta el nombre de las fotos que quieras buscar">
+        <input type="submit" name="enviaBusqueda" id="enviaBusqueda" class="enviaBusqueda boton" onclick="show(document.getElementById('inputBusqueda').value, 1)">
+
+        <div class="capaOscura">
+
+            <div class="contenedorImagenes" id="contenedorImagenes">
+
+
+
+            </div>
+
+            <div class="pagina paginaSeleccionada" id="pagina" value="1"></div>
+            <div class="pagina paginaSeleccionada" id="pagina" value="2"></div>
+            <div class="pagina paginaSeleccionada" id="pagina" value="3"></div>
+            <div class="pagina paginaSeleccionada" id="pagina" value="4"></div>
+            <div class="pagina paginaSeleccionada" id="pagina" value="5"></div>
+
+        </div>
+
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./js/index.js"></script>
+    <script src="./js/ajax.js"></script>
+</body>
+
 </html>
