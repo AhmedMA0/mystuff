@@ -1,0 +1,45 @@
+*{
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.m1{
+    background-image: url('images/logo.jpg');
+    width: 50%;
+    height: 50%;
+}
+
+.m2{
+    background-image: url();
+
+}
+
+.m3{
+    background-image: url();
+
+}
+
+.m4{
+    background-image: url();
+
+}
+
+.m5{
+    background-image: url();
+
+}

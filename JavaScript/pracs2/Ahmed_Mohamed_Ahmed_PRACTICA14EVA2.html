@@ -16,14 +16,11 @@
         width: 200px;
         height: 100px;
         padding: 5px;
+        border: 1px solid black;
     }
 
     #d1{
         background-color: yellow;
-    }
-
-    #d2{
-        background-color: red;
     }
 </style>
 <body>
@@ -36,19 +33,39 @@
         let div1=document.getElementById('d1');
         let div2=document.getElementById('d2');
 
+        //desactivamos el comportamiento por defecto en todo el documento de estos dos evento para evitar problemas con el evento drop
         document.addEventListener('dragover',function(d){
             d.preventDefault();
         });
-
         document.addEventListener('dragenter',function(d){
             d.preventDefault();
         });
 
+        //detecta que el div se esta arrastrando y lo pone semi-trasparente
+        //practicamnente inutil ya que esto ocurrre por defecto al ser arrastrado
+        div1.addEventListener('drag', function(){
+            div1.style.opacity='0.5';
+        })
 
-        div1.addEventListener('drop', function(d){
+        //div2 detect que se ha soltado algo en el y borra el primer div y cambia el estilo del segundo
+        div2.addEventListener('drop', function(d){
             d.preventDefault();
-            console.log(d.target);
+            div1.style.display='none';
+            div2.style.backgroundColor='yellow';
+            div2.innerHTML='¡¡Lo has logrado!!';
         });
+
+        //detecta que algo se esta arrastrando sobre el y se pone rojo
+        div2.addEventListener('dragenter', function(){
+            div2.style.backgroundColor='red';
+        });
+
+        //cuando se deje de arrastrar algo sobre el se pone en blanco
+        div2.addEventListener('dragleave', function(){
+            div2.style.backgroundColor='white';
+        });
+
+
    </script>
 </body>
 </html> 
