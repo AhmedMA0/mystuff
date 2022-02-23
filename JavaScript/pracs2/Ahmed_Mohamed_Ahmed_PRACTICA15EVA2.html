@@ -9,22 +9,34 @@
         width: 50vw;
         height: 50vh;
         margin: auto;
-        background-color: aqua;
+        background-color: black;
+        color: white;
         text-align: center;
         font-weight: bold;
         font-size: 3vw;
+        position: absolute;
+        left:25%;
+    }
+
+    .toggle{
+        transform: translateY(-600px);
+        transition: all 2000ms;
     }
 
     body{
         display: flex;
         flex-flow: column nowrap;
     }
+
+    img{
+        display: none;
+    }
 </style>
 <body>
-    <!-- nos reservamos esteos divs para luego trabajar con ellos-->
+    <!-- nos reservamos esteos elementos para luego trabajar con ellos-->
     <div id="load">CARGANDO...</div>
     <img src="https://source.unsplash.com/random" id="i1">
-    <img src="http://lorempixel.com/1920/1048" id="i2">
+    <img src="http://placekitten.com/1920/1080" id="i2">
     <img src="https://picsum.photos/1920" id="i3">
     <img src="https://www.fillmurray.com/640/360" id="i4">
     <img src="https://loremflickr.com/1920/1048" id="i5">
@@ -32,8 +44,13 @@
     
 
    <script>
-
-
+        window.addEventListener('load', function(){
+            for (const iterator of document.getElementsByTagName('img')) {
+                iterator.style.display='block';
+                document.getElementById('load').classList.toggle('toggle');
+            }
+        });
+    
    </script>
 </body>
 </html> 
