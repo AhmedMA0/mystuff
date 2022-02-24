@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #but{
+            width: 20vw;
+            height: 20vw;
+            margin: auto;
+            display: block;
+            font-size: 2vw;
+            font-weight: bold;
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+        }
+
+        #but:active{
+            background-color: #680000;
+
+        }
+
+        p{
+            font-weight: bold;
+            font-size: 2vw;
+            text-align: center;
+        }
+    </style>
+    <!-- nos reservamos este boton y parrafo para luego trabajar con ellos-->
+    <button id="but">¡¡Abortar!!</button>
+    <p id="out"></p>
+
+    <script type="module">
+
+        //importamos del modulo y llamamos a la funcion
+        import temporizador from "./index.js";
+
+        temporizador(prompt('Milisegundos.'));
+    </script>
+
+
+</body>
+</html> 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    </style>
+    <script>
+        //declaramos esta variable haciendo referencia al body
+        let body = document.getElementsByTagName('body')[0];
+
+        //contador que nos permitira ir de uno a otro registro
+        var cont =0;
+        //comenzamos con el fetch
+        function show(cont){
+            fetch("http://jsonplaceholder.typicode.com/posts")
+            .then(respuesta => {//recogemos la respuesta con then
+                return respuesta.json();
+            }).then(jsondata =>{//el metedo json() requiere que volvamos a recoger su propia respuesta con then tambien
+                
+                for (const key in jsondata[cont]) {
+                    //asignamos a una constante cada valor por cada iteracion
+                    const element = jsondata[cont][key];
+
+                    //creamos un label con el texto del nombre del campo, que es lo mismo, el campo json
+                    let label = document.createElement('label');
+                    label.innerHTML = key;
+
+                    //creamos un inputo con el valor del json de esa clave
+                    let input = document.createElement('input');
+                    input.value = element;
+
+                    //cremos un br para darle algo de estilo
+                    let br = document.createElement('br');
+
+                    //metemos los elementos en este orden input => label => salto de lina
+                    body.appendChild(input);
+                    body.appendChild(label);
+                    body.appendChild(br);
+                }
+            });
+        }
+
+        //funcion que se encarga de quitar los divs anteriores
+        function limp(){
+
+            //como se generan 4 divs el bucle solo se repetira 4 veces
+            for (let i = 0; i < 4; i++) {
+
+                //quitamos los 4 divs, labels y saltos de linea
+                body.removeChild(body.getElementsByTagName('input')[0]);
+                body.removeChild(body.getElementsByTagName('label')[0]);
+                body.removeChild(body.getElementsByTagName('br')[0]);
+            }
+        }
+
+        //llamamos a la funcion una vez para que la pagina empeize mostrando el index 0
+        show(cont);
+
+    </script>
+
+    <!--los dos botones que nos permiten ir hacia delante o atras, le quitan uno o suman al contador 
+        y cuando llegan al maximo lo resetean, luego limpian y sacan el contenido-->
+    <button onclick="--cont; if(cont<0){cont+=100}; limp(); show(cont); ">Anterior</button>
+    <button onclick="++cont; if(cont>99){cont-=100};  limp(); show(cont); ">Siguiente</button> <br><br>
+
+</body>
+</html> 

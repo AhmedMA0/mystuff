@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- nos reservamos estos inputs para luego trabajar con ellos-->
+    <input type="text" placeholder="nombre">nombre <br>
+    <input type="text" placeholder="email">email <br>
+    <input type="text" placeholder="tlf">tlf <br>
+    <input type="text" placeholder="pais">pais <br><br>
+    <!--este input sera el que 'envie' los datos y al clickarlo llamara a la funcion go ademas de recargar la pagina a los 2 segundos-->
+    <input type="submit" onclick="go(); setTimeout(function(){location.reload();}, 2000)">
+    <script>
+
+        //variable que guarda todos los inputs de la pagina para
+        var textos = document.getElementsByTagName('input');
+
+        //funcion que se encarga de guardar los datos del formulario en cookies
+        function go() {
+
+            //comprobamos si existe o no alguna cookie ya que cuando ejecutemos el programa por primera vez no habra ninguna cookie
+            if (!document.cookie) {
+
+                //si es asi sacamos el aviso de cookies al usuario
+                if(confirm('Esta pagina usa cookies para almacenar el numero de visitas que hace cada usuario. Si esta condome con ello, pulse Aceptar, de otro modo la pagina no realizara su labor y eliminara las cookies existentes. ')){
+                    
+                    //si el usuario acepta recorremos todos los inputs uno a uno creando una cookie por cada uno
+                    for (let i = 0; i < textos.length-1; i++) {
+                        let text = textos[i];
+                        console.log(text.placeholder);
+                        document.cookie =text.placeholder+'='+text.value+'; max-age='+60*60*24*7;
+                    }
+                }
+            }
+
+            //si ya hay alguna cookie creada eso significa que el usuario ha aceptado ya el acuerdo de cookies 
+            //si el usuario ya lo ha aceptado significa que ya ha enviado datos alguna vez por lo que si vuelve a llamar a esta funcion
+            //es porque quiere enviar datos de nuevo por lo que los volvemos a guardar cookies
+            else{
+                for (let i = 0; i < textos.length-1; i++) {
+                        let text = textos[i];
+                        console.log(text.placeholder);
+                        document.cookie =text.placeholder+'='+text.value+'; max-age='+60*60*24*7;
+                    }
+            }
+        }
+
+        //si ya existe alguna cookie significa que el usuario ya ha enviado datos
+        if (document.cookie) {
+
+            //si es asi pregntamos al usuario si quiere que le rellenemos el formulario con los datos que ya ha introducido
+            if (confirm('Deseea auto rellenar el formulario?')) {
+                
+                //si acepta recorremos todas las cookies con el metodo nombre => valor y todos los inputs
+                let arrayCookie = document.cookie.split("; ");            
+                    for (let miCookie of arrayCookie){
+                        let [nombre,valor] = miCookie.split("=");
+
+                        for (let i = 0; i < textos.length-1; i++) {
+                            let text = textos[i];
+                            //si el nombre de la cookie es igual al placeholder de nuestro input le insertamos el valor asegurandonos asi que va donde toca
+                            if (nombre == text.placeholder) {
+                                text.value=valor;
+                            }
+                        }
+
+                    }
+            }
+        }
+    </script>
+</body>
+</html> 

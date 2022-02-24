@@ -5,6 +5,9 @@
     <title>Document</title>
 </head>
 <style>
+
+    /* algunas propiedades css para conseguir que el cuadro que dice cargando tenga un estilo correcto y la animacion requerida 
+    y que las fotos salgan bien una debajo de otra, etc*/
     #load{
         width: 50vw;
         height: 50vh;
@@ -19,7 +22,8 @@
     }
 
     .toggle{
-        transform: translateY(-600px);
+        transform: translateY(600px);
+        opacity: 0;
         transition: all 2000ms;
     }
 
@@ -44,7 +48,11 @@
     
 
    <script>
+
+       //añadimos un detector que detecta cuando la pagina entera se ha cargado con todos sus elementos
         window.addEventListener('load', function(){
+            //una vez la pagina entera se cargue vamos poniendo visibles todas la fotos y ponemos una clase css a el div 'cargando'
+            //para que desaparezca
             for (const iterator of document.getElementsByTagName('img')) {
                 iterator.style.display='block';
                 document.getElementById('load').classList.toggle('toggle');

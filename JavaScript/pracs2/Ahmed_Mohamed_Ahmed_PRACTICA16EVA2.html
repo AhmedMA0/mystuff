@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- nos reservamos este div para luego trabajar con él-->
+    <div id="count"></div>
+
+
+    <script>
+
+        //comprobamos si existe o no alguna cookie ya que cuando ejecutemos el programa por primera vez no habra ninguna cookie
+        if (!document.cookie) {
+            
+            //si es asi sacamos el aviso de cookies al usuario y solo creamos la cookie si el usuario acepta
+            if(confirm('Esta pagina usa cookies para almacenar el numero de visitas que hace cada usuario. Si esta condome con ello, pulse Aceptar, de otro modo la pagina no realizara su labor y eliminara las cookies existentes. ')){
+                
+                document.cookie = 'count=1; max-age='+ 365 * 24 * 60 * 60;
+            }
+        }
+
+        //si ya existe alguna cookie, la unica que puede ser es el contador
+        else{
+            
+            //usamos esta logica para poder divir en algo parecido a clave => valor las cookies de la pagina
+            //como la unica cookie que puede existir es la del contador no hacemos ninguna comprobacion para ver si estamos asignando o cogiendo 
+            //el valor de la cookie que toca y le añadimos el valor que ya tenia la cookie mas 1
+            let arrayCookie = document.cookie.split("; ");            
+            for (let miCookie of arrayCookie){
+                let [nombre,valor] = miCookie.split("=");
+                    ++valor;
+                    document.cookie = 'count='+valor+'; max-age='+ 365 * 24 * 60 * 60;
+            }
+        }
+
+        //sacamos el contador por consola por cada ejecucion del programa
+        console.log(document.cookie);
+
+    </script>
+</body>
+</html> 

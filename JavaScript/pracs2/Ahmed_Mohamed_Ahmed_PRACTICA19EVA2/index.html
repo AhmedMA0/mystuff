@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    </style>
+    <script>
+        //declaramos esta variable haciendo referencia al body
+        let body = document.getElementsByTagName('body')[0];
+
+        //comenzamos con el fetch
+        fetch("./index.json")
+        .then(respuesta => {//recogemos la respuesta con then
+            return respuesta.json();
+        }).then(jsondata =>{//el metedo json() requiere que volvamos a recoger su propia respuesta con then tambien
+
+            //una vez tenemos ya los datos json en un objeto lo iteramos
+            for (const key in jsondata) {
+                //asignamos a una constante cada valor por cada iteracion
+                const element = jsondata[key];
+                
+                //creamos un label con el texto del nombre del campo, que es lo mismo, el campo json
+                let label = document.createElement('label');
+                label.innerHTML = key;
+
+                //creamos un inputo con el valor del json de esa clave
+                let input = document.createElement('input');
+                input.value = element;
+
+                //cremos un br para darle algo de estilo
+                let br = document.createElement('br');
+
+                //metemos los elementos en este orden input => label => salto de lina
+                body.appendChild(input);
+                body.appendChild(label);
+                body.appendChild(br);
+            }
+        });
+
+    </script>
+</body>
+</html> 
