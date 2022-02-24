@@ -54,6 +54,7 @@ nav{
     
 }
 
+<<<<<<< HEAD
 
 .hidden{
     display: none;
@@ -96,6 +97,69 @@ nav{
 
 }
 
+=======
+.m1{
+    background-image: url('images/logo.jpg');
+}
+
+.m2{
+    background-image: url('images/foto9.jpg');
+}
+
+.m3{
+    background-image: url('images/foto10.jpg');
+}
+
+.m4{
+    background-image: url('images/foto11.jpg');
+}
+
+.m5{
+    background-image: url('images/foto12.jpg');
+}
+
+.hidden{
+    display: none;
+}
+
+.cont{
+    width: 80%;
+    display: none;
+    background-color: #000000bb;
+    border-radius: 15px;
+    padding: 0 20px;
+    margin: 2vh auto; 
+    color: white;
+}
+
+.c1{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.im{
+    width: 35%;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+
+.cont h2{
+    text-align: center;
+    margin: 4vh auto;
+    font-size: calc(10px + 1.8vw);
+}
+
+.cont p{
+    margin: 4vh auto;
+    font-size: calc(10px + 0.9vw);
+
+}
+
+>>>>>>> 458b158a4a110ae5e5e4cdc00daf43770ea84172
 footer{
     background-color: #5e1357;
     color: white;
