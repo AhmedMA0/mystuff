@@ -12,6 +12,15 @@ body{
     justify-content: space-between;
 }
 
+main{
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    background-image: url("images/foto1.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
 
 header{
     display: flex;
@@ -21,6 +30,7 @@ header{
     background-color: #5e1357;
     color: white;
     font-size: calc(10px + 1vw);
+    transition: all 1000ms;
 }
 
 .hom{
@@ -39,11 +49,20 @@ header{
 }
 
 .na:hover{
+    background-color: #6d1664;
+}
+
+.na:active{
     background-color: #3f0c3a;
 }
 
+
+
 .n5{
     border-right: 1px solid white;
+}
+.n6{
+    display: none;
 }
 
 nav{
@@ -51,32 +70,8 @@ nav{
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    
 }
 
-.m1{
-    background-image: url('images/logo.jpg');
-}
-
-.m2{
-    background-image: url('images/foto9.jpg');
-}
-
-.m3{
-    background-image: url('images/foto10.jpg');
-}
-
-.m4{
-    background-image: url('images/foto11.jpg');
-}
-
-.m5{
-    background-image: url('images/foto12.jpg');
-}
-
-.hidden{
-    display: none;
-}
 
 .cont{
     width: 80%;
@@ -88,7 +83,11 @@ nav{
     color: white;
 }
 
-.c1{
+.hidden{
+    display: none;
+}
+
+.visible {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
@@ -120,5 +119,86 @@ footer{
     color: white;
     text-align: center;
     padding: 15px;
+}
 
+.menuB{
+    display: none;
+}
+
+@media screen and (max-width:900px){
+
+    body{
+        position: relative;
+    }
+
+    header{
+        flex-flow: column nowrap;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+    }
+
+    main{
+        position: relative;
+        z-index: 0;
+    }
+
+    nav{
+        flex-flow: column nowrap;
+        width: 100%;
+    }
+
+    .na{
+        border: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .hom{
+        display: none;
+    }
+
+    .n6{
+        display: block;
+    }
+
+    .menuB{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 90px;
+        height: 70px;
+        padding: 15px;
+        z-index: 3;
+    }
+
+    .lin{
+        width: 100%;
+        height: 15%;
+        background-color: white;
+        border-radius: 5px;
+        transition: all 750ms;
+    }
+
+}
+
+.an1{
+    transform: translateY(22px) rotateZ(45deg) ;
+}
+
+.an2{
+    opacity: 0;
+
+}
+
+.an3{
+    transform:  translateY(-11.5px) rotateZ(-45deg);
+}
+
+.hideHead{
+    top: -40%;
 }
