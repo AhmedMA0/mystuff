@@ -33,19 +33,18 @@
 
         <div class="sesion">
 
-            <div class="boton registro">Regístrate</div>
-            <div class="boton inicioSesion">Iniciar Sesión</div>
+            <div class="boton registro" id="openDR">Regístrate</div>
+            <div class="boton inicioSesion" id="openDL">Iniciar Sesión</div>
 
         </div>
     </header>
     <hr>
     <main>
 
-        <div class="Registro">
+        <div class="Registro" id="divReg">
 
             <!--Posicionar arriba a la derecha para cuando se pulse el botón-->
             <!--Lo de aparecer o desaparecer va con js-->
-            <form action="./registrar.php" method="post">
 
                 <p>
                     <label for="correoRegistro">Correo electrónico: </label><br>
@@ -64,20 +63,15 @@
                 <p>
                     <input type="submit" name="completarRegistro" value="Registrate" class="completaRegistro" id="botonRegistro">
                 </p>
-                <p id="error">
-                    Faltan Datos
-                </p>
-
-            </form>
+                <p id="error"></p>
 
         </div>
 
         <!--Posicionar arriba a la derecha para cuando se pulse el botón-->
         <!--Lo de aparecer o desaparecer va con js-->
-        <div class="login">
+        <div class="login" id="divL">
 
-            <form action="./inicioSesion.php" method="post">
-
+            <form>
                 <p>
                     <label for="correoSesion">Correo electrónico: </label><br>
                     <input type="text" name="correoSesion" placeholder="micorreo@correo.com" class="inserta inicioS">
@@ -90,20 +84,18 @@
                 <p>
                     <input type="submit" name="completarLogin" value="Iniciar Sesión" class="completaLogin" id="botonLogin">
                 </p>
-
             </form>
 
         </div>
 
         <div class="search">
             <input type="text" class="inputBusqueda" id="inputBusqueda" placeholder="Buscador...">
-            <input type="submit" name="enviaBusqueda" id="enviaBusqueda" class="enviaBusqueda boton" value=">" onclick="show(document.getElementById('inputBusqueda').value, page)">
+            <input type="submit" name="enviaBusqueda" id="enviaBusqueda" class="enviaBusqueda boton" value=">" onclick="clearImg(); show(document.getElementById('inputBusqueda').value, page);">
         </div>
 
         <div class="capaOscura">
 
             <div class="contenedorImagenes" id="contenedorImagenes">
-                Holi
             </div>
             <button id="prev" class="prev" onclick=" ++page; show(document.getElementById('inputBusqueda').value, page); console.log(page)">Cargar más</button>
         </div>
@@ -112,14 +104,18 @@
 
     </main>
 
-    <hr>
     <footer>
+    <hr>
         <h3>2º Desarrollo de Aplicaciones Web en Entorno Servidor</h3>
     </footer>
     <script src="./js/index.js"></script>
     <script src="./js/ajax.js"></script>
     <script src="./js/enter.js"></script>
     <script src="./js/registerAjax.js"></script>
+    <script src="./js/openDivs.js"></script>
+    <script src="./js/clear.js"></script>
+
+
 
 </body>
 

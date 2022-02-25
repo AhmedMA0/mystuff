@@ -15,7 +15,7 @@
 
         //Intentamos iniciar la conexión en la base de datos
         try{
-            $db = new mysqli('localhost', "arce", "123456", "galorDB");
+            $db = new mysqli('localhost', "ahmed", "123456", "galorDB");
 
             if($db->connect_errno){
 
@@ -25,7 +25,7 @@
             }
         }catch(Exception $ex){
             //Otro tipo de error
-            echo "Excepción $ex <br>";
+            echo $ex->getMessage(), "<br>";
 
         }
         
@@ -36,21 +36,21 @@
         try{
             $consulta = $db->query("SELECT nombreUser FROM user WHERE correoUser = '$correo'");
 
-            if($res = $consulta->fetch_object()){
+            if($consulta->fetch_object()){
 
                 //Si da error de que ya existe el usuario lanzamos una excepción
-                throw new Exception("Ese usuario ya existe");
+                throw new Exception("Ese usuario ya existe.", 2);
 
             }else{
 
-                $db->query("INSERT INTO user(nombreUser, passwd, correoUser) VALUES ('$nombre', '$correo', '$passwd')");
+                $db->query("INSERT INTO user(nombreUser, passwd, correoUser) VALUES ('$nombre', '$passwd', '$correo')");
 
             }
 
         }catch(Exception $ex){
 
             //Si no, lanzamos otra
-            echo "Excepción ", $ex, "<br>";
+            echo $ex->getMessage(), "<br>";
 
         }
 
@@ -70,7 +70,7 @@
     function iniciarSesion($correo, $passwd){
 
         try{
-            $db = new mysqli('localhost', "arce", "123456", "galorDB");
+            $db = new mysqli('localhost', "ahmed", "123456", "galorDB");
 
             if($db->connect_errno){
 
@@ -79,7 +79,7 @@
             }
         }catch(Exception $ex){
 
-            echo "Excepción $ex <br>";
+            echo $ex->getMessage(), "<br>";
 
         }
 
@@ -113,7 +113,7 @@
 
         //Comprobamos que la conexión se realice con éxito
         try{
-            $db = new mysqli('localhost', "arce", "123456", "galorDB");
+            $db = new mysqli('localhost', "ahmed", "123456", "galorDB");
 
             if($db->connect_errno){
 
@@ -122,7 +122,7 @@
             }
         }catch(Exception $ex){
 
-            echo "Excepción $ex <br>";
+            echo $ex->getMessage(), "<br>";
 
         }
 
@@ -142,7 +142,7 @@
 
         //Comprobamos que la conexión se realice con éxito
         try{
-            $db = new mysqli('localhost', "arce", "123456", "galorDB");
+            $db = new mysqli('localhost', "ahmed", "123456", "galorDB");
 
             if($db->connect_errno){
 
@@ -151,7 +151,7 @@
             }
         }catch(Exception $ex){
 
-            echo "Excepción $ex <br>";
+            echo $ex->getMessage(), "<br>";
 
         }
 
@@ -182,7 +182,7 @@
 
         //Comprobamos que la conexión se realice con éxito
         try{
-            $db = new mysqli('localhost', "arce", "123456", "galorDB");
+            $db = new mysqli('localhost', "ahmed", "123456", "galorDB");
 
             if($db->connect_errno){
 
@@ -191,7 +191,7 @@
             }
         }catch(Exception $ex){
 
-            echo "Excepción $ex <br>";
+            echo $ex->getMessage(), "<br>";
 
         }
 
