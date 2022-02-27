@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="html">
 
 <head>
     <meta charset="UTF-8">
@@ -18,30 +18,64 @@
 </head>
 
 <body>
+    <?php
+        require_once('app/sesiones.php');
+
+
+        if (isset($_POST['closeSesion'])) {
+            cierraSesion();
+        }
+    ?>
     <header>
 
         <div class="logo">
             <img src="images/camara.png" alt="logo">
             <h1>Galor</h1>
         </div>
+        <p id="errorL"></p>
 
-        <div class="perfil">
-            <h3>Nombre Perfil</h3>
-            <input type="button" name="perfil" id="perfil" value="V">
-            <img src="" alt="foto_perfil" class="fotoPerfilTop">
-        </div>
 
-        <div class="sesion">
+            <div class='sesion' id="divSesion">
+                <div class='boton registro' id='openDR'>Regístrate</div>
+                <div class='boton inicioSesion' id='openDL'>Iniciar Sesión</div>
+            </div>
 
-            <div class="boton registro">Regístrate</div>
-            <div class="boton inicioSesion">Iniciar Sesión</div>
+            <div class='perfil' id="divPerfil">
+                <input type='button' name='perfil' id='perfil' value='V' class="flecha">
+                <h3 id="h3User"></h3>
+                <img alt='foto_perfil' class='fotoPerfilTop' id="imgUser">
+            </div>
 
-        </div>
+
+        <?php
+
+            if (isset($_POST['completarLogin'])) {
+                if (isset($_POST['correoSesion']) && isset($_POST['passSesion'])) {
+                echo '<script>console.log(123);</script>';
+                }
+
+                iniciarSesion($_POST['correoSesion'], $_POST['passSesion']);
+            }
+
+        ?>
+
+            
+
     </header>
     <hr>
     <main>
 
-        <div class="Registro">
+        <div class="edit" id="divPerf">
+            <form method="POST" action="perfil.php">
+                <input type="submit" class="miPerfil" id="miPerf" value="Mi Perfil"></input>
+            </form>
+            <hr>
+            <form method="POST" action="#">
+                <input name="closeSesion" type="submit" class="cerrar" id="cerSes" value="Cerrar Sesión"></input>
+            </form>
+        </div>
+
+        <div class="Registro" id="divReg">
 
             <!--Posicionar arriba a la derecha para cuando se pulse el botón-->
             <!--Lo de aparecer o desaparecer va con js-->
@@ -63,58 +97,71 @@
                 <p>
                     <input type="submit" name="completarRegistro" value="Registrate" class="completaRegistro" id="botonRegistro">
                 </p>
-                <p id="error"></p>
+                <p id="errorR"></p>
 
         </div>
 
         <!--Posicionar arriba a la derecha para cuando se pulse el botón-->
         <!--Lo de aparecer o desaparecer va con js-->
-        <div class="login">
+        <div class="login" id="divL">
 
-            <form action="./inicioSesion.php" method="post">
-
+            <form action="#" method="POST">
                 <p>
                     <label for="correoSesion">Correo electrónico: </label><br>
-                    <input type="text" name="correoSesion" placeholder="micorreo@correo.com" class="inserta inicioS">
+                    <input type="text" name="correoSesion" placeholder="micorreo@correo.com" class="inserta inicioS" id="emailLog">
                 </p>
 
                 <p>
-                    <label for="passRegistro">Contraseña: </label><br>
-                    <input type="password" name="passRegistro" placeholder="micorreo@correo.com" class="inserta inicioS">
+                    <label for="passSesion">Contraseña: </label><br>
+                    <input type="password" name="passSesion" placeholder="password" class="inserta inicioS" id="passLog">
                 </p>
                 <p>
-                    <input type="submit" name="completarLogin" value="Iniciar Sesión" class="completaLogin" id="botonLogin">
+                    <input type="submit" name="completarLogin" value="IniciarSesion" class="completaLogin" id="botonLogin" >
                 </p>
+
 
             </form>
 
+
+        </div>
+
+        <div class="relleno" id="relleno">
         </div>
 
         <div class="search">
             <input type="text" class="inputBusqueda" id="inputBusqueda" placeholder="Buscador...">
-            <input type="submit" name="enviaBusqueda" id="enviaBusqueda" class="enviaBusqueda boton" value=">" onclick="show(document.getElementById('inputBusqueda').value, page)">
+            <input type="submit" name="enviaBusqueda" id="enviaBusqueda" class="enviaBusqueda boton" value=">" onclick="clearImg(); show(document.getElementById('inputBusqueda').value, page);">
         </div>
 
-        <div class="capaOscura">
-
+        <div class="capaGrande">
             <div class="contenedorImagenes" id="contenedorImagenes">
-                Holi
             </div>
-            <button id="prev" class="prev" onclick=" ++page; show(document.getElementById('inputBusqueda').value, page); console.log(page)">Cargar más</button>
+            <button id="prev" class="prev" onclick=" ++page; show(document.getElementById('inputBusqueda').value, page); ">Cargar más</button>
         </div>
-
-        
 
     </main>
 
-    <hr>
     <footer>
+    <hr>
         <h3>2º Desarrollo de Aplicaciones Web en Entorno Servidor</h3>
     </footer>
-    <script src="./js/index.js"></script>
+
+    
     <script src="./js/ajax.js"></script>
+    <script src="./js/cambiaDatos.js"></script>
+    <script src="./js/clear.js"></script>
     <script src="./js/enter.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/loginAjax.js"></script>
+    <script src="./js/openDivs.js"></script>
     <script src="./js/registerAjax.js"></script>
+
+
+    <?php
+        creaHeader();
+
+    ?>
+
 
 </body>
 

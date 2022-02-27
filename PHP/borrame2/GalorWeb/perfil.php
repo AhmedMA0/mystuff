@@ -18,68 +18,85 @@
 <body>
 
     <?php
-
-        $correoViejo = $_SESSION['correo'];
-
-        include "./app/crud.php";
-        $datos = muestraDatosUsuario($correo);
-
-        if($_POST['guardar']){
-
-            editaUser($correoViejo, $_POST['ususario'], $_POST['correo']);
-
-        }
-
-        if($_POST['cambiaFoto']){
-
-            fotoPerfil($correo, $_POST['cambiaFoto']);
-
-        }
-
+        require_once('app/sesiones.php');
+        require_once('app/imagenDB.php');
     ?>
 
-    <header>
+<header>
 
+    <a href="./index.php">
         <div class="logo">
-            <img src="" alt="logo">
+            <img src="images/camara.png" alt="logo">
             <h1>Galor</h1>
         </div>
+    </a>
+    <div class='perfil' id="divPerfil">
+        <input type='button' name='perfil' id='perfil' value='V' class="flecha">
+        <h3 id="h3User"></h3>
+        <img alt='foto_perfil' class='fotoPerfilTop' id="imgUser">
+    </div>
 
-        <div class="perfil">
-            <h3>Nombre Perfil</h3>
-            <input type="button" name="perfil" id="perfil" value="V">
-            <img src="data:image/png;base64, <?php base64_encode($dato["foto"]);?>" alt="foto_perfil" class="fotoPerfilTop">
-        </div>
+    
 
-    </header>
+</header>
+<hr>
 
     <main>
-        <form action="#" method="post">
+        <div class="edit" id="divPerf">
+            <form method="POST" action="perfil.php">
+                <input type="submit" class="miPerfil" id="miPerf" value="Mi Perfil"></input>
+            </form>
+            <hr>
+            <form method="POST" action="index.php">
+                <input name="closeSesion" type="submit" class="cerrar" id="cerSes" value="Cerrar Sesión"></input>
+            </form>
+        </div>
 
-            <img src="data:image/png;base64, <?php base64_encode($dato["foto"]);?>" alt="foto_perfil">
-            <input type="file" value="Cambiar foto" class="botonCambio" name="fotoPerfil">
+        <div class="contenedor">
+            <div class="usuario">
+                <div class="foto">
+                <img alt='foto_perfil' class='fotoPerfil' id="imgPerfil"><br>
 
-            <input type="submit" value="Cambiar foto" name="cambiaFoto" class="boton cambiaFoto">
+                        <form action="./app/subeImagen.php" method="post" enctype="multipart/form-data">
+                            <input type="file" value="Cambiar foto" class="botonCambio" name="image" id="phoFile"><br>
+                            <input type="submit" value="Cambiar foto" name="cambiaFoto" class="boton cambiaFoto" id="changePho">
+                        </form>    
+                </div>
 
-        </form>
+                <div class="cambiosUser">
+                    <form method="POST" action="perfil.php">
+                        <h2 id="h2Perf"></h2>
+                        <input id="usuarioIn" type="text" placeholder=" > Cambiar nombre de usuario" class="cambiarNombre">
+                        <input type="hidden" id="hiddenEmail" value="<?php echo $_SESSION['email'];?>">
+                        <input type="submit" name="cambiaCorreo" id="userChange" class="guardarNombre" value="Guardar nombre de Usuario" onclick="changeName(sesionEmail, document.getElementById('usuarioIn').value);">
+                    </form>
+                </div>
+            </div>
+            <div class="correo">
+                <form method="POST" action="perfil.php">
+                    <h3>Correo</h3>
+                    <input type="text" name="correo" id="correo" class="input inputCorreo">
+                    <input type="submit" value="Guardar Correo" class="guardarCorreo" name="guardar" id="menosMargen" onclick="changeEmail(sesionEmail, document.getElementById('correo').value);">
+                </form>
+            </div>
 
-        <form action="#" method="post">
+            
+        </div>
 
-            <h2><?php $datos["nombre"]; ?></h2>
-            <input id="usuario" type="text" value=" > Cambiar nombre de usuario" class="botonCambio" name="usuario" onclick="cambiaUsuario()" readonly>
-
-            <div class="lineaSeparadora"></div>
-
-            <h3>Correo</h3>
-            <input type="text" name="correo" id="correo" class="input inputCorreo" value="<?php $datos["correo"]; ?>" onclick="cambiaCorreo()" readonly>
-
-            <input type="submit" value="Guardar cambios" class="boton guardar" name="guardar" onclick="vuelveNormal()">
-
-        </form>
-
+        <div class="relleno" id="relleno"></div>
     </main>
-
+    <footer>
+    <hr>
+        <h3>2º Desarrollo de Aplicaciones Web en Entorno Servidor</h3>
+    </footer>
     <script src="./js/cambiaDatos.js"></script>
+    <script src="./js/perfil.js"></script>
+    <script src="./js/openDivsPerfil.js"></script>
+
+    <?php 
+        creaHeader();
+        montaPerfil();
+    ?>
 </body>
 
 </html>

@@ -24,7 +24,7 @@
         }
 
         //Subimos el id a la base de datos
-        $db->query("INSERT INTO img VALUES ($id)");
+        $db->query("INSERT INTO img VALUES ('$id')");
 
     }
 
@@ -50,20 +50,20 @@
 
         }
 
+        $imgContent = addslashes(file_get_contents($image));
+
         //Usamos las siguientes líneas para saber si tenemos que añadir una imagen o simplemente cambiarla
         $recibeImagen = $db->query("SELECT fotoPerfil FROM user WHERE correoUser = '$correo'");
         $comprueba = $recibeImagen->fetch_object();
 
         if($comprueba != NULL){
 
-            $imgContent = addslashes(file_get_contents($image));
 
             $db->query("UPDATE user SET fotoPerfil = '$imgContent' WHERE correoUser = '$correo'");
 
         }else{
-            $imgContent = addslashes(file_get_contents($image));
-                    
-            $insert = $db->query("INSERT INTO user (fotoPerfil) VALUES ('$imgContent') WHERE correoUser = '$correo'");
+            echo $imgContent;
+            $insert = $db->query("UPDATE user SET fotoPerfil = '$imgContent' WHERE correoUser = '$correo'");
             if($insert){
                 echo "<p>Archivo subido correctamente a la base de datos</p>";
             }else{

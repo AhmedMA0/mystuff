@@ -15,35 +15,20 @@ CREATE TABLE IF NOT EXISTS img(
 
 CREATE TABLE IF NOT EXISTS likes(
     idImg INT NOT NULL,
-    idUser INT NOT NULL,
-    numLikes INT,
-    PRIMARY KEY (idImg, idUser),
-    FOREIGN KEY (idImg) REFERENCES img(idImg)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
-    FOREIGN KEY (idUser) REFERENCES user(idUser)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    idUser VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS coment(
     idImg INT NOT NULL,
-    idUser INT NOT NULL,
-    text VARCHAR(10000) NOT NULL,
-    PRIMARY KEY (idImg, idUser),
-    FOREIGN KEY (idImg) REFERENCES img(idImg)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
-    FOREIGN KEY (idUser) REFERENCES user(idUser)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    idUser VARCHAR(200) NOT NULL,
+    text VARCHAR(10000) NOT NULL
 );
 
 CREATE USER 'arce'@'localhost' IDENTIFIED BY '123456';
-GRANT ALL ON galor.* TO 'arce'@'localhost';
+GRANT ALL ON *.* TO 'arce'@'localhost';
 
 CREATE USER 'ahmed'@'localhost' IDENTIFIED BY '123456';
-GRANT ALL ON galor.* TO 'ahmed'@'localhost';
+GRANT ALL ON *.* TO 'ahmed'@'localhost';
 
 CREATE USER 'jesusro'@'localhost' IDENTIFIED BY '123456';
-GRANT ALL ON galor.* TO 'jesusro'@'localhost';
+GRANT ALL ON *.* TO 'jesusro'@'localhost';
