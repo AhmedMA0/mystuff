@@ -1,6 +1,6 @@
 <?php
     class CuatroRuedas extends Vehiculo{
-        protected $numPuertas;
+        . $numPuertas;
         
         public function __construct($numPuertas, $color, $peso) {
             $this->numPuertas = $numPuertas;
