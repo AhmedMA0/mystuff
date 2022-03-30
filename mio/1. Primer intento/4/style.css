@@ -1,0 +1,92 @@
+tml, body {
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+font-weight: 300;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: rgb(218, 19, 26);
+}
+
+.container {
+    max-width: 1200px; 
+}
+
+.header {
+    position: static;
+    width: 100%;
+    height: 80px;
+    padding: 1px 0;
+    background-color: rgb(218, 19, 26);
+    font-size: 18px;
+}
+
+.header li {
+    display: inline-block;
+    padding: 10px;
+  }
+
+.header a {
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.header p {
+  color: rgb(218, 19, 26);
+  font-family: 'Roboto';
+  font-weight: 800;
+}
+
+.main li {
+display:list-item;
+}
+
+.main .lista {
+ padding-left: 100px;
+ padding-right: 300px;
+}
+
+.main .casares {
+background-color: rgb(255, 249, 241);
+text-align: center;
+padding-left: 300px;
+padding-right: 300px;
+}
+
+.main .iruela {
+  text-align: center;
+  padding-left: 300px;
+  padding-right: 300px;
+  }
+  
+.main .mojácar {
+  text-align: center;
+  padding-left: 300px;
+  padding-right: 300px;
+  background-color: rgb(255, 249, 241);
+}
+
+.main .frigiliana {
+  text-align: center;
+  padding-left: 300px;
+  padding-right: 300px;
+  }
+
+.footer { 
+  background: #000;
+  height: 80px; 
+  padding-bottom: 50px;
+}
+
+.footer p { 
+  color: #fff;
+  font-size: 14px;  
+  height: 40px; 
+  line-height: 100px;
+  margin: 0;  
+}

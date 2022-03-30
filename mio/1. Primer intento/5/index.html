@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,200,500,100,600,700' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class='header'>
+      <img src="https://res.cloudinary.com/duciwn4zd/image/upload/v1648633734/Andaluc%C3%ADa%20Oriental/Escudo_uea90l.png" height="60" width="40">
+        <ul>
+          <li></li>
+          <li><a class='home' href='#home'>¿Qué es?</a></li>
+          <li><a class='vídeo' href='#vídeo'>Vídeo</a></li>
+          <li><a class='viajes' href='#viajes'>Viajes</a></li>
+          <li><a class='suscríbete' href='#suscríbete'>Suscríbete</a></li>
+        </ul>
+    </nav>
+    
+    <div class="main">
+        <form>
+            <h1>¡Suscríbete para no perderte las novedades!</h1>
+            <form action = "/index.html" method = "POST">
+                <label for = "username">Usuario</label>
+                <input type = "text" name = "username"  id = "username">
+                <label for = "user-password">Password</label>
+                <input type = "text" name = "user-password" id = "user-password"> 
+            </form>
+            <br>
+            <form>
+                <label for = "ciudad">¿A qué comunidad autónoma perteneces?</label>
+                <br>
+                <input typo = "text" name = "besos" id = "besos" value = "Granada">
+            </form>
+            <br>
+            <form>
+                <span>¿Quieres recibir novedades?</span>
+                  <br>
+                <input type = "radio" id = "affirmative" name = "answer" value = sí>
+                <label for = no>sí</label>
+                   <br>
+                <input type = "radio" id = "negative" name = "answer" value = no>
+                <label for = no>no</label>
+            </form>
+            <br>
+            <form>
+            <label for = "extra-info">Cuentanos tú experiencia con Andalucía Oriental</label>
+            <br>  
+            <textarea id="extra-info" name="extra-info" rows="8" cols="70"></textarea>
+            </form>
+            <form>
+                <input type="submit" value="envío">
+            </form>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <p>Por una Andalucía Oriental justa</p>
+      </div>
+    </div>
+  </body>
+</html>
