@@ -8,6 +8,7 @@
 body{
     display: flex;
     flex-flow: row wrap;
+    background-color: rgb(0, 0, 5);
 }
 
 img{
@@ -18,7 +19,6 @@ img{
 @media screen and (min-width:700px){
     body{
         margin: 0 20vw;
-        background-color: #864424;
         background-image: url('images/bc.jpg');
         background-attachment: fixed;
         background-size: cover;
