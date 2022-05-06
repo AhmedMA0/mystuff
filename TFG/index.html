@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html id="html">
-
+<html id="html" lang="es-ES">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Restaurant WebPage">
@@ -13,7 +12,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="sushi.png" class="logoI">
+            <img src="images/sushi.png" alt="Logo" class="logoIcon">
             <p>MÕ SUSHI WOK FUSION</p>
         </div>
         <!--
@@ -29,13 +28,22 @@
         <div class="heroDiv">
             <div class="heroImg">
                 <h1>Bienvenidos a la cocina de MÕ</h1>
-                <img src="hero.png">
+                <img src="images/hero.png" alt="Hero Image">
             </div>
+
             <div class="buttons">
                 <a href=""><div class="button">PIDE</div></a>
                 <a href=""><div class="button">RESERVA</div></a>
             </div>
         </div>
+
+        <div class="menu">
+            <img id="pagMenu" src="images/menu/1.jpg" alt="Menu Page">
+            <button class="prev" id="prev" onclick="prevPage();">Ant.</button>
+            <button class="next" id="next" onclick="nextPage();">Sig.</button>
+
+        </div>
+
         <div class="us">
             <p>Aspiramos a crear algo diferente y divertido 
                 adaptado a los gustos de hoy y precios asequibles.
@@ -44,5 +52,8 @@
                 Mediterránea.</p>
         </div>
     </main>
+    <script src="pages.js"></script>
+    <script src="vars.js"></script>
+
 </body>
 </html>
