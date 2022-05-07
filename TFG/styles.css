@@ -4,6 +4,80 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #171717;
+    color: white;
+}
+
+header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw 4vw;
+}
+
+.logo{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo p{
+    height: fit-content;
+    color: #cfa17e;
+}
+
+.logo img{
+    width: 3.5vw;
+}
+
+nav{
+    height: fit-content;
+}
+
+nav a{
+    margin: 0 1vw;
+}
+
+.heroImg{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 1vw;
+}
+
+.heroImg img{
+    width: 35%;
+    transform: translateX(-40px) rotateZ(25deg);
+}
+
+.heroImg p{
+    font-size: calc(10px + 3vw);
+    height: fit-content;
+}
+
+span{
+    font-size: calc(10px + 5vw);
+    font-weight: bold;
+    
+}
+
+.textbuttons{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+
+.buttons{
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top: 2vh;
+}
+
+
 .next{
     width: 100px;
     height: 100px;
