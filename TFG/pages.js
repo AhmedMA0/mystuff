@@ -2,7 +2,6 @@ function nextPage(){
     if (numPag<7) {
         ++numPag;
         menuFood.src = 'images/menu/'+numPag+'.jpg';
-        console.log(menuFood);
     }
 
     else{
@@ -15,7 +14,6 @@ function prevPage(){
     if (numPag>1) {
         --numPag;
         menuFood.src = 'images/menu/'+numPag+'.jpg';
-        console.log(menuFood);
     }
 
     else{

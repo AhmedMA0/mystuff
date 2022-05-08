@@ -6,7 +6,7 @@
 
 body{
     background-color: #171717;
-    color: white;
+    color: #fff8f8;
 }
 
 header{
@@ -71,11 +71,76 @@ span{
     justify-content: space-between;
 }
 
-.buttons{
+.buttonsHero{
     display: flex;
     flex-flow: row nowrap;
     margin-top: 2vh;
 }
+
+.us{
+    background-color: #fff8f8;
+    width: 80%;
+    margin: auto;
+    padding: calc(10px + 1.3vw);
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.usImages{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    background-color: #cfa17e;
+}
+
+.vertical{
+    grid-area: 1/2/3/3;
+}
+
+.usImages img{
+    width: 100%;
+    height: 100%;
+}
+
+.usText{
+    padding: 1.3vw;
+    width: 100%;
+}
+
+.us h3{
+    color: #cfa17e;
+    font-size: calc(7px + 2vw);
+}
+
+.us p{
+    color: #171717;
+    font-size: calc(5px + 1.3vw);
+}
+
+.menu{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu img{
+    width: 25%;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 .next{
