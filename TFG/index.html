@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant</title>
     <link href="styles.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/cf65667542.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -26,14 +27,14 @@
             <div class="heroImg">
                 <div class="textbuttons">
                     <p>
-                        <span>Bienvenidos a <br> La cocina de MÕ</span>
+                        <span>Bienvenidos a <br> la cocina de MÕ</span>
                         <br>
                         Disfrutad del viaje.
                     </p>
 
                     <div class="buttonsHero">
-                        <a href=""><div class="button">PIDE</div></a>
-                        <a href=""><div class="button">RESERVA</div></a>
+                        <span class="buttonAni buttonPed"><a href="#"></a></span>
+                        <span class="buttonAni buttonRes"><a href="#"></a></span>
                     </div>
                 </div>
                 
@@ -61,12 +62,14 @@
             </div>
         </div>
 
+        <p class="menuText">Nuestro Menú</p>
         <div class="menuDiv">
             <div class="menu">
                 <img class="pagMenu" id="pagMenu" src="images/menu/1.jpg" alt="Menu Page">
+                <input disabled class="pageDisplay" id="pageDisplay" type="text" value="1/7">
                 <div class="menuButtons">
-                    <button class="prev" id="prev" onclick="prevPage();">Ant.</button>
-                    <button class="next" id="next" onclick="nextPage();">Sig.</button>
+                    <button class="nextPrev" id="prev" onclick="prevPage();"><i class="fa-solid fa-cars"></i></button>
+                    <button class="nextPrev" id="next" onclick="nextPage();"><i class="fa-solid fa-car-bump"></i></button>
                 </div>
             </div>
             <div class="order">
@@ -77,6 +80,7 @@
     </main>
     <script src="pages.js"></script>
     <script src="vars.js"></script>
+    
 
 </body>
 </html>

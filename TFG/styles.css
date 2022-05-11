@@ -84,6 +84,7 @@ span{
     padding: calc(10px + 1.3vw);
     display: flex;
     flex-flow: row nowrap;
+    border-radius: 15px;
 }
 
 .usImages{
@@ -94,6 +95,9 @@ span{
     gap: 10px;
     padding: 10px;
     background-color: #cfa17e;
+    border-radius: 10px;
+    box-shadow: #9b785d 0px 0px 10px;
+
 }
 
 .vertical{
@@ -120,6 +124,10 @@ span{
     font-size: calc(5px + 1.3vw);
 }
 
+.menuDiv{
+    margin: auto;
+}
+
 .menu{
     display: flex;
     flex-flow: column nowrap;
@@ -128,30 +136,94 @@ span{
 }
 
 .menu img{
-    width: 25%;
+    width: 29.5vw;
+    border-radius: 15px;
+
 }
 
+.menuText{
+    margin-top: 10vh;
+    text-align: center;
+    font-size: calc(10px + 3vw);
+    font-weight: bold;
+}
 
+.buttonAni{
+    position: relative;
+    display: inline-flex;
+    width: 180px;
+    height: 55px;
+    margin: 0 15px;
+    perspective: 1000px;
+}
+.buttonAni a{
+    font-size: 19px;
+    letter-spacing: 1px;
+    transform-style: preserve-3d;
+    transform: translateZ(-25px);
+    transition: transform .25s;
+    font-family: 'Montserrat', sans-serif;  
+}
 
+.buttonPed a:before,
+.buttonPed a:after{
+    position: absolute;
+    content: "PEDIR";
+    height: 55px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid #cfa17e;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
 
+.buttonRes a:before,
+.buttonRes a:after{
+    position: absolute;
+    content: "RESERVAR";
+    height: 55px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid #cfa17e;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
 
+.buttonAni a:before{
+    color: #fff8f8;
+    background: #cfa17e;
+    transform: rotateY(0deg) translateZ(25px);
+}
 
+.buttonAni a:after{
+    color: #cfa17e;
+    transform: rotateX(90deg) translateZ(25px);
+}
 
+.buttonAni a:hover{
+    transform: translateZ(-25px) rotateX(-90deg);
+}
+  
+.pageDisplay{
+    background-color: #ffffff00;
+    color: #cfa17e;
+    text-align: center;
+    margin-top: -40px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
 
-
-
-
-
-
-.next{
+.nextPrev{
     width: 100px;
-    height: 100px;
+    height: 40px;
+    background-color: #fff8f8;
+    font-size: 100px;
 }
 
-.prev{
-    width: 100px;
-    height: 100px;
-}
 
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
