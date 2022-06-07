@@ -1,0 +1,3 @@
+CLIENT ID: 864509131806-glhr05ipjhc0859vv0iv5bjk53j1efvb.apps.googleusercontent.com
+
+CLIENT SECRET: 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
