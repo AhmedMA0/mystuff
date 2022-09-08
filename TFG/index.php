@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Restaurant WebPage">
-    <meta name="keywords" content="HTML,CSS,JavaScript, images, API">
-    <meta name="author" content="Ahmed S.">
+    <meta name="keywords" content="food, sushi">
+    <meta name="author" content="Ahmed M.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant</title>
-    <link href="styles.css" rel="stylesheet">
+    <link href="estilos/styles.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -32,7 +32,7 @@
                     </p>
 
                     <div class="buttonsHero">
-                        <span class="buttonAni buttonPed"><a href="#"></a></span>
+                        <span class="buttonAni buttonPed"><a href="pedido.php"></a></span>
                         <span class="buttonAni buttonRes"><a href="#"></a></span>
                     </div>
                 </div>
