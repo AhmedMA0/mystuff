@@ -4,9 +4,20 @@
     box-sizing: border-box;
 }
 
+html{
+    height: 100%;
+    width: 100%;
+}
+
 body{
     background-color: #171717;
     color: #fff8f8;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
 }
 
 header{
@@ -71,10 +82,10 @@ span{
     justify-content: space-between;
 }
 
-.buttonsHero{
+.buttonsM{
     display: flex;
     flex-flow: row nowrap;
-    margin-top: 2vh;
+    width: fit-content;
 }
 
 .us{

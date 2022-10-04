@@ -32,7 +32,7 @@
                     </p>
 
                     <div class="buttonsHero">
-                        <span class="buttonAni buttonPed"><a href="pedido.php"></a></span>
+                        <span class="buttonAni buttonPed"><a href="pedido.html"></a></span>
                         <span class="buttonAni buttonRes"><a href="#"></a></span>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
 
     <script src="https://kit.fontawesome.com/cf65667542.js" crossorigin="anonymous"></script>
     <script src="pages.js"></script>
-    <script src="vars.js"></script>
+    <script src="varsIndex.js"></script>
 
     
 
