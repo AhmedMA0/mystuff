@@ -8,16 +8,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pide</title>
     <link href="estilos/stylesP.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="buttonsM" class="buttonsM">
-        <span id="home" class="buttonAni buttonPed" onclick="printForm(this.id);"><a></a></span>
-        <span id="pickUp" class="buttonAni buttonRes" onclick="printForm(this.id);"><a></a></span>
-    </div>
+    <header>
+        <div class="logo" onclick="location.href='./'">
+            <img src="images/logo.png" alt="Logo" class="logoIcon">
+            <p class="display">MÕ SUSHI WOK FUSION</p>
+        </div>
+        <nav>
+            <a href="">Home</a>
+            <a href="">Pedir</a>
+            <a href="">Reservar</a>
+        </nav>
+    </header>
+    <main>
+        <div id="buttonsM" class="buttonsM">
+            <span id="home" class="buttonAni buttonPed" onclick="printForm(this.id);"><a></a></span>
+            <span id="pickUp" class="buttonAni buttonRes" onclick="printForm(this.id);"><a></a></span>
+        </div>
 
-    <form id="formHome" >
+        <div class="forms">
+            <form action="#" method="post" id="formHome" class="formHome">
+                <fieldset>
+                    <legend>Datos personales</legend>
+                        <p>
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" name="nombre" id="nombre" maxlength="15" pattern="-*[a-zA-Z]*-*[a-zA-Z]*" autofocus required>
+                        
+                            <label for="tlf">Teléfono:</label>
+                            <input type="text" name="tlf" id="tlf" pattern="[0-9]+" maxlength="30" required>
+                        </p>
+                        <br>
+                        <p>
+                            <label for="dir">Dirección:</label>
+                            <input type="text" name="dir" id="dir" maxlength="200" required>
+                        </p>
+                </fieldset>
+    
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
         
-    </form>
+    </main>
 
     <script src="varsPedido.js"></script>
     <script src="twoForms.js"></script>

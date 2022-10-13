@@ -8,12 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant</title>
     <link href="estilos/styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="logo">
+        <div class="logo" onclick="location.href='./'">
             <img src="images/logo.png" alt="Logo" class="logoIcon">
-            <p>MÕ SUSHI WOK FUSION</p>
+            <p class="display">MÕ SUSHI WOK FUSION</p>
         </div>
         <nav>
             <a href="">Home</a>
@@ -26,7 +32,7 @@
             <div class="heroImg">
                 <div class="textbuttons">
                     <p>
-                        <span>Bienvenidos a <br> la cocina de MÕ</span>
+                        <span class="tittle display">Bienvenidos a <br> la cocina de MÕ</span>
                         <br>
                         Disfrutad del viaje.
                     </p>
@@ -50,7 +56,7 @@
                     <img class="vertical" src="images/us2.jpg" alt="us2">
             </div>
             <div class="usText">
-                <h3>Sobre nosotros</h3>
+                <h3 class="display">Sobre nosotros</h3>
                 <p>
                     Aspiramos a crear algo diferente y divertido 
                     adaptado a los gustos de hoy y precios asequibles.
@@ -61,7 +67,7 @@
             </div>
         </div>
 
-        <p class="menuText">Nuestro Menú</p>
+        <p class="menuText display">Nuestro Menú</p>
         <div class="menuDiv">
             <div class="menu">
                 <img class="pagMenu" id="pagMenu" src="images/menu/1.jpg" alt="Menu Page">

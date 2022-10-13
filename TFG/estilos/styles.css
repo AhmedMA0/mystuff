@@ -7,6 +7,7 @@
 body{
     background-color: #171717;
     color: #fff8f8;
+    font-family: 'Playfair Display', serif;
 }
 
 header{
@@ -59,10 +60,12 @@ nav a{
     height: fit-content;
 }
 
-span{
+.display{
+    font-family: 'Playball', cursive;
+}
+
+.tittle{
     font-size: calc(10px + 5vw);
-    font-weight: bold;
-    
 }
 
 .textbuttons{
