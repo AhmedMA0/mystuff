@@ -1,0 +1,47 @@
+CREATE DATABASE IF NOT EXISTS mosushi;
+
+USE mosushi;
+
+CREATE TABLE IF NOT EXISTS usuario(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    tlf VARCHAR(100) NOT NULL,
+    direccion VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS pedido(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    datafono BOOLEAN NOT NULL,
+    cambio BOOLEAN NOT NULL,
+    estado ENUM('pendiente','aceptado','enviado','cancelado'),
+    idU INT NOT NULL,
+    FOREIGN KEY (idU) REFERENCES usuario(id) ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS categoria(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS producto(
+    nombre VARCHAR(100) PRIMARY KEY,
+    descr VARCHAR(200) NOT NULL,
+    precio DECIMAL(5,2) NOT NULL,
+    idCat INT NOT NULL,
+    FOREIGN KEY (idCat) REFERENCES categoria(id) ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS linea(
+	orden INT NOT NULL,
+    idPed INT NOT NULL,
+    idProd VARCHAR(100) NOT NULL,
+    cant INT NOT NULL,
+    precioT DECIMAL(5,2) NOT NULL,
+    PRIMARY KEY (orden,idPed),
+    FOREIGN KEY (idPed) REFERENCES pedido(id) ON UPDATE CASCADE,
+    FOREIGN KEY (idProd) REFERENCES producto(nombre) ON UPDATE CASCADE
+);
+
+
+CREATE USER 'ahmed'@'localhost' IDENTIFIED BY '123456';
+GRANT ALL ON *.* TO 'ahmed'@'localhost';

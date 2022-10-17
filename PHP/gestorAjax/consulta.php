@@ -1,7 +1,7 @@
 <?php
         $family = $_GET['code'];
         
-        $conexion = new mysqli('localhost', 'ahmed', '123456.A', 'dwes');
+        $conexion = new mysqli('localhost', 'ahmed', '123456', 'dwes');
 
         if (!empty($family)) {
             

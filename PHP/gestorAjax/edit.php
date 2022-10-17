@@ -12,7 +12,7 @@
 		//recibimos la informacion del
 		$codP = $_POST['codP'];
         //abrimos la conexion a base de datos con mysqli
-        $conexion = new mysqli('localhost', 'ahmed', '123456.A', 'dwes');
+        $conexion = new mysqli('localhost', 'ahmed', '123456', 'dwes');
     ?>
     <form action="actualizar.php" method="post">
 		<?php 
