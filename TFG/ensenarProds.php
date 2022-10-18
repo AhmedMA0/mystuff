@@ -18,18 +18,18 @@
             //preparamos y ejecutamos una consulta sacando un select con todas las categorias
 			$query = $conexion->stmt_init();
 
-            $query->prepare("select nombre from categoria");
+            $query->prepare("select * from categoria");
 
             $query->execute();
 
-            $query->bind_result($cat);
+            $query->bind_result($id,$nombre);
 
-			echo '<select name="cats" onchange="showProd(this.value)">';
+			echo '<select name="cat" onchange="showProd(this.value)">';
             echo '<option selected="true" disabled="disabled">Elige categoría</option>';    
 
 
 			while ($query->fetch()) {
-				echo '<option value="'.$cat.'">'.$cat.'</option>';
+				echo '<option value="'.$id.'">'.$nombre.'</option>';
 			}
 
 			echo '</select>';
@@ -37,7 +37,7 @@
             $query->close();
 		?>
 	</form>
-    <div id="prods"><b>Los productos se mostraran aquí...</b></div>
+    <div id="prods">Los productos se mostraran aquí...</div>
 
     <form action="insertarProds.php" method="POST">
         <input type="submit" value="Insertar nuevos">
@@ -47,6 +47,6 @@
 		$conexion->close();
 	?>
 
-<script src="./ajax.js"></script>
+<script src="ajax.js"></script>
 </body>
 </html>

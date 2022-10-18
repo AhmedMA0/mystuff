@@ -2,7 +2,6 @@
 
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
-    session_start();
 
     /*
     *Función para crear usuarios
@@ -16,7 +15,7 @@
 
         //Intentamos iniciar la conexión en la base de datos
         try{
-            $db = new mysqli('localhost', "ahmed", "123456", "galorDB");
+            $db = new mysqli('localhost', "ahmed", "123456", "mosushi");
 
             if($db->connect_errno){
 
@@ -27,11 +26,9 @@
         }catch(Exception $ex){
             //Otro tipo de error
             echo $ex->getMessage(), "<br>";
-
         }
         
 
-        //$contra = hash('sha256', $passwd, false);
 
         //Comprobamos que se pueda realizar la consulta
         try{

@@ -14,39 +14,41 @@
 
     ?>
 
-    <form id="catForm" class="catForm" action="#" method="post">
-        <input type="text" name="nombreCat" id="nombreCat">
-        <input type="submit" value="Confirmar">
+    <form id="catForm" class="catForm" action="insertCat.php" method="post">
+        <input type="text" name="nombreCat" id="nombreCat" required>
+        <input type="submit" value="Confirmar" name="yes">
+        <input type="submit" value="Cancelar" name="no">
 	</form>
 
-    <form id="prodForm" class="prodForm" action="#" method="post">
-        <input type="text" name="nombreProd" id="nombreProd">
-        <input type="text" name="desc" id="desc">
-        <input type="text" name="precio" id="precio">
+    <form id="prodForm" class="prodForm" action="insertProd.php" method="post">
+        <input type="text" name="nombreProd" id="nombreProd" required>
+        <input type="text" name="desc" id="desc" required>
+        <input type="text" name="precio" id="precio" required>
     
         <?php
         
             $query = $conexion->stmt_init();
             
-            $query->prepare("select nombre from categoria");
+            $query->prepare("select * from categoria");
             
             $query->execute();
             
-            $query->bind_result($cat);
+            $query->bind_result($idCat, $nombreCat);
             
-            echo '<select name="cats">';
+            echo '<select name="cat" required>';
             echo '<option selected="true" disabled="disabled">Elija categoría</option>';    
 
 
 			while ($query->fetch()) {
-				echo '<option value="'.$cat.'">'.$cat.'</option>';
+				echo '<option value="'.$idCat.'">'.$nombreCat.'</option>';
 			}
 
 			echo '</select>';
             //liberamos la consulta
             $query->close();
             ?>
-        <input type="submit" value="Confirmar">
+        <input type="submit" value="Confirmar" name="yes">
+        <input type="submit" value="Cancelar" name="no">
 
     </form>
     <div id="chButtons" class="chButtons">
