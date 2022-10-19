@@ -16,7 +16,7 @@
                 while ($prodQuery->fetch()) {
                     
                     echo '<form class= "prod" action="editProd.php" method="post">';
-                    echo '<p>'.$name.' <span>'. $price.'</span></p>';
+                    echo '<p><span>'.$name.' </span>'. $price.'</p>';
                     echo '<p>'.$desc.'</span></p>';
                     echo '<input type="hidden" value="'.$name.'" name="idProd">';
                     echo '<input class="submit" type="submit" value="Actualizar" name="yes">';
