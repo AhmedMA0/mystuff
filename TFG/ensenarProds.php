@@ -43,6 +43,10 @@
         <input type="submit" value="Insertar nuevos">
     </form>
 
+    <form action="ensenarCats.php" method="POST">
+        <input type="submit" value="Gestionar categorias">
+    </form>
+
     <?php
 		$conexion->close();
 	?>

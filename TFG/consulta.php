@@ -21,6 +21,10 @@
                     echo '<input type="hidden" value="'.$name.'" name="idProd">';
                     echo '<input class="submit" type="submit" value="Actualizar" name="yes">';
                     echo '</form>';
+                    echo '<form class= "prod" action="eliminarProd.php" method="post">';
+                    echo '<input type="hidden" value="'.$name.'" name="idProd">';
+                    echo '<input class="submit" type="submit" value="Eliminar" name="yes">';
+                    echo '</form>';
                 }
 
 

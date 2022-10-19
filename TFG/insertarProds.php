@@ -15,15 +15,15 @@
     ?>
 
     <form id="catForm" class="catForm" action="insertCat.php" method="post">
-        <input type="text" name="nombreCat" id="nombreCat" required>
+        <input type="text" name="nombreCat" id="nombreCat" required placeholder="Inserte nueva categoria.">
         <input type="submit" value="Confirmar" name="yes">
-        <input type="submit" value="Cancelar" name="no">
+        <input type="button" value="Cancelar" name="no" onclick="location.assign('ensenarProds.php');">
 	</form>
 
     <form id="prodForm" class="prodForm" action="insertProd.php" method="post">
-        <input type="text" name="nombreProd" id="nombreProd" required>
-        <input type="text" name="desc" id="desc" required>
-        <input type="text" name="precio" id="precio" required>
+        <input type="text" name="nombreProd" id="nombreProd" required placeholder="Nombre del producto.">
+        <input type="text" name="desc" id="desc" required placeholder="Descripción del producto.">
+        <input type="text" name="precio" id="precio" required placeholder="Precio del producto.">
     
         <?php
         
@@ -48,7 +48,7 @@
             $query->close();
             ?>
         <input type="submit" value="Confirmar" name="yes">
-        <input type="submit" value="Cancelar" name="no">
+        <input type="button" value="Cancelar" name="no" onclick="location.assign('ensenarProds.php');">
 
     </form>
     <div id="chButtons" class="chButtons">
