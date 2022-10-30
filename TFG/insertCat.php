@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php 
-        //abrimos la conexion a base de datos con mysqli
-        $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+    <?php
+        require_once('clases/includes.php');
 
         if (isset($_POST['yes'])) {
             $name = $_POST['nombreCat'] ?? 'Sin nombre';
-            
-            $insert = $conexion->stmt_init();
-            $insert->prepare("INSERT INTO categoria (nombre) VALUES ('".$name."');");
-            $insert->execute();
-
-            $insert->close();
-            $conexion->close();
+            Categoria::crearCat($name);
         }
 
         header('Location: ensenarProds.php');

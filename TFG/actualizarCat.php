@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <?php 
-        //abrimos la conexion a base de datos con mysqli
-        $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+        require_once('clases/includes.php');
+
         //echo "<script>console.log('hola')</script>";//".$name.$desc.$pvp."
         //echo "<script>console.log('".$name."')</script>";
 
@@ -13,15 +13,10 @@
 
         //echo "<script>console.log('".$name.$desc.$pvp."')</script>";
 
-            $update = $conexion->stmt_init();
-            $update->prepare("update categoria set nombre ='".$name."' where id ='".$idCat."';");
-            $update->execute();
-
-            $update->close();
-            $conexion->close();
+           Categoria::actCat($idCat, $name);
         }
 
-        header('Location: ensenarProds.php');
+        header('Location: ensenarCats.php');
 
     ?>
     <meta charset="UTF-8">

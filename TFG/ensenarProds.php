@@ -8,33 +8,24 @@
     <title>Productos</title>
 </head>
 <body>
-    <?php   
-        //abrimos la conexion a base de datos con mysqli
-        $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
-
+    <?php 
+    
+    require_once('clases/includes.php');
     ?>
+
     <form action="#" method="post">
-		<?php 
-            //preparamos y ejecutamos una consulta sacando un select con todas las categorias
-			$query = $conexion->stmt_init();
-
-            $query->prepare("select * from categoria");
-
-            $query->execute();
-
-            $query->bind_result($id,$nombre);
+		<?php
 
 			echo '<select name="cat" onchange="showProd(this.value)">';
             echo '<option selected="true" disabled="disabled">Elige categoría</option>';    
 
+            $cats = Categoria::verCats();
 
-			while ($query->fetch()) {
-				echo '<option value="'.$id.'">'.$nombre.'</option>';
-			}
-
+            foreach ($cats as $id => $nombre) {
+                echo '<option value="'.$id.'">'.$nombre.'</option>';
+            }
 			echo '</select>';
             //liberamos la consulta
-            $query->close();
 		?>
 	</form>
     <div id="prods">Los productos se mostraran aquí...</div>
@@ -47,10 +38,6 @@
         <input type="submit" value="Gestionar categorias">
     </form>
 
-    <?php
-		$conexion->close();
-	?>
-
-<script src="ajax.js"></script>
+    <script src="ajax.js"></script>
 </body>
 </html>

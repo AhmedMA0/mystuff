@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <?php 
-        //abrimos la conexion a base de datos con mysqli
-        $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+        require_once('clases/includes.php');
         //echo "<script>console.log('hola')</script>";//".$name."
         //echo "<script>console.log('".$name."')</script>";
 
@@ -11,12 +10,7 @@
             $idCat = $_POST['idCat'];
         //echo "<script>console.log('".$name."')</script>";
 
-            $update = $conexion->stmt_init();
-            $update->prepare("delete from categoria where id = '".$idCat."';");
-            $update->execute();
-
-            $update->close();
-            $conexion->close();
+            Categoria::BorCat($idCat);
         }
 
         header('Location: ensenarProds.php');
