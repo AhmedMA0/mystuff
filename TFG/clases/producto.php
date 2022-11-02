@@ -5,15 +5,16 @@
 /**
  * @author web.ahmed.m@gmail.com
  */
-class Categoria{
+class Producto{
 
         /**
          * Devuelve toda la información sobre las categorias
          * @return array|void
          * @access public
          * @static
+         * @param $cat
          */
-        static function verCats(){
+        static function verProdsxCat($cat){
 
             //Intentamos iniciar la conexión en la base de datos
             try{
@@ -32,20 +33,24 @@ class Categoria{
             }
 
             try{
-                $query = $conexion->stmt_init();
+                $prodQuery = $conexion->stmt_init();
 
-                $query->prepare("select * from categoria");
+                $prodQuery->prepare("select nombre, descr, precio from producto where idCat = ".$cat.";");
 
-                $query->execute();
+                $prodQuery->execute();
 
-                $query->bind_result($id,$nombre);
+                $prodQuery->bind_result($name, $desc, $price);
 
-                $cats = null;
-                while ($query->fetch()) {
-                    $cats[$id] = $nombre;
+                $prods = null;
+                $i = 0;
+                while ($prodQuery->fetch()) {
+                    $prods[$i]['name'] = $name;
+                    $prods[$i]['desc'] = $desc;
+                    $prods[$i]['price'] = $price;
+                    $i++;
                 }
 
-                return $cats;
+                return $prods;
 
             }catch(Exception $ex){
 
@@ -60,12 +65,12 @@ class Categoria{
 
         /**
          * Devuelve toda la información sobre las categorias
-         * @return mixed|void
+         * @return array|void
          * @access public
          * @static
-         * @param $id
+         * @param $cat
          */
-        static function verCat($id){
+        static function verProdsxNombre($id){
 
             //Intentamos iniciar la conexión en la base de datos
             try{
@@ -84,17 +89,22 @@ class Categoria{
             }
 
             try{
-                $query = $conexion->stmt_init();
+               
+			$firstq = $conexion->stmt_init();
 
-                $query->prepare("select nombre from categoria where id = '".$id."';");
+			$firstq->prepare("select descr, precio from producto where nombre = '".$id."';");
 
-                $query->execute();
+			$firstq->execute();
 
-                $query->bind_result($nombre);
+			$firstq->bind_result($desc, $precio);
 
-                $query->fetch();
+			$firstq->fetch();
 
-                return $nombre;
+            $prod = null;
+            $prod['desc'] = $desc;
+            $prod['precio'] = $precio;
+
+            return $prod;
 
             }catch(Exception $ex){
 
@@ -114,7 +124,7 @@ class Categoria{
          * @static
          * @param $name
          */
-        static function crearCat($name) : void{
+        static function crearProd($name, $desc, $pvp, $cat) : void{
 
             //Intentamos iniciar la conexión en la base de datos
             try{
@@ -134,7 +144,7 @@ class Categoria{
 
             try{
                 $insert = $conexion->stmt_init();
-                $insert->prepare("INSERT INTO categoria (nombre) VALUES ('".$name."');");
+                $insert->prepare("INSERT INTO producto VALUES ('".$name."','".$desc."','".$pvp."','".$cat."');");
                 $insert->execute();
 
                 $insert->close();
@@ -157,7 +167,7 @@ class Categoria{
          * @static
          * @param $id
          */
-        static function BorCat($id) : void{
+        static function BorProd($id) : void{
 
             //Intentamos iniciar la conexión en la base de datos
             try{
@@ -177,10 +187,8 @@ class Categoria{
 
             try{
                 $update = $conexion->stmt_init();
-                $update->prepare("delete from categoria where id = '".$id."';");
+                $update->prepare("delete from producto where nombre = '".$id."';");
                 $update->execute();
-
-                $update->close();
 
             }catch(Exception $ex){
 
@@ -201,7 +209,7 @@ class Categoria{
          * @param $id
          * @param $nombre
          */
-        static function actCat($id, $nombre) : void{
+        static function actProd($desc, $pvp, $nombre) : void{
 
             //Intentamos iniciar la conexión en la base de datos
             try{
@@ -221,11 +229,9 @@ class Categoria{
 
             try{
                 $update = $conexion->stmt_init();
-                $update->prepare("update categoria set nombre ='".$nombre."' where id ='".$id."';");
+                $update->prepare("update producto set descr ='".$desc."', precio =".$pvp." where nombre ='".$nombre."';");
                 $update->execute();
-
                 $update->close();
-                $conexion->close();
 
             }catch(Exception $ex){
 

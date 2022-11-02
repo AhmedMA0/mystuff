@@ -2,21 +2,14 @@
 <html lang="en">
 <head>
     <?php 
-        //abrimos la conexion a base de datos con mysqli
-        $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
-        //echo "<script>console.log('hola')</script>";//".$name."
+        require_once('clases/includes.php');
+        //echo "<script>console.log('hola')</script>";//
         //echo "<script>console.log('".$name."')</script>";
 
         if (isset($_POST['yes'])) {
             $name = $_POST['idProd'];
-        //echo "<script>console.log('".$name."')</script>";
-
-            $update = $conexion->stmt_init();
-            $update->prepare("delete from producto where nombre = '".$name."';");
-            $update->execute();
-
-            $update->close();
-            $conexion->close();
+            //echo "<script>console.log('".$name."')</script>";
+            Producto::BorProd($name);
         }
 
         header('Location: ensenarProds.php');

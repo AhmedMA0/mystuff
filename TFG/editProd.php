@@ -8,38 +8,21 @@
     <title>Listado</title>
 </head>
 <body>
-    <?php 
+    <?php
+        require_once('clases/includes.php');
+
 		//recibimos la informacion del producto
 		$prodName = $_POST['idProd'];
-        //abrimos la conexion a base de datos con mysqli
-        $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
     ?>
     <form action="actualizarProd.php" method="post">
 		<?php 
-
-			$firstq = $conexion->stmt_init();
-
-			$firstq->prepare("select descr, precio from producto where nombre = '".$prodName."';");
-
-			$firstq->execute();
-
-			$firstq->bind_result($desc, $precio);
-
-			$firstq->fetch();
-			
-			?>
-            <input type="text" name="nombre" value="<?php echo $prodName?>" readonly><br>
-            <textarea name="desc" cols="50" rows="10"><?php echo $desc ?? 'Descripción aquí.'?></textarea><br>
-            <input type="number" step="0.01" min="0" name="precio" value="<?php echo $precio?>"><br>
-        <?php
-			$firstq->close();
+			$prod = Producto::verProdsxNombre($prodName);
 		?>
+		<input type="text" name="nombre" value="<?php echo $prodName?>" readonly><br>
+		<textarea name="desc" cols="50" rows="10"><?php echo $prod['desc'] ?? 'Descripción aquí.'?></textarea><br>
+		<input type="number" step="0.01" min="0" name="precio" value="<?php echo $prod['precio'];?>"><br>
 		<input type='submit' value='Actualizar' name='yes'>
 		<input type='submit' value='Cancelar' name='no'>
-
 	</form>
-	<?php
-		$conexion->close();
-	?>
 </body>
 </html>

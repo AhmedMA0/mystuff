@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
     <?php 
-        //abrimos la conexion a base de datos con mysqli
-        $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
-        //echo "<script>console.log('hola')</script>";//".$name.$desc.$pvp."
-        //echo "<script>console.log('".$name."')</script>";
+        require_once('clases/includes.php');
+        //echo "<script>console.log('hola')</script>";//
 
         if (isset($_POST['yes'])) {
             $name = $_POST['nombre'];
@@ -13,12 +11,7 @@
             $pvp = $_POST['precio'] ?? 0.00;
         //echo "<script>console.log('".$name.$desc.$pvp."')</script>";
 
-            $update = $conexion->stmt_init();
-            $update->prepare("update producto set descr ='".$desc."', precio =".$pvp." where nombre ='".$_POST['nombre']."';");
-            $update->execute();
-
-            $update->close();
-            $conexion->close();
+           Producto::actProd($desc, $pvp, $name);
         }
 
         header('Location: ensenarProds.php');

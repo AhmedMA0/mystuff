@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
     <?php 
-    error_reporting(E_ALL);
-    ini_set('display_errors', '1');
-        //abrimos la conexion a base de datos con mysqli
-        $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+        require_once('clases/includes.php');
 
         if (isset($_POST['yes'])) {
             $name = $_POST['nombreProd'] ?? 'Sin nombre';
@@ -14,13 +11,7 @@
             $cat = $_POST['cat'] ?? 'NULL';
             //echo "<script>console.log('".$name.$desc.$pvp.$cat."')</script>";
 
-            $insert = $conexion->stmt_init();
-            $insert->prepare("INSERT INTO producto (nombre, descr, precio, idCat) VALUES ('".$name."','".$desc."','".$pvp."','".$cat."');");
-            $insert->execute();
-            echo "<script>console.log('hola')</script>";
-
-            $insert->close();
-            $conexion->close();
+            Producto::crearProd($name, $desc, $pvp, $cat);
         }
 
         header('Location: ensenarProds.php');
