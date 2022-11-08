@@ -42,6 +42,13 @@ CREATE TABLE IF NOT EXISTS linea(
     FOREIGN KEY (idProd) REFERENCES producto(nombre) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
+CREATE TABLE IF NOT EXISTS reserva(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    fechaYHora DATETIME NOT NULL,
+    estado ENUM('pendiente','aceptada','cancelada'),
+    idU INT,
+    FOREIGN KEY (idU) REFERENCES usuario(id) ON UPDATE CASCADE ON DELETE SET NULL
+);
 
 CREATE USER 'ahmed'@'localhost' IDENTIFIED BY '123456';
 GRANT ALL ON *.* TO 'ahmed'@'localhost';

@@ -167,7 +167,7 @@ class Producto{
          * @static
          * @param $id
          */
-        static function BorProd($id) : void{
+        static function borProd($id) : void{
 
             //Intentamos iniciar la conexión en la base de datos
             try{
