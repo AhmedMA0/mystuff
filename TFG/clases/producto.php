@@ -201,7 +201,7 @@ class Producto{
             $conexion->close();
         }
 
-             /**
+        /**
          * Borra una categoría de la base de datos por su id
          * @return void
          * @access public
