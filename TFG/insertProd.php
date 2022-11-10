@@ -11,7 +11,8 @@
             $cat = $_POST['cat'] ?? 'NULL';
             //echo "<script>console.log('".$name.$desc.$pvp.$cat."')</script>";
 
-            Producto::crearProd($name, $desc, $pvp, $cat);
+            $prod= new Producto($name, $desc, $pvp, $cat);
+            $prod->crearProd();
         }
 
         header('Location: ensenarProds.php');

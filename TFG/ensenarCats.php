@@ -13,14 +13,14 @@
 
         $cats = Categoria::verCats();
 
-        foreach ($cats as $id => $nombre) {
+        foreach ($cats as $id => $cat) {
             echo '<form class= "cat" action="editCat.php" method="post">';
-            echo '<p>'.$nombre.'</p>';
-            echo '<input type="hidden" value="'.$id.'" name="idCat">';
+            echo '<p>'.$cat->getNombre().'</p>';
+            echo '<input type="hidden" value="'.$cat->getId().'" name="idCat">';
             echo '<input class="submit" type="submit" value="Actualizar" name="yes">';
             echo '</form>';
             echo '<form class= "cat" action="eliminarCat.php" method="post">';
-            echo '<input type="hidden" value="'.$id.'" name="idCat">';
+            echo '<input type="hidden" value="'.$cat->getId().'" name="idCat">';
             echo '<input class="submit" type="submit" value="Eliminar" name="yes">';
             echo '</form>';
         }

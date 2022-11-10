@@ -21,8 +21,8 @@
 
             $cats = Categoria::verCats();
 
-            foreach ($cats as $id => $nombre) {
-                echo '<option value="'.$id.'">'.$nombre.'</option>';
+            foreach ($cats as $id => $cat) {
+                echo '<option value="'.$cat->getId().'">'.$cat->getNombre().'</option>';
             }
 			echo '</select>';
             //liberamos la consulta

@@ -5,123 +5,15 @@
 /**
  * @author web.ahmed.m@gmail.com
  */
-class Producto{
-
-    /**
-     * @var
-     */
-    protected $nombre;
-
-    /**
-     * @var
-     */
-    protected $desc;
-
-    /**
-     * @var
-     */
-    protected $pvp;
-
-    /**
-     * @var
-     */
-    protected $cat;
-
-    /**
-     * @param $nombre
-     * @param $desc
-     * @param $pvp
-     * @param $cat
-     */
-    public function __construct($nombre, $desc, $pvp, $cat)
-    {
-        $this->nombre = $nombre;
-        $this->desc = $desc;
-        $this->pvp = $pvp;
-        $this->cat = $cat;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNombre()
-    {
-        return $this->nombre;
-    }
-
-    /**
-     * @param mixed $nombre
-     */
-    public function setNombre($nombre): void
-    {
-        $this->nombre = $nombre;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDesc()
-    {
-        return $this->desc;
-    }
-
-    /**
-     * @param mixed $desc
-     */
-    public function setDesc($desc): void
-    {
-        $this->desc = $desc;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPvp()
-    {
-        return $this->pvp;
-    }
-
-    /**
-     * @param mixed $pvp
-     */
-    public function setPvp($pvp): void
-    {
-        $this->pvp = $pvp;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCat()
-    {
-        return $this->cat;
-    }
-
-    /**
-     * @param mixed $cat
-     */
-    public function setCat($cat): void
-    {
-        $this->cat = $cat;
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString(): string
-    {
-        return 'Nombre: '. $this->nombre. ' Desc: '. $this->desc. ' Precio: '. $this->pvp. ' Categoria: '. $this->cat;
-    }
-    
+class Categoria{
 
     /**
      * Devuelve toda la información sobre las categorias
      * @return array|void
      * @access public
      * @static
-     * @param $cat
      */
-    static function verProdsxCat($cat){
+    static function verCats(){
 
         //Intentamos iniciar la conexión en la base de datos
         try{
@@ -140,22 +32,20 @@ class Producto{
         }
 
         try{
-            $prodQuery = $conexion->stmt_init();
+            $query = $conexion->stmt_init();
 
-            $prodQuery->prepare("select nombre, descr, precio from producto where idCat = ".$cat.";");
+            $query->prepare("select * from categoria");
 
-            $prodQuery->execute();
+            $query->execute();
 
-            $prodQuery->bind_result($name, $desc, $price);
+            $query->bind_result($id,$nombre);
 
-            $prods = null;
-            $i = 0;
-            while ($prodQuery->fetch()) {
-                $prods[$i] = new Producto($name, $desc, $price, $cat);
-                $i++;
+            $cats = null;
+            while ($query->fetch()) {
+                $cats[$id] = $nombre;
             }
 
-            return $prods;
+            return $cats;
 
         }catch(Exception $ex){
 
@@ -170,12 +60,12 @@ class Producto{
 
     /**
      * Devuelve toda la información sobre las categorias
-     * @return object|void
+     * @return mixed|void
      * @access public
      * @static
-     * @param $cat
+     * @param $id
      */
-    static function verProdsxNombre($id){
+    static function verCat($id){
 
         //Intentamos iniciar la conexión en la base de datos
         try{
@@ -194,20 +84,17 @@ class Producto{
         }
 
         try{
-            
-        $firstq = $conexion->stmt_init();
+            $query = $conexion->stmt_init();
 
-        $firstq->prepare("select descr, precio from producto where nombre = '".$id."';");
+            $query->prepare("select nombre from categoria where id = '".$id."';");
 
-        $firstq->execute();
+            $query->execute();
 
-        $firstq->bind_result($desc, $precio);
+            $query->bind_result($nombre);
 
-        $firstq->fetch();
+            $query->fetch();
 
-        $prod = new Producto($id, $desc, $precio, 'Da igual');
-
-        return $prod;
+            return $nombre;
 
         }catch(Exception $ex){
 
@@ -224,8 +111,10 @@ class Producto{
      * Inserta una nueva categoria en base de datos
      * @return void
      * @access public
+     * @static
+     * @param $name
      */
-    function crearProd() : void{
+    static function crearCat($name) : void{
 
         //Intentamos iniciar la conexión en la base de datos
         try{
@@ -245,7 +134,7 @@ class Producto{
 
         try{
             $insert = $conexion->stmt_init();
-            $insert->prepare("INSERT INTO producto VALUES ('".$this->nombre."','".$this->desc."','".$this->pvp."','".$this->cat."');");
+            $insert->prepare("INSERT INTO categoria (nombre) VALUES ('".$name."');");
             $insert->execute();
 
             $insert->close();
@@ -268,7 +157,7 @@ class Producto{
      * @static
      * @param $id
      */
-    static function borProd($id) : void{
+    static function BorCat($id) : void{
 
         //Intentamos iniciar la conexión en la base de datos
         try{
@@ -288,8 +177,10 @@ class Producto{
 
         try{
             $update = $conexion->stmt_init();
-            $update->prepare("delete from producto where nombre = '".$id."';");
+            $update->prepare("delete from categoria where id = '".$id."';");
             $update->execute();
+
+            $update->close();
 
         }catch(Exception $ex){
 
@@ -302,16 +193,15 @@ class Producto{
         $conexion->close();
     }
 
-    /**
+            /**
      * Borra una categoría de la base de datos por su id
      * @return void
      * @access public
      * @static
-     * @param $desc
-     * @param $pvp
+     * @param $id
      * @param $nombre
      */
-    static function actProd($desc, $pvp, $nombre) : void{
+    static function actCat($id, $nombre) : void{
 
         //Intentamos iniciar la conexión en la base de datos
         try{
@@ -331,9 +221,11 @@ class Producto{
 
         try{
             $update = $conexion->stmt_init();
-            $update->prepare("update producto set descr ='".$desc."', precio =".$pvp." where nombre ='".$nombre."';");
+            $update->prepare("update categoria set nombre ='".$nombre."' where id ='".$id."';");
             $update->execute();
+
             $update->close();
+            $conexion->close();
 
         }catch(Exception $ex){
 

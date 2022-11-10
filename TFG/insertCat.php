@@ -6,7 +6,10 @@
 
         if (isset($_POST['yes'])) {
             $name = $_POST['nombreCat'] ?? 'Sin nombre';
-            Categoria::crearCat($name);
+            
+            $miCat = new Categoria($name, 0);
+            $miCat->crearCat();
+
         }
 
         header('Location: ensenarProds.php');

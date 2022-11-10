@@ -18,9 +18,9 @@
 		<?php 
 			$prod = Producto::verProdsxNombre($prodName);
 		?>
-		<input type="text" name="nombre" value="<?php echo $prodName?>" readonly><br>
-		<textarea name="desc" cols="50" rows="10"><?php echo $prod['desc'] ?? 'Descripción aquí.'?></textarea><br>
-		<input type="number" step="0.01" min="0" name="precio" value="<?php echo $prod['precio'];?>"><br>
+		<input type="text" name="nombre" value="<?php echo $prod->getNombre()?>" readonly><br>
+		<textarea name="desc" cols="50" rows="10"><?php echo $prod->getDesc() ?? 'Descripción aquí.'?></textarea><br>
+		<input type="number" step="0.01" min="0" name="precio" value="<?php echo $prod->getPvp();?>"><br>
 		<input type='submit' value='Actualizar' name='yes'>
 		<input type='submit' value='Cancelar' name='no'>
 	</form>
