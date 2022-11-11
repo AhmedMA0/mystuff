@@ -40,22 +40,27 @@
                     <legend>Datos personales</legend>
                         <p>
                             <div class="labels" id="nombreLabel"><label for="nombre">Nombre:</label></div>
-                            <input type="text" name="nombre" id="nombre" maxlength="15" pattern="-*[a-zA-Z]*-*[a-zA-Z]*" autofocus required>
+                            <input type="text" name="nombre" id="nombre" maxlength="15" pattern="[a-zA-Z]{4,10}" placeholder="Nombre de minimo 4 letras" autofocus required>
                         
                             <div class="labels" id="tlfLabel"><label for="tlf">Teléfono:</label></div>
-                            <input type="text" name="tlf" id="tlf" pattern="[0-9]+" maxlength="30" required>
+                            <input type="text" name="tlf" id="tlf" pattern="[\d]{9,15}" maxlength="30" placeholder="Numero de minimo 9 digitos" required>
                         </p>
                         <br>
                         <p>
                             <div class="labels" id="dirLabel"><label for="dir" >Dirección:</label></div>
-                            <input type="text" name="dir" id="dir" maxlength="200" required>
+                            <input type="text" name="dir" id="dir" minlength="10" maxlength="200" required>
                         </p>
                         <button type="button" onclick="hideUserPart();">SIGUIENTE</button>
                 </fieldset>
                 
                 <fieldset class="pedidoPart" id="pedidoPart">
                     <legend>Pedido</legend>
-                       
+
+                        <label for="card">Pago con tarjeta</label>
+                        <input type="checkbox" name="card" id="card" value="card">
+
+                        <label for="camb">¿Necesita cambio?</label>
+                        <input type="checkbox" name="camb" id="camb" value="camb" disabled>
                 </fieldset>
 
             </form>
