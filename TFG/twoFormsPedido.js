@@ -27,3 +27,38 @@ function hideUserPart(){
         pedidoPart.style.display='block';
     }        
 }
+
+/*cardCB.addEventListener('change', function checkEnable() {
+    if (this.checked) {
+        cambCB.disabled = false;
+        console.log('enabling');
+    }
+
+    else{
+        cambCB.disabled= true;
+        if (cambCB.checked) {
+            cambCB.checked = false;
+        }
+        console.log('disabling');
+
+    }
+}); */
+
+cardCB.addEventListener('change', function () {
+    if (this.checked) {
+        cambCB.checked = false;
+    }
+});
+
+cambCB.addEventListener('change', function () {
+    if (this.checked) {
+        cardCB.checked = false;
+    }
+});
+
+function hidePedPart() {
+    pedidoPart.style.display = 'none';
+}
+
+
+
