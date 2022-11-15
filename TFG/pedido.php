@@ -16,6 +16,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
+    <?php 
+        require_once('clases/includes.php');
+    ?>
     <header>
         <div class="logo" onclick="location.href='./'">
             <img src="images/logo.png" alt="Logo" class="logoIcon">
@@ -34,7 +37,7 @@
         </div>
 
         <div class="forms">
-            <form action="#" method="post" id="formHome" class="formHome">
+            <form action="insertPedido.php" method="post" id="formHome" class="formHome">
 
                 <fieldset class="userPart" id="userPart">
                     <legend>Datos personales</legend>
@@ -61,14 +64,41 @@
 
                         <label for="camb">¿Necesita cambio?</label>
                         <input type="checkbox" name="camb" id="camb" value="camb">
+                        <button type="button" onclick="showUserPart();">ANTERIOR</button>
+                        <button type="button" onclick="hidePedPart();">SIGUIENTE</button>
+                </fieldset>
+
+                <fieldset class="prodPart" id="prodPart">
+                    <legend>Productos</legend>
+                        <?php
+                            $cats=Categoria::verCats();
+
+                            foreach ($cats as $key => $cat) {
+                                $prods = Producto::verProdsxCat($cat->getId());
+                                echo '<fieldset><legend>'.$cat.'</legend>';
+
+                                foreach ($prods as $pos => $prod) {
+                                    echo '<div class="prodsDiv">';
+                                    echo '<p class="prodInfo"><span>'.$prod->getNombre().' </span>'. $prod->getPvp().'</p>';
+                                    echo '<p class="prodInfo prodDesc">'.$prod->getDesc().'</p>';
+                                    echo '<input type="checkbox" value="'.$prod->getNombre().'" name="'.$prod->getNombre().'" class="checks">';
+                                    echo '<input type="number" name="'.$prod->getNombre().'Cant" id="'.$prod->getNombre().'Cant" class="cantidades" value="1" min="1" disabled>';
+                                    echo '</div>';
+                                }
+
+                                echo '</fieldset>';
+                            }
+                        ?>
+                        <button type="button" onclick="showPedPart();">ANTERIOR</button>
+                        <input type="submit" value="PEDIR" name="allInfo">
                 </fieldset>
 
             </form>
         </div>
-        
     </main>
 
     <script src="varsPedido.js"></script>
     <script src="twoFormsPedido.js"></script>
+    <script src="ajaxPed.js"></script>    
 </body>
 </html>

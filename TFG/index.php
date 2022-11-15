@@ -38,7 +38,7 @@
                     </p>
 
                     <div class="buttonsHero">
-                        <span class="buttonAni buttonPed"><a href="pedido.html"></a></span>
+                        <span class="buttonAni buttonPed"><a href="pedido.php"></a></span>
                         <span class="buttonAni buttonRes"><a href="#"></a></span>
                     </div>
                 </div>

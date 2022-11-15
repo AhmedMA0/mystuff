@@ -11,7 +11,7 @@
                 
                 echo '<form class= "prod" action="editProd.php" method="post">';
                 echo '<p><span>'.$prod->getNombre().' </span>'. $prod->getPvp().'</p>';
-                echo '<p>'.$prod->getDesc().'</span></p>';
+                echo '<p>'.$prod->getDesc().'</p>';
                 echo '<input type="hidden" value="'.$prod->getNombre().'" name="idProd">';
                 echo '<input class="submit" type="submit" value="Actualizar" name="yes">';
                 echo '</form>';

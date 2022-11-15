@@ -17,7 +17,7 @@
 		<?php
 
 			echo '<select name="cat" onchange="showProd(this.value)">';
-            echo '<option selected="true" disabled="disabled">Elige categoría</option>';    
+            echo '<option selected="true" disabled="disabled">Elija categoría</option>';    
 
             $cats = Categoria::verCats();
 
@@ -25,7 +25,6 @@
                 echo '<option value="'.$cat->getId().'">'.$cat->getNombre().'</option>';
             }
 			echo '</select>';
-            //liberamos la consulta
 		?>
 	</form>
     <div id="prods">Los productos se mostraran aquí...</div>

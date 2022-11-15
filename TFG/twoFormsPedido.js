@@ -28,6 +28,11 @@ function hideUserPart(){
     }        
 }
 
+function showUserPart() {
+    userPart.style.display='block';
+    pedidoPart.style.display='none';
+}
+
 /*cardCB.addEventListener('change', function checkEnable() {
     if (this.checked) {
         cambCB.disabled = false;
@@ -57,8 +62,25 @@ cambCB.addEventListener('change', function () {
 });
 
 function hidePedPart() {
-    pedidoPart.style.display = 'none';
+    pedidoPart.style.display='none';
+    prodPart.style.display='block';
 }
 
+function showPedPart() {
+    pedidoPart.style.display='block';
+    prodPart.style.display='none';
+}
+
+checkBoxes.forEach(cb => {
+    cb.addEventListener('change', function () {
+        if (document.getElementById(cb.name+'Cant').disabled == false) {    
+            document.getElementById(cb.name+'Cant').disabled = true;
+        }
+
+        else{
+            document.getElementById(cb.name+'Cant').disabled = false;
+        }
+    })
+});
 
 
