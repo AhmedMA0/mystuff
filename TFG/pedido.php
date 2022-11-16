@@ -81,7 +81,7 @@
                                     echo '<div class="prodsDiv">';
                                     echo '<p class="prodInfo"><span>'.$prod->getNombre().' </span>'. $prod->getPvp().'</p>';
                                     echo '<p class="prodInfo prodDesc">'.$prod->getDesc().'</p>';
-                                    echo '<input type="checkbox" value="'.$prod->getNombre().'" name="'.$prod->getNombre().'" class="checks">';
+                                    echo '<input type="checkbox" value="true" name="'.$prod->getNombre().'Prod" class="checks">';
                                     echo '<input type="number" name="'.$prod->getNombre().'Cant" id="'.$prod->getNombre().'Cant" class="cantidades" value="1" min="1" disabled>';
                                     echo '</div>';
                                 }

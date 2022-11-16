@@ -9,7 +9,10 @@
             hola();
         </script>
         <?php
-        
+            $string1 = 'Producto Fry_Atun';
+            $string2 = 'Producto';
+
+            echo strpos($string1, $string2);
         ?>
     </body>
 </html>
