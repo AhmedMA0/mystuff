@@ -156,6 +156,50 @@
             $conexion->close();
         }
 
+        /**
+         * Devuelve el estado de un pedido por su id
+         * @return mixed|void
+         * @access public
+         * @static
+         */
+        static function verEstado($id){
+
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+                if($conexion->connect_errno){
+
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            try{
+
+                $consulta = $conexion->stmt_init();
+                $consulta->prepare("SELECT estado from pedido where id=$id");
+                $consulta->execute();
+                $consulta->bind_result($estado);
+                $consulta->fetch();
+                $consulta->close();
+                return $estado;
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
+        }
+
     }
     
 ?>

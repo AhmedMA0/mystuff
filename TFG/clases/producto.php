@@ -112,7 +112,51 @@ class Producto{
     {
         return 'Nombre: '. $this->nombre. ' Desc: '. $this->desc. ' Precio: '. $this->pvp. ' Categoria: '. $this->cat;
     }
-    
+
+    /**
+     * @param $id
+     * @return mixed|void
+     */
+    static function verPrecioProd($id){
+        //Intentamos iniciar la conexión en la base de datos
+        try{
+            $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+            if($conexion->connect_errno){
+
+                //Error al soltar un error la función
+                throw new Exception("No se ha podido acceder a la base de datos");
+
+            }
+        }catch(Exception $ex){
+            //Otro tipo de error
+            echo $ex->getMessage(), "<br>";
+
+        }
+
+        try{
+            $prodQuery = $conexion->stmt_init();
+
+            $prodQuery->prepare("select precio from producto where nombre = '".$id."';");
+
+            $prodQuery->execute();
+
+            $prodQuery->bind_result($price);
+
+            $prodQuery->fetch();
+
+            return $price;
+
+        }catch(Exception $ex){
+
+            //Si no, lanzamos otra
+            echo $ex->getMessage(), "<br>";
+
+        }
+
+        //Cerramos la conexion a db
+        $conexion->close();
+    }
 
     /**
      * Devuelve toda la información sobre las categorias

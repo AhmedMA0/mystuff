@@ -73,12 +73,12 @@ function showPedPart() {
 
 checkBoxes.forEach(cb => {
     cb.addEventListener('change', function () {
-        if (document.getElementById(cb.name+'Cant').disabled == false) {    
-            document.getElementById(cb.name+'Cant').disabled = true;
+        if (document.getElementById(cb.name.replace('Prod','')+'Cant').disabled == false) {    
+            document.getElementById(cb.name.replace('Prod','')+'Cant').disabled = true;
         }
 
         else{
-            document.getElementById(cb.name+'Cant').disabled = false;
+            document.getElementById(cb.name.replace('Prod','')+'Cant').disabled = false;
         }
     })
 });

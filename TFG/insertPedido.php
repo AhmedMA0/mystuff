@@ -1,8 +1,7 @@
 <?php
+    session_start();
 
     require_once('clases/includes.php');
-
-    print_r($_POST); echo '<br>';
 
     $user = new Usuario($_POST['nombre'],$_POST['tlf'],$_POST['dir']);
 
@@ -22,6 +21,23 @@
 
     $idPed = $pedido->crearPed();
 
-    echo $idPed;
+    foreach ($_POST as $key => $value) {
+        if (strpos($key, 'Cant')) {
+            $prods[str_replace('_',' ',str_replace('Cant', '', $key))]= $value;
+        }
+    }
 
+    $i = 0;
+    foreach ($prods as $key => $value) {
+        $precioP = Producto::verPrecioProd($key);
+        $lineas[$i] = new Linea($i, $idPed, $key, $value,$precioP*$value);
+        $i++;
+    }
+
+    foreach ($lineas as $key => $value) {
+        $value->crearLinea();
+    }
+    
+    $_SESSION['idUser'] = $idUser;
+    $_SESSION['idPed'] = $idPed;
 ?>
