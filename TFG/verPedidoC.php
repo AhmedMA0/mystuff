@@ -49,7 +49,7 @@
             }
 
             else{
-                echo 'No se puede cancelar el pedido al estar en preparación.';
+                echo 'No se puede cancelar el pedido al estar en preparación. Para mas información llame directamente al establecimiento.';
             }
         ?>
     </main>
