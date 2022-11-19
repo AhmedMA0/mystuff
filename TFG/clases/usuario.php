@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+
     /**
      * @author web.ahmed.m@gmail.com
      */
@@ -79,8 +81,13 @@
             $this->dir = $dir;
         }
 
-
-
+        /**
+         * @return string
+         */
+        public function __toString(): string
+        {
+            return 'Nombre: '. $this->nombre. ' Tlf: '. $this->tlf. ' Direccion: '. $this->dir;
+        }
 
         /**
          * Inserta una nuevo usuario en base de datos, si no existe otro igual y devuelve el id
@@ -146,7 +153,57 @@
             $conexion->close();
         }
 
+        /**
+     * Devuelve toda la información sobre un usuario segun su id
+     * @return object|void
+     * @access public
+     * @static
+     * @param $cat
+     */
+    static function verUsxId($id){
 
+        //Intentamos iniciar la conexión en la base de datos
+        try{
+            $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+            if($conexion->connect_errno){
+
+                //Error al soltar un error la función
+                throw new Exception("No se ha podido acceder a la base de datos");
+
+            }
+        }catch(Exception $ex){
+            //Otro tipo de error
+            echo $ex->getMessage(), "<br>";
+
+        }
+
+        try{
+            
+        $firstq = $conexion->stmt_init();
+
+        $firstq->prepare("select nombre, tlf, direccion from usuario where id = '".$id."';");
+
+        $firstq->execute();
+
+        $firstq->bind_result($nombre, $tlf, $dir);
+
+        $firstq->fetch();
+
+        $user = new Usuario($nombre, $tlf, $dir);
+
+        return $user;
+
+        }catch(Exception $ex){
+
+            //Si no, lanzamos otra
+            echo $ex->getMessage(), "<br>";
+
+        }
+
+        //Cerramos la conexion a db
+        $conexion->close();
+    }
 
 
 

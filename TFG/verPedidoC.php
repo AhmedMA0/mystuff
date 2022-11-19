@@ -30,16 +30,31 @@
         </nav>
     </header>
     <main>
-        <?php 
+        <?php
             require_once('clases/includes.php');
             session_start();
 
             $idPed = $_SESSION['idPed'];
             $idUser = $_SESSION['idUser'];
 
-            echo Pedido::verEstado($idPed);
-        ?>
+            echo Usuario::verUsxId($idUser);
+            $estado = Pedido::verEstado($idPed);
 
+            ?> <div id="ajaxDiv"></div><?php
+            
+            if ($estado == 'pendiente') {
+                ?>
+                <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>);">Cancelar pedido.</button>
+                <?php
+            }
+
+            else{
+                echo 'No se puede cancelar el pedido al estar en preparación.';
+            }
+        ?>
     </main>
+
+    <script src="ajaxPed.js"></script>
+
 </body>
 </html>

@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS pedido(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     datafono BOOLEAN NOT NULL,
     cambio BOOLEAN NOT NULL,
-    estado ENUM('pendiente','aceptado','enviado','cancelado'),
+    estado VARCHAR(100) NOT NULL,
     idU INT,
     FOREIGN KEY (idU) REFERENCES usuario(id) ON UPDATE CASCADE ON DELETE SET NULL
 );
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS linea(
 CREATE TABLE IF NOT EXISTS reserva(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     fechaYHora DATETIME NOT NULL,
-    estado ENUM('pendiente','aceptada','cancelada'),
+    estado VARCHAR(100) NOT NULL,
     idU INT,
     FOREIGN KEY (idU) REFERENCES usuario(id) ON UPDATE CASCADE ON DELETE SET NULL
 );

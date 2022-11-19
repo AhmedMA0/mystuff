@@ -40,4 +40,6 @@
     
     $_SESSION['idUser'] = $idUser;
     $_SESSION['idPed'] = $idPed;
+
+    header('Location: verPedidoC.php');
 ?>

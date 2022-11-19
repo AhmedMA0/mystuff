@@ -200,6 +200,49 @@
             $conexion->close();
         }
 
+        /**
+         * Actualiza el estado del pedido
+         * @return void
+         * @access public
+         * @static
+         * @param $id
+         * @param $estado
+         */
+        static function actEstado($id, $estado) : void{
+
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+                if($conexion->connect_errno){
+
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            try{
+                $update = $conexion->stmt_init();
+                $update->prepare("update pedido set estado = '$estado' where id = $id");
+                $update->execute();
+                $update->close();
+
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
+        }
+
     }
     
 ?>
