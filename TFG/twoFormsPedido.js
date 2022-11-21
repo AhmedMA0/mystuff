@@ -3,6 +3,11 @@ function printForm(option) {
         buttons.style.display="none";
         formHome.style.display="table";
     }
+
+    else{
+        buttons.style.display="none";
+        formPick.style.display="table";
+    }
 }
 
 function hideUserPart(){
@@ -28,9 +33,32 @@ function hideUserPart(){
     }        
 }
 
+function hideUserPartPick(){
+
+    if (!nombreFieldPick.value.match(nombreRegex)){
+        nombreLabelPick.classList.add('shaking');
+        setTimeout(()=>{nombreLabelPick.classList.remove('shaking')}, 500);
+    }
+
+    if (!tlfFieldPick.value.match(tlfRegex)){
+        tlfLabelPick.classList.add('shaking');
+        setTimeout(()=>{tlfLabelPick.classList.remove('shaking')}, 500);
+    }
+
+    if (nombreFieldPick.value.match(nombreRegex) && tlfFieldPick.value.match(tlfRegex)) {
+        userPartPick.style.display='none';
+        prodPartPick.style.display='block';
+    }        
+}
+
 function showUserPart() {
     userPart.style.display='block';
     pedidoPart.style.display='none';
+}
+
+function showUserPartPick() {
+    userPartPick.style.display='block';
+    prodPartPick.style.display='none';
 }
 
 /*cardCB.addEventListener('change', function checkEnable() {
@@ -73,13 +101,17 @@ function showPedPart() {
 
 checkBoxes.forEach(cb => {
     cb.addEventListener('change', function () {
-        if (document.getElementById(cb.name.replace('Prod','')+'Cant').disabled == false) {    
-            document.getElementById(cb.name.replace('Prod','')+'Cant').disabled = true;
+        if (document.getElementById(cb.name.replace('Prod','Cant')).disabled == false) {    
+            document.getElementById(cb.name.replace('Prod','Cant')).disabled = true;
+            document.getElementById(cb.name.replace('Prod','CantPick')).disabled = true;
         }
 
         else{
             document.getElementById(cb.name.replace('Prod','')+'Cant').disabled = false;
+            document.getElementById(cb.name.replace('Prod','')+'CantPick').disabled = false;
         }
+
+
     })
 });
 

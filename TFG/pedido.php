@@ -53,7 +53,9 @@
                             <div class="labels" id="dirLabel"><label for="dir" >Dirección:</label></div>
                             <input type="text" name="dir" id="dir" minlength="10" maxlength="200" required>
                         </p>
+                        <button type="button" onclick="location.reload()">VOLVER</button>
                         <button type="button" onclick="hideUserPart();">SIGUIENTE</button>
+
                 </fieldset>
                 
                 <fieldset class="pedidoPart" id="pedidoPart">
@@ -94,6 +96,48 @@
                 </fieldset>
 
             </form>
+
+            <form action="insertPedido.php" method="post" id="formPick" class="formPick">
+
+                <fieldset class="userPartPick" id="userPartPick">
+                    <legend>Datos personales</legend>
+                        <p>
+                            <div class="labels" id="nombreLabelPick"><label for="nombre">Nombre:</label></div>
+                            <input type="text" name="nombre" id="nombrePick" maxlength="15" pattern="[a-zA-Z]{4,10}" placeholder="Nombre de minimo 4 letras" autofocus required>
+                        
+                            <div class="labels" id="tlfLabelPick"><label for="tlf">Teléfono:</label></div>
+                            <input type="text" name="tlf" id="tlfPick" pattern="[\d]{9,15}" maxlength="30" placeholder="Numero de minimo 9 digitos" required>
+                        </p>
+                            <input type="hidden" name="dir" id="dirPick" value="Pedido a recoger">
+                        <button type="button" onclick="location.reload()">VOLVER</button>
+                        <button type="button" onclick="hideUserPartPick();">SIGUIENTE</button>
+                </fieldset>
+                <fieldset class="prodPartPick" id="prodPartPick">
+                    <legend>Productos</legend>
+                        <?php
+                            $cats=Categoria::verCats();
+
+                            foreach ($cats as $key => $cat) {
+                                $prods = Producto::verProdsxCat($cat->getId());
+                                echo '<fieldset><legend>'.$cat.'</legend>';
+
+                                foreach ($prods as $pos => $prod) {
+                                    echo '<div class="prodsDiv">';
+                                    echo '<p class="prodInfo"><span>'.$prod->getNombre().' </span>'. $prod->getPvp().'</p>';
+                                    echo '<p class="prodInfo prodDesc">'.$prod->getDesc().'</p>';
+                                    echo '<input type="checkbox" value="true" name="'.$prod->getNombre().'Prod" class="checks">';
+                                    echo '<input type="number" name="'.$prod->getNombre().'Cant" id="'.$prod->getNombre().'CantPick" class="cantidades" value="1" min="1" disabled>';
+                                    echo '</div>';
+                                }
+
+                                echo '</fieldset>';
+                            }
+                        ?>
+                        <button type="button" onclick="showPedPart();">ANTERIOR</button>
+                        <input type="submit" value="PEDIR" name="allInfo">
+                </fieldset>
+
+            </form>   
         </div>
     </main>
 

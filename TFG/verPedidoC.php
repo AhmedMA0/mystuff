@@ -49,7 +49,7 @@
                     $total = 0;
                     foreach ($lineas as $key => $value) {
                         echo '<div class="linea linea'.$i.'">';
-                        echo '<div class="prodData nombreProd">'.$value->getIdProd().'</div>';
+                        echo '<div class="prodData nombreProd">'.$value->getIdProd().' x'.$value->getCant().'</div>';
                         echo '<div class="prodData precioProd">'.$value->getPrecioT().'€</div>';
                         echo '</div>';
                         $i++;
@@ -68,13 +68,27 @@
             <div id="ajaxDiv"></div><?php
                 if ($estado == 'pendiente') {
                     ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./redirectPedidoC.php';">Cancelar pedido.</button>
                         <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`enviado`'?>); location.href='./redirectPedidoC.php';">Confirmar pedido.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./redirectPedidoC.php';">Cancelar pedido.</button>
                     <?php
                 }
+                elseif ($estado == 'enviado') {
+                    ?>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./redirectPedidoC.php';">Cancelar pedido.</button>
+                    <?php
+                }
+                elseif($estado == 'cancelado'){
+                    echo 'Pedido cancelado por el cliente.';
+                }
+
+                elseif ($estado == 'rechazado') {
+                    echo 'Pedido rechazado por el establecimiento';
+                }
+
                 else{
                     echo 'No se puede cancelar el pedido al estar en preparación. Para mas información llame directamente al establecimiento.';
                 }
+
             ?>
         </div>
         <?php

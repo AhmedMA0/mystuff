@@ -77,7 +77,7 @@
                     <button class="nextPrev" id="next" onclick="nextPage();"><i class="fas fa-chevron-circle-right"></i></button>
                 </div>
                 <div class="buttonsHero secondButtons">
-                    <span class="buttonAni buttonPed"><a href="#"></a></span>
+                    <span class="buttonAni buttonPed"><a href="pedido.php"></a></span>
                     <span class="buttonAni buttonRes"><a href="#"></a></span>
                 </div>
             </div>
