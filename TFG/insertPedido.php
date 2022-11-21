@@ -8,15 +8,15 @@
     $idUser = $user->crearUser();
 
     if (isset($_POST['card'])) {
-        $pedido = new Pedido(1, 0, 'pendiente', $idUser);
+        $pedido = new Pedido(1, 0, 'Pendiente', $idUser);
     }
 
     elseif (isset($_POST['camb'])) {
-        $pedido = new Pedido(0, 1, 'pendiente', $idUser);
+        $pedido = new Pedido(0, 1, 'Pendiente', $idUser);
     }
 
     else {
-        $pedido = new Pedido(0, 0, 'pendiente', $idUser);
+        $pedido = new Pedido(0, 0, 'Pendiente', $idUser);
     }
 
     $idPed = $pedido->crearPed();

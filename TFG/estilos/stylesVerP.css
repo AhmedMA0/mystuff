@@ -366,12 +366,8 @@ input[type=submit]{
     flex-flow: row nowrap;
     padding: 20px;
     padding-top: 0;
-}
-
-.cliente div{
-    width: 50%;
-    margin: 0;
-    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .info{
@@ -394,8 +390,11 @@ input[type=submit]{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
     margin-top: 1vh;
     margin-bottom: 1vh;
+    background-color: #535353;
+    padding: 1vh;
 }
 
 .prodData{
@@ -424,3 +423,7 @@ input[type=submit]{
     height: fit-content;
 }
 
+.lineaAbajo{
+    border-bottom: 1px solid #fff8f8;
+    padding-bottom: 5px;
+}

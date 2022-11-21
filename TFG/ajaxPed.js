@@ -7,6 +7,4 @@ function cambEst(id, estado) {
     };
     xmlhttp.open("GET","cambiarEstado.php?estado="+estado+"&id="+id,true);
     xmlhttp.send();
-
-    location.href='./verPedidoC.php'
 }
