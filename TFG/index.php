@@ -25,6 +25,7 @@
             <a href="">Home</a>
             <a href="">Pedir</a>
             <a href="">Reservar</a>
+            <a href="checkPedido.php">Comprobar pedido</a>
         </nav>
     </header>
     <main>

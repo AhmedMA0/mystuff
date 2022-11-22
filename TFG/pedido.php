@@ -28,6 +28,7 @@
             <a href="">Home</a>
             <a href="">Pedir</a>
             <a href="">Reservar</a>
+            <a href="checkPedido.php">Comprobar pedido</a>
         </nav>
     </header>
     <main>
@@ -129,7 +130,6 @@
                                     echo '<input type="number" name="'.$prod->getNombre().'Cant" id="'.$prod->getNombre().'CantPick" class="cantidades" value="1" min="1" disabled>';
                                     echo '</div>';
                                 }
-
                                 echo '</fieldset>';
                             }
                         ?>

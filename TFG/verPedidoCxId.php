@@ -1,13 +1,3 @@
-<?php
-    require_once('clases/includes.php');
-    session_start();
-
-    $idPed = $_SESSION['idPed'];
-    $idUser = $_SESSION['idUser']; 
-    
-    $estado = Pedido::verEstado($idPed);
-    $lineas = Linea::verLineaxPedido($idPed);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
+    <header>
         <div class="logo" onclick="location.href='./'">
             <img src="images/logo.png" alt="Logo" class="logoIcon">
             <p class="display">MÕ SUSHI WOK FUSION</p>
@@ -39,10 +29,26 @@
         </nav>
     </header>
     <main>
+        <?php
+            require_once('clases/includes.php');
+
+            $idPed = $_POST['idPed'];
+            $info = Pedido::verInfoxId($idPed);
+
+            if(empty($info['nombreU'])){
+                echo 'PEDIDO NO ENCONTRADO. Pruebe otro ID.';
+            }
+
+            else{
+                $user = new Usuario($info['nombreU'], $info['tlfU'], $info['dirU']);
+                $estado = $info['estadoP'];
+                $lineas = Linea::verLineaxPedido($idPed);
+            
+        ?>
         <div class='pedido'>
             <div class='cliente'>
                 <div class="titulin">Pedido:</div>
-                <div class="info"><?php echo Usuario::verUsxId($idUser); ?></div>
+                <div class="info"><?php echo $user; ?></div>
             </div>
             <div class="lineas">
                 <?php
@@ -69,13 +75,13 @@
             <div id="ajaxDiv"></div><?php
                 if ($estado == 'pendiente') {
                     ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`enviado`'?>); location.href='./verPedidoC.php';">Confirmar pedido.</button>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./verPedidoC.php';">Cancelar pedido.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`enviado`'?>); location.href='./verPedidoCxId.php';">Confirmar pedido.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./verPedidoCxId.php';">Cancelar pedido.</button>
                     <?php
                 }
                 elseif ($estado == 'enviado') {
                     ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./verPedidoC.php';">Cancelar pedido.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./verPedidoCxId.php';">Cancelar pedido.</button>
                     <?php
                 }
                 elseif($estado == 'cancelado'){
@@ -89,10 +95,10 @@
                 else{
                     echo 'No se puede cancelar el pedido al estar en preparación. Para mas información llame directamente al establecimiento.';
                 }
-
             ?>
         </div>
         <?php
+            }
         ?>
     </main>
 
