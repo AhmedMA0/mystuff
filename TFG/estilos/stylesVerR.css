@@ -28,7 +28,7 @@ header{
 
 main{
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
     height: 80vh;
@@ -86,7 +86,7 @@ nav a{
 }
 
 span{
-    font-size: calc(10px + 5vw);
+    font-size: calc(10px + 2vw);
     font-weight: bold;
     
 }
@@ -195,10 +195,10 @@ span{
     font-family: 'Montserrat', sans-serif;  
 }
 
-.buttonCat a:before,
-.buttonCat a:after{
+.buttonHome a:before,
+.buttonHome a:after{
     position: absolute;
-    content: "CATEGORÍA";
+    content: "PEDIR";
     height: 55px;
     width: 180px;
     display: flex;
@@ -209,10 +209,10 @@ span{
     border-radius: 5px;
 }
 
-.buttonProd a:before,
-.buttonProd a:after{
+.buttonPick a:before,
+.buttonPick a:after{
     position: absolute;
-    content: "PRODUCTO";
+    content: "RESERVAR";
     height: 55px;
     width: 180px;
     display: flex;
@@ -236,14 +236,6 @@ span{
 
 .buttonAni a:hover{
     transform: translateZ(-25px) rotateX(-90deg);
-}
-
-.buttonCat{
-    display: none;
-}
-
-.prodForm{
-    display: none;
 }
 
 
@@ -289,6 +281,7 @@ span{
 
 .formHome{
     display: none;
+    width: 100%;
 }
 
 fieldset{
@@ -302,6 +295,7 @@ fieldset{
     font-weight: bold;
     border-radius: 10px;
     font-size: calc(0.5vw + 15px);
+    width: 80%;
 }
 
 input{
@@ -315,3 +309,131 @@ input{
     height: 4vh;
 }
 
+input[type=submit]{
+    width: 25%;
+}
+
+.pedidoPart{
+    display: none;
+}
+
+.labels{
+    width: 100%;
+}
+
+.prodPart{
+    display: none;
+}
+
+.prodsDiv{
+   display: flex;
+   flex-flow: row wrap;
+}
+
+.cantidades{
+    width: 4%;
+}
+
+.checks{
+    width: 25%;
+}
+
+.prodInfo{
+    display: inline;
+    width: 100%;
+}
+
+.prodDesc{
+    width: 75%;
+}
+
+.pedido{
+    background-color: #444444;
+    width: 90%;
+    padding: calc(0.5vw + 10px);
+    font-size: calc(0.25vw + 15px);
+    border-radius: 5px;
+    height: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.cliente{
+    width: 100%;
+    border-bottom: 1px solid #fff8f8;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 20px;
+    padding-top: 0;
+    justify-content: space-between;
+    align-items: center;
+    height: 15%;
+}
+
+.info2{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 2vh;
+}
+
+.info{
+    text-align: center;
+}
+
+.titulin{
+    font-size: calc(0.25vw + 25px);
+    font-weight: bold
+}
+
+.lineas{
+    height: 60%;
+    width: 60%;
+    flex-basis: 100%;
+}
+
+.linea{
+    width:100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    background-color: #535353;
+    padding: 1vh;
+}
+
+.prodData{
+    padding: 3.5px;
+    border-radius: 5px;
+}
+
+.precioProd{
+    background-color: #383838;
+}
+
+.total{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.subtotal{
+    text-align: end;
+}
+
+.estado{
+    text-align: center;
+    height: fit-content;
+}
+
+.lineaAbajo{
+    border-bottom: 1px solid #fff8f8;
+    padding-bottom: 5px;
+}

@@ -22,10 +22,11 @@
             <p class="display">MÕ SUSHI WOK FUSION</p>
         </div>
         <nav>
-            <a href="">Home</a>
-            <a href="">Pedir</a>
-            <a href="">Reservar</a>
+            <a href="./">Home</a>
+            <a href="./pedido.php">Pedir</a>
+            <a href="reserva.php">Reservar</a>
             <a href="checkPedido.php">Comprobar pedido</a>
+            <a href="checkReserva.php">Comprobar reserva</a>
         </nav>
     </header>
     <main>

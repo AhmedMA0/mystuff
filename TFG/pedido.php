@@ -25,10 +25,11 @@
             <p class="display">MÕ SUSHI WOK FUSION</p>
         </div>
         <nav>
-            <a href="">Home</a>
-            <a href="">Pedir</a>
-            <a href="">Reservar</a>
+            <a href="./">Home</a>
+            <a href="./pedido.php">Pedir</a>
+            <a href="reserva.php">Reservar</a>
             <a href="checkPedido.php">Comprobar pedido</a>
+            <a href="checkReserva.php">Comprobar reserva</a>
         </nav>
     </header>
     <main>
@@ -95,7 +96,6 @@
                         <button type="button" onclick="showPedPart();">ANTERIOR</button>
                         <input type="submit" value="PEDIR" name="allInfo">
                 </fieldset>
-
             </form>
 
             <form action="insertPedido.php" method="post" id="formPick" class="formPick">
@@ -133,7 +133,7 @@
                                 echo '</fieldset>';
                             }
                         ?>
-                        <button type="button" onclick="showPedPart();">ANTERIOR</button>
+                        <button type="button" onclick="showUserPartPick();">ANTERIOR</button>
                         <input type="submit" value="PEDIR" name="allInfo">
                 </fieldset>
 
@@ -143,6 +143,5 @@
 
     <script src="varsPedido.js"></script>
     <script src="twoFormsPedido.js"></script>
-    <script src="ajaxPed.js"></script>    
 </body>
 </html>

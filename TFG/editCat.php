@@ -8,24 +8,38 @@
     <title>Listado</title>
 </head>
 <body>
-    <?php 
-        require_once('clases/includes.php');
+    <header>
+        <div class="logo" onclick="location.href='./'">
+            <img src="images/logo.png" alt="Logo" class="logoIcon">
+            <p class="display">MÕ SUSHI WOK FUSION</p>
+        </div>
+        <nav>
+            <a href="./">Home</a>
+            <a href="./pedido.php">Pedir</a>
+            <a href="reserva.php">Reservar</a>
+            <a href="checkPedido.php">Comprobar pedido</a>
+            <a href="checkReserva.php">Comprobar reserva</a>
+        </nav>
+    </header>
+    <main>
+        <?php 
+            require_once('clases/includes.php');
 
-		//recibimos la informacion del producto
-		$idCat = $_POST['idCat'];
-    ?>
-    <form action="actualizarCat.php" method="post">
-		<?php 
+            //recibimos la informacion del producto
+            $idCat = $_POST['idCat'];
+        ?>
+        <form action="actualizarCat.php" method="post">
+            <?php 
 
-			$nombre = Categoria::verCat($idCat);
-			
-			?>
-            <input type="text" name="nombre" value="<?php echo $nombre?>"><br>
-            <input type="hidden" name="idCat" value="<?php echo $idCat?>"><br>
+                $nombre = Categoria::verCat($idCat);
+                
+                ?>
+                <input type="text" name="nombre" value="<?php echo $nombre?>"><br>
+                <input type="hidden" name="idCat" value="<?php echo $idCat?>"><br>
 
-		<input type='submit' value='Actualizar' name='yes'>
-		<input type='submit' value='Cancelar' name='no'>
-
-	</form>
+            <input type='submit' value='Actualizar' name='yes'>
+            <input type='submit' value='Cancelar' name='no'>
+        </form>
+    </main>
 </body>
 </html>

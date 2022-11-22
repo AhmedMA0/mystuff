@@ -30,9 +30,9 @@
         </nav>
     </header>
     <main>
-        <form action="verPedidoCxId.php" method="post" class="formPedido">
+        <form action="verReservaCxId.php" method="post" class="formPedido">
             <div class="idLabel" id="idLabel"><label for="idPed">ID del pedido:</label></div>
-            <input type="text" name="idPed" id="idPed" maxlength="15" pattern="[0-9]+" autofocus required>
+            <input type="text" name="idRes" id="idRes" maxlength="15" pattern="[0-9]+" autofocus required>
         </form>
     </main>
 

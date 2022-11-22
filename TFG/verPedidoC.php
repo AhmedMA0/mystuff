@@ -26,16 +26,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
+    <header>
         <div class="logo" onclick="location.href='./'">
             <img src="images/logo.png" alt="Logo" class="logoIcon">
             <p class="display">MÕ SUSHI WOK FUSION</p>
         </div>
         <nav>
-            <a href="">Home</a>
-            <a href="">Pedir</a>
-            <a href="">Reservar</a>
+            <a href="./">Home</a>
+            <a href="./pedido.php">Pedir</a>
+            <a href="reserva.php">Reservar</a>
             <a href="checkPedido.php">Comprobar pedido</a>
+            <a href="checkReserva.php">Comprobar reserva</a>
         </nav>
     </header>
     <main>
@@ -95,8 +96,6 @@
         <?php
         ?>
     </main>
-
     <script src="ajaxPed.js"></script>
-
 </body>
 </html>

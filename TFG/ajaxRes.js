@@ -5,6 +5,6 @@ function cambEst(id, estado) {
     xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) document.getElementById("ajaxDiv").innerHTML = this.responseText;
     };
-    xmlhttp.open("GET","cambiarEstadoP.php?estado="+estado+"&id="+id,true);
+    xmlhttp.open("GET","cambiarEstadoR.php?estado="+estado+"&id="+id,true);
     xmlhttp.send();
 }

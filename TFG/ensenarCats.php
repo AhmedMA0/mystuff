@@ -8,6 +8,20 @@
     <title>Categorías</title>
 </head>
 <body>
+    <header>
+        <div class="logo" onclick="location.href='./'">
+            <img src="images/logo.png" alt="Logo" class="logoIcon">
+            <p class="display">MÕ SUSHI WOK FUSION</p>
+        </div>
+        <nav>
+            <a href="./">Home</a>
+            <a href="./pedido.php">Pedir</a>
+            <a href="reserva.php">Reservar</a>
+            <a href="checkPedido.php">Comprobar pedido</a>
+            <a href="checkReserva.php">Comprobar reserva</a>
+        </nav>
+    </header>
+    <main>
     <?php   
         require_once('clases/includes.php');
 
@@ -28,7 +42,7 @@
 
     <input type="button" value="Volver" name="no" onclick="location.assign('ensenarProds.php');">
 
-
+    </main>
 <script src="twoFormsInserts.js"></script>
 <script src="varsInserts.js"></script>
 
