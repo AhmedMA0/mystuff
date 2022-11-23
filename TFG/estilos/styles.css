@@ -80,6 +80,10 @@ nav a{
     margin-top: 2vh;
 }
 
+.image{
+    z-index: -1;
+}
+
 .us{
     background-color: #fff8f8;
     width: 80%;

@@ -42,7 +42,7 @@
     <main>
         <div class='pedido'>
             <div class='cliente'>
-                <div class="titulin">Pedido:</div>
+                <div class="titulin">Número de pedido: <?php echo $idPed;?></div>
                 <div class="info"><?php echo Usuario::verUsxId($idUser); ?></div>
             </div>
             <div class="lineas">

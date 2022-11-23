@@ -297,6 +297,109 @@
             $conexion->close();
         }
 
+        /**
+         * Devuelve toda la información sobre las categorias
+         * @return array|void
+         * @access public
+         * @static
+         * @param $cat
+         */
+        static function verPedsxEstado($estado){
+
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+                if($conexion->connect_errno){
+
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            try{
+                $prodQuery = $conexion->stmt_init();
+
+                $prodQuery->prepare("select * from pedido where estado = ".$estado.";");
+
+                $prodQuery->execute();
+
+                $prodQuery->bind_result($idPed, $dataF, $cambio, $estado, $idU);
+
+                $peds = null;
+                while ($prodQuery->fetch()) {
+                    $peds[$idPed] = new Pedido($dataF,$cambio,$estado, $idU);
+                }
+
+                return $peds;
+
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
+        }
+
+        /**
+         * Devuelve toda la información sobre las categorias
+         * @return array|void
+         * @access public
+         * @static
+         */
+        static function verPeds(){
+
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+                if($conexion->connect_errno){
+
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            try{
+                $prodQuery = $conexion->stmt_init();
+
+                $prodQuery->prepare("select * from pedido;");
+
+                $prodQuery->execute();
+
+                $prodQuery->bind_result($idPed, $dataF, $cambio, $estado, $idU);
+
+                $peds = null;
+                while ($prodQuery->fetch()) {
+                    $peds[$idPed] = new Pedido($dataF,$cambio,$estado, $idU);
+                }
+
+                return $peds;
+
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
+        }
+
     }
     
 ?>

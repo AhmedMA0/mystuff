@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 
-                <img src="images/hero.png" alt="Hero Image">
+                <img src="images/hero.png" alt="Hero Image" class="image">
             </div>
 
             

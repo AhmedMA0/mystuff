@@ -46,7 +46,7 @@
         ?>
         <div class='pedido'>
             <div class='cliente'>
-                <div class="titulin">Reserva:</div>
+                <div class="titulin">Número de reserva: <?php echo $idRes;?></div>
                 <div class="info"><?php echo $user; ?></div>
             </div>
             <div class="info2"> 
@@ -56,13 +56,13 @@
                 <?php
                     if ($estado == 'pendiente') {
                         ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`enviado`'?>); location.href='./verReservaC.php';">Confirmar pedido.</button>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.href='./verReservaC.php';">Cancelar pedido.</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`enviado`'?>); location.href='./verReservaC.php';">Confirmar reserva.</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.href='./verReservaC.php';">Cancelar reserva.</button>
                         <?php
                     }
                     elseif ($estado == 'enviado') {
                         ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.href='./verReservaC.php';">Cancelar pedido.</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.href='./verReservaC.php';">Cancelar reserva.</button>
                         <?php
                     }
                     elseif($estado == 'cancelado'){
