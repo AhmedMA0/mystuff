@@ -14,3 +14,20 @@ function showProd(str) {
       xmlhttp.send();
     }
 }
+
+function showPed(str) {
+    if (str == ""){
+      document.getElementById("peds").innerHTML = "";
+      return;
+    } 
+	
+	else{
+      var xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) document.getElementById("peds").innerHTML = this.responseText;
+      };
+      xmlhttp.open("GET","consultaPeds.php?estado="+str,true);
+      xmlhttp.send();
+    }
+}

@@ -1,14 +1,3 @@
-<?php
-    require_once('clases/includes.php');
-    session_start();
-
-    $idPed = $_SESSION['idPed'];
-    $idUser = $_SESSION['idUser']; 
-    
-    $estado = Pedido::verEstado($idPed);
-    $fecha = Pedido::verFecha($idPed);
-    $lineas = Linea::verLineaxPedido($idPed);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,10 +30,27 @@
         </nav>
     </header>
     <main>
+        <?php
+            require_once('clases/includes.php');
+
+            $idPed = $_POST['idPed'];
+            $info = Pedido::verInfoxId($idPed);
+
+            if(empty($info['nombreU'])){
+                echo 'PEDIDO NO ENCONTRADO. Pruebe otro ID.';
+            }
+
+            else{
+                $user = new Usuario($info['nombreU'], $info['tlfU'], $info['dirU']);
+                $estado = $info['estadoP'];
+                $fecha = $info['fechaP'];
+                $lineas = Linea::verLineaxPedido($idPed);
+            
+        ?>
         <div class='pedido'>
             <div class='cliente'>
                 <div class="titulin">Número de pedido: <?php echo $idPed.' ('. $fecha.')';?></div>
-                <div class="info"><?php echo Usuario::verUsxId($idUser); ?></div>
+                <div class="info"><?php echo $user; ?></div>
             </div>
             <div class="lineas">
                 <?php
@@ -68,16 +74,22 @@
                     <p><?php echo $total + $servicio;?>€</p>
                 </div>
             </div>
-            <div id="ajaxDiv"></div><?php
+            <div id="ajaxDiv"></div>
+            <div class="botones">
+
+            <?php
                 if ($estado == 'pendiente') {
                     ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`confirmado`'?>); location.href='./verPedidoC.php';">Confirmar pedido.</button>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./verPedidoC.php';">Cancelar pedido.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>); location.href='./verPedidoAxId.php';">Rechazar pedido.</button>
                     <?php
                 }
                 elseif ($estado == 'confirmado') {
                     ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./verPedidoC.php';">Cancelar pedido.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>); location.href='./verPedidoAxId.php';">Rechazar pedido.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en preparacion`'?>); location.href='./verPedidoAxId.php';">En preparación.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en reparto`'?>); location.href='./verPedidoAxId.php';">En reparto.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`entregado`'?>); location.href='./verPedidoAxId.php';">Entregado.</button>
+
                     <?php
                 }
                 elseif($estado == 'cancelado'){
@@ -89,14 +101,24 @@
                 }
 
                 else{
-                    echo 'No se puede cancelar el pedido al estar en preparación. Para mas información llame directamente al establecimiento.';
+                    ?>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>); location.href='./verPedidoAxId.php';">Rechazar pedido.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en preparacion`'?>); location.href='./verPedidoAxId.php';">En preparación.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en reparto`'?>); location.href='./verPedidoAxId.php';">En reparto.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`entregado`'?>); location.href='./verPedidoAxId.php';">Entregado.</button>
+                    <?php
                 }
-
             ?>
+            </div>
+            
+            <button type="button" onclick="location.href='./verPedidos.php'">Volver a ver pedidos.</button>
         </div>
         <?php
+            }
         ?>
     </main>
+
     <script src="ajaxPed.js"></script>
+
 </body>
 </html>

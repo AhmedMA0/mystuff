@@ -133,8 +133,9 @@
             }
 
             try{
+                $fecha = date('Y-m-d h:i:s');
                 $insert = $conexion->stmt_init();
-                $insert->prepare("INSERT INTO pedido (datafono, cambio, estado, idU) VALUES ($this->datafono,$this->cambio,'$this->estado',$this->idUser);");
+                $insert->prepare("INSERT INTO pedido (datafono, cambio, estado, fechaYHora, idU) VALUES ($this->datafono,$this->cambio,'$this->estado','$fecha',$this->idUser);");
                 $insert->execute();
                 $insert->close();
 
@@ -189,6 +190,50 @@
                 $consulta->fetch();
                 $consulta->close();
                 return $estado;
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
+        }
+
+        /**
+         * Devuelve la fecha de un pedido por su id
+         * @return mixed|void
+         * @access public
+         * @static
+         */
+        static function verFecha($id){
+
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+                if($conexion->connect_errno){
+
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            try{
+
+                $consulta = $conexion->stmt_init();
+                $consulta->prepare("SELECT fechaYHora from pedido where id=$id");
+                $consulta->execute();
+                $consulta->bind_result($fecha);
+                $consulta->fetch();
+                $consulta->close();
+                return $fecha;
             }catch(Exception $ex){
 
                 //Si no, lanzamos otra
@@ -271,11 +316,11 @@
             try{
                 $prodQuery = $conexion->stmt_init();
 
-                $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, p.estado from usuario u join pedido p on u.id = p.idU where p.id = $idPed;");
+                $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, p.estado, p.fechaYHora from usuario u join pedido p on u.id = p.idU where p.id = $idPed;");
 
                 $prodQuery->execute();
 
-                $prodQuery->bind_result($nombre, $tlf, $direccion, $estado);
+                $prodQuery->bind_result($nombre, $tlf, $direccion, $estado, $fecha);
 
                 $prodQuery->fetch();
 
@@ -283,6 +328,7 @@
                 $info['tlfU'] = $tlf;
                 $info['dirU'] = $direccion;
                 $info['estadoP'] = $estado;
+                $info['fechaP'] = $fecha;
 
                 return $info;
 
@@ -302,9 +348,9 @@
          * @return array|void
          * @access public
          * @static
-         * @param $cat
+         * @param $idPed
          */
-        static function verPedsxEstado($estado){
+        static function verInfoxEstado($estado){
 
             //Intentamos iniciar la conexión en la base de datos
             try{
@@ -325,16 +371,20 @@
             try{
                 $prodQuery = $conexion->stmt_init();
 
-                $prodQuery->prepare("select * from pedido where estado = ".$estado.";");
+                $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, p.id from usuario u join pedido p on u.id = p.idU where p.estado = '$estado';");
 
                 $prodQuery->execute();
 
-                $prodQuery->bind_result($idPed, $dataF, $cambio, $estado, $idU);
+                $prodQuery->bind_result($nombre, $tlf, $direccion, $id);
 
-                $peds = null;
-                while ($prodQuery->fetch()) {
-                    $peds[$idPed] = new Pedido($dataF,$cambio,$estado, $idU);
+                $peds= null;
+                while($prodQuery->fetch()){
+                    $info['nombreU'] = $nombre;
+                    $info['tlfU'] = $tlf;
+                    $info['dirU'] = $direccion;
+                    $peds[$id] = $info;
                 }
+
 
                 return $peds;
 
@@ -351,6 +401,61 @@
 
         /**
          * Devuelve toda la información sobre las categorias
+         * @return array|void
+         * @access public
+         * @static
+         */
+        static function verInfoxIdTODO(){
+
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+                if($conexion->connect_errno){
+
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            try{
+                $prodQuery = $conexion->stmt_init();
+
+                $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, p.id from usuario u join pedido p on u.id = p.idU;");
+
+                $prodQuery->execute();
+
+                $prodQuery->bind_result($nombre, $tlf, $direccion, $id);
+
+                $peds= null;
+                while($prodQuery->fetch()){
+                    $info['nombreU'] = $nombre;
+                    $info['tlfU'] = $tlf;
+                    $info['dirU'] = $direccion;
+                    $peds[$id] = $info;
+                }
+
+
+                return $peds;
+
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
+        }
+
+        /**
+         * Devuelve toda la información sobre los pedidos
          * @return array|void
          * @access public
          * @static
@@ -388,6 +493,59 @@
                 }
 
                 return $peds;
+
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
+        }
+
+        /**
+         * Devuelve toda la información sobre los pedidos
+         * @return array|void
+         * @access public
+         * @static
+         */
+        static function verEstados(){
+
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+                if($conexion->connect_errno){
+
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            try{
+                $prodQuery = $conexion->stmt_init();
+
+                $prodQuery->prepare("select distinct estado from pedido;");
+
+                $prodQuery->execute();
+
+                $prodQuery->bind_result($estado);
+
+                $estados = null;
+                $i = 0;
+                while ($prodQuery->fetch()) {
+                    $estados[$i] = $estado;
+                    $i++;
+                }
+
+                return $estados;
 
             }catch(Exception $ex){
 

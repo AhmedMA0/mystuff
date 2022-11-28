@@ -6,6 +6,7 @@
     $idUser = $_SESSION['idUser']; 
     
     $estado = Reserva::verEstado($idRes);
+    $fecha = Reserva::verFecha($idRes);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +42,7 @@
     <main>
         <div class='pedido'>
             <div class='cliente'>
-                <div class="titulin">Número de reserva: <?php echo $idRes;?></div>
+                <div class="titulin">Número de reserva: <?php echo $idRes.' ('. $fecha.')';?></div>
                 <div class="info"><?php echo Usuario::verUsxId($idUser); ?></div>
             </div>
             <div class="info2"> 
@@ -51,11 +52,11 @@
                 <?php
                     if ($estado == 'pendiente') {
                         ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`enviado`'?>); location.href='./verReservaC.php';">Confirmar reserva.</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`confirmado`'?>); location.href='./verReservaC.php';">Confirmar reserva.</button>
                             <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.href='./verReservaC.php';">Cancelar reserva.</button>
                         <?php
                     }
-                    elseif ($estado == 'enviado') {
+                    elseif ($estado == 'confirmado') {
                         ?>
                             <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.href='./verReservaC.php';">Cancelar reserva.</button>
                         <?php

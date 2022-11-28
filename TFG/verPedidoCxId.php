@@ -43,12 +43,13 @@
             else{
                 $user = new Usuario($info['nombreU'], $info['tlfU'], $info['dirU']);
                 $estado = $info['estadoP'];
+                $fecha = $info['fechaP'];
                 $lineas = Linea::verLineaxPedido($idPed);
             
         ?>
         <div class='pedido'>
             <div class='cliente'>
-                <div class="titulin">Número de pedido: <?php echo $idPed;?></div>
+                <div class="titulin">Número de pedido: <?php echo $idPed.' ('. $fecha.')';?></div>
                 <div class="info"><?php echo $user; ?></div>
             </div>
             <div class="lineas">
@@ -73,30 +74,7 @@
                     <p><?php echo $total + $servicio;?>€</p>
                 </div>
             </div>
-            <div id="ajaxDiv"></div><?php
-                if ($estado == 'pendiente') {
-                    ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`enviado`'?>); location.href='./verPedidoCxId.php';">Confirmar pedido.</button>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./verPedidoCxId.php';">Cancelar pedido.</button>
-                    <?php
-                }
-                elseif ($estado == 'enviado') {
-                    ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./verPedidoCxId.php';">Cancelar pedido.</button>
-                    <?php
-                }
-                elseif($estado == 'cancelado'){
-                    echo 'Pedido cancelado por el cliente.';
-                }
-
-                elseif ($estado == 'rechazado') {
-                    echo 'Pedido rechazado por el establecimiento';
-                }
-
-                else{
-                    echo 'No se puede cancelar el pedido al estar en preparación. Para mas información llame directamente al establecimiento.';
-                }
-            ?>
+            <div id="ajaxDiv"></div>
         </div>
         <?php
             }

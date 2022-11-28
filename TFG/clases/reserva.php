@@ -182,6 +182,50 @@ class Reserva{
     }
 
     /**
+         * Devuelve la fecha de un pedido por su id
+         * @return mixed|void
+         * @access public
+         * @static
+         */
+        static function verFecha($id){
+
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+                if($conexion->connect_errno){
+
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            try{
+
+                $consulta = $conexion->stmt_init();
+                $consulta->prepare("SELECT fechaYHora from reserva where id=$id");
+                $consulta->execute();
+                $consulta->bind_result($fecha);
+                $consulta->fetch();
+                $consulta->close();
+                return $fecha;
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
+        }
+
+    /**
      * Actualiza el estado del pedido
      * @return void
      * @access public
@@ -252,11 +296,11 @@ class Reserva{
         try{
             $prodQuery = $conexion->stmt_init();
 
-            $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, r.estado from usuario u join reserva r on u.id = r.idU where r.id = $idRes;");
+            $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, r.estado, r.fechaYHora from usuario u join reserva r on u.id = r.idU where r.id = $idRes;");
 
             $prodQuery->execute();
 
-            $prodQuery->bind_result($nombre, $tlf, $direccion, $estado);
+            $prodQuery->bind_result($nombre, $tlf, $direccion, $estado, $fecha);
 
             $prodQuery->fetch();
 
@@ -264,6 +308,7 @@ class Reserva{
             $info['tlfU'] = $tlf;
             $info['dirU'] = $direccion;
             $info['estadoR'] = $estado;
+            $info['fechaR'] = $fecha;
 
             return $info;
 

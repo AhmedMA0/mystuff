@@ -7,7 +7,7 @@
             
             $prods = Producto::verProdsxCat($cat);
 
-            if (!empty($prods[0])) {
+            if (!empty($prods)) {
                 foreach ($prods as $pos => $prod) {
                     
                     echo '<form class= "prod" action="editProd.php" method="post">';

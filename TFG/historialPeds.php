@@ -7,7 +7,7 @@
     <meta name="author" content="Ahmed M.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant</title>
-    <link rel="stylesheet" href="estilos/verPedidos.css">
+    <link href="estilos/styles.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+<header>
         <div class="logo" onclick="location.href='./'">
             <img src="images/logo.png" alt="Logo" class="logoIcon">
             <p class="display">MÕ SUSHI WOK FUSION</p>
@@ -30,36 +30,27 @@
         </nav>
     </header>
     <main>
-    <?php 
+        <?php 
+            require_once('clases/includes.php');
+
+                
+                $peds = Pedido::verInfoxIdTODO();
         
-        require_once('clases/includes.php');
+                if (!empty($peds)) {
+                    foreach ($peds as $id => $ped) {
+                        echo '<form class="ped" action="verPedidoAxId.php" method="POST">';
+                        echo '<p>Pedido número: '.$id.' Cliente: '.$ped['nombreU'].' Tlf: '.$ped['tlfU'].' Dir.: '.$ped['dirU'].'</p>';
+                        echo '<input type="hidden" value="'.$id.'" name="idPed">';
+                        echo '<input type="submit" value="Administrar" name="Go">';
+                        echo '</form>';
+                    }
+                }
+        
+                else {
+                    echo 'No hay pedido '.$estado.'.';
+                }
+        
         ?>
-
-        <form action="#" method="post">
-            <?php
-
-                echo '<select name="cat" onchange="showPed(this.value)">';
-                echo '<option selected="true" disabled="disabled">Elija categoría</option>';    
-                echo '<option value="pendiente">Pendiente</option>';
-                echo '<option value="cancelado">Cancelado</option>';
-                echo '<option value="confirmado">Confirmado</option>';
-                echo '<option value="rechazado">Rechazado</option>';
-                echo '<option value="en preparacion">En preparación</option>';
-                echo '<option value="en reparto">En reparto</option>';
-                echo '<option value="entregado">Entregado</option>';
-                echo '</select>';
-            ?>
-        </form>
-        <div class="peds" id="peds">
-            <p>Los pedidos se mostrarán aquí...</p>
-        </div>
-
-        <form action="./historialPeds.php" method="POST">
-            <input type="submit" value="Ver historial completo"> 
-        </form>
-    </main>
-
-    <script src="ajax.js"></script>
     </main>
 </body>
 </html>
