@@ -322,8 +322,171 @@ class Reserva{
         //Cerramos la conexion a db
         $conexion->close();
     }
-}
 
-            
-    
+    /**
+         * Devuelve toda la información sobre las categorias
+         * @return array|void
+         * @access public
+         * @static
+         * @param $idPed
+         */
+        static function verInfoxEstado($estado){
+
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+                if($conexion->connect_errno){
+
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            try{
+                $prodQuery = $conexion->stmt_init();
+
+                $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, r.estado, r.fechaYHora, r.id from usuario u join reserva r on u.id = r.idU where r.estado = '$estado';");
+
+                $prodQuery->execute();
+
+                $prodQuery->bind_result($nombre, $tlf, $direccion, $estado, $fecha, $id);
+
+                $peds= null;
+                while($prodQuery->fetch()){
+                    $info['nombreU'] = $nombre;
+                    $info['tlfU'] = $tlf;
+                    $info['dirU'] = $direccion;
+                    $info['estadoR'] = $estado;
+                    $info['fechaR'] = $fecha;
+                    $peds[$id] = $info;
+                }
+
+
+                return $peds;
+
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
+        }
+
+        /**
+         * Devuelve toda la información sobre las categorias
+         * @return array|void
+         * @access public
+         * @static
+         */
+        static function verInfoxIdTODO(){
+
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+                if($conexion->connect_errno){
+
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            try{
+                $prodQuery = $conexion->stmt_init();
+
+                $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, r.id from usuario u join reserva r on u.id = r.idU;");
+
+                $prodQuery->execute();
+
+                $prodQuery->bind_result($nombre, $tlf, $direccion, $id);
+
+                $peds= null;
+                while($prodQuery->fetch()){
+                    $info['nombreU'] = $nombre;
+                    $info['tlfU'] = $tlf;
+                    $info['dirU'] = $direccion;
+                    $peds[$id] = $info;
+                }
+
+
+                return $peds;
+
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
+        }
+
+        /**
+         * Devuelve toda la información sobre los pedidos
+         * @return array|void
+         * @access public
+         * @static
+         */
+        static function verResxUser($idUser){
+
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+                if($conexion->connect_errno){
+
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            try{
+                $prodQuery = $conexion->stmt_init();
+
+                $prodQuery->prepare("select id from reserva where idU = $idUser;");
+
+                $prodQuery->execute();
+
+                $prodQuery->bind_result($idRes);
+
+                $reses = null;
+                $i=0;
+                while ($prodQuery->fetch()) {
+                    $reses[$i] = $idRes;
+                    $i++;
+                }
+
+                return $reses;
+
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
+        }
+    } 
 ?>

@@ -8,4 +8,7 @@
 
 
     $servicio = 2;
+    $dbUser = 'ahmed';
+    $dbPass = '123456';
+    $dbName = 'mosushi';
 ?>

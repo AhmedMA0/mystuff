@@ -371,17 +371,19 @@
             try{
                 $prodQuery = $conexion->stmt_init();
 
-                $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, p.id from usuario u join pedido p on u.id = p.idU where p.estado = '$estado';");
+                $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, p.estado,p.fechaYHora,p.id from usuario u join pedido p on u.id = p.idU where p.estado = '$estado';");
 
                 $prodQuery->execute();
 
-                $prodQuery->bind_result($nombre, $tlf, $direccion, $id);
+                $prodQuery->bind_result($nombre, $tlf, $direccion, $estado, $fecha, $id);
 
                 $peds= null;
                 while($prodQuery->fetch()){
                     $info['nombreU'] = $nombre;
                     $info['tlfU'] = $tlf;
                     $info['dirU'] = $direccion;
+                    $info['estadoP'] = $estado;
+                    $info['fechaP'] = $fecha;
                     $peds[$id] = $info;
                 }
 
@@ -546,6 +548,59 @@
                 }
 
                 return $estados;
+
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
+        }
+
+        /**
+         * Devuelve toda la información sobre los pedidos
+         * @return array|void
+         * @access public
+         * @static
+         */
+        static function verPedsxUser($idUser){
+
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+
+                if($conexion->connect_errno){
+
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            try{
+                $prodQuery = $conexion->stmt_init();
+
+                $prodQuery->prepare("select id from pedido where idU = $idUser;");
+
+                $prodQuery->execute();
+
+                $prodQuery->bind_result($idPed);
+
+                $peds = null;
+                $i=0;
+                while ($prodQuery->fetch()) {
+                    $peds[$i] = $idPed;
+                    $i++;
+                }
+
+                return $peds;
 
             }catch(Exception $ex){
 

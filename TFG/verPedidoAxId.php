@@ -36,7 +36,7 @@
             $idPed = $_POST['idPed'];
             $info = Pedido::verInfoxId($idPed);
 
-            if(empty($info['nombreU'])){
+            if(empty($info)){
                 echo 'PEDIDO NO ENCONTRADO. Pruebe otro ID.';
             }
 
@@ -76,42 +76,41 @@
             </div>
             <div id="ajaxDiv"></div>
             <div class="botones">
+                <?php
+                    if ($estado == 'pendiente') {
+                        ?>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>); location.reload();">Rechazar pedido</button>
+                        <?php
+                    }
+                    elseif ($estado == 'confirmado') {
+                        ?>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>); location.reload();">Rechazar pedido</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en preparacion`'?>); location.reload();">En preparación</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en reparto`'?>); location.reload();">En reparto</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`entregado`'?>); location.reload();">Entregado</button>
 
-            <?php
-                if ($estado == 'pendiente') {
-                    ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>); location.href='./verPedidoAxId.php';">Rechazar pedido.</button>
-                    <?php
-                }
-                elseif ($estado == 'confirmado') {
-                    ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>); location.href='./verPedidoAxId.php';">Rechazar pedido.</button>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en preparacion`'?>); location.href='./verPedidoAxId.php';">En preparación.</button>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en reparto`'?>); location.href='./verPedidoAxId.php';">En reparto.</button>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`entregado`'?>); location.href='./verPedidoAxId.php';">Entregado.</button>
+                        <?php
+                    }
+                    elseif($estado == 'cancelado'){
+                        echo 'Pedido cancelado por el cliente.';
+                    }
 
-                    <?php
-                }
-                elseif($estado == 'cancelado'){
-                    echo 'Pedido cancelado por el cliente.';
-                }
+                    elseif ($estado == 'rechazado') {
+                        echo 'Pedido rechazado por el establecimiento';
+                    }
 
-                elseif ($estado == 'rechazado') {
-                    echo 'Pedido rechazado por el establecimiento';
-                }
-
-                else{
-                    ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>); location.href='./verPedidoAxId.php';">Rechazar pedido.</button>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en preparacion`'?>); location.href='./verPedidoAxId.php';">En preparación.</button>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en reparto`'?>); location.href='./verPedidoAxId.php';">En reparto.</button>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`entregado`'?>); location.href='./verPedidoAxId.php';">Entregado.</button>
-                    <?php
-                }
-            ?>
+                    else{
+                        ?>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>); location.reload();">Rechazar pedido</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en preparacion`'?>); location.reload();">En preparación</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en reparto`'?>); location.reload();">En reparto</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`entregado`'?>); location.reload();">Entregado</button>
+                        <?php
+                    }
+                ?>
             </div>
             
-            <button type="button" onclick="location.href='./verPedidos.php'">Volver a ver pedidos.</button>
+            <button type="button" onclick="location.href='./verPedidos.php'">Ver todos los pedidos</button>
         </div>
         <?php
             }

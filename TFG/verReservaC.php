@@ -52,25 +52,25 @@
                 <?php
                     if ($estado == 'pendiente') {
                         ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`confirmado`'?>); location.href='./verReservaC.php';">Confirmar reserva.</button>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.href='./verReservaC.php';">Cancelar reserva.</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`confirmada`'?>); location.reload();">Confirmar reserva</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelada`'?>); location.reload();">Cancelar reserva</button>
                         <?php
                     }
-                    elseif ($estado == 'confirmado') {
+                    elseif ($estado == 'confirmada') {
                         ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.href='./verReservaC.php';">Cancelar reserva.</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.reload();">Cancelar reserva</button>
                         <?php
                     }
-                    elseif($estado == 'cancelado'){
-                        echo 'Pedido cancelado por el cliente.';
+                    elseif($estado == 'cancelada'){
+                        echo 'Reserva cancelada por el cliente.';
                     }
 
-                    elseif ($estado == 'rechazado') {
-                        echo 'Pedido rechazado por el establecimiento';
+                    elseif ($estado == 'rechazada') {
+                        echo 'Reserva rechazada por el establecimiento';
                     }
 
                     else{
-                        echo 'No se puede cancelar el pedido al estar en preparación. Para mas información llame directamente al establecimiento.';
+                        echo 'No se puede cancelar la reserva al estar en preparación. Para mas información llame directamente al establecimiento.';
                     }
                 ?>
                 </div>
