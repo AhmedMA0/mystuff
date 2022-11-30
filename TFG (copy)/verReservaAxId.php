@@ -55,31 +55,35 @@
                 <div class="estado"><?php echo ucfirst($estado);?></div>
                 <div id="ajaxDiv"></div>
                 <div class="mensaje">
-                <?php
-                    if ($estado == 'pendiente') {
-                        ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`confirmado`'?>); location.reload();">Confirmar reserva</button>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.reload();">Cancelar reserva</button>
-                        <?php
-                    }
-                    elseif ($estado == 'confirmado') {
-                        ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.reload();">Cancelar reserva</button>
-                        <?php
-                    }
-                    elseif($estado == 'cancelado'){
-                        echo 'Reserva cancelada por el cliente.';
-                    }
+                    <?php
+                        if ($estado == 'pendiente') {
+                            ?>
+                                <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`rechazada`'?>); location.reload();">Rechazar reserva</button>
+                            <?php
+                        }
+                        elseif ($estado == 'confirmada') {
+                            ?>
+                                <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`rechazada`'?>); location.reload();">Rechazar reserva</button>
+                                <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`aceptada`'?>); location.reload();">Aceptar reserva</button>
+                            <?php
+                        }
+                        elseif($estado == 'cancelada'){
+                            echo 'Reserva cancelada por el cliente.';
+                        }
 
-                    elseif ($estado == 'rechazado') {
-                        echo 'Reserva rechazada por el establecimiento';
-                    }
+                        elseif ($estado == 'rechazada') {
+                            echo 'Reserva rechazada por el establecimiento';
+                        }
 
-                    else{
-                        echo 'No se puede cancelar la reserva al estar en preparación. Para mas información llame directamente al establecimiento.';
-                    }
-                ?>
+                        else{
+                            ?>
+                                <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`rechazada`'?>); location.reload();">Rechazar reserva</button>
+                            <?php
+                        }
+                    ?>
                 </div>
+            <button type="button" onclick="location.href='./verReservas.php'">Ver todas las reservas</button>
+
             </div>
         </div>
         <?php

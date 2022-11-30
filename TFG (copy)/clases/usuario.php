@@ -154,58 +154,108 @@ use App\Models\User;
         }
 
         /**
-     * Devuelve toda la información sobre un usuario segun su id
-     * @return object|void
-     * @access public
-     * @static
-     * @param $cat
-     */
-    static function verUsxId($id){
+         * Devuelve toda la información sobre un usuario segun su id
+         * @return object|void
+         * @access public
+         * @static
+         * @param $cat
+         */
+        static function verUsxId($id){
 
-        //Intentamos iniciar la conexión en la base de datos
-        try{
-            $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
 
-            if($conexion->connect_errno){
+                if($conexion->connect_errno){
 
-                //Error al soltar un error la función
-                throw new Exception("No se ha podido acceder a la base de datos");
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
+
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
 
             }
-        }catch(Exception $ex){
-            //Otro tipo de error
-            echo $ex->getMessage(), "<br>";
 
+            try{
+                
+            $firstq = $conexion->stmt_init();
+
+            $firstq->prepare("select nombre, tlf, direccion from usuario where id = '".$id."';");
+
+            $firstq->execute();
+
+            $firstq->bind_result($nombre, $tlf, $dir);
+
+            $firstq->fetch();
+
+            $user = new Usuario($nombre, $tlf, $dir);
+
+            return $user;
+
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
         }
 
-        try{
-            
-        $firstq = $conexion->stmt_init();
 
-        $firstq->prepare("select nombre, tlf, direccion from usuario where id = '".$id."';");
+        /**
+         * Devuelve toda la información sobre los pedidos
+         * @return array|void
+         * @access public
+         * @static
+         */
+        static function verUsers(){
 
-        $firstq->execute();
+            //Intentamos iniciar la conexión en la base de datos
+            try{
+                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
 
-        $firstq->bind_result($nombre, $tlf, $dir);
+                if($conexion->connect_errno){
 
-        $firstq->fetch();
+                    //Error al soltar un error la función
+                    throw new Exception("No se ha podido acceder a la base de datos");
 
-        $user = new Usuario($nombre, $tlf, $dir);
+                }
+            }catch(Exception $ex){
+                //Otro tipo de error
+                echo $ex->getMessage(), "<br>";
 
-        return $user;
+            }
 
-        }catch(Exception $ex){
+            try{
+                $prodQuery = $conexion->stmt_init();
 
-            //Si no, lanzamos otra
-            echo $ex->getMessage(), "<br>";
+                $prodQuery->prepare("select * from usuario;");
 
+                $prodQuery->execute();
+
+                $prodQuery->bind_result($id, $nombre, $tlf, $dir);
+
+                $users = null;
+                while ($prodQuery->fetch()) {
+                    $users[$id] = new Usuario($nombre, $tlf, $dir);
+                }
+
+                return $users;
+
+            }catch(Exception $ex){
+
+                //Si no, lanzamos otra
+                echo $ex->getMessage(), "<br>";
+
+            }
+
+            //Cerramos la conexion a db
+            $conexion->close();
         }
-
-        //Cerramos la conexion a db
-        $conexion->close();
-    }
-
-
 
 
 

@@ -71,13 +71,13 @@
             <div id="ajaxDiv"></div><?php
                 if ($estado == 'pendiente') {
                     ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`confirmado`'?>); location.href='./verPedidoC.php';">Confirmar pedido.</button>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./verPedidoC.php';">Cancelar pedido.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`confirmado`'?>); location.reload();">Confirmar pedido</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.reload();">Cancelar pedido</button>
                     <?php
                 }
                 elseif ($estado == 'confirmado') {
                     ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.href='./verPedidoC.php';">Cancelar pedido.</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.reload();">Cancelar pedido</button>
                     <?php
                 }
                 elseif($estado == 'cancelado'){
