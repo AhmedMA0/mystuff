@@ -58,13 +58,13 @@
                 <?php
                     if ($estado == 'pendiente') {
                         ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`confirmado`'?>); location.reload();">Confirmar reserva</button>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.reload();">Cancelar reserva</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`confirmado`'?>,<?php echo $user->getTlf()?>); location.reload();">Confirmar reserva</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>,<?php echo $user->getTlf()?>); location.reload();">Cancelar reserva</button>
                         <?php
                     }
                     elseif ($estado == 'confirmado') {
                         ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.reload();">Cancelar reserva</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>,<?php echo $user->getTlf()?>); location.reload();">Cancelar reserva</button>
                         <?php
                     }
                     elseif($estado == 'cancelado'){

@@ -58,13 +58,13 @@
                     <?php
                         if ($estado == 'pendiente') {
                             ?>
-                                <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`rechazada`'?>); location.reload();">Rechazar reserva</button>
+                                <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`rechazada`'?>,<?php echo $user->getTlf()?>); location.reload();">Rechazar reserva</button>
                             <?php
                         }
                         elseif ($estado == 'confirmada') {
                             ?>
-                                <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`rechazada`'?>); location.reload();">Rechazar reserva</button>
-                                <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`aceptada`'?>); location.reload();">Aceptar reserva</button>
+                                <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`rechazada`'?>,<?php echo $user->getTlf()?>); location.reload();">Rechazar reserva</button>
+                                <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`aceptada`'?>,<?php echo $user->getTlf()?>); location.reload();">Aceptar reserva</button>
                             <?php
                         }
                         elseif($estado == 'cancelada'){
@@ -77,7 +77,7 @@
 
                         else{
                             ?>
-                                <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`rechazada`'?>); location.reload();">Rechazar reserva</button>
+                                <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`rechazada`'?>,<?php echo $user->getTlf()?>); location.reload();">Rechazar reserva</button>
                             <?php
                         }
                     ?>

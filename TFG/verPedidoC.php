@@ -8,6 +8,7 @@
     $estado = Pedido::verEstado($idPed);
     $fecha = Pedido::verFecha($idPed);
     $lineas = Linea::verLineaxPedido($idPed);
+    $user = Usuario::verUsxId($idUser);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +45,7 @@
         <div class='pedido'>
             <div class='cliente'>
                 <div class="titulin">Número de pedido: <?php echo $idPed.' ('. $fecha.')';?></div>
-                <div class="info"><?php echo Usuario::verUsxId($idUser); ?></div>
+                <div class="info"><?php echo $user; ?></div>
             </div>
             <div class="lineas">
                 <?php
@@ -71,13 +72,13 @@
             <div id="ajaxDiv"></div><?php
                 if ($estado == 'pendiente') {
                     ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`confirmado`'?>); location.reload();">Confirmar pedido</button>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.reload();">Cancelar pedido</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`confirmado`'?>,'<?php echo $user->getTlf()?>'); location.reload();">Confirmar pedido</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>,'<?php echo $user->getTlf()?>'); location.reload();">Cancelar pedido</button>
                     <?php
                 }
                 elseif ($estado == 'confirmado') {
                     ?>
-                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>); location.reload();">Cancelar pedido</button>
+                        <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`cancelado`'?>,'<?php echo $user->getTlf()?>'); location.reload();">Cancelar pedido</button>
                     <?php
                 }
                 elseif($estado == 'cancelado'){

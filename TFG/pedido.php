@@ -48,7 +48,7 @@
                             <input type="text" name="nombre" id="nombre" maxlength="15" pattern="[a-zA-Z]{4,10}" placeholder="Nombre de minimo 4 letras" autofocus required>
                         
                             <div class="labels" id="tlfLabel"><label for="tlf">Teléfono:</label></div>
-                            <input type="text" name="tlf" id="tlf" pattern="[\d]{9,15}" maxlength="30" placeholder="Numero de minimo 9 digitos" required>
+                            <input type="text" name="tlf" id="tlf" pattern="(\+[\d]{1,5})[\d]{4,15}" maxlength="30" placeholder="Numero de minimo 9 digitos" required>
                         </p>
                         <br>
                         <p>
@@ -107,7 +107,7 @@
                             <input type="text" name="nombre" id="nombrePick" maxlength="15" pattern="[a-zA-Z]{4,10}" placeholder="Nombre de minimo 4 letras" autofocus required>
                         
                             <div class="labels" id="tlfLabelPick"><label for="tlf">Teléfono:</label></div>
-                            <input type="text" name="tlf" id="tlfPick" pattern="[\d]{9,15}" maxlength="30" placeholder="Numero de minimo 9 digitos" required>
+                            <input type="text" name="tlf" id="tlfPick" pattern="(\+[\d]{1,5})[\d]{4,15}" maxlength="30" placeholder="Numero de minimo 9 digitos" required>
                         </p>
                             <input type="hidden" name="dir" id="dirPick" value="Pedido a recoger">
                         <button type="button" onclick="location.reload()">VOLVER</button>

@@ -7,6 +7,8 @@
     
     $estado = Reserva::verEstado($idRes);
     $fecha = Reserva::verFecha($idRes);
+    $user = Usuario::verUsxId($idUser);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +45,7 @@
         <div class='pedido'>
             <div class='cliente'>
                 <div class="titulin">Número de reserva: <?php echo $idRes.' ('. $fecha.')';?></div>
-                <div class="info"><?php echo Usuario::verUsxId($idUser); ?></div>
+                <div class="info"><?php  echo $user;  ?></div>
             </div>
             <div class="info2"> 
                 <div class="estado"><?php echo ucfirst($estado);?></div>
@@ -52,13 +54,13 @@
                 <?php
                     if ($estado == 'pendiente') {
                         ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`confirmada`'?>); location.reload();">Confirmar reserva</button>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelada`'?>); location.reload();">Cancelar reserva</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`confirmada`'?>,<?php echo $user->getTlf()?>); location.reload();">Confirmar reserva</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelada`'?>,<?php echo $user->getTlf()?>); location.reload();">Cancelar reserva</button>
                         <?php
                     }
                     elseif ($estado == 'confirmada') {
                         ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>); location.reload();">Cancelar reserva</button>
+                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>,<?php echo $user->getTlf()?>); location.reload();">Cancelar reserva</button>
                         <?php
                     }
                     elseif($estado == 'cancelada'){
