@@ -65,7 +65,7 @@ span{
     transform-style: preserve-3d;
     transform: translateZ(-25px);
     transition: transform .25s;
-    font-family: 'Montserrat', sans-serif;  
+    font-family: 'Montserrat', sans-serif;
 }
 
 .buttonHome a:before,
@@ -173,19 +173,21 @@ fieldset{
     align-items: center;
 }
 
-input[type=text]{
-    background-color: #171717;
+input::placeholder{
     color: #fff8f8;
+}
+
+input[type=text]{
+    background-color: rgba(189, 189, 189, 0);
+    box-shadow: #171717 0 0 20px 2px;
+    color: #171717;
     font-family: 'Playfair Display', serif;
     font-size: calc(0.5vw + 10px);
     border-radius: 5px;
     height: 4vh;
     width: 100%;
     margin-bottom: 3vh;
-}
-
-input[type=submit]{
-    width: 25%;
+    padding-left: 9px;
 }
 
 .pedidoPart{
@@ -227,4 +229,25 @@ input[type=submit]{
 .prodDesc{
     width: 75%;
     font-size: calc(5px + 0.5vw);
+}
+
+.buttons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.botone{
+    background-color: #171717;
+    width: 30%;
+    color: #808080;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+}
+
+input[type=submit]{
+    background-color: #cfa17e;
+    color: #171717;
 }

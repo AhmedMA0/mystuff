@@ -50,8 +50,10 @@
                             <input type="text" name="tlf" id="tlf" pattern="(\+[\d]{1,5})[\d]{4,15}" maxlength="30" placeholder="Teléfono (con prefijo)" required>
                             <input type="text" name="dir" id="dir" minlength="10" maxlength="200" placeholder="Dirección" required>
                         </div>
-                        <button type="button" onclick="location.reload()">VOLVER</button>
-                        <button type="button" onclick="hideUserPart();">SIGUIENTE</button>
+                        <div class="buttons">
+                            <button type="button" onclick="location.reload()" class="botone">VOLVER</button>
+                            <button type="button" onclick="hideUserPart();" class="botone">SIGUIENTE</button>
+                        </div>
 
                 </fieldset>
                 
@@ -63,8 +65,11 @@
 
                         <label for="camb">¿Necesita cambio?</label>
                         <input type="checkbox" name="camb" id="camb" value="camb">
-                        <button type="button" onclick="showUserPart();">ANTERIOR</button>
-                        <button type="button" onclick="hidePedPart();">SIGUIENTE</button>
+
+                        <div class="buttons">
+                            <button type="button" onclick="showUserPart();" class="botone">ANTERIOR</button>
+                            <button type="button" onclick="hidePedPart();" class="botone">SIGUIENTE</button>
+                        </div>
                 </fieldset>
 
                 <fieldset class="prodPart" id="prodPart">
@@ -88,8 +93,10 @@
                                 echo '</fieldset>';
                             }
                         ?>
-                        <button type="button" onclick="showPedPart();">ANTERIOR</button>
-                        <input type="submit" value="PEDIR" name="allInfo">
+                        <div class="buttons">
+                            <button type="button" onclick="showPedPart();" class="botone">ANTERIOR</button>
+                            <input type="submit" value="PEDIR" name="allInfo" class="botone">
+                        </div>
                 </fieldset>
             </form>
 
@@ -103,8 +110,10 @@
                             <input type="text" name="tlf" id="tlfPick" pattern="(\+[\d]{1,5})[\d]{4,15}" maxlength="30" placeholder="Numero de minimo 9 digitos" required>
                         </p>
                             <input type="hidden" name="dir" id="dirPick" value="Pedido a recoger">
-                        <button type="button" onclick="location.reload()">VOLVER</button>
-                        <button type="button" onclick="hideUserPartPick();">SIGUIENTE</button>
+                        <div class="buttons">
+                            <button type="button" onclick="location.reload()" class="botone">VOLVER</button>
+                            <button type="button" onclick="hideUserPartPick();" class="botone">SIGUIENTE</button>
+                        </div>
                 </fieldset>
                 <fieldset class="prodPartPick" id="prodPartPick">
                     <div class="legends">Productos</div>
@@ -126,8 +135,10 @@
                                 echo '</fieldset>';
                             }
                         ?>
-                        <button type="button" onclick="showUserPartPick();">ANTERIOR</button>
-                        <input type="submit" value="PEDIR" name="allInfo">
+                        <div class="buttons">
+                            <button type="button" onclick="showUserPartPick();" class="botone">ANTERIOR</button>
+                            <input type="submit" value="PEDIR" name="allInfo" class="botone">
+                        </div>
                 </fieldset>
 
             </form>   

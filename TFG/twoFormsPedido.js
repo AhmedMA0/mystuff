@@ -38,7 +38,6 @@ function hideUserPart(){
 function hideUserPartPick(){
 
     if (!nombreFieldPick.value.match(nombreRegex)){
-        alert("Nombre de minimo 4 letras");
         nombreFieldPick.classList.add('shaking');
         setTimeout(()=>{nombreFieldPick.classList.remove('shaking')}, 500);
     }
