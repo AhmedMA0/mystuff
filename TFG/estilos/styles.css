@@ -1,45 +1,40 @@
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 5px;
+}
+
 *{
     border: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+html{
+    width: 100%;
+    height: 100%;
+}
+
 body{
     background-color: #171717;
     color: #fff8f8;
     font-family: 'Playfair Display', serif;
+    width: 100%;
+    height: 100%;
 }
 
-header{
+main{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.heroDiv{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 1vw 4vw;
-}
-
-.logo{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo p{
-    height: fit-content;
-    color: #cfa17e;
-}
-
-.logo img{
-    width: 3.5vw;
-}
-
-nav{
-    height: fit-content;
-}
-
-nav a{
-    margin: 0 1vw;
 }
 
 .heroImg{
@@ -50,18 +45,30 @@ nav a{
     padding: 0 1vw;
 }
 
-.heroImg img{
-    width: 35%;
-    transform: translateX(-40px) rotateZ(25deg);
+.imageDiv{
+    width: 50%;
+    padding-left: 9vw;
+    z-index: -1;
+
 }
 
-.heroImg p{
+.imageDiv img{
+    width: 90%;
+    transform: translateX(-40px) rotateZ(25deg);
+    z-index: -1;
+}
+
+.textbuttons p{
     font-size: calc(10px + 3vw);
     height: fit-content;
 }
 
 .display{
     font-family: 'Playball', cursive;
+}
+
+.textito{
+    font-size: calc(3px + 1vw);
 }
 
 .tittle{
@@ -84,14 +91,22 @@ nav a{
     z-index: -1;
 }
 
+.usContainer{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../images/fondo.jpg');
+    background-attachment: fixed;
+}
+
 .us{
-    background-color: #fff8f8;
     width: 80%;
-    margin: auto;
     padding: calc(10px + 1.3vw);
     display: flex;
     flex-flow: row nowrap;
     border-radius: 15px;
+    margin: 10vw;
 }
 
 .usImages{
@@ -127,7 +142,6 @@ nav a{
 }
 
 .us p{
-    color: #171717;
     font-size: calc(5px + 1.3vw);
 }
 

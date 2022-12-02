@@ -7,6 +7,7 @@
     <meta name="author" content="Ahmed M.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant</title>
+    <link href="estilos/header.css" rel="stylesheet">
     <link href="estilos/styles.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +34,7 @@
         <div class="heroDiv">
             <div class="heroImg">
                 <div class="textbuttons">
+                    <p class="textito">Un nuevo sabor</p>
                     <p>
                         <span class="tittle display">Bienvenidos a <br> la cocina de MÕ</span>
                         <br>
@@ -44,28 +46,30 @@
                         <span class="buttonAni buttonRes"><a href="reserva.php"></a></span>
                     </div>
                 </div>
-                
-                <img src="images/hero.png" alt="Hero Image" class="image">
+                <div class="imageDiv">
+                    <img src="images/hero.png" alt="Hero Image" class="image">
+                </div>
             </div>
 
             
         </div>
-
-        <div class="us">
-            <div class="usImages">
-                    <img src="images/us0.jpg" alt="us0">
-                    <img src="images/us1.jpg" alt="us1">
-                    <img class="vertical" src="images/us2.jpg" alt="us2">
-            </div>
-            <div class="usText">
-                <h3 class="display">Sobre nosotros</h3>
-                <p>
-                    Aspiramos a crear algo diferente y divertido 
-                    adaptado a los gustos de hoy y precios asequibles.
-                    Desde aqui te invitamos a recorrer los sabores 
-                    autenticos de Japon dentro de nuestra cocina 
-                    Mediterránea.
-                </p>
+        <div class="usContainer">
+            <div class="us">
+                <div class="usImages">
+                        <img src="images/us0.jpg" alt="us0">
+                        <img src="images/us1.jpg" alt="us1">
+                        <img class="vertical" src="images/us2.jpg" alt="us2">
+                </div>
+                <div class="usText">
+                    <h3 class="display">Sobre nosotros</h3>
+                    <p>
+                        Aspiramos a crear algo diferente y divertido 
+                        adaptado a los gustos de hoy y precios asequibles.
+                        Desde aqui te invitamos a recorrer los sabores 
+                        autenticos de Japon dentro de nuestra cocina 
+                        Mediterránea.
+                    </p>
+                </div>
             </div>
         </div>
 

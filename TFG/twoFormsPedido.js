@@ -1,4 +1,6 @@
 function printForm(option) {
+    formsDiv.style.display="block";
+
     if (option=='home') {
         buttons.style.display="none";
         formHome.style.display="table";
@@ -13,18 +15,18 @@ function printForm(option) {
 function hideUserPart(){
 
     if (!nombreField.value.match(nombreRegex)){
-        nombreLabel.classList.add('shaking');
-        setTimeout(()=>{nombreLabel.classList.remove('shaking')}, 500);
+        nombreField.classList.add('shaking');
+        setTimeout(()=>{nombreField.classList.remove('shaking')}, 500);
     }
 
     if (!tlfField.value.match(tlfRegex)){
-        tlfLabel.classList.add('shaking');
-        setTimeout(()=>{tlfLabel.classList.remove('shaking')}, 500);
+        tlfField.classList.add('shaking');
+        setTimeout(()=>{tlfField.classList.remove('shaking')}, 500);
     }
 
     if (dirField.value.length <= 9){
-        dirLabel.classList.add('shaking');
-        setTimeout(()=>{dirLabel.classList.remove('shaking')}, 500);
+        dirField.classList.add('shaking');
+        setTimeout(()=>{dirField.classList.remove('shaking')}, 500);
     }
 
     if (nombreField.value.match(nombreRegex) && tlfField.value.match(tlfRegex) && dirField.value.length > 9) {
@@ -36,13 +38,14 @@ function hideUserPart(){
 function hideUserPartPick(){
 
     if (!nombreFieldPick.value.match(nombreRegex)){
-        nombreLabelPick.classList.add('shaking');
-        setTimeout(()=>{nombreLabelPick.classList.remove('shaking')}, 500);
+        alert("Nombre de minimo 4 letras");
+        nombreFieldPick.classList.add('shaking');
+        setTimeout(()=>{nombreFieldPick.classList.remove('shaking')}, 500);
     }
 
     if (!tlfFieldPick.value.match(tlfRegex)){
-        tlfLabelPick.classList.add('shaking');
-        setTimeout(()=>{tlfLabelPick.classList.remove('shaking')}, 500);
+        tlfFieldPick.classList.add('shaking');
+        setTimeout(()=>{tlfFieldPick.classList.remove('shaking')}, 500);
     }
 
     if (nombreFieldPick.value.match(nombreRegex) && tlfFieldPick.value.match(tlfRegex)) {

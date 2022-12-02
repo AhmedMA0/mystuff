@@ -7,7 +7,9 @@
     <meta name="author" content="Ahmed M.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pide</title>
+    <link href="estilos/header.css" rel="stylesheet">
     <link href="estilos/stylesP.css" rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
@@ -38,30 +40,23 @@
             <span id="pickUp" class="buttonAni buttonPick" onclick="printForm(this.id);"><a></a></span>
         </div>
 
-        <div class="forms">
+        <div class="forms" id="forms">
             <form action="insertPedido.php" method="post" id="formHome" class="formHome">
 
                 <fieldset class="userPart" id="userPart">
-                    <legend>Datos personales</legend>
-                        <p>
-                            <div class="labels" id="nombreLabel"><label for="nombre">Nombre:</label></div>
-                            <input type="text" name="nombre" id="nombre" maxlength="15" pattern="[a-zA-Z]{4,10}" placeholder="Nombre de minimo 4 letras" autofocus required>
-                        
-                            <div class="labels" id="tlfLabel"><label for="tlf">Teléfono:</label></div>
-                            <input type="text" name="tlf" id="tlf" pattern="(\+[\d]{1,5})[\d]{4,15}" maxlength="30" placeholder="Numero de minimo 9 digitos" required>
-                        </p>
-                        <br>
-                        <p>
-                            <div class="labels" id="dirLabel"><label for="dir" >Dirección:</label></div>
-                            <input type="text" name="dir" id="dir" minlength="10" maxlength="200" required>
-                        </p>
+                    <div class="legends">Datos Personales</div>
+                        <div class="inputs">
+                            <input type="text" name="nombre" id="nombre" maxlength="15" pattern="[a-zA-Z]{4,10}" placeholder="Nombre (mínimo 4 letras)" autofocus required>
+                            <input type="text" name="tlf" id="tlf" pattern="(\+[\d]{1,5})[\d]{4,15}" maxlength="30" placeholder="Teléfono (con prefijo)" required>
+                            <input type="text" name="dir" id="dir" minlength="10" maxlength="200" placeholder="Dirección" required>
+                        </div>
                         <button type="button" onclick="location.reload()">VOLVER</button>
                         <button type="button" onclick="hideUserPart();">SIGUIENTE</button>
 
                 </fieldset>
                 
                 <fieldset class="pedidoPart" id="pedidoPart">
-                    <legend>Pedido</legend>
+                    <div class="legends">Pedido</div>
 
                         <label for="card">Pago con tarjeta</label>
                         <input type="checkbox" name="card" id="card" value="card">
@@ -73,7 +68,7 @@
                 </fieldset>
 
                 <fieldset class="prodPart" id="prodPart">
-                    <legend>Productos</legend>
+                    <div class="legends">Productos</div>
                         <?php
                             $cats=Categoria::verCats();
 
@@ -101,12 +96,10 @@
             <form action="insertPedido.php" method="post" id="formPick" class="formPick">
 
                 <fieldset class="userPartPick" id="userPartPick">
-                    <legend>Datos personales</legend>
+                    <div class="legends">Datos personales</div>
                         <p>
-                            <div class="labels" id="nombreLabelPick"><label for="nombre">Nombre:</label></div>
                             <input type="text" name="nombre" id="nombrePick" maxlength="15" pattern="[a-zA-Z]{4,10}" placeholder="Nombre de minimo 4 letras" autofocus required>
                         
-                            <div class="labels" id="tlfLabelPick"><label for="tlf">Teléfono:</label></div>
                             <input type="text" name="tlf" id="tlfPick" pattern="(\+[\d]{1,5})[\d]{4,15}" maxlength="30" placeholder="Numero de minimo 9 digitos" required>
                         </p>
                             <input type="hidden" name="dir" id="dirPick" value="Pedido a recoger">
@@ -114,7 +107,7 @@
                         <button type="button" onclick="hideUserPartPick();">SIGUIENTE</button>
                 </fieldset>
                 <fieldset class="prodPartPick" id="prodPartPick">
-                    <legend>Productos</legend>
+                    <div class="legends">Productos</div>
                         <?php
                             $cats=Categoria::verCats();
 

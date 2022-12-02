@@ -2,6 +2,7 @@ let buttons = document.getElementById('buttonsM');
 
 let formHome = document.getElementById('formHome');
 let formPick = document.getElementById('formPick');
+let formsDiv = document.getElementById('forms');
 
 let userPart = document.getElementById('userPart');
 let userPartPick = document.getElementById('userPartPick');

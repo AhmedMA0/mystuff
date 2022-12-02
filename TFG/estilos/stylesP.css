@@ -11,19 +11,18 @@ html{
 
 body{
     background-color: #171717;
+    background-image: url('../images/fondoP.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     color: #fff8f8;
+    font-family: 'Playfair Display', serif;
     height: 100%;
     width: 100%;
-    font-family: 'Playfair Display', serif;
 }
 
-header{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1vw 4vw;
-    height: 10vh;
+.logo p{
+    height: fit-content;
+    color: #fff8f8;
 }
 
 main{
@@ -31,146 +30,20 @@ main{
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
-    height: 80vh;
     width: 100%;
+    height: 80%;
+    padding-left: 52vw;
 }
 
 footer{
     height: 10vh;
 }
 
-.logo{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo p{
-    height: fit-content;
-    color: #cfa17e;
-}
-
-.logo img{
-    width: 3.5vw;
-}
-
 .display{
     font-family: 'Playball', cursive;
 }
 
-nav{
-    height: fit-content;
-}
-
-nav a{
-    margin: 0 1vw;
-}
-
-.heroImg{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0 1vw;
-}
-
-.heroImg img{
-    width: 35%;
-    transform: translateX(-40px) rotateZ(25deg);
-}
-
-.heroImg p{
-    font-size: calc(10px + 3vw);
-    height: fit-content;
-}
-
 span{
-    font-size: calc(10px + 2vw);
-    font-weight: bold;
-    
-}
-
-.textbuttons{
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-}
-
-.buttonsM{
-    display: flex;
-    flex-flow: row nowrap;
-    width: fit-content;
-}
-
-.us{
-    background-color: #fff8f8;
-    width: 80%;
-    margin: auto;
-    padding: calc(10px + 1.3vw);
-    display: flex;
-    flex-flow: row nowrap;
-    border-radius: 15px;
-}
-
-.usImages{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 10px;
-    padding: 10px;
-    background-color: #cfa17e;
-    border-radius: 10px;
-    box-shadow: #9b785d 0px 0px 10px;
-
-}
-
-.vertical{
-    grid-area: 1/2/3/3;
-}
-
-.usImages img{
-    width: 100%;
-    height: 100%;
-}
-
-.usText{
-    padding: 1.3vw;
-    width: 100%;
-}
-
-.us h3{
-    color: #cfa17e;
-    font-size: calc(7px + 2vw);
-}
-
-.us p{
-    color: #171717;
-    font-size: calc(5px + 1.3vw);
-}
-
-.menuDiv{
-    margin: auto;
-}
-
-.menu{
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu img{
-    width: 29.5vw;
-    border-radius: 15px;
-
-}
-
-.menuText{
-    margin-top: 10vh;
-    text-align: center;
-    font-size: calc(10px + 3vw);
     font-weight: bold;
 }
 
@@ -239,27 +112,6 @@ span{
 }
 
 
-.pageDisplay{
-    color: #cfa17e;
-    text-align: center;
-    margin-top: -40px;
-    margin-bottom: 20px;
-    font-size: 20px;
-}
-
-.nextPrev{
-    width: 100px;
-    height: 40px;
-    background-color: #fff8f8;
-    font-size: 100%;
-}
-
-.secondButtons{
-    margin-top: 5px;
-    margin-bottom: 2vh;
-}
-
-
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -290,28 +142,46 @@ span{
 }
 
 fieldset{
-    border: 1px solid #fff8f8;
+    padding: 2vw;
+    border-radius: 10px;
+}
+
+.legends{
+    text-align: center;
+    margin-bottom: 3vh;
 }
 
 .forms{
-    align-self: flex-start;
-    margin-top: 10vh;
     color: #fff8f8;
     font-weight: bold;
     border-radius: 10px;
     font-size: calc(0.5vw + 15px);
-    width: 80%;
+    min-width: 25vw;
+    max-width: 35vw;
+    display: none;
+    overflow: hidden;
+    max-height: 80vh;
+    overflow-y: overlay;
+    box-shadow: #171717 0 0 20px 2px;
+
 }
 
-input{
+.inputs{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type=text]{
     background-color: #171717;
-    border: 1px solid #fff8f8;
     color: #fff8f8;
     font-family: 'Playfair Display', serif;
     font-size: calc(0.5vw + 10px);
     border-radius: 5px;
-    width: 100%;
     height: 4vh;
+    width: 100%;
+    margin-bottom: 3vh;
 }
 
 input[type=submit]{
@@ -322,9 +192,6 @@ input[type=submit]{
     display: none;
 }
 
-.labels{
-    width: 100%;
-}
 
 .prodPart{
     display: none;
@@ -337,21 +204,27 @@ input[type=submit]{
 .prodsDiv{
    display: flex;
    flex-flow: row wrap;
+   margin-bottom: 10px;
 }
 
 .cantidades{
-    width: 4%;
+    height: 30px;
+    width: 40px;
 }
 
 .checks{
-    width: 25%;
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
 }
 
 .prodInfo{
     display: inline;
     width: 100%;
+    font-size: calc(5px + 1vw);
 }
 
 .prodDesc{
     width: 75%;
+    font-size: calc(5px + 0.5vw);
 }
