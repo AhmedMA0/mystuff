@@ -7,8 +7,9 @@
     <meta name="author" content="Ahmed M.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant</title>
+    <link href="estilos/universal.css" rel="stylesheet">
     <link href="estilos/header.css" rel="stylesheet">
-    <link href="estilos/styles.css" rel="stylesheet">
+    <link href="estilos/forms.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
@@ -32,10 +33,13 @@
     </header>
     <main>
         <form action="verReservaCxId.php" method="post" class="formPedido">
-            <div class="idLabel" id="idLabel"><label for="idPed">ID del pedido:</label></div>
-            <input type="text" name="idRes" id="idRes" maxlength="15" pattern="[0-9]+" autofocus required>
+            <div class="iconForm"></div>
+            <div class="inputs">
+                <label for="idPed">COMPROBAR RESERVA</label>
+                <input type="text" name="idPed" id="idPed" maxlength="15" pattern="[0-9]+" placeholder="Id de la reserva." autofocus required>
+                <input type="submit" name="go" value="Comprobar"> 
+            </div>
         </form>
     </main>
-
 </body>
 </html>

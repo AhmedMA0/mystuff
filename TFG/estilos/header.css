@@ -31,6 +31,7 @@ header{
 
 nav{
     height: fit-content;
+    font-size: calc(10px + 0.4vw);
 }
 
 nav a{
@@ -47,4 +48,8 @@ nav a:active{
 
 nav a:hover{
     border-bottom: 1px solid #fff8f8;
+}
+
+.display{
+    font-family: 'Playball', cursive;
 }
