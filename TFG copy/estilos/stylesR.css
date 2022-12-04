@@ -65,7 +65,7 @@ span{
     transform-style: preserve-3d;
     transform: translateZ(-25px);
     transition: transform .25s;
-    font-family: 'Montserrat', sans-serif;  
+    font-family: 'Montserrat', sans-serif;
 }
 
 .buttonHome a:before,
@@ -148,7 +148,7 @@ fieldset{
 
 .legends{
     text-align: center;
-    margin-bottom: 3vh;
+    padding-top: 3vh;
 }
 
 .forms{
@@ -160,9 +160,8 @@ fieldset{
     max-width: 35vw;
     overflow: hidden;
     max-height: 80vh;
-    overflow-y:auto;
-    border: #171717 3px solid;
-
+    overflow-y: overlay;
+    background-color: #17171773;
 }
 
 .inputs{
@@ -172,19 +171,32 @@ fieldset{
     align-items: center;
 }
 
+input::placeholder{
+    color: #bebebe;
+}
+
 input[type=text]{
-    background-color: #171717;
+    background-color: #fff8f800;
     color: #fff8f8;
     font-family: 'Playfair Display', serif;
     font-size: calc(0.5vw + 10px);
-    border-radius: 5px;
+    border-bottom: 1px groove #fff8f8;
     height: 4vh;
     width: 100%;
     margin-bottom: 3vh;
+    padding-left: 9px;
 }
 
-input[type=submit]{
-    width: 25%;
+input[type=datetime-local]{
+    background-color: #fff8f800;
+    color: #fff8f8;
+    font-family: 'Playfair Display', serif;
+    font-size: calc(0.5vw + 10px);
+    border-bottom: 1px groove #fff8f8;
+    height: 4vh;
+    width: 100%;
+    margin-bottom: 3vh;
+    padding-left: 9px;
 }
 
 .pedidoPart{
@@ -226,4 +238,43 @@ input[type=submit]{
 .prodDesc{
     width: 75%;
     font-size: calc(5px + 0.5vw);
+}
+
+.buttons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+.botone{
+    background-color: #fff8f8;
+    width: 30%;
+    color: #171717;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.botone:hover{
+    transform: scale(1.1);
+    transition: transform 500ms;
+}
+
+input[type=submit]{
+    background-color: #cfa17e;
+    color: #171717;
+}
+
+input[type=submit]:hover{
+    transform: scale(1.1);
+    box-shadow: #171717 0 0 20px 2px;
+    transition: all 500ms;
+}
+
+.prodsCat{
+    text-align: start;
+    margin-bottom: 0;
 }

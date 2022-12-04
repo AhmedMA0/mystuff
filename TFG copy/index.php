@@ -7,6 +7,7 @@
     <meta name="author" content="Ahmed M.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant</title>
+    <link href="estilos/universal.css" rel="stylesheet">
     <link href="estilos/header.css" rel="stylesheet">
     <link href="estilos/styles.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">

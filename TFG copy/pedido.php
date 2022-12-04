@@ -7,9 +7,9 @@
     <meta name="author" content="Ahmed M.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pide</title>
+    <link href="estilos/universal.css" rel="stylesheet">
     <link href="estilos/header.css" rel="stylesheet">
     <link href="estilos/stylesP.css" rel="stylesheet">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
@@ -79,7 +79,7 @@
 
                             foreach ($cats as $key => $cat) {
                                 $prods = Producto::verProdsxCat($cat->getId());
-                                echo '<fieldset><legend>'.$cat.'</legend>';
+                                echo '<fieldset><legend class="legends prodsCat">'.$cat.'</legend>';
 
                                 foreach ($prods as $pos => $prod) {
                                     echo '<div class="prodsDiv">';
@@ -105,9 +105,9 @@
                 <fieldset class="userPartPick" id="userPartPick">
                     <div class="legends">Datos personales</div>
                         <p>
-                            <input type="text" name="nombre" id="nombrePick" maxlength="15" pattern="[a-zA-Z]{4,10}" placeholder="Nombre de minimo 4 letras" autofocus required>
+                            <input type="text" name="nombre" id="nombrePick" maxlength="15" pattern="[a-zA-Z]{4,10}" placeholder="Nombre (mínimo 4 letras)" autofocus required>
                         
-                            <input type="text" name="tlf" id="tlfPick" pattern="(\+[\d]{1,5})[\d]{4,15}" maxlength="30" placeholder="Numero de minimo 9 digitos" required>
+                            <input type="text" name="tlf" id="tlfPick" pattern="(\+[\d]{1,5})[\d]{4,15}" maxlength="30" placeholder="Teléfono (con prefijo)" required>
                         </p>
                             <input type="hidden" name="dir" id="dirPick" value="Pedido a recoger">
                         <div class="buttons">

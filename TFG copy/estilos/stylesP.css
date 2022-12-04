@@ -16,8 +16,6 @@ body{
     background-repeat: no-repeat;
     color: #fff8f8;
     font-family: 'Playfair Display', serif;
-    height: 100%;
-    width: 100%;
 }
 
 .logo p{
@@ -162,8 +160,7 @@ fieldset{
     overflow: hidden;
     max-height: 80vh;
     overflow-y: overlay;
-    box-shadow: #171717 0 0 20px 2px;
-
+    background-color: #17171773;
 }
 
 .inputs{
@@ -174,16 +171,15 @@ fieldset{
 }
 
 input::placeholder{
-    color: #fff8f8;
+    color: #bebebe;
 }
 
 input[type=text]{
-    background-color: rgba(189, 189, 189, 0);
-    box-shadow: #171717 0 0 20px 2px;
-    color: #171717;
+    background-color: #fff8f800;
+    color: #fff8f8;
     font-family: 'Playfair Display', serif;
     font-size: calc(0.5vw + 10px);
-    border-radius: 5px;
+    border-bottom: 1px groove #fff8f8;
     height: 4vh;
     width: 100%;
     margin-bottom: 3vh;
@@ -236,18 +232,36 @@ input[type=text]{
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
+    margin-top: 2vh;
 }
 
 .botone{
-    background-color: #171717;
+    background-color: #fff8f8;
     width: 30%;
-    color: #808080;
+    color: #171717;
     padding: 10px;
     font-family: 'Montserrat', sans-serif;
     border-radius: 5px;
+    font-weight: bold;
+}
+
+.botone:hover{
+    transform: scale(1.1);
+    transition: transform 500ms;
 }
 
 input[type=submit]{
     background-color: #cfa17e;
     color: #171717;
+}
+
+input[type=submit]:hover{
+    transform: scale(1.1);
+    box-shadow: #171717 0 0 20px 2px;
+    transition: all 500ms;
+}
+
+.prodsCat{
+    text-align: start;
+    margin-bottom: 0;
 }

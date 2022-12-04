@@ -49,6 +49,7 @@
             </div>
             <div class="lineas">
                 <?php
+                if (!empty($lineas)) {
                     $i = 0;
                     $total = 0;
                     foreach ($lineas as $key => $value) {
@@ -59,6 +60,11 @@
                         $i++;
                         $total += $value->getPrecioT();
                     }
+                }
+                else{
+                    $total = 0;
+                    echo 'Ningun producto seleccionado.';
+                }
                 ?>
             </div>
             <div class="total">
