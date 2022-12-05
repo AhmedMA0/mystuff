@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Su pedido</title>
     <link href="estilos/stylesVerP.css" rel="stylesheet">
+    <link href="estilos/universal.css" rel="stylesheet">
+    <link href="estilos/header.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
@@ -50,7 +52,7 @@
         <div class='pedido'>
             <div class='cliente'>
                 <div class="titulin">Número de pedido: <?php echo $idPed.' ('. $fecha.')';?></div>
-                <div class="info"><?php echo $user; ?></div>
+                <div class="info"><?php echo 'Pedido a nombre de: '.$user->getNombre(); ?></div>
             </div>
             <div class="lineas">
                 <?php

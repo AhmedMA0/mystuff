@@ -35,8 +35,8 @@
         <form action="verReservaCxId.php" method="post" class="formPedido">
             <div class="iconForm"></div>
             <div class="inputs">
-                <label for="idPed">COMPROBAR RESERVA</label>
-                <input type="text" name="idPed" id="idPed" maxlength="15" pattern="[0-9]+" placeholder="Id de la reserva." autofocus required>
+                <label for="idRes">COMPROBAR RESERVA</label>
+                <input type="text" name="idRes" id="idRes" maxlength="15" pattern="[0-9]+" placeholder="Id de la reserva." autofocus required>
                 <input type="submit" name="go" value="Comprobar"> 
             </div>
         </form>

@@ -7,6 +7,8 @@
     <meta name="author" content="Ahmed M.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Su pedido</title>
+    <link href="estilos/universal.css" rel="stylesheet">
+    <link href="estilos/header.css" rel="stylesheet">
     <link href="estilos/stylesVerR.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,36 +51,12 @@
         <div class='pedido'>
             <div class='cliente'>
                 <div class="titulin">Número de reserva: <?php echo $idRes.' ('. $fecha.')';?></div>
-                <div class="info"><?php echo $user; ?></div>
+                <div class="info"><?php echo 'Reserva a nombre de: '.$user->getNombre(); ?></div>
             </div>
             <div class="info2"> 
                 <div class="estado"><?php echo ucfirst($estado);?></div>
                 <div id="ajaxDiv"></div>
                 <div class="mensaje">
-                <?php
-                    if ($estado == 'pendiente') {
-                        ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`confirmado`'?>,<?php echo $user->getTlf()?>); location.reload();">Confirmar reserva</button>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>,<?php echo $user->getTlf()?>); location.reload();">Cancelar reserva</button>
-                        <?php
-                    }
-                    elseif ($estado == 'confirmado') {
-                        ?>
-                            <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`cancelado`'?>,<?php echo $user->getTlf()?>); location.reload();">Cancelar reserva</button>
-                        <?php
-                    }
-                    elseif($estado == 'cancelado'){
-                        echo 'Reserva cancelada por el cliente.';
-                    }
-
-                    elseif ($estado == 'rechazado') {
-                        echo 'Reserva rechazada por el establecimiento';
-                    }
-
-                    else{
-                        echo 'No se puede cancelar la reserva al estar en preparación. Para mas información llame directamente al establecimiento.';
-                    }
-                ?>
                 </div>
             </div>
         </div>
