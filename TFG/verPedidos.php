@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant</title>
     <link href="estilos/universal.css" rel="stylesheet">
-    <link href="estilos/header.css" rel="stylesheet">
+    <link href="estilos/adminNav.css" rel="stylesheet">
     <link rel="stylesheet" href="estilos/verPedidos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9e4d7c4912.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -25,21 +26,19 @@
         </div>
         <nav>
             <a href="./">Home</a>
-            <a href="./pedido.php">Pedir</a>
+            <a href="pedido.php">Pedir</a>
             <a href="reserva.php">Reservar</a>
             <a href="checkPedido.php">Comprobar pedido</a>
             <a href="checkReserva.php">Comprobar reserva</a>
         </nav>
     </header>
     <main>
-    <?php 
-        
-        require_once('clases/includes.php');
+        <?php 
+            require_once('clases/includes.php');
         ?>
 
         <form action="#" method="post">
             <?php
-
                 echo '<select name="cat" onchange="showPed(this.value)">';
                 echo '<option selected="true" disabled="disabled">Elija categoría</option>';    
                 echo '<option value="pendiente">Pendiente</option>';
