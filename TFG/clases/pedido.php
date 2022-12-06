@@ -428,17 +428,19 @@
             try{
                 $prodQuery = $conexion->stmt_init();
 
-                $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, p.id from usuario u join pedido p on u.id = p.idU;");
+                $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, p.id, p.estado, p.fechaYHora from usuario u join pedido p on u.id = p.idU;");
 
                 $prodQuery->execute();
 
-                $prodQuery->bind_result($nombre, $tlf, $direccion, $id);
+                $prodQuery->bind_result($nombre, $tlf, $direccion, $id, $estado, $fecha);
 
                 $peds= null;
                 while($prodQuery->fetch()){
                     $info['nombreU'] = $nombre;
                     $info['tlfU'] = $tlf;
                     $info['dirU'] = $direccion;
+                    $info['estadoP'] = $estado;
+                    $info['fechaP'] = $fecha;
                     $peds[$id] = $info;
                 }
 

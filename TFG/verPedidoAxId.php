@@ -81,15 +81,15 @@
                 <?php
                     if ($estado == 'pendiente') {
                         ?>
-                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>,<?php echo $user->getTlf()?>); location.reload();">Rechazar pedido</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>,<?php echo '`'.$user->getTlf().'`'?>); location.reload();">Rechazar pedido</button>
                         <?php
                     }
                     elseif ($estado == 'confirmado') {
                         ?>
-                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>,<?php echo $user->getTlf()?>); location.reload();">Rechazar pedido</button>
-                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en preparacion`'?>,<?php echo $user->getTlf()?>); location.reload();">En preparación</button>
-                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en reparto`'?>,<?php echo $user->getTlf()?>); location.reload();">En reparto</button>
-                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`entregado`'?>,<?php echo $user->getTlf()?>); location.reload();">Entregado</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>,<?php echo '`'.$user->getTlf().'`'?>); location.reload();">Rechazar pedido</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en preparacion`'?>,<?php echo '`'.$user->getTlf().'`'?>); location.reload();">En preparación</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en reparto`'?>,<?php echo '`'.$user->getTlf().'`'?>); location.reload();">En reparto</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`entregado`'?>,<?php echo '`'.$user->getTlf().'`'?>); location.reload();">Entregado</button>
 
                         <?php
                     }
@@ -103,10 +103,10 @@
 
                     else{
                         ?>
-                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>,<?php echo $user->getTlf()?>); location.reload();">Rechazar pedido</button>
-                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en preparacion`'?>,<?php echo $user->getTlf()?>); location.reload();">En preparación</button>
-                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en reparto`'?>,<?php echo $user->getTlf()?>); location.reload();">En reparto</button>
-                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`entregado`'?>,<?php echo $user->getTlf()?>); location.reload();">Entregado</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>,<?php echo '`'.$user->getTlf().'`'?>); location.reload();">Rechazar pedido</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en preparacion`'?>,<?php echo '`'.$user->getTlf().'`'?>); location.reload();">En preparación</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`en reparto`'?>,<?php echo '`'.$user->getTlf().'`'?>); location.reload();">En reparto</button>
+                            <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`entregado`'?>,<?php echo '`'.$user->getTlf().'`'?>); location.reload();">Entregado</button>
                         <?php
                     }
                 ?>

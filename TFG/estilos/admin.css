@@ -1,0 +1,92 @@
+body{
+    background-color: #fff8f8;
+    color: #171717;
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100%;
+    width: 85%;
+    overflow-y: scroll;
+    padding: 2vw;
+}
+
+input{
+    color: #171717;
+    font-family: 'Playfair Display', serif;
+    background-color: #fcf1e8;
+}
+
+.pedsDiv{
+    height: 90%;
+    width: 100%;
+}
+
+.peds{
+    width: 100%;
+    background-color: #fff8f8;
+}
+
+.tools{
+    height: 10%;
+}
+
+tr{
+    background-color: #fcf1e8;
+    height: 4vw;
+}
+
+.ped{
+    background-color: #fff8f8;
+}
+
+.peds, th, td{
+    text-align: center;
+    border: 0;
+}
+
+.separador{
+    height: 1px;
+    width: 100%;
+    background-color: #171717;
+}
+
+th{
+    width: 16.6%;
+}
+
+.tools{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.historial{
+    align-self: center;
+}
+
+input{
+    background-color: #171717;
+    color: #fff8f8;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+select{
+    background-color: #fcf1e8;
+    margin-bottom: 0.5vh;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: calc(5px + 0.6vw);
+    border-radius: 5px;
+}
