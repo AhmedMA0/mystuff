@@ -1,7 +1,4 @@
 <?php
-
-use Twilio\TwiML\Voice\Echo_;
-
     require_once('clases/includes.php');
 
     $estado = $_GET['estado'];
@@ -27,9 +24,7 @@ use Twilio\TwiML\Voice\Echo_;
         }
 
         else {
-            echo 'No hay pedido '.$estado.'.';
+            echo '<p class="noHay">No hay pedido '.$estado.'.</p>';
         }
-
     }
-
 ?>

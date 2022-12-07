@@ -15,40 +15,51 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9e4d7c4912.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header>
-        <div class="logo" onclick="location.href='./'">
+    <header>
+        <div class="logo" onclick="location.href='./admin.php'">
             <img src="images/logo.png" alt="Logo" class="logoIcon">
             <p class="display">MÕ SUSHI WOK FUSION</p>
         </div>
         <nav>
-            <a href="./">Home</a>
-            <a href="./pedido.php">Pedir</a>
-            <a href="reserva.php">Reservar</a>
-            <a href="checkPedido.php">Comprobar pedido</a>
-            <a href="checkReserva.php">Comprobar reserva</a>
+            <ul>
+                <li><a class="firstLink" href="./admin.php">Admin</a></li>
+                <li class="pedidosL"><i class="fa-solid fa-chevron-down"></i><p class="lvl1 noSalto">Pedidos</p>
+                    <ul class="lvl2 pedidos">
+                        <li><a href="verPedidos.php">Ver pedidos</a></li>
+                        <li><a href="historialPeds.php">Historial pedidos</a></li>
+                    </ul>
+                </li>
+                <li class="reservasL"><i class="fa-solid fa-chevron-down"></i><p class="lvl1 noSalto">Reservas</p>
+                    <ul class="lvl2 reservas">
+                        <li><a href="verReservas.php">Ver reservas</a></li>
+                        <li><a href="historialRes.php">Historial reservas</a></li>
+                    </ul>
+                </li>
+                <li class="pedidosL"><i class="fa-solid fa-chevron-down"></i><p class="lvl1 noSalto">Productos</p>
+                    <ul class="lvl2 pedidos">
+                        <li><a href="ensenarProds.php">Ver productos</a></li>
+                        <li><a href="ensenarCats.php">Ver categorias</a></li>
+                        <li><a href="insertarProds.php">Insertar nuevos</a></li>
+                    </ul>
+                </li>
+            </ul>
         </nav>
     </header>
     <main>
         <?php 
             require_once('clases/includes.php');
-
-                
-                $peds = Pedido::verInfoxIdTODO();
-                ?>
-                <div class="pedsDiv" id="pedsDiv">
-                    <p>PEDIDOS</p>
-                    <table cellspacing="0" class="peds" id="peds">
-                        <tr>
-                            <th>ID</th>
-                            <th>Estado</th>
-                            <th>Info. cliente</th>
-                            <th>Fecha</th>
-                            <th>Opciones</th>
-                        </tr>
+        
+            $peds = Pedido::verInfoxIdTODO();
+            ?>
+            <div class="pedsDiv" id="pedsDiv">
+                <p>PEDIDOS</p>
         <?php
                 if (!empty($peds)) {
+                    echo '<table cellspacing="0" class="peds" id="peds">';
+                    echo '<tr><th>ID</th><th>Estado</th><th>Info. cliente</th><th>Fecha</th><th>Opciones</th></tr>';
                     foreach ($peds as $id => $ped) {
                         echo '<tr class="ped">';
                         echo '<td class="idTd">'.$id.'</td><td class="estadoTd">'.ucfirst($ped['estadoP']).'</td><td class="userTd">'.$ped['nombreU'].' '.$ped['tlfU'].' '.$ped['dirU'].'</td><td class="fechaTd">'.$ped['fechaP'].'</td>';
@@ -61,17 +72,18 @@
                         echo '</tr>';
                         echo '<tr class="separador"><td colspan="5"></td></tr>';
                     }
-        ?>
-                        </table>
-                    </div>
-        <?php
+                    echo '</table>';
+                    echo '</div>';
                 }
         
                 else {
-                    echo 'No hay pedido '.$estado.'.';
+                    echo '<p class="noHay">No hay pedidos</p>';
                 }
         
         ?>
     </main>
+    <script src="varsAdmin.js"></script>
+    <script src="admin.js"></script>
+    <script src="ajax.js"></script>
 </body>
 </html>

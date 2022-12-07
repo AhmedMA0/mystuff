@@ -8,20 +8,23 @@
         $reses = Reserva::verInfoxEstado($estado);
 
         if (!empty($reses)) {
+            echo '<tr><th>ID</th><th>Estado</th><th>Info. cliente</th><th>Fecha</th><th>Opciones</th></tr>';
             foreach ($reses as $id => $res) {
-                echo '<form class="res" action="verReservaAxId.php" method="POST">';
-                echo '<p>Reserva número: '.$id.' Cliente: '.$res['nombreU'].' Tlf: '.$res['tlfU'].' Dir.: '.$res['dirU'].'</p>';
-                echo '<p>Estado: '.$res['estadoR'].' Fecha: '.$res['fechaR'].'</p>';
+                echo '<tr class="res">';
+                echo '<td class="idTd">'.$id.'</td><td class="estadoTd">'.ucfirst($res['estadoR']).'</td><td class="userTd">'.$res['nombreU'].' '.$res['tlfU'].' '.$res['dirU'].'</td><td class="fechaTd">'.$res['fechaR'].'</td>';
+                echo '<td>';
+                echo '<form action="verReservaAxId.php" method="POST">';
                 echo '<input type="hidden" value="'.$id.'" name="idRes">';
                 echo '<input type="submit" value="Administrar" name="Go">';
                 echo '</form>';
+                echo '</td>';
+                echo '</tr>';
+                echo '<tr class="separador"><td colspan="5"></td></tr>';
             }
         }
 
         else {
-            echo 'No hay reserva '.$estado.'.';
+            echo '<p class="noHay">No hay reserva '.$estado.'.</p>';
         }
-
     }
-
 ?>

@@ -408,17 +408,19 @@ class Reserva{
             try{
                 $prodQuery = $conexion->stmt_init();
 
-                $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, r.id from usuario u join reserva r on u.id = r.idU;");
+                $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, r.id,r.estado,r.fechaYHora from usuario u join reserva r on u.id = r.idU;");
 
                 $prodQuery->execute();
 
-                $prodQuery->bind_result($nombre, $tlf, $direccion, $id);
+                $prodQuery->bind_result($nombre, $tlf, $direccion, $id, $estado, $fecha);
 
                 $peds= null;
                 while($prodQuery->fetch()){
                     $info['nombreU'] = $nombre;
                     $info['tlfU'] = $tlf;
                     $info['dirU'] = $direccion;
+                    $info['estadoR'] = $estado;
+                    $info['fechaR'] = $fecha;
                     $peds[$id] = $info;
                 }
 

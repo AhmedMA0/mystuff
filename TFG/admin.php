@@ -25,11 +25,28 @@
             <p class="display">MÕ SUSHI WOK FUSION</p>
         </div>
         <nav>
-            <a class="firstLink" href="./admin.hp">Admin</a>
-            <a href="verPedidos.php">Pedidos</a>
-            <a href="historialPeds.php">Historial pedidos</a>
-            <a href="verReservas.php">Reservas</a>
-            <a href="historialRes.php">Historial reservas</a>
+            <ul>
+                <li><a class="firstLink" href="./admin.php">Admin</a></li>
+                <li class="pedidosL"><i class="fa-solid fa-chevron-down"></i><p class="lvl1 noSalto">Pedidos</p>
+                    <ul class="lvl2 pedidos">
+                        <li><a href="verPedidos.php">Ver pedidos</a></li>
+                        <li><a href="historialPeds.php">Historial pedidos</a></li>
+                    </ul>
+                </li>
+                <li class="reservasL"><i class="fa-solid fa-chevron-down"></i><p class="lvl1 noSalto">Reservas</p>
+                    <ul class="lvl2 reservas">
+                        <li><a href="verReservas.php">Ver reservas</a></li>
+                        <li><a href="historialRes.php">Historial reservas</a></li>
+                    </ul>
+                </li>
+                <li class="pedidosL"><i class="fa-solid fa-chevron-down"></i><p class="lvl1 noSalto">Productos</p>
+                    <ul class="lvl2 pedidos">
+                        <li><a href="ensenarProds.php">Ver productos</a></li>
+                        <li><a href="ensenarCats.php">Ver categorias</a></li>
+                        <li><a href="insertarProds.php">Insertar nuevos</a></li>
+                    </ul>
+                </li>
+            </ul>
         </nav>
     </header>
 
@@ -38,5 +55,7 @@
             require_once('clases/includes.php');
         ?>
     </main>
+    <script src="varsAdmin.js"></script>
+    <script src="admin.js"></script>
 </body>
 </html>

@@ -20,16 +20,33 @@
 </head>
 <body>
     <header>
-        <div class="logo" onclick="location.href='./verPedidos.php'">
+        <div class="logo" onclick="location.href='./admin.php'">
             <img src="images/logo.png" alt="Logo" class="logoIcon">
             <p class="display">MÕ SUSHI WOK FUSION</p>
         </div>
         <nav>
-            <a class="firstLink" href="./">Home</a>
-            <a href="pedido.php">Pedir</a>
-            <a href="reserva.php">Reservar</a>
-            <a href="checkPedido.php">Comprobar pedido</a>
-            <a href="checkReserva.php">Comprobar reserva</a>
+            <ul>
+                <li><a class="firstLink" href="./admin.php">Admin</a></li>
+                <li class="pedidosL"><i class="fa-solid fa-chevron-down"></i><p class="lvl1 noSalto">Pedidos</p>
+                    <ul class="lvl2 pedidos">
+                        <li><a href="verPedidos.php">Ver pedidos</a></li>
+                        <li><a href="historialPeds.php">Historial pedidos</a></li>
+                    </ul>
+                </li>
+                <li class="reservasL"><i class="fa-solid fa-chevron-down"></i><p class="lvl1 noSalto">Reservas</p>
+                    <ul class="lvl2 reservas">
+                        <li><a href="verReservas.php">Ver reservas</a></li>
+                        <li><a href="historialRes.php">Historial reservas</a></li>
+                    </ul>
+                </li>
+                <li class="pedidosL"><i class="fa-solid fa-chevron-down"></i><p class="lvl1 noSalto">Productos</p>
+                    <ul class="lvl2 pedidos">
+                        <li><a href="ensenarProds.php">Ver productos</a></li>
+                        <li><a href="ensenarCats.php">Ver categorias</a></li>
+                        <li><a href="insertarProds.php">Insertar nuevos</a></li>
+                    </ul>
+                </li>
+            </ul>
         </nav>
     </header>
     <main>
@@ -72,7 +89,8 @@
 
         
     </main>
-
+    <script src="varsAdmin.js"></script>
+    <script src="admin.js"></script>
     <script src="ajax.js"></script>
     </main>
 </body>

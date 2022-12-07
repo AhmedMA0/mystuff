@@ -24,25 +24,21 @@ header{
     width: 3.5vw;
 }
 
-.firstLink{
-    border-top: #171717 1px solid;
-}
-
 nav{
-    font-size: calc(10px + 0.4vw);
+    font-size: calc(10px + 0.5vw);
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
 }
 
+i{
+    font-size: calc(10px + 0.1vw);
+    padding-right: 1vw;
+}
+
 nav a{
     color: #171717;
     text-decoration: none;
-    text-align: center;
-    border-bottom: #171717 1px solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 nav a:active{
@@ -50,4 +46,36 @@ nav a:active{
 }
 
 nav a:hover{
+    text-decoration: underline;
+}
+
+ul{
+    list-style: none;
+    padding-left: 0;
+    padding-left: 2vw;
+    margin-top: 3vh;
+}
+
+li{
+    margin-bottom: 3vh;
+}
+
+.lvl1{
+    z-index: 999;
+}
+
+.lvl2{
+    display: none;
+}
+
+.abierto{
+    display: block;
+
+}
+
+.lvl1Div{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
 }
