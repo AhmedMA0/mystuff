@@ -15,4 +15,8 @@
     $account_sid = 'AC7db1422996d6a07e3728b18af0909cc6';
     $auth_token = '0b7c0d1171e2e8d03a9f7fc4a9519a41';
     $twilio_number = "+13087374265";
+
+    $esendexAccRef = "EX0349427";
+    $essendexEmail = "workahmed.m@gmail.com";
+    $essendexPass = "112233aA.123";
 ?>

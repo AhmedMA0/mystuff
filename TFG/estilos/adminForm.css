@@ -1,0 +1,86 @@
+body{
+    background-color: #fff8f8;
+    color: #171717;
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main{
+    height: 100%;
+    width: 85%;
+    overflow-y: scroll;
+    padding: 2vw;
+}
+
+input, textarea{
+    color: #171717;
+    font-family: 'Playfair Display', serif;
+    background-color: #fcf1e800;
+    font-size: calc(0.4vw + 10px);
+    border-bottom: #171717 1px solid;
+    width: 100%;
+}
+
+.botones{
+    width: 100%;
+    text-align: center;
+}
+
+.boton{
+    background-color: #171717;
+    color: #fcf1e8;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    font-weight: bold;
+    width: auto;
+}
+
+.titulin{
+    font-size: calc(0.25vw + 17.5px);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.first{
+    margin-top: 5vh;
+}
+
+form{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    justify-self: center;
+    width: 33%;
+    margin: 20vh auto;
+    background-color: #fcf1e8;
+    padding: 5vh;
+    margin-bottom: 1vh;
+    min-height: 50%;
+    border-radius: 15px;
+}
+
+.buttonCat{
+    display: none;
+}
+
+.prodForm{
+    display: none;
+}
+
+.options button{
+    font-size: calc(0.25vw + 17.5px);
+}
+
+select{
+    background-color: #fcf1e8;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: calc(5px + 0.6vw);
+    border-radius: 5px;
+    padding: 1vh;
+}

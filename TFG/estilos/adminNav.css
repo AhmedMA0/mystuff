@@ -39,10 +39,13 @@ i{
 nav a{
     color: #171717;
     text-decoration: none;
+    padding: 0.5vw 1vw;
 }
 
 nav a:active{
     background-color: #fcf1e8;
+    border-radius: 5px;
+    
 }
 
 nav a:hover{
@@ -78,4 +81,8 @@ li{
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+}
+
+.noSalto{
+    display: inline;
 }

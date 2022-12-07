@@ -12,5 +12,5 @@
         $prod->crearProd();
     }
 
-    header('Location: ensenarProds.php');
+    header('Location: admin/ensenarProds.php');
 ?>

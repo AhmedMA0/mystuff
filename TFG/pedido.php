@@ -145,7 +145,7 @@
         </div>
     </main>
 
-    <script src="varsPedido.js"></script>
-    <script src="twoFormsPedido.js"></script>
+    <script src="javaScript/varsPedido.js"></script>
+    <script src="javaScript/twoFormsPedido.js"></script>
 </body>
 </html>

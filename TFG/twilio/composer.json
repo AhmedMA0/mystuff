@@ -1,5 +1,6 @@
 {
     "require": {
-        "twilio/sdk": "^6.43"
+        "twilio/sdk": "^6.43",
+        "esendex/sdk": "3.0.*"
     }
 }

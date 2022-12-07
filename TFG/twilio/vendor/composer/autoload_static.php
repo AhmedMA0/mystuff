@@ -20,6 +20,16 @@ class ComposerStaticInit05238bf115258c87ddcf8fc98d2c5a43
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'E' => 
+        array (
+            'Esendex' => 
+            array (
+                0 => __DIR__ . '/..' . '/esendex/sdk/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -29,6 +39,7 @@ class ComposerStaticInit05238bf115258c87ddcf8fc98d2c5a43
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit05238bf115258c87ddcf8fc98d2c5a43::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit05238bf115258c87ddcf8fc98d2c5a43::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit05238bf115258c87ddcf8fc98d2c5a43::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit05238bf115258c87ddcf8fc98d2c5a43::$classMap;
 
         }, null, ClassLoader::class);

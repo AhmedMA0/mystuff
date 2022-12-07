@@ -90,10 +90,6 @@ select{
     padding: 1vh;
 }
 
-.noSalto{
-    display: inline;
-}
-
 .optionTd{
     display: flex;
     flex-flow: row nowrap;
