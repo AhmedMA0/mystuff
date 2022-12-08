@@ -18,5 +18,5 @@
 
     $esendexAccRef = "EX0349427";
     $essendexEmail = "workahmed.m@gmail.com";
-    $essendexPass = "112233aA.123";
+    $essendexPass = "145bda674eb4437e8fdb";
 ?>

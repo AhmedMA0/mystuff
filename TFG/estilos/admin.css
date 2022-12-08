@@ -93,3 +93,19 @@ select{
 .noSalto{
     display: inline;
 }
+
+@media screen and (max-width:1000px){
+    .separador{
+        height: 100px;
+        width: 100%;
+        background-color: #fcf1e8;
+    }
+
+    header{
+        display: none;
+    }
+
+    tr{
+       height: 100vw;
+    }
+}
