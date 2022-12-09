@@ -1,9 +1,10 @@
 header{
+    background-color: #fcf1e8;
     height: 100%;
     width: 15%;
     display: flex;
     flex-flow: column wrap;
-    box-shadow: 0.5px 0 5px #171717;
+    transition: all 500ms;
 }
 
 .logo{
@@ -18,10 +19,11 @@ header{
     height: fit-content;
     color: #cfa17e;
     text-align: center;
+    font-size: calc(0.3vw + 10px);
 }
 
 .logo img{
-    width: 3.5vw;
+    width: calc(2vw + 30px);
 }
 
 nav{
@@ -43,7 +45,7 @@ nav a{
 }
 
 nav a:active{
-    background-color: #fcf1e8;
+    background-color: #cfa17e;
     border-radius: 5px;
     
 }
@@ -85,4 +87,63 @@ li{
 
 .noSalto{
     display: inline;
+}
+
+.navB{
+    display: none;
+    width: fit-content;
+    transition: all 500ms;
+
+}
+@media screen and (max-width:800px){
+    header{
+        width: 20%;
+    }
+
+}
+
+@media screen and (max-width:500px){
+
+    header{
+        position: absolute;
+        z-index: 999;
+        overflow: hidden;
+        right: 50%;
+        width: 50%;
+        background-color: #fcf1e8;
+    }
+
+    .navB{
+        display: block;
+        position: relative;
+        left: 55%;
+        z-index: 999;
+        padding: 5px;
+    }
+
+    .menosOscuro{
+        background-color: #fcf1e8;
+        border-radius: 5px;
+    }
+
+    #esteNo{
+        font-size: 10vw;
+    }
+    
+    main{
+        overflow-x: none;
+    }
+
+    ul{
+        margin-left: 5vw;
+    }
+
+    .closeSes{
+        width: fit-content;
+    }
+
+    nav{
+        font-size: calc(5px + 2.5vw);
+    }
+
 }

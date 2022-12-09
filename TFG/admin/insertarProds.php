@@ -7,8 +7,8 @@
     <meta name="author" content="Ahmed M.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link href="../estilos/universal.css" rel="stylesheet">
     <link href="../estilos/adminNav.css" rel="stylesheet">
+    <link href="../estilos/universal.css" rel="stylesheet">
     <link href="../estilos/adminForm.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
     <script src="https://kit.fontawesome.com/9e4d7c4912.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+    <header id="header">
         <div class="logo" onclick="location.href='../'">
             <img src="../images/logo.png" alt="Logo" class="logoIcon">
             <p class="display">MÕ SUSHI WOK FUSION</p>
@@ -50,11 +50,18 @@
         </nav>
     </header>
     <main>
+        <div class="divEncima" id="divEncima"></div>
+        <div class="arriba">
+            <div id="navB" class="navB menosOscuro"><i id="esteNo" class="fa-solid fa-bars-staggered"></i></i></div>
+            <form class="closeSes" action="./cerrarSesionAdmin.php" method="POST">
+                <input class="boton" type="submit" value="Cerrar sesión"> 
+            </form>
+        </div>
 		<p class="titulin">INSERTAR NUEVOS</p>
         <?php 
             require_once('../clases/includesAdmin.php');
         ?>
-        <form id="catForm" class="catForm" action="../insertCat.php" method="post">
+        <form id="catForm" class="catForm forms" action="../insertCat.php" method="post">
 		    <p class="titulin">NUEVA CATEGORÍA</p>
 
             <input type="text" name="nombreCat" id="nombreCat" required placeholder="Inserte nueva categoria.">
@@ -64,7 +71,7 @@
             </div>
         </form>
 
-        <form id="prodForm" class="prodForm" action="../insertProd.php" method="post">
+        <form id="prodForm" class="prodForm forms" action="../insertProd.php" method="post">
 		    <p class="titulin">NUEVO PRODUCTO</p>
 
             <input type="text" name="nombreProd" id="nombreProd" required placeholder="Nombre del producto.">
@@ -97,6 +104,7 @@
     </main>
 <script src="../javaScript/twoFormsInserts.js"></script>
 <script src="../javaScript/varsInserts.js"></script>
-
+<script src="javaScript/varsAdmin.js"></script>
+<script src="javaScript/admin.js"></script>
 </body>
 </html>

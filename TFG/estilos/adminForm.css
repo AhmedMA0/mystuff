@@ -49,7 +49,7 @@ input, textarea{
     margin-top: 5vh;
 }
 
-form{
+.forms{
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
@@ -83,4 +83,76 @@ select{
     font-size: calc(5px + 0.6vw);
     border-radius: 5px;
     padding: 1vh;
+}
+
+.arriba{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: end;
+    align-items: center;
+}
+
+.closeSes{
+    text-align: right;
+}
+
+.divEncima{
+    display: none;
+}
+
+@media screen and (max-width:800px){
+
+    main{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:500px){
+
+    main{
+        padding: 0 0;
+        margin: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .tools{
+        padding: 0 3vw;
+    }
+
+    .peds{
+        padding: 0 3vw;
+    }
+
+    .divEncima{
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #1717173d;
+        position: absolute;
+        z-index: 998;
+    }
+
+    input, textarea{
+        color: #171717;
+        font-family: 'Playfair Display', serif;
+        background-color: #fcf1e800;
+        font-size: calc(10px + 1vw);
+        border-bottom: #171717 1px solid;
+        width: 100%;
+    }
+
+    .arriba{
+        justify-content: space-between;
+        background-color: #fcf1e8;
+        padding: 1vw;
+    }
+
+    select{
+        font-size: calc(7px + 1vw);
+    }
+
+    .forms{
+        width: 95%;
+    }
 }

@@ -23,3 +23,21 @@ function prevPage(){
         setTimeout(()=>{prevButton.classList.remove('shaking')}, 500);
     }
 }
+
+botonNav.addEventListener('click', function () {
+    console.log('botonNAv');
+    if (header.style.left == '100%') {
+        header.style.left = '50%';
+        header.style.boxShadow = '0.5px 0 5px #171717';
+        divEncima.style.display = 'block';
+        navB.classList.toggle('menosOscuro');
+    }
+
+    else{
+        header.style.left = '100%';
+        header.style.boxShadow = '0 0 0 0';
+        divEncima.style.display = 'none';
+        navB.classList.toggle('menosOscuro');
+        console.log('cerrando');
+    }
+});

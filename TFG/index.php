@@ -16,13 +16,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9e4d7c4912.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header>
-        <div class="logo" onclick="location.href='./'">
-            <img src="images/logo.png" alt="Logo" class="logoIcon">
-            <p class="display">MÕ SUSHI WOK FUSION</p>
-        </div>
+    <header id="header">
+        <div class="logo logoP" onclick="location.href='./'">
+                    <img src="images/logo.png" alt="Logo" class="logoIcon">
+                    <p class="display">MÕ SUSHI WOK FUSION</p>
+                </div>
         <nav>
             <a href="./">Home</a>
             <a href="./pedido.php">Pedir</a>
@@ -32,10 +33,19 @@
         </nav>
     </header>
     <main>
+        <div class="divEncima" id="divEncima"></div>
+        <div id="navB" class="navB menosOscuro"><i id="esteNo" class="fa-solid fa-bars-staggered"></i></i></div>
+
+            <div class="arriba">
+                <div class="logo logo2" onclick="location.href='./'">
+                    <img src="images/logo.png" alt="Logo" class="logoIcon">
+                    <p class="display">MÕ SUSHI WOK FUSION</p>
+                </div>
+        </div>
         <div class="heroDiv">
             <div class="heroImg">
                 <div class="textbuttons">
-                    <p class="textito">Un nuevo sabor</p>
+                    <div class="textito">Un nuevo sabor</div>
                     <p>
                         <span class="tittle display">Bienvenidos a <br> la cocina de MÕ</span>
                         <br>
@@ -45,6 +55,8 @@
                     <div class="buttonsHero">
                         <span class="buttonAni buttonPed"><a href="pedido.php"></a></span>
                         <span class="buttonAni buttonRes"><a href="reserva.php"></a></span>
+                        <button type="button" class="boton" onclick="location.href = 'pedido.php'">PEDIR</button>
+                        <button type="button" class="boton" onclick="location.href = 'reserva.php'">RESERVAR</button>
                     </div>
                 </div>
                 <div class="imageDiv">
@@ -56,13 +68,14 @@
         </div>
         <div class="usContainer">
             <div class="us">
+                <h3 class="sobUs display">Sobre nosotros</h3>
+
                 <div class="usImages">
                         <img src="images/us0.jpg" alt="us0">
                         <img src="images/us1.jpg" alt="us1">
                         <img class="vertical" src="images/us2.jpg" alt="us2">
                 </div>
                 <div class="usText">
-                    <h3 class="display">Sobre nosotros</h3>
                     <p>
                         Aspiramos a crear algo diferente y divertido 
                         adaptado a los gustos de hoy y precios asequibles.
@@ -86,6 +99,8 @@
                 <div class="buttonsHero secondButtons">
                     <span class="buttonAni buttonPed"><a href="pedido.php"></a></span>
                     <span class="buttonAni buttonRes"><a href="reserva.php"></a></span>
+                    <button type="button" class="boton" onclick="location.href = 'pedido.php'">PEDIR</button>
+                    <button type="button" class="boton" onclick="location.href = 'reserva.php'">RESERVAR</button>
                 </div>
             </div>
         </div>
@@ -95,8 +110,8 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/cf65667542.js" crossorigin="anonymous"></script>
-    <script src="pages.js"></script>
-    <script src="varsIndex.js"></script>
+    <script src="javaScript/varsIndex.js"></script>
+    <script src="javaScript/pages.js"></script>
 
     
 

@@ -19,7 +19,7 @@
     <script src="https://kit.fontawesome.com/9e4d7c4912.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<header>
+    <header id="header">
         <div class="logo" onclick="location.href='../'">
             <img src="../images/logo.png" alt="Logo" class="logoIcon">
             <p class="display">MÕ SUSHI WOK FUSION</p>
@@ -51,6 +51,13 @@
     </header>
 
     <main>
+        <div class="divEncima" id="divEncima"></div>
+        <div class="arriba">
+            <div id="navB" class="navB menosOscuro"><i id="esteNo" class="fa-solid fa-bars-staggered"></i></i></div>
+            <form class="closeSes" action="./cerrarSesionAdmin.php" method="POST">
+                <input class="boton" type="submit" value="Cerrar sesión"> 
+            </form>
+        </div>
 		<p class="titulin">EDITAR PRODUCTO</p>
 		<?php
 			require_once('../clases/includesAdmin.php');
@@ -58,7 +65,7 @@
 			//recibimos la informacion del producto
 			$prodName = $_POST['idProd'];
 		?>
-		<form action="actualizarProd.php" method="post">
+		<form action="actualizarProd.php" class="forms" method="post">
 			<div class="titulin">Info. del producto</div>
 			<?php 
 				$prod = Producto::verProdsxNombre($prodName);

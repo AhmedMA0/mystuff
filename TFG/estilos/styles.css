@@ -4,6 +4,7 @@ body{
     background-color: #171717;
     color: #fff8f8;
     font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
 }
 
 main{
@@ -41,13 +42,13 @@ main{
     z-index: -1;
 }
 
+.textito{
+    font-size: calc(10px + 1vw);
+}
+
 .textbuttons p{
     font-size: calc(10px + 3vw);
     height: fit-content;
-}
-
-.textito{
-    font-size: calc(3px + 1vw);
 }
 
 .tittle{
@@ -83,13 +84,12 @@ main{
     width: 80%;
     padding: calc(10px + 1.3vw);
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     border-radius: 15px;
-    margin: 10vw;
 }
 
 .usImages{
-    width: 100%;
+    width: 50%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -98,7 +98,7 @@ main{
     background-color: #cfa17e;
     border-radius: 10px;
     box-shadow: #9b785d 0px 0px 10px;
-
+    align-self: center;
 }
 
 .vertical{
@@ -111,17 +111,24 @@ main{
 }
 
 .usText{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
     padding: 1.3vw;
     width: 100%;
 }
 
-.us h3{
-    color: #cfa17e;
-    font-size: calc(7px + 2vw);
+.sobUs{
+    color: #fff8f8;
+    font-size: calc(10px + 3vw);
+    text-align: center;
+    margin-bottom: 2vw;
 }
 
-.us p{
+.usText p{
     font-size: calc(5px + 1.3vw);
+    text-align: center;
 }
 
 .menuDiv{
@@ -136,13 +143,14 @@ main{
 }
 
 .menu img{
-    width: 29.5vw;
+    width: calc(375px + 6vw);
     border-radius: 15px;
 
 }
 
 .menuText{
     margin-top: 10vh;
+    margin-bottom: 2vw;
     text-align: center;
     font-size: calc(10px + 3vw);
     font-weight: bold;
@@ -155,26 +163,27 @@ main{
 .buttonAni{
     position: relative;
     display: inline-flex;
-    width: 180px;
-    height: 55px;
+    width: 10vw;
+    height: 6vh;
     margin: 0 15px;
     perspective: 1000px;
 }
 .buttonAni a{
-    font-size: 19px;
     letter-spacing: 1px;
     transform-style: preserve-3d;
     transform: translateZ(-25px);
     transition: transform .25s;
     font-family: 'Montserrat', sans-serif;  
+    font-weight: bold;
+    font-size: calc(2px + 1vw);
 }
 
 .buttonPed a:before,
 .buttonPed a:after{
     position: absolute;
     content: "PEDIR";
-    height: 55px;
-    width: 180px;
+    height: calc(15px + 4.5vh);
+    width: 10vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,8 +196,8 @@ main{
 .buttonRes a:after{
     position: absolute;
     content: "RESERVAR";
-    height: 55px;
-    width: 180px;
+    height: calc(15px + 4.5vh);
+    width: 10vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -222,11 +231,23 @@ main{
     font-size: 20px;
 }
 
+.menuButtons{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1vw;
+}
+
 .nextPrev{
-    width: 100px;
-    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3vw;
+    height: 3vw;
     background-color: #fff8f8;
-    font-size: 100%;
+    border-radius: 50%;
+    font-size: 2vw;
 }
 
 .secondButtons{
@@ -253,3 +274,83 @@ main{
     animation: shake 0.5s;
     animation-iteration-count: infinite;
 }
+
+.boton{
+    display: none;
+}
+
+.navB{
+    display: none;
+}
+
+.logo2{
+    display: none;
+}
+
+
+@media screen and (max-width:500px){
+    .boton{
+        display: block;
+        min-width: fit-content;
+        width: 11vw;
+        height: 4vh;
+        text-align: center;
+        font-size: calc(5px + 1vw);
+        background-color: #cfa17e;
+        color: #fff8f8;
+        font-family: 'Montserrat', sans-serif;  
+        font-weight: bold;
+        border-radius: 5px;
+
+    }
+
+    .buttonsHero{
+        gap: 2vw;
+    }
+
+    .buttonAni{
+        display: none;
+    }
+
+    .arriba{
+        width: 100%;
+        top: 0;
+        background-color: #17171738;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        padding-bottom: 20px;
+    }
+
+    .navB{
+        display: block;
+        transition: all 500ms;
+        font-size: 8vw;
+        padding-left: 5vw;
+        color: #fff8f83a;
+        justify-self: end;
+        position: fixed;
+        right: 3%;
+        top: 0;
+        z-index: 10001;
+    }
+
+    .logo2{
+        display: flex;
+    }
+
+    .logoP{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:500px){
+    
+    .heroDiv{
+        width: 100%;
+    }
+}
+
