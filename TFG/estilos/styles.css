@@ -288,7 +288,7 @@ main{
 }
 
 
-@media screen and (max-width:500px){
+@media screen and (max-width:800px){
     .boton{
         display: block;
         min-width: fit-content;
@@ -309,6 +309,24 @@ main{
     }
 
     .buttonAni{
+        display: none;
+    }
+
+
+
+}
+
+@media screen and (max-width:500px){
+    
+    .heroDiv{
+        width: 100%;
+    }
+
+    .logo2{
+        display: flex;
+    }
+
+    .logoP{
         display: none;
     }
 
@@ -335,22 +353,6 @@ main{
         right: 3%;
         top: 0;
         z-index: 10001;
-    }
-
-    .logo2{
-        display: flex;
-    }
-
-    .logoP{
-        display: none;
-    }
-
-}
-
-@media screen and (max-width:500px){
-    
-    .heroDiv{
-        width: 100%;
     }
 }
 
