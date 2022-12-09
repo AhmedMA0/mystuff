@@ -37,16 +37,16 @@ botonNav.addEventListener('click', function () {
         header.style.right = '50%';
         header.style.boxShadow = '0.5px 0 5px #171717';
         divEncima.style.display = 'block';
-        navB.style.left = '55%';
-        navB.classList.toggle('menosOscuro');
+        navB.style.left = '52%';
+        navB.classList.toggle('open');
     }
 
     else{
         header.style.right = '100%';
         header.style.boxShadow = '0 0 0 0';
         divEncima.style.display = 'none';
-        navB.style.left = '0';
-        navB.classList.toggle('menosOscuro');
+        navB.style.left = '3%';
+        navB.classList.toggle('open');
         console.log('cerrando');
     }
 });

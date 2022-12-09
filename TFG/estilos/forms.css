@@ -6,7 +6,7 @@ body{
     background-attachment: fixed;
     background-position-y: 25%;
     color: #fff8f8;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto Slab', serif;
 }
 
 main{
@@ -20,7 +20,7 @@ main{
 .formPedido{
     background-color: #17171773;
     height: 60%;
-    width: 20%;
+    width: calc(250px + 8vw);
     margin-top: -8vh;
     display: flex;
     flex-flow: column nowrap;
@@ -54,8 +54,8 @@ label{
 input[type=text]{
     background-color: #fff8f800;
     color: #fff8f8;
-    font-family: 'Playfair Display', serif;
-    font-size: calc(0.5vw + 10px);
+    font-family: 'Roboto Slab', serif;
+    font-size: calc(0.5vw + 15px);
     border-bottom: 1px groove #fff8f8;
     height: 4vh;
     width: 100%;
@@ -75,3 +75,49 @@ input[type=submit]{
     border-radius: 5px;
     font-weight: bold;
 }
+
+.logo2{
+    display: none;
+}
+
+
+@media screen and (max-width:1200px){
+
+}
+
+@media screen and (max-width:800px){
+    .logo{
+        width: 75%;
+        justify-content: start;
+    }
+
+}
+
+@media screen and (max-width:500px){
+
+    .logo2{
+        display: flex;
+    }
+
+    .logoP{
+        display: none;
+    }
+
+    .logo p{
+        font-size: calc(10px + 1vw);
+    }
+
+    .arriba{
+        width: 100%;
+        top: 0;
+        background-color: #17171738;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        padding: 10px 0;
+    }
+}
+
+

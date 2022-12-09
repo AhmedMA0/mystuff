@@ -21,10 +21,10 @@
     <?php 
         require_once('clases/includes.php');
     ?>
-    <header>
-        <div class="logo" onclick="location.href='./'">
+    <header id="header" style="left: 100%;">
+        <div class="logo logoP" onclick="location.href='./'">
             <img src="images/logo.png" alt="Logo" class="logoIcon">
-            <p class="display">MÕ SUSHI WOK FUSION</p>
+            <p class="display">MÕ Sushi Wok Fusion</p>
         </div>
         <nav>
             <a href="./">Home</a>
@@ -35,9 +35,24 @@
         </nav>
     </header>
     <main>
+        <div class="divEncima" id="divEncima"></div>
+        <div id="navB" class="navB menosOscuro nav-icon1">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="arriba">
+            <div class="logo logo2" onclick="location.href='./'">
+                <img src="images/logo.png" alt="Logo" class="logoIcon">
+                <p class="display">MÕ Sushi Wok Fusion</p>
+            </div>
+        </div>
         <div id="buttonsM" class="buttonsM">
             <span id="home" class="buttonAni buttonHome" onclick="printForm(this.id);"><a></a></span>
             <span id="pickUp" class="buttonAni buttonPick" onclick="printForm(this.id);"><a></a></span>
+            <button id="home" type="button" class="boton" onclick="printForm(this.id);">A DOMICILIO</button>
+            <button id="pickUp" type="button" class="boton" onclick="printForm(this.id);">RECOGER</button>
         </div>
 
         <div class="forms" id="forms">
@@ -47,7 +62,7 @@
                     <div class="legends">Datos Personales</div>
                         <div class="inputs">
                             <input type="text" name="nombre" id="nombre" maxlength="15" pattern="[a-zA-Z]{4,10}" placeholder="Nombre (mínimo 4 letras)" autofocus required>
-                            <input type="text" name="tlf" id="tlf" pattern="(\+[\d]{1,5})[\d]{4,15}" maxlength="30" placeholder="Teléfono (con prefijo)" required>
+                            <input type="text" name="tlf" id="tlf" pattern="(\+[\d]{1,5})?[\d]{4,15}" maxlength="30" placeholder="Teléfono" required>
                             <input type="text" name="dir" id="dir" minlength="10" maxlength="200" placeholder="Dirección" required>
                         </div>
                         <div class="buttons">
@@ -59,13 +74,16 @@
                 
                 <fieldset class="pedidoPart" id="pedidoPart">
                     <div class="legends">Pedido</div>
-
-                        <label for="card">Pago con tarjeta</label>
-                        <input type="checkbox" name="card" id="card" value="card">
-
-                        <label for="camb">¿Necesita cambio?</label>
-                        <input type="checkbox" name="camb" id="camb" value="camb">
-
+                        <div class="checks">
+                            <div class="inCheks">
+                                <label for="card">Pago con tarjeta</label>
+                                <input type="checkbox" name="card" id="card" value="card">
+                            </div>
+                            <div class="inCheks">
+                                <label for="camb">¿Necesita cambio?</label>
+                                <input type="checkbox" name="camb" id="camb" value="camb">
+                            </div>
+                        </div>
                         <div class="buttons">
                             <button type="button" onclick="showUserPart();" class="botone">ANTERIOR</button>
                             <button type="button" onclick="hidePedPart();" class="botone">SIGUIENTE</button>
@@ -107,7 +125,7 @@
                         <p>
                             <input type="text" name="nombre" id="nombrePick" maxlength="15" pattern="[a-zA-Z]{4,10}" placeholder="Nombre (mínimo 4 letras)" autofocus required>
                         
-                            <input type="text" name="tlf" id="tlfPick" pattern="(\+[\d]{1,5})[\d]{4,15}" maxlength="30" placeholder="Teléfono (con prefijo)" required>
+                            <input type="text" name="tlf" id="tlfPick" pattern="(\+[\d]{1,5})?[\d]{4,15}" maxlength="30" placeholder="Teléfono" required>
                         </p>
                             <input type="hidden" name="dir" id="dirPick" value="Pedido a recoger">
                         <div class="buttons">
@@ -147,5 +165,7 @@
 
     <script src="javaScript/varsPedido.js"></script>
     <script src="javaScript/twoFormsPedido.js"></script>
+    <script src="javaScript/varsIndex.js"></script>
+    <script src="javaScript/pages.js"></script>
 </body>
 </html>

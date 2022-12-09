@@ -29,5 +29,5 @@ let checkBoxes = Array.from(document.getElementsByClassName('checks'));
 let cantidades = Array.from(document.getElementsByClassName('cantidades'));
 
 let nombreRegex = /^[a-zA-Z]{4,10}$/;
-let tlfRegex = /^(\+[\d]{1,5})[\d]{4,15}$/;
+let tlfRegex = /^(\+[\d]{1,5})?[\d]{4,15}$/;
 

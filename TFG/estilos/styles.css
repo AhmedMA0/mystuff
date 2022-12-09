@@ -3,7 +3,7 @@
 body{
     background-color: #171717;
     color: #fff8f8;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto Slab', serif;
     overflow-x: hidden;
 }
 
@@ -36,7 +36,7 @@ main{
 
 }
 
-.imageDiv img{
+.image{
     width: 90%;
     transform: translateX(-40px) rotateZ(25deg);
     z-index: -1;
@@ -89,25 +89,21 @@ main{
 }
 
 .usImages{
-    width: 50%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 10px;
-    padding: 10px;
-    background-color: #cfa17e;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.7vw;
+    padding: 0.7vw;
+    background-color: #ff9966;
     border-radius: 10px;
-    box-shadow: #9b785d 0px 0px 10px;
+    box-shadow: #854f35 0px 0px 10px;
     align-self: center;
 }
 
-.vertical{
-    grid-area: 1/2/3/3;
-}
-
 .usImages img{
-    width: 100%;
-    height: 100%;
+    width: 25vw;
+    height: 20vw;
 }
 
 .usText{
@@ -142,15 +138,14 @@ main{
     align-items: center;
 }
 
-.menu img{
-    width: calc(375px + 6vw);
+.pagMenu{
+    width: calc(200px + 17.5vw);
     border-radius: 15px;
 
 }
 
 .menuText{
-    margin-top: 10vh;
-    margin-bottom: 2vw;
+    margin: 5vw 0;
     text-align: center;
     font-size: calc(10px + 3vw);
     font-weight: bold;
@@ -173,7 +168,7 @@ main{
     transform-style: preserve-3d;
     transform: translateZ(-25px);
     transition: transform .25s;
-    font-family: 'Montserrat', sans-serif;  
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: calc(2px + 1vw);
 }
@@ -187,7 +182,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 5px solid #cfa17e;
+    border: 5px solid #ff9966;
     box-sizing: border-box;
     border-radius: 5px;
 }
@@ -201,19 +196,19 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 5px solid #cfa17e;
+    border: 5px solid #ff9966;
     box-sizing: border-box;
     border-radius: 5px;
 }
 
 .buttonAni a:before{
     color: #fff8f8;
-    background: #cfa17e;
+    background: #ff9966;
     transform: rotateY(0deg) translateZ(25px);
 }
 
 .buttonAni a:after{
-    color: #cfa17e;
+    color: #ff9966;
     transform: rotateX(90deg) translateZ(25px);
 }
 
@@ -224,7 +219,7 @@ main{
 
 .pageDisplay{
     background-color: #ffffff00;
-    color: #cfa17e;
+    color: #ff9966;
     text-align: center;
     margin-top: -40px;
     margin-bottom: 20px;
@@ -243,11 +238,12 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3vw;
-    height: 3vw;
-    background-color: #fff8f8;
+    background-color: #171717;
+    color: #fff8f8;
     border-radius: 50%;
-    font-size: 2vw;
+    font-size: calc(10px + 2vw);
+    width: calc(9px + 2vw);
+    height: calc(9px + 2vw);
 }
 
 .secondButtons{
@@ -279,29 +275,44 @@ main{
     display: none;
 }
 
-.navB{
-    display: none;
-}
-
 .logo2{
     display: none;
 }
 
+.menuBig{
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuBig img{
+    width: calc(500px + 5vw);
+    border-radius: 10px;
+}
+
+.menuBig button{
+    background-color: #171717;
+}
 
 @media screen and (max-width:800px){
     .boton{
         display: block;
-        min-width: fit-content;
+        min-width: 75px;
         width: 11vw;
         height: 4vh;
         text-align: center;
         font-size: calc(5px + 1vw);
-        background-color: #cfa17e;
+        background-color: #ff9966;
         color: #fff8f8;
         font-family: 'Montserrat', sans-serif;  
         font-weight: bold;
         border-radius: 5px;
-
     }
 
     .buttonsHero{
@@ -312,14 +323,76 @@ main{
         display: none;
     }
 
+    .menuBig img{
+        width: 90vw;
+    }
 
-
+    .image{
+        transform: translateY(-20px) rotateZ(0);
+    }
 }
 
 @media screen and (max-width:500px){
-    
+    .boton{
+        width: 30vw;
+        height: 4vh;
+        font-size: calc(10px + 1vw);
+        border-radius: 5px;
+    }
+
     .heroDiv{
         width: 100%;
+        padding: 0;
+        height: 100vh;
+        justify-content: center;
+    }
+
+    .imageDiv{
+        position: absolute;
+        top: 20%;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .image{
+        padding: 0;
+        transform: translateY(0) translateX(25px) rotateZ(-10deg);
+    }
+
+    .textito{
+        text-align: center;
+    }
+
+    .tittle{
+        font-size: calc(10px + 15vw);
+        text-align: center;
+    }
+    
+    .textbuttons p{
+        font-size: calc(10px + 10vw);
+        text-align: center;
+        background-color: #17171777;
+    }
+
+    .usContainer{
+        height: 80vh;
+    }
+
+    .us{
+        height: 100%;
+        justify-content: space-around;
+    }
+
+    .usImages{
+        flex-flow: column nowrap;
+        width: 80%;
+        height: 70vh;
+    }
+
+    .usImages img{
+        width: 97.5%;
+        height: 20vh;
     }
 
     .logo2{
@@ -328,6 +401,10 @@ main{
 
     .logoP{
         display: none;
+    }
+
+    .logo p{
+        font-size: calc(20px + 1vw);
     }
 
     .arriba{
@@ -339,20 +416,27 @@ main{
         justify-content: space-between;
         align-items: center;
         position: sticky;
-        padding-bottom: 20px;
+        padding: 10px 0;
     }
 
-    .navB{
-        display: block;
-        transition: all 500ms;
-        font-size: 8vw;
-        padding-left: 5vw;
-        color: #fff8f83a;
-        justify-self: end;
-        position: fixed;
-        right: 3%;
-        top: 0;
-        z-index: 10001;
+    .menuBig img{
+        width: 90vw;
+    }
+
+    .buttonsHero{
+        margin-top: 10vh;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menuDiv{
+        margin: 0;
+        width: 100%;
+    }
+
+    .pagMenu{
+        width: 90%;
     }
 }
 

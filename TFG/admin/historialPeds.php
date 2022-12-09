@@ -19,7 +19,7 @@
     <script src="https://kit.fontawesome.com/9e4d7c4912.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header id="header">
+    <header id="header" style="right: 100%;">
         <div class="logo" onclick="location.href='../'">
             <img src="../images/logo.png" alt="Logo" class="logoIcon">
             <p class="display">MÕ SUSHI WOK FUSION</p>
@@ -52,7 +52,11 @@
     <main>
         <div class="divEncima" id="divEncima"></div>
         <div class="arriba">
-            <div id="navB" class="navB menosOscuro"><i id="esteNo" class="fa-solid fa-bars-staggered"></i></i></div>
+            <div id="navB" class="navB nav-icon1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <form class="closeSes" action="./cerrarSesionAdmin.php" method="POST">
                 <input type="submit" value="Cerrar sesión"> 
             </form>
@@ -63,7 +67,7 @@
             $peds = Pedido::verInfoxIdTODO();
             ?>
             <div class="pedsDiv" id="pedsDiv">
-                <p>PEDIDOS</p>
+                <p class="titulin">PEDIDOS</p>
         <?php
                 if (!empty($peds)) {
                     echo '<table cellspacing="0" class="peds" id="peds">';

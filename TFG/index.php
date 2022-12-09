@@ -13,17 +13,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9e4d7c4912.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
-    <header id="header">
+    <header id="header" style="left: 100%;">
         <div class="logo logoP" onclick="location.href='./'">
-                    <img src="images/logo.png" alt="Logo" class="logoIcon">
-                    <p class="display">MÕ SUSHI WOK FUSION</p>
-                </div>
+            <img src="images/logo.png" alt="Logo" class="logoIcon">
+            <p class="display">MÕ Sushi Wok Fusion</p>
+        </div>
         <nav>
             <a href="./">Home</a>
             <a href="./pedido.php">Pedir</a>
@@ -34,12 +33,16 @@
     </header>
     <main>
         <div class="divEncima" id="divEncima"></div>
-        <div id="navB" class="navB menosOscuro"><i id="esteNo" class="fa-solid fa-bars-staggered"></i></i></div>
+        <div id="navB" class="navB menosOscuro nav-icon1">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
             <div class="arriba">
                 <div class="logo logo2" onclick="location.href='./'">
                     <img src="images/logo.png" alt="Logo" class="logoIcon">
-                    <p class="display">MÕ SUSHI WOK FUSION</p>
+                    <p class="display">MÕ Sushi Wok Fusion</p>
                 </div>
         </div>
         <div class="heroDiv">
@@ -73,7 +76,7 @@
                 <div class="usImages">
                         <img src="images/us0.jpg" alt="us0">
                         <img src="images/us1.jpg" alt="us1">
-                        <img class="vertical" src="images/us2.jpg" alt="us2">
+                        <img src="images/us3.jpg" alt="us3">
                 </div>
                 <div class="usText">
                     <p>
@@ -87,14 +90,14 @@
             </div>
         </div>
 
-        <p class="menuText display">Nuestro Menú</p>
         <div class="menuDiv">
+            <p class="menuText display">Nuestro Menú</p>
             <div class="menu">
-                <img class="pagMenu" id="pagMenu" src="images/menu/1.jpg" alt="Menu Page">
+                <img class="pagMenu" id="pagMenu" src="images/menu/1.jpg" alt="Menu Page" onclick="showMenuB();">
                 <input disabled class="pageDisplay" id="pageDisplay" type="text" value="1/7">
                 <div class="menuButtons">
-                    <button class="nextPrev" id="prev" onclick="prevPage();"><i class="fas fa-chevron-circle-left"></i></button>
-                    <button class="nextPrev" id="next" onclick="nextPage();"><i class="fas fa-chevron-circle-right"></i></button>
+                    <button class="nextPrev" id="prev" onclick="prevPage();"><i class="fa-regular fa-circle-left"></i></button>
+                    <button class="nextPrev" id="next" onclick="nextPage();"><i class="fa-regular fa-circle-right"></i></button>
                 </div>
                 <div class="buttonsHero secondButtons">
                     <span class="buttonAni buttonPed"><a href="pedido.php"></a></span>
@@ -104,12 +107,18 @@
                 </div>
             </div>
         </div>
-
+        <div id="menuBig" class="menuBig" style="display: none;">
+            <img class="pagMenu" id="pagMenuB" src="images/menu/1.jpg" alt="Menu Page" onclick="showMenuB();">
+            <input disabled class="pageDisplay" id="pageDisplayB" type="text" value="1/7">
+            <div class="menuButtons">
+                <button class="nextPrev" id="prevB" onclick="prevPageB();"><i class="fa-regular fa-circle-left"></i></button>
+                <button class="nextPrev" id="nextB" onclick="nextPageB();"><i class="fa-regular fa-circle-right"></i></button>
+            </div>
+        </div>
     </main>
     <footer>
     </footer>
 
-    <script src="https://kit.fontawesome.com/cf65667542.js" crossorigin="anonymous"></script>
     <script src="javaScript/varsIndex.js"></script>
     <script src="javaScript/pages.js"></script>
 

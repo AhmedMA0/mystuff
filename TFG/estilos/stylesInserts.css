@@ -1,7 +1,7 @@
 body{
     background-color: #171717;
     color: #fff8f8;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto Slab', serif;
 }
 
 header{
@@ -295,7 +295,7 @@ input{
     background-color: #171717;
     border: 1px solid #fff8f8;
     color: #fff8f8;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto Slab', serif;
     font-size: calc(0.5vw + 10px);
     border-radius: 5px;
     width: 100%;

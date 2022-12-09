@@ -18,10 +18,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo" onclick="location.href='./'">
+    <header id="header" style="left: 100%;">
+        <div class="logo logoP" onclick="location.href='./'">
             <img src="images/logo.png" alt="Logo" class="logoIcon">
-            <p class="display">MÕ SUSHI WOK FUSION</p>
+            <p class="display">MÕ Sushi Wok Fusion</p>
         </div>
         <nav>
             <a href="./">Home</a>
@@ -32,6 +32,19 @@
         </nav>
     </header>
     <main>
+        <div class="divEncima" id="divEncima"></div>
+        <div id="navB" class="navB menosOscuro nav-icon1">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+            <div class="arriba">
+                <div class="logo logo2" onclick="location.href='./'">
+                    <img src="images/logo.png" alt="Logo" class="logoIcon">
+                    <p class="display">MÕ Sushi Wok Fusion</p>
+                </div>
+        </div>
         <?php
             require_once('clases/includes.php');
 
@@ -64,8 +77,9 @@
             }
         ?>
     </main>
-
-    <script src="ajaxRes.js"></script>
+    <script src="javaScript/varsIndex.js"></script>
+    <script src="javaScript/pages.js"></script>
+    <script src="javaScript/ajax/ajaxRes.js"></script>
 
 </body>
 </html>

@@ -4,12 +4,16 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff8f8;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto Slab', serif;
 }
+
 
 .logo p{
     height: fit-content;
-    color: #fff8f8;
+    color: #ff9966;
+    background-color: #17171788;
+    padding: 0.5vw;
+    border-radius: 7.5px;
 }
 
 main{
@@ -64,7 +68,7 @@ span{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 5px solid #cfa17e;
+    border: 5px solid #ff9966;
     box-sizing: border-box;
     border-radius: 5px;
 }
@@ -78,19 +82,19 @@ span{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 5px solid #cfa17e;
+    border: 5px solid #ff9966;
     box-sizing: border-box;
     border-radius: 5px;
 }
 
 .buttonAni a:before{
     color: #fff8f8;
-    background: #cfa17e;
+    background: #ff9966;
     transform: rotateY(0deg) translateZ(25px);
 }
 
 .buttonAni a:after{
-    color: #cfa17e;
+    color: #ff9966;
     transform: rotateX(90deg) translateZ(25px);
 }
 
@@ -166,8 +170,8 @@ input::placeholder{
 input[type=text]{
     background-color: #fff8f800;
     color: #fff8f8;
-    font-family: 'Playfair Display', serif;
-    font-size: calc(0.5vw + 10px);
+    font-family: 'Roboto Slab', serif;
+    font-size: calc(0.5vw + 15px);
     border-bottom: 1px groove #fff8f8;
     height: 4vh;
     width: 100%;
@@ -192,6 +196,7 @@ input[type=text]{
    display: flex;
    flex-flow: row wrap;
    margin-bottom: 10px;
+   font-size: calc(0.5vw + 15px);
 }
 
 .cantidades{
@@ -208,12 +213,12 @@ input[type=text]{
 .prodInfo{
     display: inline;
     width: 100%;
-    font-size: calc(5px + 1vw);
+    font-size: calc(0.5vw + 15px);
 }
 
 .prodDesc{
     width: 75%;
-    font-size: calc(5px + 0.5vw);
+    font-size: calc(0.5vw + 10px);
 }
 
 .buttons{
@@ -226,7 +231,7 @@ input[type=text]{
 
 .botone{
     background-color: #fff8f8;
-    width: 30%;
+    width: 45%;
     color: #171717;
     padding: 10px;
     font-family: 'Montserrat', sans-serif;
@@ -240,7 +245,7 @@ input[type=text]{
 }
 
 input[type=submit]{
-    background-color: #cfa17e;
+    background-color: #ff9966;
     color: #171717;
 }
 
@@ -254,3 +259,122 @@ input[type=submit]:hover{
     text-align: start;
     margin-bottom: 0;
 }
+
+.logo2{
+    display: none;
+}
+
+.boton{
+    display: none;
+}
+
+.checks{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.inCheks{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type=checkbox]{
+    width: calc(20px + 1vw);
+    height: calc(20px + 1vw);
+}
+
+@media screen and (max-width:1200px){
+    main{
+        padding-left: 0;
+    }
+
+    .forms{
+        width: 50%;
+        max-width: 100%;
+        background-color: #171717da;
+    }
+}
+
+@media screen and (max-width:800px){
+    .logo{
+        width: 75%;
+        justify-content: start;
+    }
+
+    .forms{
+        width: 80%;
+        max-width: 100%;
+        padding: 3vw;
+    }
+
+    .buttonsM{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+        gap: calc(40px + 5vw);
+    }
+
+
+    .boton{
+        display: block;
+        width: calc(50px + 20vw);
+        height: calc(20px + 5vw);
+        background-color: #ff9966;
+        color: #fff8f8;
+        font-family: 'Montserrat', sans-serif;
+        font-size: calc(10px + 1vw);
+        border-radius: 7px;
+        font-weight: bold;
+    }
+
+    .buttonAni{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:500px){
+
+    main{
+        justify-content: center;
+    }
+
+    .logo2{
+        display: flex;
+    }
+
+    .logoP{
+        display: none;
+    }
+
+    .logo p{
+        font-size: calc(20px + 1vw);
+    }
+
+    .arriba{
+        width: 100%;
+        top: 0;
+        background-color: #17171738;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        padding: 10px 0;
+    }
+    .menuBig img{
+        width: 90vw;
+    }
+
+    .forms{
+        width: 80%;
+    }
+}
+
+
