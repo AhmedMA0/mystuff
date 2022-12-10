@@ -130,6 +130,11 @@ main{
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    gap: 1vw;
+}
+
+.botones button{
+    height: calc(50px + 0.25vw);
 }
 
 input, button{
@@ -183,7 +188,7 @@ input, button{
 
     .arriba{
         background-color: #fcf1e8;
-        padding: 1vw;
+        padding: 5vw;
     }
 
     .botones{

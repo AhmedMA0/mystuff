@@ -14,10 +14,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/9e4d7c4912.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php
+        if (!isset($_SESSION['on'])) {
+            session_start();
+            $_SESSION['on']=true;
+        }
+
+        if ($_SESSION['admin'] != true) {
+            header('Location: formSesion.php');
+        }
+    ?>
     <header id="header" style="right: 100%;">
         <div class="logo" onclick="location.href='../'">
             <img src="../images/logo.png" alt="Logo" class="logoIcon">

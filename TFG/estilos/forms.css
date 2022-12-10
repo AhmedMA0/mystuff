@@ -95,6 +95,10 @@ input[type=submit]{
 
 @media screen and (max-width:500px){
 
+    main{
+        height: 100vh;
+    }
+    
     .logo2{
         display: flex;
     }

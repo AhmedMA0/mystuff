@@ -294,7 +294,7 @@ input[type=checkbox]{
     }
 
     .forms{
-        width: 50%;
+        width: 80%;
         max-width: 100%;
         background-color: #171717da;
     }
@@ -343,6 +343,8 @@ input[type=checkbox]{
 
     main{
         justify-content: center;
+        align-items: center;
+        height: 100vh;
     }
 
     .logo2{
