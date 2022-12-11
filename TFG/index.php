@@ -93,7 +93,7 @@
         </div>
 
         <div class="menuDiv">
-            <p class="menuText display">Nuestro Menú</p>
+            <h3 class="menuText display">Nuestro Menú</h3>
             <div class="menu">
                 <img class="pagMenu" id="pagMenu" src="images/menu/1.jpg" alt="Menu Page" onclick="showMenuB();">
                 <input disabled class="pageDisplay" id="pageDisplay" type="text" value="1/7">

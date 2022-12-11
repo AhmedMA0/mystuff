@@ -438,5 +438,13 @@ main{
     .pagMenu{
         width: 90%;
     }
+
+    .menuText{
+        font-size: calc(30px + 1vw);
+    }
+
+    .sobUs{
+        font-size: calc(30px + 1vw);
+    }
 }
 

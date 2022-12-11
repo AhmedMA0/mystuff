@@ -32,12 +32,13 @@
         </nav>
     </header>
     <main>
+        <!-- Div para header del movil -->
         <div class="divEncima" id="divEncima"></div>
-        <div id="navB" class="navB menosOscuro nav-icon1">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+            <div id="navB" class="navB menosOscuro nav-icon1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
             <div class="arriba">
                 <div class="logo logo2" onclick="location.href='./'">
@@ -48,19 +49,23 @@
         <?php
             require_once('clases/includes.php');
 
+            //recibimos el id de la resevra y llamamos a la funcion para recibir toda la informacion al respecto de esa reserva
             $idRes = $_POST['idRes'];
             $info = Reserva::verInfoxId($idRes);
 
-            if(empty($info['nombreU'])){
+            //si el array esta vacio significa que no existe reserva alguna por ese id
+            if(empty($info)){
                 echo 'RESERVA NO ENCONTRADA. Pruebe otro ID.';
             }
 
+            //en el caso contrario creamos un objeto usuario con los datos recibidos y guardamos mas informacion en variables para un acceso mas facil y legible
             else{
                 $user = new Usuario($info['nombreU'], $info['tlfU'], $info['dirU']);
                 $estado = $info['estadoR'];
                 $fecha = $info['fechaR'];
 
         ?>
+        <!-- div donde se muestra la info del pedido -->
         <div class='pedido'>
             <div class='cliente'>
                 <div class="titulin">Número de reserva: <?php echo $idRes.' ('. $fecha.')';?></div>
@@ -70,8 +75,8 @@
                 <div class="estado"><?php echo ucfirst($estado);?></div>
                 <div id="ajaxDiv"></div>
                 <div class="mensaje">
-                </div>
             </div>
+        </div>
         </div>
         <?php
             }

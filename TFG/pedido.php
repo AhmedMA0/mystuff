@@ -35,6 +35,7 @@
         </nav>
     </header>
     <main>
+        <!-- Divs para header del movil -->
         <div class="divEncima" id="divEncima"></div>
         <div id="navB" class="navB menosOscuro nav-icon1">
             <span></span>
@@ -48,6 +49,8 @@
                 <p class="display">MÕ Sushi Wok Fusion</p>
             </div>
         </div>
+
+        <!-- divs para elegir el formulario a rellenar, son 4 pero se intercambian de dos a dos segun el dispositivo -->
         <div id="buttonsM" class="buttonsM">
             <span id="home" class="buttonAni buttonHome" onclick="printForm(this.id);"><a></a></span>
             <span id="pickUp" class="buttonAni buttonPick" onclick="printForm(this.id);"><a></a></span>
@@ -55,6 +58,10 @@
             <button id="pickUp" type="button" class="boton" onclick="printForm(this.id);">RECOGER</button>
         </div>
 
+        <!-- 
+            div que contiene el/los formularios 
+            los formularios estan divididos en partes que se muestran segun el usurio los completa y pasa al siguiente o vuelve al anterior
+        -->
         <div class="forms" id="forms">
             <form action="insertPedido.php" method="post" id="formHome" class="formHome">
 
@@ -93,12 +100,16 @@
                 <fieldset class="prodPart" id="prodPart">
                     <div class="legends">Productos</div>
                         <?php
+                            //creamos un array con todas las categorias haciendo uso de una funcion
                             $cats=Categoria::verCats();
 
+                            //recorremos el array categoria a categoria
                             foreach ($cats as $key => $cat) {
+                                //por cada categoria creamos un array de productos de esa categoria
                                 $prods = Producto::verProdsxCat($cat->getId());
                                 echo '<fieldset><legend class="legends prodsCat">'.$cat.'</legend>';
 
+                                //recorremos el array de productos y los enseñamos
                                 foreach ($prods as $pos => $prod) {
                                     echo '<div class="prodsDiv">';
                                     echo '<p class="prodInfo"><span>'.$prod->getNombre().' </span>'. $prod->getPvp().'</p>';
@@ -136,12 +147,16 @@
                 <fieldset class="prodPartPick" id="prodPartPick">
                     <div class="legends">Productos</div>
                         <?php
+                            //creamos un array con todas las categorias haciendo uso de una funcion
                             $cats=Categoria::verCats();
 
+                            //recorremos el array categoria a categoria
                             foreach ($cats as $key => $cat) {
+                                //por cada categoria creamos un array de productos de esa categoria
                                 $prods = Producto::verProdsxCat($cat->getId());
                                 echo '<fieldset><legend>'.$cat.'</legend>';
 
+                                //recorremos el array de productos y los enseñamos
                                 foreach ($prods as $pos => $prod) {
                                     echo '<div class="prodsDiv">';
                                     echo '<p class="prodInfo"><span>'.$prod->getNombre().' </span>'. $prod->getPvp().'</p>';

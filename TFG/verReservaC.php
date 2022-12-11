@@ -1,10 +1,13 @@
 <?php
+    //empezamos la sesion e importamos los archivos pertinentes
     require_once('clases/includes.php');
     session_start();
 
+    //recibimos la informacion que necesitamos de la sesion
     $idRes = $_SESSION['idRes'];
     $idUser = $_SESSION['idUser']; 
     
+    //recibimos toda la info que necesitamos enviando a funciones la informacion de antes
     $estado = Reserva::verEstado($idRes);
     $fecha = Reserva::verFecha($idRes);
     $user = Usuario::verUsxId($idUser);
@@ -44,6 +47,7 @@
         </nav>
     </header>
     <main>
+        <!-- Div para header del movil -->
         <div class="divEncima" id="divEncima"></div>
         <div id="navB" class="navB menosOscuro nav-icon1">
             <span></span>
@@ -51,12 +55,13 @@
             <span></span>
         </div>
 
-            <div class="arriba">
-                <div class="logo logo2" onclick="location.href='./'">
-                    <img src="images/logo.png" alt="Logo" class="logoIcon">
-                    <p class="display">MÕ Sushi Wok Fusion</p>
-                </div>
+        <div class="arriba">
+            <div class="logo logo2" onclick="location.href='./'">
+                <img src="images/logo.png" alt="Logo" class="logoIcon">
+                <p class="display">MÕ Sushi Wok Fusion</p>
+            </div>
         </div>
+        <!-- div donde se ve la info del pedido -->
         <div class='pedido'>
             <div class='cliente'>
                 <div class="titulin">Número de reserva: <?php echo $idRes.' ('. $fecha.')';?></div>
@@ -64,9 +69,11 @@
             </div>
             <div class="info2"> 
                 <div class="estado"><?php echo ucfirst($estado);?></div>
+                <!-- div para usar ajax -->
                 <div id="ajaxDiv"></div>
                 <div class="mensaje">
                 <?php
+                    //sacamos las opciones segun el estado actual del pedido
                     if ($estado == 'pendiente') {
                         ?>
                             <button type="button" onclick="cambEst(<?php echo $idRes?>,<?php echo '`confirmada`'?>,<?php echo $user->getTlf()?>); location.reload();">Confirmar reserva</button>

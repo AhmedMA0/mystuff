@@ -1,10 +1,13 @@
 <?php
+    //empezamos la sesion e importamos los archivos pertinentes
     require_once('clases/includes.php');
     session_start();
 
+    //recibimos la informacion que necesitamos de la sesion
     $idPed = $_SESSION['idPed'];
     $idUser = $_SESSION['idUser']; 
     
+    //recibimos toda la info que necesitamos enviando a funciones la informacion de antes
     $estado = Pedido::verEstado($idPed);
     $fecha = Pedido::verFecha($idPed);
     $lineas = Linea::verLineaxPedido($idPed);
@@ -44,6 +47,7 @@
         </nav>
     </header>
     <main>
+        <!-- Divs para header del movil -->
         <div class="divEncima" id="divEncima"></div>
         <div id="navB" class="navB menosOscuro nav-icon1">
             <span></span>
@@ -51,12 +55,14 @@
             <span></span>
         </div>
 
-            <div class="arriba">
-                <div class="logo logo2" onclick="location.href='./'">
-                    <img src="images/logo.png" alt="Logo" class="logoIcon">
-                    <p class="display">MÕ Sushi Wok Fusion</p>
-                </div>
+        <div class="arriba">
+            <div class="logo logo2" onclick="location.href='./'">
+                <img src="images/logo.png" alt="Logo" class="logoIcon">
+                <p class="display">MÕ Sushi Wok Fusion</p>
+            </div>
         </div>
+
+        <!-- div donde se muestra la info del pedido -->
         <div class='pedido'>
             <div class='cliente'>
                 <div class="titulin">Número de pedido: <?php echo $idPed.' ('. $fecha.')';?></div>
@@ -64,24 +70,26 @@
             </div>
             <div class="lineas">
                 <?php
-                if (!empty($lineas)) {
-                    $i = 0;
-                    $total = 0;
-                    foreach ($lineas as $key => $value) {
-                        echo '<div class="linea linea'.$i.'">';
-                        echo '<div class="prodData nombreProd">'.$value->getIdProd().' x'.$value->getCant().'</div>';
-                        echo '<div class="prodData precioProd">'.$value->getPrecioT().'€</div>';
-                        echo '</div>';
-                        $i++;
-                        $total += $value->getPrecioT();
+                    //recorremos el array que contiene las lineas de pedido y las sacamos
+                    if (!empty($lineas)) {
+                        $i = 0;
+                        $total = 0;
+                        foreach ($lineas as $key => $value) {
+                            echo '<div class="linea linea'.$i.'">';
+                            echo '<div class="prodData nombreProd">'.$value->getIdProd().' x'.$value->getCant().'</div>';
+                            echo '<div class="prodData precioProd">'.$value->getPrecioT().'€</div>';
+                            echo '</div>';
+                            $i++;
+                            $total += $value->getPrecioT();
+                        }
                     }
-                }
-                else{
-                    $total = 0;
-                    echo 'Ningun producto seleccionado.';
-                }
+                    else{
+                        $total = 0;
+                        echo 'Ningun producto seleccionado.';
+                    }
                 ?>
             </div>
+            <!-- div precio total -->
             <div class="total">
                 <div class="estado"><?php echo ucfirst($estado);?></div>
                 <div class="subtotal">
@@ -90,7 +98,10 @@
                     <p><?php echo $total + $servicio;?>€</p>
                 </div>
             </div>
-            <div id="ajaxDiv"></div><?php
+            <!-- div para usar ajax -->
+            <div id="ajaxDiv"></div>
+            <?php
+                //sacamos las opciones segun el estado actual del pedido
                 if ($estado == 'pendiente') {
                     ?>
                         <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`confirmado`'?>,'<?php echo $user->getTlf()?>'); location.reload();">Confirmar pedido</button>

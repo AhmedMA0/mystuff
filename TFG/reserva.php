@@ -35,6 +35,7 @@
         </nav>
     </header>
     <main>
+        <!-- Divs para header del movil -->
         <div class="divEncima" id="divEncima"></div>
         <div id="navB" class="navB menosOscuro nav-icon1">
             <span></span>
@@ -48,6 +49,7 @@
                 <p class="display">MÕ Sushi Wok Fusion</p>
             </div>
         </div>
+        <!-- div que contiene el/los formularios -->
         <div class="forms">
             <form action="insertReserva.php" method="post" id="formR" class="formR">
                 <fieldset class="userPartR" id="userPartR">
@@ -62,6 +64,7 @@
                         <div class="labels" id="fechaLabelR"><label for="nombre">Fecha y hora:</label></div>
                         <input type="datetime-local" id="fecha" name="fecha" value="">
                         <script>
+                            //uso de una funcion js para sacar el dia actual y ponerlo de dato orientativo en el tipo date
                             let fecha = new Date().toJSON().slice(0,16);
                             document.getElementById('fecha').value = fecha;
                         </script>
