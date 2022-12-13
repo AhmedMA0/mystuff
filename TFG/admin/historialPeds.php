@@ -20,11 +20,13 @@
 </head>
 <body>
     <?php
+        //iniciamos la sesion para poder trabajar con ella
         if (!isset($_SESSION['on'])) {
             session_start();
             $_SESSION['on']=true;
         }
 
+        //si el admin aun no ha iniciado sesion no permitimos el acceso a la pagina llevandolo al login
         if ($_SESSION['admin'] != true) {
             header('Location: formSesion.php');
         }
@@ -56,10 +58,12 @@
                         <li><a href="insertarProds.php">Insertar nuevos</a></li>
                     </ul>
                 </li>
+                <li><a class="firstLink" href="historialUsers.php">Usuarios</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <!-- Divs para header del movil -->
         <div class="divEncima" id="divEncima"></div>
         <div class="arriba">
             <div id="navB" class="navB nav-icon1">
@@ -73,12 +77,14 @@
         </div>
         <?php 
             require_once('../clases/includesAdmin.php');
-        
+
+            //obtenemos toda la informacion que requerimos
             $peds = Pedido::verInfoxIdTODO();
             ?>
             <div class="pedsDiv" id="pedsDiv">
                 <p class="titulin">PEDIDOS</p>
         <?php
+                //misma logica de siempre para comprobar la informacion que nos llega e ir sacandola
                 if (!empty($peds)) {
                     echo '<table cellspacing="0" class="peds" id="peds">';
                     echo '<tr><th>ID</th><th>Estado</th><th>Info. cliente</th><th>Fecha</th><th>Opciones</th></tr>';

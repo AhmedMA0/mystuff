@@ -102,6 +102,32 @@ select{
     display: none;
 }
 
+.padre{
+    margin: calc(20px + 1vw);
+    background-color: #e6dad2;
+}
+
+.clientInfo{
+    font-size: calc(10px + 0.6vw);
+    font-weight: bold;
+    background-color: #fcf1e8;
+    padding: calc(10px + 1vw);
+}
+
+.forms{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 1%;
+}
+
+.pedForm{
+    width: 24%;
+    margin: 1% 0;
+    background-color: #fcf1e8;
+}
+
 @media screen and (max-width:800px){
 
     main{

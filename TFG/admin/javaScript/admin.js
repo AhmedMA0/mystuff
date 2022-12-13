@@ -1,3 +1,4 @@
+//event listeners que se encargan de enseñar y esconder las listas de enlaces del menu del admin
 desplegables.forEach(element => {
     element.addEventListener('click', function () {
         Array.from(element.parentElement.childNodes).forEach(hijo =>{
@@ -31,6 +32,7 @@ desplegables2.forEach(element => {
     });
 });
 
+//event listener que se encarga de el menu hamburguesa
 botonNav.addEventListener('click', function () {
     console.log('botonNAv');
     if (header.style.right == '100%') {

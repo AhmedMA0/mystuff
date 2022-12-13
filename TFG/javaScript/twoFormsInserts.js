@@ -1,3 +1,4 @@
+//funcion que se encarga de enseñar un formulario u otro depende de las acciones del usuario
 function printForm(option) {
     if (option=='prod') {
         prodButton.style.display="none";

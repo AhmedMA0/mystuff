@@ -1,16 +1,20 @@
+//funcion que se encarga de pasar las paginas del menu 
 function nextPage(){
+    //si el numero de la pagina actual es menor que el numero de paginas total
     if (numPag<7) {
+        //pasamos una pagina sumandole una al numero actual y cargando esa imagen
         ++numPag;
         menuFood.src = 'images/menu/'+numPag+'.jpg';
         pageDisplay.value= numPag+'/7';
     }
 
+    //si el usuario esta en la ultima pagina no se pasa de pagina y se añade una animacion al boton para indicarlo al usuario
     else{
         nextButton.classList.add('shaking');
         setTimeout(()=>{nextButton.classList.remove('shaking')}, 500);
     }
 }
-
+//como la funcion de arriba
 function prevPage(){
     if (numPag>1) {
         --numPag;
@@ -24,6 +28,7 @@ function prevPage(){
     }
 }
 
+//estas dos funciones siguientes son las mismas que arriba pero para otro sitio donde se muestra el menu tambien
 function nextPageB(){
     if (numPag<7) {
         ++numPag;
@@ -50,6 +55,7 @@ function prevPageB(){
     }
 }
 
+//funcion que se encarga de enseñar otra vista del menu
 function showMenuB() {
     console.log(menuBigDiv);
     if (menuBigDiv.style.display == 'none') {
@@ -62,6 +68,7 @@ function showMenuB() {
     }
 }
 
+//un eventlistener para sacar y esconder el menu hamburguesa
 botonNav.addEventListener('click', function () {
     if (header.style.left == '100%') {
         header.style.left = '50%';

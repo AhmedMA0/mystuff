@@ -2,11 +2,14 @@
     require_once('clases/includes.php');
 
     $cat = $_GET['cat'];
-            
+    
+    //si la categoria no esta vacia, es una comprobación más aunque no seria necesaria ya que es imposible que no llegara la categoria por otros medios
     if (!empty($cat)) {
         
+        //obtenemos toda la información de los productos segun la categoria que recibimos
         $prods = Producto::verProdsxCat($cat);
 
+        //si obtenemos la info sacamos toda la información pertinente
         if (!empty($prods)) {
             echo '<tr><th>Nombre</th><th>Precio</th><th>Desripción</th><th>Opciones</th></tr>';
             foreach ($prods as $pos => $prod) {
@@ -26,6 +29,7 @@
             }
         }
 
+        //si no se obtiene información es porque no existe productos en esa categoria
         else {
             echo 'Categoria sin productos.';
         }

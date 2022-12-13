@@ -20,11 +20,13 @@
 </head>
 <body>
     <?php
+        //iniciamos la sesion para poder trabajar con ella
         if (!isset($_SESSION['on'])) {
             session_start();
             $_SESSION['on']=true;
         }
 
+        //si el admin aun no ha iniciado sesion no permitimos el acceso a la pagina llevandolo al login
         if ($_SESSION['admin'] != true) {
             header('Location: formSesion.php');
         }
@@ -56,10 +58,12 @@
                         <li><a href="insertarProds.php">Insertar nuevos</a></li>
                     </ul>
                 </li>
+                <li><a class="firstLink" href="historialUsers.php">Usuarios</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <!-- Divs para header del movil -->
         <div class="divEncima" id="divEncima"></div>
         <div class="arriba">
             <div id="navB" class="navB nav-icon1">
@@ -74,13 +78,16 @@
         <?php
             require_once('../clases/includesAdmin.php');
 
+            //recibimos por post el id del pedido y sacamos toda la info del mismo
             $idPed = $_POST['idPed'];
             $info = Pedido::verInfoxId($idPed);
-
+            
+            //si esta vacia la info signiofica que no hay tal pedido
             if(empty($info)){
                 echo 'PEDIDO NO ENCONTRADO. Pruebe otro ID.';
             }
 
+            //en el caso contrario
             else{
                 $user = new Usuario($info['nombreU'], $info['tlfU'], $info['dirU']);
                 $estado = $info['estadoP'];
@@ -95,6 +102,7 @@
             </div>
             <div class="lineas">
                 <?php
+                    //sacamos cada una de las lineas usando el array que creamos antes
                     $i = 0;
                     $total = 0;
                     foreach ($lineas as $key => $value) {
@@ -118,6 +126,8 @@
             <div id="ajaxDiv"></div>
             <div class="botones">
                 <?php
+
+                    //vamos sacando las opciones del usuario segun el estado del pedido
                     if ($estado == 'pendiente') {
                         ?>
                             <button type="button" onclick="cambEst(<?php echo $idPed?>,<?php echo '`rechazado`'?>,<?php echo '`'.$user->getTlf().'`'?>); location.reload();">Rechazar pedido</button>

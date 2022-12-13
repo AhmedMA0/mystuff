@@ -1,3 +1,4 @@
+//funcion que se encarga de enseñar un formulario u otro depende de las acciones del usuario
 function printForm(option) {
     formsDiv.style.display="block";
 
@@ -12,6 +13,8 @@ function printForm(option) {
     }
 }
 
+//funcion que se encarga de comprobar los datos de un formulario y permitir el paso a la siguiente parte del mismo
+//ysi de expresiones regulares
 function hideUserPart(){
 
     if (!nombreField.value.match(nombreRegex)){
@@ -35,6 +38,7 @@ function hideUserPart(){
     }        
 }
 
+//igual que la anterior
 function hideUserPartPick(){
 
     if (!nombreFieldPick.value.match(nombreRegex)){
@@ -79,6 +83,7 @@ function showUserPartPick() {
     }
 }); */
 
+//event listeners que se encargan de hacer que dos checkboxes se comporten como un radio
 cardCB.addEventListener('change', function () {
     if (this.checked) {
         cambCB.checked = false;
@@ -91,6 +96,7 @@ cambCB.addEventListener('change', function () {
     }
 });
 
+//para pasar las partes del formulario
 function hidePedPart() {
     pedidoPart.style.display='none';
     prodPart.style.display='block';
@@ -101,6 +107,7 @@ function showPedPart() {
     prodPart.style.display='none';
 }
 
+//funcion que se encarga de habilitar el uso de un input number segun si el checkbox correspondiente a el se marca o se quita
 checkBoxes.forEach(cb => {
     cb.addEventListener('change', function () {
         if (document.getElementById(cb.name.replace('Prod','Cant')).disabled == false) {    
@@ -112,9 +119,7 @@ checkBoxes.forEach(cb => {
             document.getElementById(cb.name.replace('Prod','')+'Cant').disabled = false;
             document.getElementById(cb.name.replace('Prod','')+'CantPick').disabled = false;
         }
-
-
-    })
+    });
 });
 
 

@@ -91,7 +91,7 @@ class Reserva{
     }
 
     /**
-     * Inserta un nuevo pedido en base de datos
+     * Inserta una nueva reserva en base de datos
      * @return mixed|void
      * @access public
      */
@@ -138,7 +138,7 @@ class Reserva{
     }
 
     /**
-     * Devuelve el estado de un pedido por su id
+     * Devuelve el estado de una reserva por su id
      * @return mixed|void
      * @access public
      * @static
@@ -182,51 +182,51 @@ class Reserva{
     }
 
     /**
-         * Devuelve la fecha de un pedido por su id
-         * @return mixed|void
-         * @access public
-         * @static
-         */
-        static function verFecha($id){
+     * Devuelve la fecha de una reserva por su id
+     * @return mixed|void
+     * @access public
+     * @static
+     */
+    static function verFecha($id){
 
-            //Intentamos iniciar la conexión en la base de datos
-            try{
-                $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
+        //Intentamos iniciar la conexión en la base de datos
+        try{
+            $conexion = new mysqli('localhost', 'ahmed', '123456', 'mosushi');
 
-                if($conexion->connect_errno){
+            if($conexion->connect_errno){
 
-                    //Error al soltar un error la función
-                    throw new Exception("No se ha podido acceder a la base de datos");
-
-                }
-            }catch(Exception $ex){
-                //Otro tipo de error
-                echo $ex->getMessage(), "<br>";
+                //Error al soltar un error la función
+                throw new Exception("No se ha podido acceder a la base de datos");
 
             }
+        }catch(Exception $ex){
+            //Otro tipo de error
+            echo $ex->getMessage(), "<br>";
 
-            try{
-
-                $consulta = $conexion->stmt_init();
-                $consulta->prepare("SELECT fechaYHora from reserva where id=$id");
-                $consulta->execute();
-                $consulta->bind_result($fecha);
-                $consulta->fetch();
-                $consulta->close();
-                return $fecha;
-            }catch(Exception $ex){
-
-                //Si no, lanzamos otra
-                echo $ex->getMessage(), "<br>";
-
-            }
-
-            //Cerramos la conexion a db
-            $conexion->close();
         }
 
+        try{
+
+            $consulta = $conexion->stmt_init();
+            $consulta->prepare("SELECT fechaYHora from reserva where id=$id");
+            $consulta->execute();
+            $consulta->bind_result($fecha);
+            $consulta->fetch();
+            $consulta->close();
+            return $fecha;
+        }catch(Exception $ex){
+
+            //Si no, lanzamos otra
+            echo $ex->getMessage(), "<br>";
+
+        }
+
+        //Cerramos la conexion a db
+        $conexion->close();
+    }
+
     /**
-     * Actualiza el estado del pedido
+     * Actualiza el estado de la reserva
      * @return void
      * @access public
      * @static
@@ -269,7 +269,7 @@ class Reserva{
     }
 
     /**
-     * Devuelve toda la información sobre las categorias
+     * Devuelve toda la información de una reserva y del cliente que la realiza por su id
      * @return array|void
      * @access public
      * @static
@@ -324,7 +324,7 @@ class Reserva{
     }
 
     /**
-         * Devuelve toda la información sobre las categorias
+     * Devuelve toda la información de las reservas y del cliente que las realiza por su estado
          * @return array|void
          * @access public
          * @static
@@ -382,7 +382,7 @@ class Reserva{
         }
 
         /**
-         * Devuelve toda la información sobre las categorias
+        * Devuelve toda la información de TODAS las reservas y del cliente que las realiza por su id
          * @return array|void
          * @access public
          * @static
@@ -439,7 +439,7 @@ class Reserva{
         }
 
         /**
-         * Devuelve toda la información sobre los pedidos
+         * Devuelve todas las reservas que hizo un usuario
          * @return array|void
          * @access public
          * @static

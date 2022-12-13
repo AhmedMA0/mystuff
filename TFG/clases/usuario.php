@@ -90,7 +90,7 @@ use App\Models\User;
         }
 
         /**
-         * Inserta una nuevo usuario en base de datos, si no existe otro igual y devuelve el id
+         * Inserta una nuevo usuario en base de datos, si no existe otro igual, y devuelve el id
          * @return mixed|void
          * @access public
          */
@@ -191,7 +191,7 @@ use App\Models\User;
             $firstq->fetch();
 
             $user = new Usuario($nombre, $tlf, $dir);
-
+            
             return $user;
 
             }catch(Exception $ex){
@@ -207,7 +207,7 @@ use App\Models\User;
 
 
         /**
-         * Devuelve toda la información sobre los pedidos
+         * Devuelve toda la información sobre los usuarios
          * @return array|void
          * @access public
          * @static
@@ -256,10 +256,6 @@ use App\Models\User;
             //Cerramos la conexion a db
             $conexion->close();
         }
-
-
-
-
     }
     
 ?>

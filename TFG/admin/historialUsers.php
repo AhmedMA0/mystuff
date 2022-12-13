@@ -19,11 +19,13 @@
 </head>
 <body>
     <?php
+        //iniciamos la sesion para poder trabajar con ella
         if (!isset($_SESSION['on'])) {
             session_start();
             $_SESSION['on']=true;
         }
 
+        //si el admin aun no ha iniciado sesion no permitimos el acceso a la pagina llevandolo al login
         if ($_SESSION['admin'] != true) {
             header('Location: formSesion.php');
         }
@@ -55,10 +57,12 @@
                         <li><a href="insertarProds.php">Insertar nuevos</a></li>
                     </ul>
                 </li>
+                <li><a class="firstLink" href="historialUsers.php">Usuarios</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <!-- Divs para header del movil -->
         <div class="divEncima" id="divEncima"></div>
         <div class="arriba">
             <div id="navB" class="navB nav-icon1">
@@ -69,24 +73,26 @@
             <form class="closeSes" action="./cerrarSesionAdmin.php" method="POST">
                 <input type="submit" value="Cerrar sesión"> 
             </form>
-		<p class="titulin">USUARIOS</p>
-
         </div>
+        <p class="titulin">USUARIOS</p>
+
         <?php 
             require_once('../clases/includesAdmin.php');
 
+                //obtenemos toda la informacion que requerimos
                 $users = Usuario::verUsers();
-        
+
+                //misma logica de siempre para comprobar la informacion que nos llega e ir sacandola
                 if (!empty($users)) {
                     foreach ($users as $id => $user) {
-                        echo '<div>';
-                        echo '<div>Cliente número: '.$id.' Nombre: '.$user->getNombre().' Tlf: '.$user->getTlf().' Dir.: '.$user->getDir().'</div>';
-                        echo '<div>';
+                        echo '<div class="padre">';
+                        echo '<div class="clientInfo">Cliente número: '.$id.' Nombre: '.$user->getNombre().' Tlf: '.$user->getTlf().' Dir.: '.$user->getDir().'</div>';
+                        echo '<div class="forms">';
                         $peds = Pedido::verPedsxUser($id);
                         if (!empty($peds)) {
                             foreach ($peds as $pos => $idPed) {
                                 echo '<div class="pedForm">';
-                                echo '<form class="ped" action="verPedidoAxId.php" method="POST">';
+                                echo '<form action="verPedidoAxId.php" method="POST">';
                                 echo '<p>Pedido número: '.$idPed.'</p>';
                                 echo '<input type="hidden" value="'.$idPed.'" name="idPed">';
                                 echo '<input type="submit" value="Ver" name="admin">';
@@ -98,7 +104,7 @@
                         if (!empty($reses)) {
                             foreach ($reses as $pos => $idRes) {
                                 echo '<div class="pedForm">';
-                                echo '<form class="ped" action="verReservaAxId.php" method="POST">';
+                                echo '<form action="verReservaAxId.php" method="POST">';
                                 echo '<p>Reserva número: '.$idRes.'</p>';
                                 echo '<input type="hidden" value="'.$idRes.'" name="idRes">';
                                 echo '<input type="submit" value="Ver" name="admin">';

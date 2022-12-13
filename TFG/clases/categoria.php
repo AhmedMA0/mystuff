@@ -72,7 +72,7 @@ class Categoria{
     }
     
     /**
-     * Devuelve toda la información sobre las categorias
+     * Devuelve toda la información sobre TODAS las categorias
      * @return array|void
      * @access public
      * @static
@@ -125,7 +125,7 @@ class Categoria{
     }
 
     /**
-     * Devuelve toda la información sobre una categoria
+     * Devuelve toda la información sobre una categoria por un id
      * @return mixed|void
      * @access public
      * @static

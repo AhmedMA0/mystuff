@@ -2,11 +2,14 @@
     require_once('clases/includes.php');
 
     $estado = $_GET['estado'];
-            
+    
+    //si el estado no esta vacio, es una comprobación más aunque no seria necesaria ya que es imposible que no llegara el estado por otros medios
     if (!empty($estado)) {
         
+        //obtenemos toda la información de los pedidos segun el estado que recibimos
         $peds = Pedido::verInfoxEstado($estado);
 
+        //si obtenemos la info sacamos toda la información pertinente
         if (!empty($peds)) {
             echo '<tr><th>ID</th><th>Estado</th><th>Info. cliente</th><th>Fecha</th><th>Opciones</th></tr>';
             foreach ($peds as $id => $ped) {
@@ -23,6 +26,7 @@
             }
         }
 
+        //si no se obtiene información es porque no existe reserva con ese estado
         else {
             echo '<p class="noHay">No hay pedido '.$estado.'.</p>';
         }

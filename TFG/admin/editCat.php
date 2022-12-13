@@ -20,11 +20,13 @@
 </head>
 <body>
     <?php
+        //iniciamos la sesion para poder trabajar con ella
         if (!isset($_SESSION['on'])) {
             session_start();
             $_SESSION['on']=true;
         }
         
+        //si el admin aun no ha iniciado sesion no permitimos el acceso a la pagina llevandolo al login
         if ($_SESSION['admin'] != true) {
             header('Location: formSesion.php');
         }
@@ -56,11 +58,13 @@
                         <li><a href="insertarProds.php">Insertar nuevos</a></li>
                     </ul>
                 </li>
+                <li><a class="firstLink" href="historialUsers.php">Usuarios</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- Divs para header del movil -->
         <div class="divEncima" id="divEncima"></div>
         <div class="arriba">
             <div id="navB" class="navB nav-icon1">
@@ -84,6 +88,7 @@
 			<div class="titulin">Info. de la categoría</div>
 
             <?php
+                //recibimos el nombre de la categoria haciendo uso de una funcion por el id
                 $nombre = Categoria::verCat($idCat);
             ?>
             <input type="text" name="nombre" value="<?php echo $nombre?>"><br>

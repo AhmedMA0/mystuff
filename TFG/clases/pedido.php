@@ -289,7 +289,7 @@
         }
 
         /**
-         * Devuelve toda la información sobre las categorias
+         * Devuelve toda la información de un pedido y del usuario que lo realiza segun el id del pedido
          * @return array|void
          * @access public
          * @static
@@ -344,7 +344,7 @@
         }
 
         /**
-         * Devuelve toda la información sobre las categorias
+         * Devuelve toda la información de un pedido y del usuario que lo realiza segun el estado del pedido
          * @return array|void
          * @access public
          * @static
@@ -402,7 +402,7 @@
         }
 
         /**
-         * Devuelve toda la información sobre las categorias
+         * Devuelve toda la información de TODOS los pedidos y del usuario que los realiza
          * @return array|void
          * @access public
          * @static
@@ -510,7 +510,7 @@
         }
 
         /**
-         * Devuelve toda la información sobre los pedidos
+         * Devuelve todos los estados existentes en base de datos
          * @return array|void
          * @access public
          * @static

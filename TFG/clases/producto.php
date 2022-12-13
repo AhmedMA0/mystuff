@@ -114,6 +114,7 @@ class Producto{
     }
 
     /**
+     * Devuelve el precio de un producto segun su id
      * @param $id
      * @return mixed|void
      */
@@ -159,7 +160,7 @@ class Producto{
     }
 
     /**
-     * Devuelve toda la información sobre las categorias
+     * Devuelve toda la informacion de todos los productos de una categoria
      * @return array|void
      * @access public
      * @static
@@ -213,7 +214,7 @@ class Producto{
     }
 
     /**
-     * Devuelve toda la información sobre las categorias
+     * Devuelve toda la información de un producto segun su id (el nombre del producto)
      * @return object|void
      * @access public
      * @static
@@ -265,7 +266,7 @@ class Producto{
     }
 
     /**
-     * Inserta una nueva categoria en base de datos
+     * Inserta un nuevo producto en base de datos
      * @return void
      * @access public
      */
@@ -306,7 +307,7 @@ class Producto{
     }
 
     /**
-     * Borra una categoría de la base de datos por su id
+     * Borra un producto de la base de datos por su id
      * @return void
      * @access public
      * @static
@@ -347,7 +348,7 @@ class Producto{
     }
 
     /**
-     * Borra una categoría de la base de datos por su id
+     * Actualiza un producto en base de datos
      * @return void
      * @access public
      * @static

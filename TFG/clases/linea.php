@@ -176,7 +176,7 @@
         }
 
         /**
-         * Devuelve toda la información sobre las categorias
+         * Devuelve toda la información sobre las lineas de pedido de un pedido en especifico
          * @return array|void
          * @access public
          * @static

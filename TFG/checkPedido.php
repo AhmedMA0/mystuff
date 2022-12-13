@@ -33,6 +33,7 @@
         </nav>
     </header>
     <main>
+        <!-- Div para header del movil -->
         <div class="divEncima" id="divEncima"></div>
         <div id="navB" class="navB menosOscuro nav-icon1">
             <span></span>

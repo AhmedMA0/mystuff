@@ -20,11 +20,13 @@
 </head>
 <body>
     <?php
+        //iniciamos la sesion para poder trabajar con ella
         if (!isset($_SESSION['on'])) {
             session_start();
             $_SESSION['on']=true;
         }
 
+        //si el admin aun no ha iniciado sesion no permitimos el acceso a la pagina llevandolo al login
         if ($_SESSION['admin'] != true) {
             header('Location: formSesion.php');
         }
@@ -56,10 +58,12 @@
                         <li><a href="insertarProds.php">Insertar nuevos</a></li>
                     </ul>
                 </li>
+                <li><a class="firstLink" href="historialUsers.php">Usuarios</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <!-- Divs para header del movil -->
         <div class="divEncima" id="divEncima"></div>
         <div class="arriba">
             <div id="navB" class="navB nav-icon1">
@@ -78,10 +82,11 @@
         <div class="tools">
                 <form action="#" method="post">
                     <?php
-
+                        //sacamos un select para usar ajax y sacar los productos por categoria
                         echo '<select name="cat" onchange="showProd(this.value)">';
                         echo '<option selected="true" disabled="disabled">Elija categoría</option>';    
 
+                        //sacamos todas las categorias de base de datos para el select
                         $cats = Categoria::verCats();
 
                         foreach ($cats as $id => $cat) {
