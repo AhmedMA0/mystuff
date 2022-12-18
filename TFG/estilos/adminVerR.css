@@ -34,7 +34,7 @@ main{
 }
 
 .pedido{
-    background-color: #fcf1e8;
+    background-color: #f7e6d8;
     width: 100%;
     padding: calc(0.5vw + 10px);
     font-size: calc(0.25vw + 15px);
@@ -99,7 +99,7 @@ main{
 }
 
 .precioProd{
-    background-color: #fcf1e8;
+    background-color: #f7e6d8;
 }
 
 .total{
@@ -187,7 +187,7 @@ input, button{
     }
 
     .arriba{
-        background-color: #fcf1e8;
+        background-color: #f7e6d8;
         padding: 5vw;
     }
 

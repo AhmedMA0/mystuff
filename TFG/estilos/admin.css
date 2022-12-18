@@ -33,7 +33,7 @@ main{
 }
 
 tr{
-    background-color: #fcf1e8;
+    background-color: #f7e6d8;
     height: 4vw;
 }
 
@@ -75,7 +75,7 @@ input{
 }
 
 select{
-    background-color: #fcf1e8;
+    background-color: #f7e6d8;
     font-family: 'Roboto Slab', serif;
     font-weight: bold;
     font-size: calc(10px + 0.4vw);
@@ -110,7 +110,7 @@ select{
 .clientInfo{
     font-size: calc(10px + 0.6vw);
     font-weight: bold;
-    background-color: #fcf1e8;
+    background-color: #f7e6d8;
     padding: calc(10px + 1vw);
 }
 
@@ -125,7 +125,7 @@ select{
 .pedForm{
     width: 24%;
     margin: 1% 0;
-    background-color: #fcf1e8;
+    background-color: #f7e6d8;
 }
 
 @media screen and (max-width:800px){
@@ -177,7 +177,7 @@ select{
 
     .arriba{
         justify-content: end;
-        background-color: #fcf1e8;
+        background-color: #f7e6d8;
         padding: 5vw;
     }
 

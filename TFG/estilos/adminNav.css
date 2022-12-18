@@ -1,5 +1,5 @@
 header{
-    background-color: #fcf1e8;
+    background-color: #f7e6d8;
     height: 100%;
     width: 15%;
     display: flex;
@@ -115,7 +115,7 @@ li{
         overflow: hidden;
         right: 100%;
         width: 50%;
-        background-color: #fcf1e8;
+        background-color: #f7e6d8;
     }
 
 
@@ -207,7 +207,7 @@ li{
     }
 
     .menosOscuro{
-        background-color: #fcf1e8;
+        background-color: #f7e6d8;
         border-radius: 5px;
     }
 
