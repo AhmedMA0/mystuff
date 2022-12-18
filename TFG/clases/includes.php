@@ -12,11 +12,7 @@
     $dbPass = '123456';
     $dbName = 'mosushi';
 
-    $account_sid = 'AC7db1422996d6a07e3728b18af0909cc6';
-    $auth_token = '0b7c0d1171e2e8d03a9f7fc4a9519a41';
-    $twilio_number = "+13087374265";
-
-    $esendexAccRef = "EX0349427";
-    $essendexEmail = "workahmed.m@gmail.com";
-    $essendexPass = "145bda674eb4437e8fdb";
+    $esendexAccRef = "EX0349744";
+    $essendexEmail = "9435@cifpceuta.es";
+    $essendexPass = "54d98e2d1a574e72bebe";
 ?>
