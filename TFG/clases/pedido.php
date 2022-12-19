@@ -315,7 +315,9 @@
 
             try{
                 $prodQuery = $conexion->stmt_init();
-
+                
+                //select nombre, tlf, direccion from usuario where id = (select idU from pedido where id = $idPed);
+                //select estado, fechaYHora from pedido where id = $idPed;
                 $prodQuery->prepare("select u.nombre,u.tlf,u.direccion, p.estado, p.fechaYHora from usuario u join pedido p on u.id = p.idU where p.id = $idPed;");
 
                 $prodQuery->execute();
